@@ -1,0 +1,13 @@
+@import './styles/_common.scss';
+
+.Column {
+    padding: 0 map-get($LayerSpacers, padding);
+    &.--xs1 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    &.--xs2 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}

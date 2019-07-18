@@ -1,0 +1,25 @@
+
+$colorA: pink;
+
+$colors: (
+    'white': #fff,
+    'gray-lighter': #fbfbfb,
+    'gray-light': #e9e9e9
+);
+
+$LayoutWidths: (
+    'section': 1600px,
+    'container': 1200px
+);
+
+$LayerSpacers: (
+    'padding': 15px,
+    'margin' : -15px
+);
+
+$breakpoint: (
+    'xs': 321px,
+    'sm': 768px,
+    'md': 992px,
+    'lg': 1200px
+)

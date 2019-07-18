@@ -1,0 +1,15 @@
+@import './styles/_common.scss';
+
+.Container {
+    @include center-by-margin;
+    max-width: map-get($LayoutWidths, container);
+    padding: 0 map-get($LayerSpacers, padding);
+    .__row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 map-get($LayerSpacers, margin);
+    }
+    &.--fluid {
+        max-width: none;
+    }
+}

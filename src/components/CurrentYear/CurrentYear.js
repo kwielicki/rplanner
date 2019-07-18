@@ -24,9 +24,11 @@ class CurrentYear extends React.Component {
 
     render() {
         return (
-            <div className='CurrentYear'>
-                <span className='login'>{this.state.currentYear}</span>
-            </div>
+            <>
+                <div styleName='CurrentYear'>
+                    <span styleName='__year'>&copy; {this.state.currentYear}</span>
+                </div>
+            </>
         )
     }
 }

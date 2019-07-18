@@ -1,0 +1,20 @@
+@mixin media-down-xs {
+    @media only screen and (max-width: map-get($map: $breakpoint, $key: xs)) {
+        @content;
+    }
+}
+@mixin media-down-sm {
+    @media only screen and (max-width: map-get($map: $breakpoint, $key: sm)) {
+        @content;
+    }
+}
+@mixin media-down-md {
+    @media only screen and (max-width: map-get($map: $breakpoint, $key: md)) {
+        @content;
+    }
+}
+@mixin media-down-lg {
+    @media only screen and (max-width: map-get($map: $breakpoint, $key: lg)) {
+        @content;
+    }
+}

@@ -1,6 +1,7 @@
+@import './styles/_common.scss';
+
 .CurrentYear {
-    color: red;
-    .login {
-        color: blue;
+    .__year {
+        color: $colorA;
     }
 }
