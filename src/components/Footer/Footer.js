@@ -3,6 +3,7 @@ import CSSModules from 'react-css-modules';
 import Column from '../Column/Column';
 import styles from './Footer.scss'
 import Copyright from '../Copyright/Copyright';
+import FullScreenView from '../FullScreenView/FullScreenView';
 
 class Footer extends React.Component {
 	render() {
@@ -11,6 +12,7 @@ class Footer extends React.Component {
 				<Column xs='1'>
 					<div styleName='__inner'>
 						<Copyright/>
+						<FullScreenView/>
 					</div>
 				</Column>
 			</footer>
