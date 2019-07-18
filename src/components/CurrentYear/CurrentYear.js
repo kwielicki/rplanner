@@ -1,5 +1,6 @@
 import React from 'react'
 import CSSModules from 'react-css-modules';
+import RbuttonIco from '../RbuttonIco/RbuttonIco'
 import styles from './CurrentYear.scss'
 
 class CurrentYear extends React.Component {
@@ -25,6 +26,7 @@ class CurrentYear extends React.Component {
     render() {
         return (
             <>
+                <RbuttonIco/>
                 <div styleName='CurrentYear'>
                     <span styleName='__year'>&copy; {this.state.currentYear}</span>
                 </div>

@@ -1,0 +1,9 @@
+.RbuttonIco {
+    color: red;
+    &.--primary {
+        color: blue;
+    }
+    &.--secondary {
+        color: green;
+    }
+}
