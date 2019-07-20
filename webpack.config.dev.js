@@ -1,10 +1,12 @@
-var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var ReactToHtmlPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { resolve } = require('path');
 
 module.exports = {
-	entry: './src/index.js',
+	entry: './index.js',
+	context: __dirname,
 	node: {
 		fs: 'empty'
 	},
@@ -51,17 +53,18 @@ module.exports = {
 			}
 		]
 	},
+	devServer: {
+		port: 8080,
+		historyApiFallback: true
+	},
 	resolve: {
 		extensions: ['*', '.js', '.jsx']
 	},
 	output: {
-		path: __dirname + '/dist',
-		publicPath: '/',
+		path: resolve(__dirname, './build'),
+		publicPath: '/build/',
 		filename: 'bundle.js'
-	  },
-	  devServer: {
-		contentBase: './dist'
-	  },
+	},
 	plugins: [
 		new ExtractTextPlugin('style.css', { allChunks: true }),
 		new MiniCssExtractPlugin({
@@ -69,6 +72,6 @@ module.exports = {
             // both options are optional
             filename: "[name].css",
             chunkFilename: "[id].css"
-        })
+		})
 	]
 };
