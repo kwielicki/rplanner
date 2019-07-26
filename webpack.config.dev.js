@@ -33,11 +33,13 @@ module.exports = {
 					{
 						loader: 'css-loader',
 						options: {
+							sourceMap: true,
 							import: true,
 							modules: {
 								mode: 'local',
 								localIdentName: '[local]____[hash:base64:5]',
-								hashPrefix: 'planner',
+								context: resolve(__dirname, 'src'),
+								hashPrefix: 'planner'
 							}
 						}
 					},
@@ -45,6 +47,7 @@ module.exports = {
 						loader: 'sass-loader',
 						options: {
 							sourceMap: true,
+							import: true,
 							sourceMapContents: true,
 							includePaths: ['./src']
 						}

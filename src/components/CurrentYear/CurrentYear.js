@@ -1,6 +1,6 @@
 import React from 'react'
 import CSSModules from 'react-css-modules';
-import RbuttonIco from '../RbuttonIco/RbuttonIco'
+import RbuttonIco from '../RbuttonIco'
 import styles from './CurrentYear.scss'
 
 class CurrentYear extends React.Component {

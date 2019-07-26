@@ -4,6 +4,7 @@ import CSSModules from 'react-css-modules';
 import classNames from 'classnames'
 import styles from './RButtonIco.scss'
 
+@CSSModules(styles, {allowMultiple: true})
 class RButtonIco extends React.Component {
 
     static defaultProps = {
@@ -32,4 +33,4 @@ RButtonIco.propTypes = {
     handleClick: PropTypes.func
 }
 
-export default CSSModules(RButtonIco,styles,{allowMultiple: true})
+export default RButtonIco

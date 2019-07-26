@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import Footer from '../../components/Footer/Footer'
-import Header from '../Header/Header';
+import Footer from '../Footer'
+import Header from '../Header';
 import { 
   Route,
   Switch,

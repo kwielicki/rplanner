@@ -1,9 +1,10 @@
 import React from 'react';
 import CSSModules from 'react-css-modules';
-import Megamenu from '../Megamenu/Megamenu'
-import Column from '../Column/Column';
+import Megamenu from '../Megamenu'
+import Column from '../Column';
 import styles from './Header.scss'
 
+@CSSModules(styles, {allowMultiple: true})
 class Header extends React.Component {
 	render() {
 		return (
@@ -18,4 +19,4 @@ class Header extends React.Component {
 	}
 }
 
-export default CSSModules(Header,styles)
+export default Header

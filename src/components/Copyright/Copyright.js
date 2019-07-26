@@ -3,6 +3,7 @@ import CurrentYear from '../CurrentYear/CurrentYear';
 import CSSModules from 'react-css-modules';
 import styles from './Copyright.scss'
 
+@CSSModules(styles, {allowMultiple: true})
 class Copyright extends React.Component {
 
     render() {
@@ -16,4 +17,4 @@ class Copyright extends React.Component {
     }
 }
 
-export default CSSModules(Copyright,styles)
+export default Copyright

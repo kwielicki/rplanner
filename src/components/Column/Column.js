@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import Container from '../Container/Container'
+import Container from '../Container'
 import CSSModules from 'react-css-modules'
 import styles from './Column.scss'
 
+@CSSModules(styles, {allowMultiple: true})
 class Column extends React.Component {
     render() {
         const  { xs, sm, md, lg, fluid } = this.props
@@ -32,4 +33,4 @@ Column.propTypes = {
     fluid: PropTypes.bool
 }
 
-export default CSSModules(Column,styles, {allowMultiple: true})
+export default Column

@@ -1,10 +1,11 @@
-import React from 'react';
-import CSSModules from 'react-css-modules';
-import Column from '../Column/Column';
+import React from 'react'
+import CSSModules from 'react-css-modules'
+import Column from '../Column/Column'
 import styles from './Footer.scss'
-import Copyright from '../Copyright/Copyright';
-import FullScreenView from '../FullScreenView/FullScreenView';
+import Copyright from '../Copyright'
+import FullScreenView from '../FullScreenView'
 
+@CSSModules(styles, {allowMultiple: true})
 class Footer extends React.Component {
 	render() {
 		return (
@@ -20,4 +21,4 @@ class Footer extends React.Component {
 	}
 }
 
-export default CSSModules(Footer,styles)
+export default Footer

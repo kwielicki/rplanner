@@ -4,6 +4,7 @@ import classNames from 'classnames'
 import CSSModules from 'react-css-modules';
 import styles from './Container.scss'
 
+@CSSModules(styles, {allowMultiple: true})
 class Container extends React.Component {
     render() {
         const  { fluid } = this.props
@@ -24,4 +25,4 @@ Container.propTypes = {
     fluid: PropTypes.bool
 }
 
-export default CSSModules(Container,styles, {allowMultiple: true})
+export default Container

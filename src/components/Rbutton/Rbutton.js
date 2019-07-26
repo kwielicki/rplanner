@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import CSSModules from 'react-css-modules';
+import CSSModules from 'react-css-modules'
 import classNames from 'classnames'
 import styles from './RButton.scss'
 
+@CSSModules(styles, {allowMultiple: true})
 class Rbutton extends React.Component {
 
     static defaultProps = {
@@ -32,4 +33,4 @@ Rbutton.propTypes = {
     handleClick: PropTypes.func
 }
 
-export default CSSModules(Rbutton,styles,{allowMultiple: true})
+export default Rbutton
