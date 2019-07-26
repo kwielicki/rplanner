@@ -3,6 +3,7 @@ import CSSModules from 'react-css-modules';
 import RbuttonIco from '../RbuttonIco'
 import styles from './CurrentYear.scss'
 
+@CSSModules(styles, {allowMultiple: true})
 class CurrentYear extends React.Component {
 
     constructor(props) {
@@ -35,4 +36,4 @@ class CurrentYear extends React.Component {
     }
 }
 
-export default CSSModules(CurrentYear,styles)
+export default CurrentYear
