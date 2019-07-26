@@ -1,6 +1,6 @@
 import React from 'react'
 import CSSModules from 'react-css-modules'
-import Column from '../Column/Column'
+import Column from '../Grid/Column'
 import styles from './Footer.scss'
 import Copyright from '../Copyright'
 import FullScreenView from '../FullScreenView'
