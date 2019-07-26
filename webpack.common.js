@@ -1,11 +1,14 @@
 const webpack = require('webpack');
+const { resolve } = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { resolve } = require('path');
 const config = env => {
 	return {
-		entry: './index.js',
+		entry: {
+            app: './src/index.js'
+        },
 		context: __dirname,
 		node: {
 			fs: 'empty'
@@ -21,7 +24,7 @@ const config = env => {
 				{
 					test: /\.html$/,
 					use: [{
-						loader: "html-webpack-plugin"
+						loader: "html-loader"
 					}]
 				},
 				{ 
@@ -85,9 +88,10 @@ const config = env => {
 		output: {
 			path: resolve(__dirname, './build'),
 			publicPath: '/build/',
-			filename: 'bundle.js'
+			filename: '[name].bundle.js'
 		},
 		plugins: [
+            new CleanWebpackPlugin(),
 			new ExtractTextPlugin('style.css', { allChunks: true }),
 			new MiniCssExtractPlugin({
 				// Options similar to the same options in webpackOptions.output
@@ -98,7 +102,15 @@ const config = env => {
 			new webpack.EnvironmentPlugin({
 				NODE_ENV: 'development',
 				DEBUG: false
-			})
+            }),
+            new HtmlWebpackPlugin({
+                title: 'Production [Title]',
+                meta: {
+                    viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no',
+                    charset: 'utf-8'
+                },
+                template: 'index.html'
+            })
 		],
 		stats: {
 			// Add build date and time information

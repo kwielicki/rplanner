@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './src/components/app'
+import App from './components/app'
 import { BrowserRouter } from "react-router-dom"
-import * as serviceWorker from './serviceWorker'
-import './src/styles/index.scss'
-import './src/config/env.js'
+import * as serviceWorker from '../serviceWorker'
+import './styles/index.scss'
+import './config/env.js'
 
 ReactDOM.render(
     <BrowserRouter>

@@ -6,6 +6,7 @@
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "babel-plugin-react-css-modules": "^5.2.6",
     "classnames": "^2.2.6",
+    "clean-webpack-plugin": "^3.0.0",
     "cross-env": "^5.2.0",
     "file-loader": "^4.1.0",
     "lodash": "^4.17.15",
@@ -17,14 +18,16 @@
     "react-helmet": "^5.2.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
-    "sass-loader": "^7.1.0"
+    "sass-loader": "^7.1.0",
+    "webpack-merge": "^4.2.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "webpack --mode production",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.dev.js --hot --inline --mode development"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack.dev.js --hot --inline --open",
+    "build": "webpack --config webpack.prod.js --mode production"
   },
   "eslintConfig": {
     "extends": "react-app"
