@@ -1,8 +1,11 @@
 @import './styles/_common.scss';
 
 .SidebarLogo {
+    @include border('bottom');
+    padding: 25px;
     .__logo {
         display: flex;
+        max-width: 100%;
     }
     .__caption {
         @extend %sr-only;

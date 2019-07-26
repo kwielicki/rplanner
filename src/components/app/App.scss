@@ -1,6 +1,7 @@
 @import './styles/_common.scss';
 .App {
   display: block;
+  font-family: $font-family-Roboto;
   background-color: map-get($colors, gray-lighter);
   .__sidebar {
     position: fixed;

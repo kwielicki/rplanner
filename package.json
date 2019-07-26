@@ -19,15 +19,15 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "sass-loader": "^7.1.0",
+    "webfontloader": "^1.6.28",
     "webpack-merge": "^4.2.1"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "webpack --mode production",
+    "build": "webpack --config webpack.prod.js --mode production",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack.dev.js --hot --inline --open",
-    "build": "webpack --config webpack.prod.js --mode production"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack.dev.js --hot --inline --open"
   },
   "eslintConfig": {
     "extends": "react-app"

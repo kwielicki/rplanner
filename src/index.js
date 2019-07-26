@@ -6,6 +6,15 @@ import * as serviceWorker from '../serviceWorker'
 import './styles/index.scss'
 import './config/env.js'
 
+import WebFont from 'webfontloader';
+
+WebFont.load({
+    classes: false,
+    google: {
+        families: ['Roboto:300,400,700', 'sans-serif']
+    }
+})
+
 ReactDOM.render(
     <BrowserRouter>
         <App />
