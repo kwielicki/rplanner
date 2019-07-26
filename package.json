@@ -6,6 +6,8 @@
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "babel-plugin-react-css-modules": "^5.2.6",
     "classnames": "^2.2.6",
+    "cross-env": "^5.2.0",
+    "file-loader": "^4.1.0",
     "lodash": "^4.17.15",
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
@@ -22,7 +24,7 @@
     "build": "webpack --mode production",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "webpack-dev-server --config webpack.config.dev.js --hot --inline --mode development"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.dev.js --hot --inline --mode development"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -34,9 +36,9 @@
       "not op_mini all"
     ],
     "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
     ]
   },
   "devDependencies": {

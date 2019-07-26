@@ -1,0 +1,10 @@
+@import './styles/_common.scss';
+
+.SidebarLogo {
+    .__logo {
+        display: flex;
+    }
+    .__caption {
+        @extend %sr-only;
+    }
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, IndexLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import CSSModules from 'react-css-modules'
 import classNames from 'classnames'
 import _ from 'lodash';
