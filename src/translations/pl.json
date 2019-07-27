@@ -1,5 +1,8 @@
 {
   "copyright": "{copySign} Wytworzony w roku {currentYear}. Wszystkie prawa zastrzeżone.",
+  "FooterLinks_faq": "Faq",
+  "FooterLinks_terms": "Regulamin",
+  "FooterLinks_policy": "Polityka prywatności",
   "Megamenu_dashboard": "Panel główny",
   "Megamenu_statistics": "Statystyki",
   "Megamenu_user_profile": "Profil użytkownika",

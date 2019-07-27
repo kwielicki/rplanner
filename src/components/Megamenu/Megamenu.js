@@ -4,7 +4,7 @@ import CSSModules from 'react-css-modules'
 import classNames from 'classnames'
 import _ from 'lodash';
 import styles from './Megamenu.scss'
-import { FormattedMessage,defineMessages } from 'react-intl';
+import { defineMessages, injectIntl } from 'react-intl';
 
 const messages = defineMessages({
     MegamenuDashboard: {
@@ -31,43 +31,42 @@ const messages = defineMessages({
 
 @CSSModules(styles, {allowMultiple: true})
 class Megamenu extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            listOfRoutes: [{
-                    linkUrl: '/',
-                    linkTitle: <FormattedMessage {...messages.MegamenuDashboard}/>,
-                    linkLabel: <FormattedMessage {...messages.MegamenuDashboard}/>
-                }, {
-                    linkUrl: '/adding-guest',
-                    linkTitle: <FormattedMessage {...messages.MegamenuAddingGuest}/>,
-                    linkLabel: <FormattedMessage {...messages.MegamenuAddingGuest}/>
-                }, {
-                    linkUrl: '/statistic',
-                    linkTitle: <FormattedMessage {...messages.MegamenuStatistics}/>,
-                    linkLabel: <FormattedMessage {...messages.MegamenuStatistics}/>
-                }, {
-                    linkUrl: '/user-profile',
-                    linkTitle: <FormattedMessage {...messages.MegamenuUserProfile}/>,
-                    linkLabel: <FormattedMessage {...messages.MegamenuUserProfile}/>
-                }, {
-                    linkUrl: '/documentation',
-                    linkTitle: <FormattedMessage {...messages.MegamenuDocumentation}/>,
-                    linkLabel: <FormattedMessage {...messages.MegamenuDocumentation}/>
-                }
-            ],
-            isActive: null
-        }
+    state = {
+        isActive: null,
+        listOfRoutes: []
     }
 
     componentDidMount() {
+        const { intl } = this.props
         this.setState({
-            isActive: styles.isActive
+            isActive: styles.isActive,
+            listOfRoutes: [{
+                    linkUrl: '/',
+                    linkTitle: intl.formatMessage(messages.MegamenuDashboard),
+                    linkLabel: intl.formatMessage(messages.MegamenuDashboard)
+                }, {
+                    linkUrl: '/adding-guest',
+                    linkTitle: intl.formatMessage(messages.MegamenuAddingGuest),
+                    linkLabel: intl.formatMessage(messages.MegamenuAddingGuest)
+                }, {
+                    linkUrl: '/statistic',
+                    linkTitle: intl.formatMessage(messages.MegamenuStatistics),
+                    linkLabel: intl.formatMessage(messages.MegamenuStatistics)
+                }, {
+                    linkUrl: '/user-profile',
+                    linkTitle: intl.formatMessage(messages.MegamenuUserProfile),
+                    linkLabel: intl.formatMessage(messages.MegamenuUserProfile)
+                }, {
+                    linkUrl: '/documentation',
+                    linkTitle: intl.formatMessage(messages.MegamenuDocumentation),
+                    linkLabel: intl.formatMessage(messages.MegamenuDocumentation)
+                }
+            ]
         })
     }
 
     render() {
-        const { isActive } = this.state
+        const { isActive } = this.props.styles
         return (
             <nav styleName='Megamenu'>
                 <ul styleName='__list'>
@@ -89,4 +88,4 @@ class Megamenu extends React.Component {
 }
 
 
-export default Megamenu
+export default injectIntl(Megamenu)

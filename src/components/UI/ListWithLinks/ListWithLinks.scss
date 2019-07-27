@@ -1,0 +1,9 @@
+.ListWithLinks {
+    display: flex;
+    .__element {
+        display: inline-block;
+    }
+    .__anchor {
+        font-size: 20px;
+    }
+}
