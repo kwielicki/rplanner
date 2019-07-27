@@ -1,5 +1,5 @@
 import React from 'react'
-import CurrentYear from '../CurrentYear';
+import CurrentYear from '@components/CurrentYear';
 import CSSModules from 'react-css-modules';
 import styles from './Copyright.scss'
 import { FormattedMessage,defineMessages } from 'react-intl';

@@ -83,7 +83,9 @@ const config = env => {
 		resolve: {
 			extensions: ['*', '.js', '.jsx'],
 			alias: {
-				'assetsAlias': resolve(__dirname, './src/assets/')
+				'@assets': resolve(__dirname, './src/assets/'),
+				'@components': resolve(__dirname, './src/components/'),
+				'@routes': resolve(__dirname, './src/Routes/')
 			}
 		},
 		output: {

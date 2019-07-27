@@ -1,9 +1,9 @@
 import React from 'react';
 import CSSModules from 'react-css-modules';
-import Column from '../Grid/Column';
+import Column from '@components/Grid/Column';
 import styles from './Header.scss'
 
-import SwitchLocale from '../SwitchLocale'
+import SwitchLocale from '@components/SwitchLocale'
 
 @CSSModules(styles, {allowMultiple: true})
 class Header extends React.Component {

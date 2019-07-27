@@ -2,7 +2,7 @@ import React from 'react'
 import CSSModules from 'react-css-modules';
 import styles from './SidebarLogo.scss'
 import { NavLink } from 'react-router-dom'
-import Logo from 'assetsAlias/images/wedding-planner-logo.svg'
+import Logo from '@assets/images/wedding-planner-logo.svg'
 
 
 @CSSModules(styles, {allowMultiple: true})

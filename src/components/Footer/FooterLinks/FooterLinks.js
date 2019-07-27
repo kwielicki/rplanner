@@ -1,7 +1,7 @@
 import React from 'react'
 import CSSModules from 'react-css-modules'
 import { FormattedMessage, defineMessages, injectIntl } from 'react-intl';
-import ListOfLinks from '../../UI/ListWithLinks'
+import ListOfLinks from '@components/UI/ListWithLinks'
 import styles from './FooterLinks.scss'
 
 const messages = defineMessages({
