@@ -4,6 +4,30 @@ import CSSModules from 'react-css-modules'
 import classNames from 'classnames'
 import _ from 'lodash';
 import styles from './Megamenu.scss'
+import { FormattedMessage,defineMessages } from 'react-intl';
+
+const messages = defineMessages({
+    MegamenuDashboard: {
+        id: 'Megamenu_dashboard',
+        defaultMessage: 'Dashboard'
+    },
+    MegamenuAddingGuest: {
+        id: 'Megamenu_addiding_guest',
+        defaultMessage: 'Add a new guest'
+    },
+    MegamenuStatistics: {
+        id: 'Megamenu_statistics',
+        defaultMessage: 'Statistics'
+    },
+    MegamenuUserProfile: {
+        id: 'Megamenu_user_profile',
+        defaultMessage: 'User profile'
+    },
+    MegamenuDocumentation: {
+        id: 'Megamenu_documentation',
+        defaultMessage: 'Documentation'
+    }
+})
 
 @CSSModules(styles, {allowMultiple: true})
 class Megamenu extends React.Component {
@@ -12,28 +36,24 @@ class Megamenu extends React.Component {
         this.state = {
             listOfRoutes: [{
                     linkUrl: '/',
-                    linkTitle: 'Dashboard',
-                    linkLabel: 'Dashboard'
+                    linkTitle: <FormattedMessage {...messages.MegamenuDashboard}/>,
+                    linkLabel: <FormattedMessage {...messages.MegamenuDashboard}/>
                 }, {
                     linkUrl: '/adding-guest',
-                    linkTitle: 'Add a guest',
-                    linkLabel: 'Add a guest'
-                }, {
-                    linkUrl: '/editing-guest',
-                    linkTitle: 'Editing a guest',
-                    linkLabel: 'Editing a guest'
+                    linkTitle: <FormattedMessage {...messages.MegamenuAddingGuest}/>,
+                    linkLabel: <FormattedMessage {...messages.MegamenuAddingGuest}/>
                 }, {
                     linkUrl: '/statistic',
-                    linkTitle: 'Statistic',
-                    linkLabel: 'Statistic'
+                    linkTitle: <FormattedMessage {...messages.MegamenuStatistics}/>,
+                    linkLabel: <FormattedMessage {...messages.MegamenuStatistics}/>
                 }, {
                     linkUrl: '/user-profile',
-                    linkTitle: 'User Profile',
-                    linkLabel: 'User Profile'
+                    linkTitle: <FormattedMessage {...messages.MegamenuUserProfile}/>,
+                    linkLabel: <FormattedMessage {...messages.MegamenuUserProfile}/>
                 }, {
                     linkUrl: '/documentation',
-                    linkTitle: 'Documentation',
-                    linkLabel: 'Documentation'
+                    linkTitle: <FormattedMessage {...messages.MegamenuDocumentation}/>,
+                    linkLabel: <FormattedMessage {...messages.MegamenuDocumentation}/>
                 }
             ],
             isActive: null

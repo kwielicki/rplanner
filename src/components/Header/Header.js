@@ -3,6 +3,8 @@ import CSSModules from 'react-css-modules';
 import Column from '../Grid/Column';
 import styles from './Header.scss'
 
+import SwitchLocale from '../SwitchLocale'
+
 @CSSModules(styles, {allowMultiple: true})
 class Header extends React.Component {
 	render() {
@@ -10,7 +12,7 @@ class Header extends React.Component {
 			<header styleName='Header'>
 				<Column xs='1'>
 					<div styleName='__inner'>
-                        Header
+                        <SwitchLocale/>
 					</div>
 				</Column>
 			</header>

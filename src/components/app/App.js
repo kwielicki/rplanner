@@ -20,7 +20,7 @@ import styles from './App.scss'
 import Sidebar from '../Sidebar';
 
 @CSSModules(styles, { allowMultiple: true })
-class App extends React.Component {
+class App extends React.Component { 
     render() {
         return (
             <>

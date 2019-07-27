@@ -2,19 +2,14 @@ import React from 'react'
 import CurrentYear from '../CurrentYear';
 import CSSModules from 'react-css-modules';
 import styles from './Copyright.scss'
-import {FormattedMessage,defineMessages} from 'react-intl';
+import { FormattedMessage,defineMessages } from 'react-intl';
 
 
-const translations = defineMessages({
-    CopyrightWord: {
-        id: 'Copyright.word',
-        description: 'CopyrightWord',
-        defaultMessage: 'Copyright'
-    },
-    CopyrightRights: {
-        id: 'Copyright.rights',
-        description: 'CopyrightRights',
-        defaultMessage: 'by Krzysztof Wielicki. All rights reserved.'
+const messages = defineMessages({
+    copyright: {
+        id: 'copyright',
+        description: 'Copyright Message with including Current Year Component',
+        defaultMessage: '{copySign} Copyright {currentYear}. All rights reserved.'
     }
 })
 
@@ -25,9 +20,12 @@ class Copyright extends React.Component {
         return (
             <div styleName='Copyright'>
                 <div styleName='__inner'>
-                    <FormattedMessage {...translations.CopyrightWord}/>
-                    <CurrentYear></CurrentYear>
-                    <FormattedMessage {...translations.CopyrightRights}/>
+                    <FormattedMessage
+                        {...messages.copyright}
+                            values={{
+                                currentYear: <CurrentYear/>,
+                                copySign: '\u00A9'
+                            }}/>
                 </div>
             </div>
         )

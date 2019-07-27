@@ -13,7 +13,6 @@ class Footer extends React.Component {
 				<Column xs='1'>
 					<div styleName='__inner'>
 						<Copyright/>
-						<FullScreenView/>
 					</div>
 				</Column>
 			</footer>

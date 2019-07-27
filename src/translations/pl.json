@@ -1,9 +1,8 @@
 {
-  "title": {
-    "welcome": "Cześć"
-  },
-  "Copyright": {
-    "word": "To jest język polski",
-    "rights": "PL"
-  }
+  "copyright": "{copySign} Wytworzony w roku {currentYear}. Wszystkie prawa zastrzeżone.",
+  "Megamenu_dashboard": "Panel główny",
+  "Megamenu_statistics": "Statystyki",
+  "Megamenu_user_profile": "Profil użytkownika",
+  "Megamenu_documentation": "Dokumentacja",
+  "Megamenu_addiding_guest": "Dodaj nowego gościa"
 }

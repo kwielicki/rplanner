@@ -1,9 +1,8 @@
 {
-  "title": {
-    "welcome": "Welcome!"
-  },
-  "Copyright": {
-    "word": "Copyright",
-    "rights": "by Krzysztof Wielicki. All rights reserved."
-  }
+  "copyright": "{copySign} Copyright {currentYear}. All rights reserved.",
+  "Megamenu_dashboard": "Dashboard",
+  "Megamenu_statistics": "Statistics",
+  "Megamenu_user_profile": "User profile",
+  "Megamenu_documentation": "Documentation",
+  "Megamenu_addiding_guest": "Add a new guest"
 }

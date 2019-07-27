@@ -3,8 +3,6 @@
 .Copyright {
     .__inner {
         display: flex;
-    }
-    .__text {
-        display: inline-block;
+        font-size: map-get($map: $fontSizes, $key: small);
     }
 }

@@ -1,6 +1,9 @@
 @import './styles/_common.scss';
 
 .Sidebar {
+    @extend %boxshadow-dp1;
+    height: 100%;
+    overflow: auto;
     .__inner {
         display: block;
     }

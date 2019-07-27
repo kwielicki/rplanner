@@ -1,7 +1,8 @@
 @import './styles/_common.scss';
 
 .CurrentYear {
+    display: inline-block;
     .__year {
-        color: $colorA;
+        font-weight: $fw-600;
     }
 }

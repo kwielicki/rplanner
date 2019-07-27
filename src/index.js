@@ -1,28 +1,22 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { IntlProvider } from 'react-intl-redux'
+import { Provider } from 'react-redux'
 import App from './components/app'
 import { BrowserRouter } from "react-router-dom"
 import * as serviceWorker from '../serviceWorker'
 import './styles/index.scss'
 import './config/env.js'
 
-import WebFont from 'webfontloader';
+import store, { DevTools } from './store'
 
-import { IntlProvider } from "react-intl"
 import { addLocaleData } from "react-intl"
 import locale_en from 'react-intl/locale-data/en'
 import locale_pl from 'react-intl/locale-data/pl'
 addLocaleData([...locale_en, ...locale_pl])
-import messages_pl from "./translations/pl.json"
-import messages_en from "./translations/en.json"
 
 
-const messages = {
-    'pl': messages_pl,
-    'en': messages_en
-}
-const language = navigator.language.split(/[-_]/)[0]; 
-console.log(messages)
+import WebFont from 'webfontloader';
 
 WebFont.load({
     classes: false,
@@ -32,11 +26,13 @@ WebFont.load({
 })
 
 ReactDOM.render(
-    <IntlProvider locale={language} messages={messages[language]}>
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>
-    </IntlProvider>,
+    <Provider store={store}>
+        <IntlProvider>
+            <BrowserRouter>
+                <App />
+            </BrowserRouter>
+        </IntlProvider>
+    </Provider>,
     document.getElementById('root'))
 
 // If you want your app to work offline and load faster, you can change
