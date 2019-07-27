@@ -16,6 +16,7 @@ import PageNotFound from '../../routes/PageNotFound'
 import UserProfile from '../../routes/UserProfile'
 import Documentation from '../../routes/Documentation'
 import EditingGuest from '../../routes/EditingGuest'
+import News from '../../routes/News'
 import styles from './App.scss'
 import Sidebar from '../Sidebar';
 
@@ -41,6 +42,7 @@ class App extends React.Component {
                                 <Route path='/user-profile' component={UserProfile} />
                                 <Route path='/documentation' component={Documentation} />
                                 <Route path='/editing-guest' component={EditingGuest} />
+                                <Route path='/news' component={News}/>
                                 <Route component={PageNotFound} />
                             </Switch>
                         <Footer></Footer>

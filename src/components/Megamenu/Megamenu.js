@@ -26,6 +26,10 @@ const messages = defineMessages({
     MegamenuDocumentation: {
         id: 'Megamenu_documentation',
         defaultMessage: 'Documentation'
+    },
+    MegamenuNews: {
+        id: 'Megamenu_news',
+        defaultMessage: 'News'
     }
 })
 
@@ -60,6 +64,10 @@ class Megamenu extends React.Component {
                     linkUrl: '/documentation',
                     linkTitle: intl.formatMessage(messages.MegamenuDocumentation),
                     linkLabel: intl.formatMessage(messages.MegamenuDocumentation)
+                }, {
+                    linkUrl: '/news',
+                    linkTitle: intl.formatMessage(messages.MegamenuNews),
+                    linkLabel: intl.formatMessage(messages.MegamenuNews)
                 }
             ]
         })
