@@ -3,7 +3,7 @@ import CSSModules from 'react-css-modules'
 import Column from '../Grid/Column'
 import styles from './Footer.scss'
 import Copyright from '../Copyright'
-import FullScreenView from '../FullScreenView'
+import FooterLinks from './FooterLinks'
 
 @CSSModules(styles, {allowMultiple: true})
 class Footer extends React.Component {
@@ -13,6 +13,7 @@ class Footer extends React.Component {
 				<Column xs='1'>
 					<div styleName='__inner'>
 						<Copyright/>
+						<FooterLinks/>
 					</div>
 				</Column>
 			</footer>
