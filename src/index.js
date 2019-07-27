@@ -8,6 +8,22 @@ import './config/env.js'
 
 import WebFont from 'webfontloader';
 
+import { IntlProvider } from "react-intl"
+import { addLocaleData } from "react-intl"
+import locale_en from 'react-intl/locale-data/en'
+import locale_pl from 'react-intl/locale-data/pl'
+addLocaleData([...locale_en, ...locale_pl])
+import messages_pl from "./translations/pl.json"
+import messages_en from "./translations/en.json"
+
+
+const messages = {
+    'pl': messages_pl,
+    'en': messages_en
+}
+const language = navigator.language.split(/[-_]/)[0]; 
+console.log(messages)
+
 WebFont.load({
     classes: false,
     google: {
@@ -16,9 +32,11 @@ WebFont.load({
 })
 
 ReactDOM.render(
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>,
+    <IntlProvider locale={language} messages={messages[language]}>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </IntlProvider>,
     document.getElementById('root'))
 
 // If you want your app to work offline and load faster, you can change

@@ -26,12 +26,9 @@ class CurrentYear extends React.Component {
 
     render() {
         return (
-            <>
-                <RbuttonIco/>
-                <div styleName='CurrentYear'>
-                    <span styleName='__year'>&copy; {this.state.currentYear}</span>
-                </div>
-            </>
+            <div styleName='CurrentYear'>
+                <span styleName='__year'>&copy; {this.state.currentYear}</span>
+            </div>
         )
     }
 }
