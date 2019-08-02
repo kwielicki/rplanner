@@ -12,7 +12,7 @@ class Header extends React.Component {
 			<header styleName='Header'>
 				<Column xs='1'>
 					<div styleName='__inner'>
-                        <SwitchLocale/>
+                        {/* <SwitchLocale/> */}
 					</div>
 				</Column>
 			</header>

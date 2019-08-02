@@ -1,6 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { IntlProvider } from 'react-intl-redux'
+import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
+import { logger } from 'redux-logger'
 import { Provider } from 'react-redux'
 import App from './components/app'
 import { BrowserRouter } from "react-router-dom"
@@ -8,7 +11,11 @@ import * as serviceWorker from '../serviceWorker'
 import './styles/index.scss'
 import './config/env.js'
 
-import store, { DevTools } from './store'
+import rootReducer from './rootReducer'
+const store = createStore(
+    rootReducer,
+    applyMiddleware(thunk, logger)
+)
 
 import { addLocaleData } from "react-intl"
 import locale_en from 'react-intl/locale-data/en'

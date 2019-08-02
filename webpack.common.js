@@ -85,7 +85,9 @@ const config = env => {
 			alias: {
 				'@assets': resolve(__dirname, './src/assets/'),
 				'@components': resolve(__dirname, './src/components/'),
-				'@routes': resolve(__dirname, './src/Routes/')
+				'@routes': resolve(__dirname, './src/Routes/'),
+				'@actions': resolve(__dirname, './src/actions/'),
+				'@reducers': resolve(__dirname, './src/reducers/')
 			}
 		},
 		output: {
