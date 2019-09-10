@@ -6,6 +6,8 @@
     background-color: map-get($colors, white);
     max-width: map-get($LayoutWidths, section);
     .__inner {
+        display: flex;
+        justify-content: space-between;
         padding: 25px 0;
     }
 }

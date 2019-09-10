@@ -1,9 +1,14 @@
+@import './styles/_common.scss';
+
 .ListWithLinks {
+    @include list-unstyled;
     display: flex;
     .__element {
         display: inline-block;
+        padding-left: 10px;
     }
     .__anchor {
-        font-size: 20px;
+        @include link-base;
+        font-size: map-get($map: $fontSizes, $key: small);
     }
 }

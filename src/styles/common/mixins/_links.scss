@@ -1,0 +1,8 @@
+@mixin link-base {
+    @include transition;
+    color: map-get($colors, dark);
+    text-decoration: underline;
+    &:hover {
+        color: map-get($colors, green);
+    }
+}
