@@ -3,13 +3,10 @@
     .__list {
         list-style: none;
     }
-    .__listElement {
+    .__element {
         font-size: 14px;
     }
-    .__listAnchor {
-        font-size: 14px;
-        &.isActive {
-            color: red;   
-        }
+    .__elementHeader {
+        font-weight: 600;
     }
 }
