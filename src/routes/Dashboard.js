@@ -1,6 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-
+import { BreadcrumbsItem } from 'react-breadcrumbs-dynamic'
+import Column from '@components/Grid/Column'
 class Dashboard extends React.Component {
     render() {
         return (
@@ -8,7 +9,9 @@ class Dashboard extends React.Component {
                 <Helmet>
                     <title>Dashboard</title>
                 </Helmet>
-                <p>Dashboard</p>
+                <Column xs='1'>
+                    <h1>Dashboard</h1>
+				</Column>
             </>
         )
     }

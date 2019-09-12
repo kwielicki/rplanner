@@ -1,5 +1,11 @@
+@import './styles/_common.scss';
+
 .Header {
-    color: white;
+    @include border('bottom');
+    @include center-by-margin;
+    background-color: map-get($colors, white);
+    max-width: map-get($LayoutWidths, section);
+    padding-bottom: map-get($spacers, 15);
     .__inner {
         color: #ccc;
     }

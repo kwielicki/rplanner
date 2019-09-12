@@ -1,5 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
+import { BreadcrumbsItem } from 'react-breadcrumbs-dynamic'
+import Column from '@components/Grid/Column'
 
 class Statistic extends React.Component {
     render() {
@@ -8,7 +10,13 @@ class Statistic extends React.Component {
                 <Helmet>
                     <title>Statistics</title>
                 </Helmet>
-                <p>Statistic</p>
+
+                <BreadcrumbsItem to='/'>Dashboard</BreadcrumbsItem>
+                <BreadcrumbsItem to='/statistic'>Statistic</BreadcrumbsItem>
+
+                <Column xs='1'>
+                    <h1>Statistic route</h1>
+				</Column>
             </>
         )
     }

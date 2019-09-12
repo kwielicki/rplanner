@@ -3,11 +3,7 @@ import CSSModules from 'react-css-modules'
 import { Helmet } from 'react-helmet'
 import Footer from '@components/Footer'
 import Header from '@components/Header';
-import {
-    Route,
-    Switch,
-    Redirect
-} from "react-router-dom"
+import { Route, Switch } from "react-router-dom"
 
 import Dashboard from '@routes/Dashboard'
 import AddingGuest from '@routes/AddingGuest'
@@ -34,18 +30,20 @@ class App extends React.Component {
                         <Sidebar/>
                     </aside>
                     <main styleName='__main'>
-                        <Header></Header>
-                            <Switch>
-                                <Route exact path='/' component={Dashboard} />
-                                <Route path='/adding-guest' component={AddingGuest} />
-                                <Route path='/statistic' component={Statistic} />
-                                <Route path='/user-profile' component={UserProfile} />
-                                <Route path='/documentation' component={Documentation} />
-                                <Route path='/editing-guest' component={EditingGuest} />
-                                <Route path='/news' component={News}/>
-                                <Route component={PageNotFound} />
-                            </Switch>
-                        <Footer></Footer>
+                        <Header/>
+                            <div styleName='__content'>
+                                <Switch>
+                                    <Route exact path='/' component={Dashboard} />
+                                    <Route path='/adding-guest' component={AddingGuest} />
+                                    <Route path='/statistic' component={Statistic} />
+                                    <Route path='/user-profile' component={UserProfile} />
+                                    <Route path='/documentation' component={Documentation} />
+                                    <Route path='/editing-guest' component={EditingGuest} />
+                                    <Route path='/news' component={News}/>
+                                    <Route component={PageNotFound} />
+                                </Switch>
+                            </div>
+                        <Footer/>
                     </main>
                 </div>
             </>

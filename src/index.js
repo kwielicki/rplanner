@@ -5,6 +5,7 @@ import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import { logger } from 'redux-logger'
 import { Provider } from 'react-redux'
+import { ThroughProvider } from 'react-through'
 import App from './components/app'
 import { BrowserRouter } from "react-router-dom"
 import * as serviceWorker from '../serviceWorker'
@@ -36,7 +37,9 @@ ReactDOM.render(
     <Provider store={store}>
         <IntlProvider>
             <BrowserRouter>
-                <App />
+                <ThroughProvider>
+                    <App />
+                </ThroughProvider>
             </BrowserRouter>
         </IntlProvider>
     </Provider>,

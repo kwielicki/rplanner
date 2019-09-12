@@ -1,0 +1,17 @@
+@import './styles/_common.scss';
+
+.BreadcrumbsWrapper {
+    @include list-unstyled;
+    @include border('top');
+    padding-top: map-get($spacers, 10);
+    display: flex;
+    .__item {
+        padding-right: map-get($spacers, 15);
+        &.isCurrent {
+            color: map-get($colors, gray);
+        }
+    }
+    .__anchor {
+        @include link-base;
+    }
+}
