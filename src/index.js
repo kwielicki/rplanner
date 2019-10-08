@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { IntlProvider } from 'react-intl-redux'
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import { logger } from 'redux-logger'
@@ -18,12 +17,6 @@ const store = createStore(
     applyMiddleware(thunk, logger)
 )
 
-import { addLocaleData } from "react-intl"
-import locale_en from 'react-intl/locale-data/en'
-import locale_pl from 'react-intl/locale-data/pl'
-addLocaleData([...locale_en, ...locale_pl])
-
-
 import WebFont from 'webfontloader';
 
 WebFont.load({
@@ -35,13 +28,11 @@ WebFont.load({
 
 ReactDOM.render(
     <Provider store={store}>
-        <IntlProvider>
-            <BrowserRouter>
-                <ThroughProvider>
-                    <App />
-                </ThroughProvider>
-            </BrowserRouter>
-        </IntlProvider>
+        <BrowserRouter>
+            <ThroughProvider>
+                <App />
+            </ThroughProvider>
+        </BrowserRouter>
     </Provider>,
     document.getElementById('root'))
 

@@ -1,44 +1,28 @@
 import React from 'react'
 import CSSModules from 'react-css-modules'
-import { FormattedMessage, defineMessages, injectIntl } from 'react-intl';
 import ListOfLinks from '@components/UI/ListWithLinks'
 import styles from './FooterLinks.scss'
 
-const messages = defineMessages({
-    FooterLinksFaq: {
-        id: 'FooterLinks_faq',
-        defaultMessage: 'Faq'
-    },
-    FooterLinksTerms: {
-        id: 'FooterLinks_terms',
-        defaultMessage: 'Terms and conditions'
-	},
-	FooterLinksPolicy: {
-        id: 'FooterLinks_policy',
-        defaultMessage: 'Privacy Policy'
-    }
-})
-
 @CSSModules(styles, {allowMultiple: true})
 class FooterLinks extends React.Component {
+
 	state = {}
 
 	componentDidMount() {
-		const { intl } = this.props
 		this.setState({
 			footerLinks: [
 				{
 					linkUrl: '/faq',
-					linkTitle: intl.formatMessage(messages.FooterLinksFaq),
-					linkLabel: intl.formatMessage(messages.FooterLinksFaq)
+					linkTitle: 'Faq',
+					linkLabel: 'Faq'
 				}, {
 					linkUrl: '/terms-and-conditions',
-					linkTitle: intl.formatMessage(messages.FooterLinksTerms),
-					linkLabel: intl.formatMessage(messages.FooterLinksTerms)
+					linkTitle: 'Terms and conditions',
+					linkLabel: 'Terms and conditions',
 				}, {
 					linkUrl: '/privacy-policy',
-					linkTitle: intl.formatMessage(messages.FooterLinksPolicy),
-					linkLabel: intl.formatMessage(messages.FooterLinksPolicy)
+					linkTitle: 'Privacy Policy',
+					linkLabel: 'Privacy Policy'
 				}
 			]
 		})
@@ -53,5 +37,5 @@ class FooterLinks extends React.Component {
 	}
 }
 
-export default injectIntl(FooterLinks)
+export default FooterLinks
 

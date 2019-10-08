@@ -2,16 +2,6 @@ import React from 'react'
 import CurrentYear from '@components/CurrentYear';
 import CSSModules from 'react-css-modules';
 import styles from './Copyright.scss'
-import { FormattedMessage,defineMessages } from 'react-intl';
-
-
-const messages = defineMessages({
-    copyright: {
-        id: 'copyright',
-        description: 'Copyright Message with including Current Year Component',
-        defaultMessage: '{copySign} Copyright {currentYear}. All rights reserved.'
-    }
-})
 
 @CSSModules(styles, {allowMultiple: true})
 class Copyright extends React.Component {
@@ -20,12 +10,8 @@ class Copyright extends React.Component {
         return (
             <div styleName='Copyright'>
                 <div styleName='__inner'>
-                    <FormattedMessage
-                        {...messages.copyright}
-                            values={{
-                                currentYear: <CurrentYear/>,
-                                copySign: '\u00A9'
-                            }}/>
+                    {'\u00A9'}&nbsp;<CurrentYear/>.
+                    All rights reserved.
                 </div>
             </div>
         )

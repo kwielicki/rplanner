@@ -4,7 +4,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-var ReactIntlPlugin=require('react-intl-webpack-plugin');
 const config = env => {
 	return {
 		entry: {
@@ -115,8 +114,7 @@ const config = env => {
                     charset: 'utf-8'
                 },
                 template: 'index.html'
-			}),
-			new ReactIntlPlugin()
+			})
 		],
 		stats: {
 			// Add build date and time information
