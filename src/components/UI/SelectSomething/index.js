@@ -1,1 +1,1 @@
-export {default} from './SelectSomething.js'
+export { default } from './SelectSomething.js'

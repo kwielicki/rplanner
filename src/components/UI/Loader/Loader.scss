@@ -1,0 +1,27 @@
+@import './styles/_common.scss';
+
+.Loader {
+    display: flex;
+    justify-content: center;
+    padding: map-get($spacers, 15);
+    .__inner {
+        display: block;
+    }
+    .__line {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        margin: 3px;
+        border-radius: 15px;
+        background-color: map-get($colors, pink);
+        &.--x1 {
+            animation: Loader .6s .1s linear infinite;
+        }
+        &.--x2 {
+            animation: Loader .6s .2s linear infinite;
+        }
+        &.--x3 {
+            animation: Loader .6s .3s linear infinite;
+        }
+    }
+}

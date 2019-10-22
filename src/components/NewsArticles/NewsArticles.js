@@ -8,6 +8,7 @@ import NewsArticlesHeader from './NewsArticlesHeader'
 import styles from './NewsArticles.scss'
 
 import SelectSomething from '@components/UI/SelectSomething'
+import Loader from '@components/UI/Loader'
 
 
 const mapStateToProps = state => {
@@ -65,7 +66,7 @@ class NewsArticles extends React.Component {
         return (
             <div styleName="NewsArticles">
                 {loading
-                    ? <p>Loading...</p> // Dodać komponent preloader
+                    ? <Loader/>
                     : <div styleName="__inner">
                         <SelectSomething options={categories} onChange={this._handleChange} value={this.props.selectedCategory}/>
                         {(!_.isEmpty(items.articles) 
