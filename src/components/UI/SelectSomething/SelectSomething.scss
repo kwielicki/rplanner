@@ -1,0 +1,22 @@
+.SelectSomething {
+    .__select {
+        appearance: none;
+        outline: 0;
+        box-shadow: none;
+        background-image: none;
+        height: 40px;
+        padding: 10px 38px 10px 16px;
+        transition: border-color .1s ease-in-out,box-shadow .1s ease-in-out;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        &:hover {
+            border: 1px solid #999;
+        }
+        &:focus {
+            box-shadow: 0 3px 5px 0 rgba(0,0,0,.2);
+        }
+        &::-ms-expand {
+            display: none;
+        }
+    }
+}

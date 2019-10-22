@@ -1,22 +1,23 @@
 import {
     FETCH_NEWS_BEGIN,
     FETCH_NEWS_SUCCESS,
-    FETCH_NEWS_FAILURE
+    FETCH_NEWS_FAILURE,
+    FETCH_NEWS_CATEGORY_SELECT
 } from '@actions/newsActions.js'
 
 const initialState = {
     items:  [],
     loading: false,
     error: null,
-    defaultCategory: 'general',
+    selectedCategory: 'general',
     categories: [
-        {id: 'general', name: 'General'},
-        {id: 'business', name: 'Business' },
-        {id: 'entertainment', name: 'Entertainment'},
-        {id: 'health', name: 'Health'},
-        {id: 'science', name: 'Science'},
-        {id: 'sports', name: 'Sports'},
-        {id: 'technology', name: 'Technology'}
+        {id: '1', value: 'general', label: 'General'},
+        {id: '2', value: 'business', label:  'Business'},
+        {id: '3', value: 'entertainment', label: 'Entertainment'},
+        {id: '4', value: 'health', label: 'Health'},
+        {id: '5', value: 'science', label: 'Science'},
+        {id: '6', value: 'sports', label: 'Sports'},
+        {id: '7', value: 'technology', label: 'Technology'}
     ]
 }
 
@@ -28,8 +29,14 @@ export default function newsReducer(state = initialState, action) {
                 loading: true,
                 error: null
             }
-            
-            case FETCH_NEWS_SUCCESS:
+
+        case FETCH_NEWS_CATEGORY_SELECT:
+            return {
+                ...state,
+                selectedCategory: action.payload.selectedCategory
+            }
+
+        case FETCH_NEWS_SUCCESS:
             return {
                 ...state,
                 loading: false,

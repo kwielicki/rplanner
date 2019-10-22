@@ -9,12 +9,11 @@ import styles from './NewsArticlesHeader.scss'
 @CSSModules(styles, {allowMultiple: true})
 class NewsArticlesHeader extends React.Component {
     render() {
-        const { totalResults, categoryOfResults, categoryOfCountry } = this.props
+        const { totalResults, selectedCategory } = this.props
         return (
             <div styleName="NewsArticlesHeader">
-                <h3>Total results: {totalResults}</h3>
-                <h4>Wyszukano w kategorii: {categoryOfResults}</h4>
-                <h5>Wyszukano dla kraju: {categoryOfCountry}</h5>
+                <h3>Znaleziono: {totalResults}</h3>
+                <h4>Wyszukano w kategorii: {selectedCategory}</h4>
             </div>
         )
     }

@@ -3,38 +3,42 @@ import PropTypes from 'prop-types'
 import CSSModules from 'react-css-modules'
 import _ from 'lodash'
 import { connect } from 'react-redux'
-import { fetchNews } from '@actions/newsActions'
+import { fetchNews, fetchNewsCategorySelect } from '@actions/newsActions'
 import NewsArticlesHeader from './NewsArticlesHeader'
 import styles from './NewsArticles.scss'
 
+import SelectSomething from '@components/UI/SelectSomething'
 
+
+const mapStateToProps = state => {
+    const { items,
+            loading,
+            error,
+            categories,
+            selectedCategory,
+            selectedCountry } = state.news
+    return {
+        items: items,
+        loading: loading,
+        error: error,
+        categories: categories,
+        selectedCategory: selectedCategory,
+        selectedCountry: selectedCountry
+    };
+}
+  
 @CSSModules(styles, {allowMultiple: true})
-@connect(state => ({
-    articles: state.news.items,
-    loading: state.news.loading,
-    error: state.news.error,
-    categories: state.news.categories
-}))
-export default class NewsArticles extends React.Component {
-
-    state = {
-        selectedCategory: 'general'
-    }
+class NewsArticles extends React.Component {
 
     componentDidMount() {
-        this.props.dispatch(fetchNews('pl', this.state.selectedCategory))
-    }
-    
-    componentDidUpdate(prevProps, prevState) {
-        if ( this.state.selectedCategory !== prevState.selectedCategory ) {
-            this.props.dispatch(fetchNews('pl', this.state.selectedCategory))
-        }
+        this.props.dispatch(fetchNews(this.props.selectedCategory))
     }
 
     _handleChange = (evt) => {
-        this.setState({
-            selectedCategory: evt.target.value
-        })
+        const category = evt.target.value
+
+        this.props.dispatch(fetchNewsCategorySelect(category))
+        this.props.dispatch(fetchNews(category))
     }
 
     __optionRender = (category) => {
@@ -48,29 +52,31 @@ export default class NewsArticles extends React.Component {
 
     __selectRender = (categories) => {
         return (
-            <select onChange={this._handleChange}>
-                {categories.map(category => {
-                    return this.__optionRender(category)
-                })}
+            <select onChange={this._handleChange} value={this.props.selectedCategory}>
+                {categories.map(category => (
+                    this.__optionRender(category)
+                ))}
             </select>
         )
     }
 
     render() {
-        const { error, loading, articles, articles: {totalResults}, categories } = this.props;
+        const { loading, items, items: { totalResults }, categories, selectedCategory } = this.props;
         return (
-            <>
-            {loading
-                ? <p>Loading...</p>
-                : <div>
-                    {this.__selectRender(categories)}
-                    {(!_.isEmpty(articles) 
-                        ? <NewsArticlesHeader
-                            totalResults={totalResults}/>
-                        : <h2>Empty.</h2>)}
-                  </div>
-            }
-        </>
+            <div styleName="NewsArticles">
+                {loading
+                    ? <p>Loading...</p> // Dodać komponent preloader
+                    : <div styleName="__inner">
+                        <SelectSomething options={categories} onChange={this._handleChange} value={this.props.selectedCategory}/>
+                        {(!_.isEmpty(items.articles) 
+                            ? <NewsArticlesHeader
+                                totalResults={totalResults} selectedCategory={selectedCategory}/>
+                            : <h2>Przefiltruj wyniki</h2>)}
+                    </div>
+                }
+            </div>
         )
     }
 }
+
+export default connect(mapStateToProps)(NewsArticles)

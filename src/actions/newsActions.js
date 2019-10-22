@@ -1,6 +1,9 @@
+import axios from 'axios'
+
 export const FETCH_NEWS_BEGIN   = 'FETCH_NEWS_BEGIN'
 export const FETCH_NEWS_SUCCESS = 'FETCH_NEWS_SUCCESS'
 export const FETCH_NEWS_FAILURE = 'FETCH_NEWS_FAILURE'
+export const FETCH_NEWS_CATEGORY_SELECT = 'FETCH_NEWS_CATEGORY_SELECT'
 
 const NEWS_API_KEY = 'd166dcd861194b818e8660ce5a318e7f'
 
@@ -18,23 +21,26 @@ export const fetchNewsFailure = error => ({
     payload: { error }
 })
 
-export function fetchNews(country, category) {
+export const fetchNewsCategorySelect = selectedCategory => ({
+    type: FETCH_NEWS_CATEGORY_SELECT,
+    payload: { selectedCategory }
+})
+
+export function fetchNews(category) {
     return dispatch => {
         dispatch(fetchNewsBegin());
-        return fetch(`https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${NEWS_API_KEY}`)
-            .then(handleErrors)
-            .then(resp => resp.json())
+        return axios.get('https://newsapi.org/v2/top-headlines', {
+                params: {
+                    country: 'pl',
+                    category: category,
+                    apiKey: NEWS_API_KEY
+                }
+            })
+            .then(response => response.data)
             .then(data => {
                 dispatch(fetchNewsSuccess(data))
                 return data
             })
             .catch(error => dispatch(fetchNewsFailure(error)))
     }
-}
-
-function handleErrors(response) {
-    if ( !response.ok ) {
-        throw Error(response.statusText)
-    }
-    return response
 }

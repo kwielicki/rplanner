@@ -77,7 +77,9 @@ const config = env => {
 		},
 		devServer: {
 			port: 8080,
-			historyApiFallback: true
+			historyApiFallback: true,
+			overlay: true,
+			https: true
 		},
 		resolve: {
 			extensions: ['*', '.js', '.jsx'],
