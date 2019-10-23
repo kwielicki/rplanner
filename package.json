@@ -38,7 +38,7 @@
     "build": "webpack --config webpack.prod.js --mode production",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack.dev.js --hot --inline --open"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./webpack/webpack.dev.js --hot --inline --open"
   },
   "eslintConfig": {
     "extends": "react-app"
