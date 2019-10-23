@@ -1,0 +1,24 @@
+@import './styles/_common.scss';
+
+.InformationPanel {
+    .__inner {
+        background-color: map-get($colors, white);
+        display: flex;
+    }
+    .__image {
+        background-color: map-get($colors, pink);
+        border-right: 5px solid map-get($colors, gray-lighter);
+        width: 150px;
+    }
+    .__content {
+        font-size: map-get($fontSizes, small);
+        padding: 25px;
+    }
+    .__contentHeading {
+        @include heading('h4');
+    }
+    .__contentDescription {
+        color: map-get($colors, gray-dark);
+        margin: 0;
+    }
+}

@@ -88,7 +88,8 @@ const config = env => {
 				'@components': resolve(__dirname, './src/components/'),
 				'@routes': resolve(__dirname, './src/Routes/'),
 				'@actions': resolve(__dirname, './src/actions/'),
-				'@reducers': resolve(__dirname, './src/reducers/')
+				'@reducers': resolve(__dirname, './src/reducers/'),
+				'@translations': resolve(__dirname, './src/consts/translations')
 			}
 		},
 		output: {
