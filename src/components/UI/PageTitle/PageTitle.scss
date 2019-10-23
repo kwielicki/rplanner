@@ -1,0 +1,21 @@
+@import './styles/_common.scss';
+
+.PageTitle {
+    padding: 30px 0;
+    .__heading {
+        @include heading('h1');
+
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    .__headingSup {
+        font-weight: $fw-600;
+    }
+    .__headingSub {
+        color: map-get($colors, pink);
+        font-size: map-get($fontSizes, large);
+        font-weight: $fw-300;
+        text-transform: uppercase;
+    }
+}

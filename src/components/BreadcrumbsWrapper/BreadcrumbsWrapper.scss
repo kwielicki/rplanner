@@ -5,10 +5,12 @@
     @include border('top');
     padding-top: map-get($spacers, 10);
     display: flex;
+    justify-content: flex-end;
     .__item {
         padding-right: map-get($spacers, 15);
         &.isCurrent {
             color: map-get($colors, gray);
+            padding-right: 0;
         }
     }
     .__anchor {

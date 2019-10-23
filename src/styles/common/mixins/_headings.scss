@@ -1,0 +1,15 @@
+@mixin heading-base {
+    font-family: $headingsFontFamily;
+    font-weight: $fw-400;
+    color: map-get($colors, dark);
+}
+
+@mixin heading-type($type) {
+    font-size: map-get($headingsSizes, $type);
+    line-height: map-get($headingsLineHeight, $type);
+}
+
+@mixin heading($type) {
+    @include heading-base;
+    @include heading-type($type);
+}
