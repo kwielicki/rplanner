@@ -3,7 +3,7 @@ import CSSModules from 'react-css-modules'
 import PropTypes from 'prop-types'
 import styles from './InformationPanel.scss'
 
-import newsApiLogo from '@assets/images/news-api-logo.svg'
+import newsApiLogo from 'PATH_TO__ASSETS/images/news-api-logo.svg'
 
 function InformationPanel(props) {
     return (

@@ -1,6 +1,6 @@
 import React from 'react'
 import CSSModules from 'react-css-modules'
-import ListOfLinks from '@components/UI/ListWithLinks'
+import ListOfLinks from 'PATH_TO__COMPONENTS/UI/ListWithLinks'
 import styles from './FooterLinks.scss'
 
 @CSSModules(styles, {allowMultiple: true})

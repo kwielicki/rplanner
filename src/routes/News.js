@@ -1,12 +1,12 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { BreadcrumbsItem } from 'react-breadcrumbs-dynamic'
-import NewsArticles from '@components/NewsArticles'
-import PageTitle from '@components/UI/PageTitle'
-import InformationPanel from '@components/UI/InformationPanel';
-import Column from '@components/Grid/Column'
+import NewsArticles from 'PATH_TO__COMPONENTS/NewsArticles'
+import PageTitle from 'PATH_TO__COMPONENTS/UI/PageTitle'
+import InformationPanel from 'PATH_TO__COMPONENTS/UI/InformationPanel';
+import Column from 'PATH_TO__COMPONENTS/Grid/Column'
 
-import translations from '@translations/translations.json'
+import translations from 'PATH_TO__TRANSLATIONS/translations.json'
 
 class News extends React.Component {
 

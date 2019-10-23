@@ -3,7 +3,7 @@ import {
     FETCH_NEWS_SUCCESS,
     FETCH_NEWS_FAILURE,
     FETCH_NEWS_CATEGORY_SELECT
-} from '@actions/newsActions.js'
+} from 'PATH_TO__ACTIONS/newsActions.js'
 
 const initialState = {
     items:  [],
