@@ -3,7 +3,7 @@ import CSSModules from 'react-css-modules'
 import PropTypes from 'prop-types'
 import styles from './PageTitle.scss'
 
-import Hr from 'PATH_TO__COMPONENTS/UI/Hr'
+import Hr from 'Components/UI/Hr'
 
 function PageTitle( props ) {
 

@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import CSSModules from 'react-css-modules'
 import _ from 'lodash'
 import { connect } from 'react-redux'
-import { fetchNews, fetchNewsCategorySelect } from 'PATH_TO__ACTIONS/newsActions'
+import { fetchNews, fetchNewsCategorySelect } from 'Actions/newsActions'
 import NewsArticlesHeader from './NewsArticlesHeader'
 import styles from './NewsArticles.scss'
 
-import SelectSomething from 'PATH_TO__COMPONENTS/UI/SelectSomething'
-import Loader from 'PATH_TO__COMPONENTS/UI/Loader'
+import SelectSomething from 'Components/UI/SelectSomething'
+import Loader from 'Components/UI/Loader'
 
 
 const mapStateToProps = state => {

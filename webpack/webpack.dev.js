@@ -15,7 +15,7 @@ const path = require('path')
 
 // Paths
 const paths = require('./paths')
-
+const srcDir = paths.dirSrc
 
 module.exports = merge(baseConfig, {
     mode: 'development',
@@ -95,12 +95,12 @@ module.exports = merge(baseConfig, {
     resolve: {
         extensions: ['*', '.js', '.jsx'],
         alias: {
-            'PATH_TO__ASSETS': path.resolve(__dirname, '../src/assets/'),
-            'PATH_TO__COMPONENTS': path.resolve(__dirname, '../src/components/'),
-            'PATH_TO__ROUTES': path.resolve(__dirname, '../src/Routes/'),
-            'PATH_TO__ACTIONS': path.resolve(__dirname, '../src/actions/'),
-            'PATH_TO__REDUCERS': path.resolve(__dirname, '../src/reducers/'),
-            'PATH_TO__TRANSLATIONS': path.resolve(__dirname, '../src/consts/translations')
+            'Assets': path.join(srcDir, '/assets'),
+            'Components': path.join(srcDir, '/components'),
+            'Routes': path.join(srcDir, '/routes'),
+            'Actions': path.join(srcDir, '/actions'),
+            'Reducers': path.join(srcDir, '/reducers'),
+            'Translations': path.join(srcDir, '/consts/translations')
         }
     },
     plugins: [

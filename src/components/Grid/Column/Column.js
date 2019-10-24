@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import Container from 'PATH_TO__COMPONENTS/Grid/Container'
+import Container from 'Components/Grid/Container'
 import CSSModules from 'react-css-modules'
 import styles from './Column.scss'
 

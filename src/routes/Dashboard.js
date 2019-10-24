@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { BreadcrumbsItem } from 'react-breadcrumbs-dynamic'
-import Column from 'PATH_TO__COMPONENTS/Grid/Column'
+import Column from 'Components/Grid/Column'
 class Dashboard extends React.Component {
     render() {
         return (

@@ -1,7 +1,7 @@
 import React from 'react'
 import CSSModules from 'react-css-modules'
-import Column from 'PATH_TO__COMPONENTS/Grid/Column'
-import BreadcrumbsWrapper from 'PATH_TO__COMPONENTS/BreadcrumbsWrapper'
+import Column from 'Components/Grid/Column'
+import BreadcrumbsWrapper from 'Components/BreadcrumbsWrapper'
 import styles from './Header.scss'
 
 @CSSModules(styles, {allowMultiple: true})

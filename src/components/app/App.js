@@ -1,20 +1,20 @@
 import React from 'react'
 import CSSModules from 'react-css-modules'
 import { Helmet } from 'react-helmet'
-import Footer from 'PATH_TO__COMPONENTS/Footer'
-import Header from 'PATH_TO__COMPONENTS/Header';
+import Footer from 'Components/Footer'
+import Header from 'Components/Header';
 import { Route, Switch } from "react-router-dom"
 
-import Dashboard from 'PATH_TO__ROUTES/Dashboard'
-import AddingGuest from 'PATH_TO__ROUTES/AddingGuest'
-import Statistic from 'PATH_TO__ROUTES/Statistic'
-import PageNotFound from 'PATH_TO__ROUTES/PageNotFound'
-import UserProfile from 'PATH_TO__ROUTES/UserProfile'
-import Documentation from 'PATH_TO__ROUTES/Documentation'
-import EditingGuest from 'PATH_TO__ROUTES/EditingGuest'
-import News from 'PATH_TO__ROUTES/News'
+import Dashboard from 'Routes/Dashboard'
+import AddingGuest from 'Routes/AddingGuest'
+import Statistic from 'Routes/Statistic'
+import PageNotFound from 'Routes/PageNotFound'
+import UserProfile from 'Routes/UserProfile'
+import Documentation from 'Routes/Documentation'
+import EditingGuest from 'Routes/EditingGuest'
+import News from 'Routes/News'
 import styles from './App.scss'
-import Sidebar from 'PATH_TO__COMPONENTS/Sidebar'
+import Sidebar from 'Components/Sidebar'
 
 @CSSModules(styles, { allowMultiple: true })
 class App extends React.Component { 

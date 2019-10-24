@@ -1,5 +1,5 @@
 import React from 'react'
-import CurrentYear from 'PATH_TO__COMPONENTS/CurrentYear';
+import CurrentYear from 'Components/CurrentYear';
 import CSSModules from 'react-css-modules';
 import styles from './Copyright.scss'
 

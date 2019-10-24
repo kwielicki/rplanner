@@ -1,8 +1,8 @@
 import React from 'react'
 import CSSModules from 'react-css-modules'
-import Column from 'PATH_TO__COMPONENTS/Grid/Column'
-import Copyright from 'PATH_TO__COMPONENTS/Copyright'
-import FooterLinks from 'PATH_TO__COMPONENTS/Footer/FooterLinks'
+import Column from 'Components/Grid/Column'
+import Copyright from 'Components/Copyright'
+import FooterLinks from 'Components/Footer/FooterLinks'
 import styles from './Footer.scss'
 
 @CSSModules(styles, {allowMultiple: true, handleNotFoundStyleName: 'log'})

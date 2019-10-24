@@ -13,13 +13,13 @@
     "file-loader": "^4.1.0",
     "lodash": "^4.17.15",
     "node-sass": "^4.12.0",
-    "react": "^16.8.6",
+    "react": "^16.10.2",
     "react-breadcrumbs-dynamic": "^1.2.1",
     "react-browser-hooks": "^2.2.3",
     "react-css-modules": "^4.7.11",
-    "react-dom": "^16.8.6",
+    "react-dom": "^16.11.0",
     "react-helmet": "^5.2.1",
-    "react-redux": "^7.1.0",
+    "react-redux": "^7.1.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "redux": "^4.0.4",
@@ -33,11 +33,7 @@
     "webpack-merge": "^4.2.1"
   },
   "scripts": {
-    "extract-messages": "cross-env NODE_ENV=development extract-messages -l=pl,en -o src/translations 'src/**/*.js'",
-    "start": "react-scripts start",
     "build": "webpack --config webpack.prod.js --mode production",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./webpack/webpack.dev.js --hot --inline --open"
   },
   "eslintConfig": {
