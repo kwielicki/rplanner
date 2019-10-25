@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import CSSModules from 'react-css-modules'
-import _ from 'lodash'
+import { isEmpty } from 'lodash'
 import { connect } from 'react-redux'
 import { fetchNews, fetchNewsCategorySelect } from 'Actions/newsActions'
 import NewsArticlesHeader from './NewsArticlesHeader'
@@ -69,7 +69,7 @@ class NewsArticles extends React.Component {
                     ? <Loader/>
                     : <div styleName="__inner">
                         <SelectSomething options={categories} onChange={this._handleChange} value={this.props.selectedCategory}/>
-                        {(!_.isEmpty(items.articles) 
+                        {(!isEmpty(items.articles) 
                             ? <NewsArticlesHeader
                                 totalResults={totalResults} selectedCategory={selectedCategory}/>
                             : <h2>Przefiltruj wyniki</h2>)}

@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import CSSModules from 'react-css-modules'
-import _ from 'lodash'
 import styles from './NewsArticlesHeader.scss'
 
 

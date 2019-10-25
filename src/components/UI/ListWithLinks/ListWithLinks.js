@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import CSSModules from 'react-css-modules'
-import _ from 'lodash'
+import { isEmpty } from 'lodash'
 import styles from './ListWithLinks.scss'
 
 
@@ -11,7 +11,7 @@ class ListWithLinks extends React.Component {
     render() {
         const { links } = this.props
         return (
-            (!_.isEmpty(links) &&
+            (!isEmpty(links) &&
                 <ul styleName='ListWithLinks'>
                     {links.map(({ linkUrl, linkTitle, linkLabel }, index) => {
                         return (

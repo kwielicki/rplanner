@@ -1,0 +1,9 @@
+.Rating {
+    color: #333;
+    .__element {
+        color: #333;
+        &.--isActive {
+            color: orange;
+        }
+    }
+}
