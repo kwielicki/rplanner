@@ -8,6 +8,8 @@ import styles from './NewsArticlesElements.scss'
 
 import bunches from 'Bunches/bunches.json'
 
+import Chips from 'Components/UI/Chips'
+
 
 @CSSModules(styles, {allowMultiple: true})
 class NewsArticlesElements extends React.Component {
@@ -30,17 +32,16 @@ class NewsArticlesElements extends React.Component {
         return (
             <div styleName="__article">
                 <div styleName="__articlePicture">
+                    <span styleName="__articleChip">
+                        <Chips type="primary">{article.source.name}</Chips>
+                    </span>
                     {/* LazyImage component with intersection observer */}
                     <img src={article.urlToImage} styleName="__articleImage" alt={article.title}/>
                 </div>
                 <div styleName="__articleContent">
                     <h4 styleName="__articleTitle">{article.title}</h4>
                     <span styleName="__articleAuthor">
-                        {dictionary.author}: {this.__setAuthor(article)}
-                    </span>
-                    <span styleName="__articleSource">
-                        {/* Chips component */}
-                        {dictionary.source}: {article.source.name}
+                        {dictionary.author}:&nbsp;{this.__setAuthor(article)}
                     </span>
                     <div styleName="__articlePublished">
                         <span styleName="__articlePublishedDate">
@@ -50,6 +51,13 @@ class NewsArticlesElements extends React.Component {
                             {dictionary.howLong}: <Moment from={article.publishedAt}/>
                         </span>
                     </div>
+                </div>
+                <div styleName="__articleActions">
+                    {/* @TODO Component LinkDuo */}
+                    <a href={article.url}
+                       title={article.title}
+                       target="_blank"
+                       rel="nofollow noopener">Preview</a>
                 </div>
             </div>
         )

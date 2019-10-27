@@ -1,0 +1,28 @@
+@import './styles/_common.scss';
+
+.Chips {
+    @include b-radius(25);
+    @include f-size(x-small);
+    display: block;
+    padding: 5px 10px;
+    &.--rounded {
+        border-radius: 50%;
+    }
+    &.--small {
+        padding: 2px 5px;
+    }
+    &.--big {
+        padding: 10px;
+    }
+    &.--primary {
+        @include color(white);
+        background-color: map-get($colors, pink);
+    }
+    &.--secondary {
+        @include color(pink);
+        background-color: map-get($colors, gray-lighter);
+    }
+    .__text {
+        font-size: inherit;
+    }
+}

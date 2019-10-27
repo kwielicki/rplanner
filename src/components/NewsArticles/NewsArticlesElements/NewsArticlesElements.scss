@@ -44,12 +44,12 @@
         @include text-ellipsis;
         @include f-size(14);
     }
-    .__articleAuthor,
-    .__articleSource {
+    .__articleAuthor {
         @include text-ellipsis;
         @include f-size(x-small);
 
         display: flex;
+        padding: 5px 0;
     }
     .__articlePublished {
         @include f-size(x-small);
@@ -61,5 +61,19 @@
     .__articlePublishedDate,
     .__articlePublishedFrom {
         display: inline-block;
+    }
+    .__articleChip {
+        position: absolute;
+        left: 15px;
+        top: 15px;
+        z-index: 2;
+    }
+    .__articleActions {
+        @include border('top');
+
+        display: flex;
+        justify-content: flex-end;
+        margin: 10px 15px 15px;
+        padding-top: 15px;
     }
 }
