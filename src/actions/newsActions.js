@@ -4,6 +4,7 @@ export const FETCH_NEWS_BEGIN   = 'FETCH_NEWS_BEGIN'
 export const FETCH_NEWS_SUCCESS = 'FETCH_NEWS_SUCCESS'
 export const FETCH_NEWS_FAILURE = 'FETCH_NEWS_FAILURE'
 export const FETCH_NEWS_CATEGORY_SELECT = 'FETCH_NEWS_CATEGORY_SELECT'
+export const FETCH_NEWS_COUNTRY_SELECT = 'FETCH_NEWS_COUNTRY_SELECT'
 
 const NEWS_API_KEY = 'd166dcd861194b818e8660ce5a318e7f'
 
@@ -26,14 +27,20 @@ export const fetchNewsCategorySelect = selectedCategory => ({
     payload: { selectedCategory }
 })
 
-export function fetchNews(category) {
+export const fetchNewsCountrySelect = (selectedCountry, selectedCountryLabel) => ({
+    type: FETCH_NEWS_COUNTRY_SELECT,
+    payload: { selectedCountry, selectedCountryLabel }
+})
+
+export function fetchNews(category, country) {
     return dispatch => {
         dispatch(fetchNewsBegin());
         return axios.get('https://newsapi.org/v2/top-headlines', {
                 params: {
-                    country: 'pl',
+                    country: country,
                     category: category,
-                    apiKey: NEWS_API_KEY
+                    apiKey: NEWS_API_KEY,
+                    pageSize: 25
                 }
             })
             .then(response => response.data)

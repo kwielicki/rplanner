@@ -8,3 +8,7 @@
         border: $borderWidth $borderStyle $borderColor;
     }                
 }
+
+@mixin b-radius($radiusValue) {
+    border-radius: map-get($borderRadius, $radiusValue);
+}

@@ -3,26 +3,27 @@
 $font-family-Roboto: 'Roboto', sans-serif;
 
 $colors: (
-    white: #fff,
+    white       : #fff,
     gray-lighter: #fbfbfb,
-    gray-light: #e9e9e9,
-    gray: #ccc,
-    gray-dark: #aaa,
-    green: #2cc5f7,
-    blue: #2664ff,
-    pink: #E9204F,
-    dark: #333
+    gray-light  : #e9e9e9,
+    gray        : #ccc,
+    gray-dark   : #aaa,
+    green       : #2cc5f7,
+    blue        : #2664ff,
+    pink        : #E9204F,
+    dark        : #333
 );
 
 $fontSizes: (
-    small: 14px,
-    medium: 16px,
-    large: 20px,
-    xlarge: 24px
+    x-small : 1.2rem,
+    small   : 1.4rem,
+    medium  : 1.6rem,
+    large   : 2.0rem,
+    x-large : 2.4rem
 );
 
 $LayoutWidths: (
-    section: 1600px,
+    section  : 1600px,
     container: 1440px
 );
 
@@ -63,4 +64,18 @@ $headingsLineHeight: (
     h4: 2.5rem,
     h5: 2.0rem,
     h6: 1.5rem, 
-)
+);
+
+$borderRadius: (
+    3      : 3px,
+    6      : 6px,
+    rounded: 50%
+);
+
+$boxShadows: (
+    dp1: #{0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)},
+    dp2: #{0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)},
+    dp3: #{0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)},
+    dp4: #{0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)},
+    dp5: #{0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)}
+);

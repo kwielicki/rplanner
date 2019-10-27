@@ -1,8 +1,9 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import { BreadcrumbsItem } from 'react-breadcrumbs-dynamic'
+
 import Column from 'Components/Grid/Column'
 import Rating from 'Components/UI/Rating'
+import Rbutton from 'Components/Rbutton'
 class Dashboard extends React.Component {
     render() {
         return (
@@ -12,6 +13,7 @@ class Dashboard extends React.Component {
                 </Helmet>
                 <Column xs='1'>
                     <h1>Dashboard</h1>
+                    <Rbutton/>
                     <Rating rating={1}/>
                     <Rating rating={3}/>
                     <Rating rating={0}/>

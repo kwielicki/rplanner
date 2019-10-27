@@ -1,0 +1,65 @@
+@import './styles/_common.scss';
+
+.NewsArticlesElements {
+    display: block;
+    .__inner {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+    .__element {
+        display: block;
+        width: calc(100% / 3);
+        padding: 15px;
+    }
+    .__article {
+        @include b-radius(3);
+
+        background-color: map-get($colors, white);
+        box-shadow: map-get($boxShadows, dp1);
+        height: 100%;
+        overflow: hidden;
+    }
+    .__articleContent {
+        padding: 15px;
+    }
+    .__articlePicture {
+        height: 250px;
+        position: relative;
+        overflow: hidden;
+    }
+    .__articleImage {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition-duration: 0.5s;
+        transition-property: left;
+        z-index: 1;
+        object-fit: cover;
+    }
+    .__articleTitle {
+        @include text-ellipsis;
+        @include f-size(14);
+    }
+    .__articleAuthor,
+    .__articleSource {
+        @include text-ellipsis;
+        @include f-size(x-small);
+
+        display: flex;
+    }
+    .__articlePublished {
+        @include f-size(x-small);
+        @include color(gray-dark);
+
+        display: flex;
+        justify-content: space-between;
+    }
+    .__articlePublishedDate,
+    .__articlePublishedFrom {
+        display: inline-block;
+    }
+}

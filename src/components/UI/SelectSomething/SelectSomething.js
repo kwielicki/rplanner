@@ -5,14 +5,13 @@ import styles from './SelectSomething.scss'
 
 const SelectSomething = props  => {
 
-    const [isOpen] = useState(false);
-
     const {
         defaultValue,
         options,
         onChange,
         value,
-        disabled
+        disabled,
+        selectLabel
     } = props
 
     const __options = option => {
@@ -22,6 +21,7 @@ const SelectSomething = props  => {
 
     return (
         <div styleName="SelectSomething">
+            <span styleName="__label">{selectLabel}</span>
             <select onChange={onChange}
                     defaultValue={defaultValue}
                     value={value} 
@@ -36,13 +36,14 @@ const SelectSomething = props  => {
 SelectSomething.propTypes = {
     defaultValue: PropTypes.string,
     options: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
         value: PropTypes.string.isRequired,
         label: PropTypes.string.isRequired,
     })),
     onChange: PropTypes.func,
     value: PropTypes.string.isRequired,
-    disabled: PropTypes.bool
+    disabled: PropTypes.bool,
+    labelForSelect: PropTypes.string.isRequired
 }
 
 

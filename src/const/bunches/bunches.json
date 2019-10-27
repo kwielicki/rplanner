@@ -1,0 +1,29 @@
+{
+    "newsAvailableCountries": [
+        {"id": 1, "value": "pl", "label": "Poland"},
+        {"id": 2, "value": "de", "label": "Germany"},
+        {"id": 3, "value": "gb", "label": "United Kingdom"},
+        {"id": 4, "value": "fr", "label": "France"},
+        {"id": 5, "value": "ru", "label": "Russia"},
+        {"id": 6, "value": "it", "label": "Italy"},
+        {"id": 7, "value": "se", "label": "Spain"},
+        {"id": 8, "value": "ua", "label": "Ukraine"},
+        {"id": 9, "value": "gr", "label": "Greece"},
+        {"id": 10, "value": "hu", "label": "Hungary"}
+    ],
+    "newsAvailableCategories": [
+        {"id": 1, "value": "general", "label": "General"},
+        {"id": 2, "value": "business", "label": "Business"},
+        {"id": 3, "value": "entertainment", "label": "Entertainment"},
+        {"id": 4, "value": "health", "label": "Health"},
+        {"id": 5, "value": "science", "label": "Science"},
+        {"id": 6, "value": "sports", "label": "Sports"},
+        {"id": 7, "value": "technology", "label": "Technology"}
+    ],
+    "dictionary": {
+        "author": "Author",
+        "source": "Source",
+        "published": "Published at",
+        "howLong": "How long"
+    }
+}

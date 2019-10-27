@@ -1,3 +1,19 @@
+@import './styles/_common.scss';
+
 .NewsArticlesHeader {
-    color: red;
+    display: block;
+    .__inner {
+        padding-top: 15px;
+    }
+    .__filters {
+        display: block;
+    }
+    .__list {
+        @include list-unstyled;
+
+        display: flex;
+    }
+    .__listElement {
+        padding: 5px 2px;
+    }
 }

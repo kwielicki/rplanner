@@ -3,8 +3,9 @@ import PropTypes from 'prop-types'
 import CSSModules from 'react-css-modules'
 import { isEmpty } from 'lodash'
 import { connect } from 'react-redux'
-import { fetchNews, fetchNewsCategorySelect } from 'Actions/newsActions'
+import { fetchNews, fetchNewsCategorySelect, fetchNewsCountrySelect } from 'Actions/newsActions'
 import NewsArticlesHeader from './NewsArticlesHeader'
+import NewsArticlesElements from './NewsArticlesElements'
 import styles from './NewsArticles.scss'
 
 import SelectSomething from 'Components/UI/SelectSomething'
@@ -16,15 +17,19 @@ const mapStateToProps = state => {
             loading,
             error,
             categories,
+            countries,
             selectedCategory,
+            selectedCountryLabel,
             selectedCountry } = state.news
     return {
         items: items,
         loading: loading,
         error: error,
         categories: categories,
+        countries: countries,
         selectedCategory: selectedCategory,
-        selectedCountry: selectedCountry
+        selectedCountry: selectedCountry,
+        selectedCountryLabel: selectedCountryLabel
     };
 }
   
@@ -32,47 +37,55 @@ const mapStateToProps = state => {
 class NewsArticles extends React.Component {
 
     componentDidMount() {
-        this.props.dispatch(fetchNews(this.props.selectedCategory))
+        this.props.dispatch(fetchNews(this.props.selectedCategory, this.props.selectedCountry))
     }
 
     _handleChange = (evt) => {
         const category = evt.target.value
 
+        
         this.props.dispatch(fetchNewsCategorySelect(category))
-        this.props.dispatch(fetchNews(category))
+        this.props.dispatch(fetchNews(category, this.props.selectedCountry))
     }
+    
+    _handleCountryChange = (evt) => {
+        const country = evt.target.value
+        const countryLabel = evt.target.options[evt.target.selectedIndex].text
 
-    __optionRender = (category) => {
-        const { id, name } = category
-        return (
-            <option value={id} key={id}>
-                {name}
-            </option>
-        )
-    }
-
-    __selectRender = (categories) => {
-        return (
-            <select onChange={this._handleChange} value={this.props.selectedCategory}>
-                {categories.map(category => (
-                    this.__optionRender(category)
-                ))}
-            </select>
-        )
+        this.props.dispatch(fetchNewsCountrySelect(country, countryLabel))
+        this.props.dispatch(fetchNews(this.props.selectedCategory, country))
     }
 
     render() {
-        const { loading, items, items: { totalResults }, categories, selectedCategory } = this.props;
+        const { loading, items, items: { totalResults }, categories, countries, selectedCategory, selectedCountryLabel } = this.props;
         return (
             <div styleName="NewsArticles">
                 {loading
                     ? <Loader/>
                     : <div styleName="__inner">
-                        <SelectSomething options={categories} onChange={this._handleChange} value={this.props.selectedCategory}/>
+                        <div styleName="__selects">
+                            <div styleName="__select">
+                                <SelectSomething options={categories} 
+                                                 onChange={this._handleChange} 
+                                                 value={this.props.selectedCategory}
+                                                 labelForSelect="Category"/>
+                            </div>
+                            <div styleName="__select">
+                                <SelectSomething options={countries} 
+                                                 onChange={this._handleCountryChange} 
+                                                 value={this.props.selectedCountry}
+                                                 labelForSelect="Country"/>
+                            </div>
+                        </div>
                         {(!isEmpty(items.articles) 
-                            ? <NewsArticlesHeader
-                                totalResults={totalResults} selectedCategory={selectedCategory}/>
-                            : <h2>Przefiltruj wyniki</h2>)}
+                            ? <>
+                                <NewsArticlesHeader
+                                    totalResults={totalResults} 
+                                    selectedCategory={selectedCategory} 
+                                    selectedCountryLabel={selectedCountryLabel}/>
+                                <NewsArticlesElements articles={items.articles}/>
+                              </>
+                            : <h2>Ops. Coś poszło nie tak. Wygląda na to, że nie posiadamy artykułów, które spełniają Twoje kryteria wyszukiwania.</h2>)}
                     </div>
                 }
             </div>

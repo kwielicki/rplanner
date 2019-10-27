@@ -1,0 +1,14 @@
+@mixin text-ellipsis {
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@mixin f-size($sizeValue) {
+    font-size: map-get($fontSizes, $sizeValue);
+}
+
+@mixin color($colorValue) {
+    color: map-get($colors, $colorValue);
+}

@@ -1,24 +1,23 @@
+import bunches from 'Bunches/bunches.json'
+
 import {
     FETCH_NEWS_BEGIN,
     FETCH_NEWS_SUCCESS,
     FETCH_NEWS_FAILURE,
-    FETCH_NEWS_CATEGORY_SELECT
+    FETCH_NEWS_CATEGORY_SELECT,
+    FETCH_NEWS_COUNTRY_SELECT
 } from 'Actions/newsActions.js'
+
 
 const initialState = {
     items:  [],
     loading: false,
     error: null,
     selectedCategory: 'general',
-    categories: [
-        {id: '1', value: 'general', label: 'General'},
-        {id: '2', value: 'business', label:  'Business'},
-        {id: '3', value: 'entertainment', label: 'Entertainment'},
-        {id: '4', value: 'health', label: 'Health'},
-        {id: '5', value: 'science', label: 'Science'},
-        {id: '6', value: 'sports', label: 'Sports'},
-        {id: '7', value: 'technology', label: 'Technology'}
-    ]
+    selectedCountry: 'pl',
+    selectedCountryLabel: 'Poland',
+    countries: bunches.newsAvailableCountries,
+    categories: bunches.newsAvailableCategories
 }
 
 export default function newsReducer(state = initialState, action) {
@@ -34,6 +33,13 @@ export default function newsReducer(state = initialState, action) {
             return {
                 ...state,
                 selectedCategory: action.payload.selectedCategory
+            }
+
+        case FETCH_NEWS_COUNTRY_SELECT:
+            return {
+                ...state,
+                selectedCountry: action.payload.selectedCountry,
+                selectedCountryLabel: action.payload.selectedCountryLabel,
             }
 
         case FETCH_NEWS_SUCCESS:

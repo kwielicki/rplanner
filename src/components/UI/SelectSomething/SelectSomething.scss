@@ -1,6 +1,12 @@
+@import './styles/_common.scss';
+
 .SelectSomething {
+    .__label {
+        display: block;
+        font-size: map-get($fontSizes, small);
+        padding-left: 5px;
+    }
     .__select {
-        appearance: none;
         outline: 0;
         box-shadow: none;
         background-image: none;
@@ -8,7 +14,7 @@
         padding: 10px 38px 10px 16px;
         transition: border-color .1s ease-in-out,box-shadow .1s ease-in-out;
         border: 1px solid #ddd;
-        border-radius: 3px;
+        border-radius: map-get($borderRadius, 3);
         &:hover {
             border: 1px solid #999;
         }

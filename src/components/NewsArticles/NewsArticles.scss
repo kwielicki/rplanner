@@ -1,6 +1,16 @@
 .NewsArticles {
+    padding: 30px 0;
     .__inner {
         display: block;
+    }
+    .__selects {
+        display: flex;
+        justify-content: flex-end;
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+    .__select {
+        padding: 10px;
     }
     .__header {
         color: red;
