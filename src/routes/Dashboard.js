@@ -2,21 +2,31 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 
 import Column from 'Components/Grid/Column'
-import Rating from 'Components/UI/Rating'
-import Rbutton from 'Components/Rbutton'
+import PageTitle from 'Components/UI/PageTitle'
+import translations from 'Translations/translations.json'
+
 class Dashboard extends React.Component {
+
+    state = {
+        translations: {
+            pageTitle: translations.dashboard.pageTitle
+        }
+    }
+
     render() {
+
+        const {
+            pageTitle
+        } = this.state.translations
+
         return (
             <>
                 <Helmet>
                     <title>Dashboard</title>
                 </Helmet>
                 <Column xs='1'>
-                    <h1>Dashboard</h1>
-                    <Rbutton/>
-                    <Rating rating={1}/>
-                    <Rating rating={3}/>
-                    <Rating rating={0}/>
+                    <PageTitle supTitle={pageTitle.supTitle}
+                               subTitle={pageTitle.subTitle}/>
 				</Column>
             </>
         )
