@@ -1,12 +1,16 @@
+@import './styles/_common.scss';
+
 .Megamenu {
-    color: #000;
     .__list {
-        list-style: none;
+        @include list-unstyled;
+
+        padding: 25px;
     }
     .__element {
-        font-size: 14px;
+        padding: 10px 0;
     }
     .__elementHeader {
-        font-weight: 600;
+        @include f-size(x-small);
+        @include color(gray);
     }
 }

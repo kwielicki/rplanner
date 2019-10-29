@@ -1,4 +1,7 @@
+@import './styles/_common.scss';
+
 .MegamenuElement {
+    @include list-unstyled;
     .__list {
         list-style: none;
     }
@@ -6,9 +9,36 @@
         font-size: 14px;
     }
     .__listAnchor {
-        font-size: 14px;
-        &.isActive {
-            color: red;   
+        @include transition;
+        @include rm-decoration;
+        @include color(dark);
+
+        display: flex;
+        align-items: center;
+        padding: 10px;
+
+        &:hover {
+            background-color: map-get($colors, gray-lighter);
         }
+
+        &.isActive {
+            @include color(pink);
+        }
+    }
+    .__icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 15px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: map-get($colors, gray-lighter);
+    }
+    .__iconSvg {
+        font-size: 20px;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
     }
 }

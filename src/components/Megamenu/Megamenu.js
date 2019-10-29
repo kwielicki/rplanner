@@ -13,34 +13,34 @@ class Megamenu extends React.Component {
         this.setState({
             megamenuLinks: [
                 {
-                    header: 'General',
+                    header: 'Get started',
                     sets: [
-                        { linkUrl: '/', linkTitle: 'Dashboard' }
+                        { linkUrl: '/', linkTitle: 'Dashboard', linkIcon: 'home' }
                     ]
                 },{
-                    header: 'Actions',
+                    header: 'Content',
                     sets: [
-                        { linkUrl: '/manage-guest-list', linkTitle: 'Manage guest list' },
-                        { linkUrl: '/adding-guest', linkTitle: 'Add a new guest' },
-                        { linkUrl: '/statistic', linkTitle: 'Statistic' },
-                        { linkUrl: '/wedding-organizer', linkTitle: 'Wedding organizer' },
-                        { linkUrl: '/notebook', linkTitle: 'Notebook' },
-                        { linkUrl: '/expenses', linkTitle: 'Expenses' }
+                        { linkUrl: '/manage-guest-list', linkTitle: 'Manage guest list', linkIcon: 'users' },
+                        { linkUrl: '/adding-guest', linkTitle: 'Add a new guest', linkIcon: 'user-plus' },
+                        { linkUrl: '/statistic', linkTitle: 'Statistic', linkIcon: 'chart-bar' },
+                        { linkUrl: '/wedding-organizer', linkTitle: 'Wedding organizer', linkIcon: 'address-card' },
+                        { linkUrl: '/notebook', linkTitle: 'Notebook', linkIcon: 'clipboard' },
+                        { linkUrl: '/expenses', linkTitle: 'Expenses', linkIcon: 'funnel-dollar' }
                     ]
                 },{
                     header: 'Help & FAQ',
                     sets: [
-                        { linkUrl: '/documentation', linkTitle: 'Documentation' }
+                        { linkUrl: '/documentation', linkTitle: 'Documentation', linkIcon: 'book' }
                     ]
                 },{
                     header: 'Account',
                     sets: [
-                        { linkUrl: '/user-profile', linkTitle: 'User profile' },
+                        { linkUrl: '/user-profile', linkTitle: 'User profile', linkIcon: 'users-cog' },
                     ]
                 },{
                     header: 'Additional functionalities',
                     sets: [
-                        { linkUrl: '/news', linkTitle: 'News' }
+                        { linkUrl: '/news', linkTitle: 'News', linkIcon: 'images' }
                     ]
                 }
             ]

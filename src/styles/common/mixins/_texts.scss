@@ -12,3 +12,7 @@
 @mixin color($colorValue) {
     color: map-get($colors, $colorValue);
 }
+
+@mixin rm-decoration {
+    text-decoration: none!important;
+}

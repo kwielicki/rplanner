@@ -101,7 +101,8 @@ module.exports = merge(baseConfig, {
             'Actions': path.join(srcDir, '/actions'),
             'Reducers': path.join(srcDir, '/reducers'),
             'Translations': path.join(srcDir, '/const/translations'),
-            'Bunches': path.join(srcDir, '/const/bunches')
+            'Bunches': path.join(srcDir, '/const/bunches'),
+            'FontAwesome': path.join(srcDir, '/fontAwesome')
         }
     },
     plugins: [

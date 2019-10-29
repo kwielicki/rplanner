@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet'
 import Footer from 'Components/Footer'
 import Header from 'Components/Header';
 import { Route, Switch } from "react-router-dom"
+import fontAwesome from 'FontAwesome/fontAwesome'
 
 import Dashboard from 'Routes/Dashboard'
 import AddingGuest from 'Routes/AddingGuest'
