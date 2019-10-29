@@ -30,15 +30,7 @@
         overflow: hidden;
     }
     .__articleImage {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        transition-duration: 0.5s;
-        transition-property: left;
         z-index: 1;
-        object-fit: cover;
     }
     .__articleTitle {
         @include text-ellipsis;

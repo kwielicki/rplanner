@@ -4,12 +4,14 @@ import CSSModules from 'react-css-modules'
 import { isEmpty } from 'lodash'
 import Moment from 'react-moment'
 import 'moment-timezone'
-import styles from './NewsArticlesElements.scss'
 
 import bunches from 'Bunches/bunches.json'
 
 import Chips from 'Components/UI/Chips'
+import imagePlaceHolder from 'Assets/images/placeholder_768x768.png'
+import LazyImage from 'Components/LazyImage'
 
+import styles from './NewsArticlesElements.scss'
 
 @CSSModules(styles, {allowMultiple: true})
 class NewsArticlesElements extends React.Component {
@@ -35,8 +37,12 @@ class NewsArticlesElements extends React.Component {
                     <span styleName="__articleChip">
                         <Chips type="primary">{article.source.name}</Chips>
                     </span>
-                    {/* LazyImage component with intersection observer */}
-                    <img src={article.urlToImage} styleName="__articleImage" alt={article.title}/>
+                    <div styleName="__articleImage">
+                        <LazyImage alt={article.title}
+                                   isCovered
+                                   placeholder={imagePlaceHolder}
+                                   src={article.urlToImage}/>
+                    </div>
                 </div>
                 <div styleName="__articleContent">
                     <h4 styleName="__articleTitle">{article.title}</h4>
