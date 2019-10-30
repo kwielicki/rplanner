@@ -26,7 +26,7 @@ class News extends React.Component {
         return (
             <>
                 <Helmet>
-                    <title>{this.state.title}</title>
+                    <title>News</title>
                 </Helmet>
 
                 <BreadcrumbsItem to='/'>Dashboard</BreadcrumbsItem>
