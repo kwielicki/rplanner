@@ -10,6 +10,7 @@ import bunches from 'Bunches/bunches.json'
 import Chips from 'Components/UI/Chips'
 import imagePlaceHolder from 'Assets/images/placeholder_768x768.png'
 import LazyImage from 'Components/LazyImage'
+import Button from 'Components/Button'
 
 import styles from './NewsArticlesElements.scss'
 
@@ -59,11 +60,12 @@ class NewsArticlesElements extends React.Component {
                     </div>
                 </div>
                 <div styleName="__articleActions">
-                    {/* @TODO Component LinkDuo */}
-                    <a href={article.url}
-                       title={article.title}
-                       target="_blank"
-                       rel="nofollow noopener">Preview</a>
+                    <Button type="external"
+                            variant="default"
+                            linkUrl={article.url}
+                            linkTitle={article.title}>
+                        Preview
+                    </Button>
                 </div>
             </div>
         )
