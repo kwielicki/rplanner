@@ -20,5 +20,11 @@
             "supTitle": "Adding Guest",
             "subTitle": "Using the form, complete the required fields to save the guest in the database"
         }
+    },
+    "userProfile": {
+        "pageTitle": {
+            "supTitle": "User Profile",
+            "subTitle": "Check you details information about your profile"
+        }
     }
 }

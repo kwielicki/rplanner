@@ -14,7 +14,6 @@ class Dashboard extends React.Component {
     }
 
     render() {
-
         const {
             pageTitle
         } = this.state.translations

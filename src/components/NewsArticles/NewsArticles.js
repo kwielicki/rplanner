@@ -30,7 +30,7 @@ const mapStateToProps = state => {
         selectedCategory: selectedCategory,
         selectedCountry: selectedCountry,
         selectedCountryLabel: selectedCountryLabel
-    };
+    }
 }
   
 @CSSModules(styles, {allowMultiple: true})

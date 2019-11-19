@@ -5,7 +5,7 @@ import Footer from 'Components/Footer'
 import Header from 'Components/Header';
 import { Route, Switch } from "react-router-dom"
 import fontAwesome from 'FontAwesome/fontAwesome'
-
+import { connect } from "react-redux"
 import Dashboard from 'Routes/Dashboard'
 import AddingGuest from 'Routes/AddingGuest'
 import Statistic from 'Routes/Statistic'
@@ -13,13 +13,17 @@ import PageNotFound from 'Routes/PageNotFound'
 import UserProfile from 'Routes/UserProfile'
 import Documentation from 'Routes/Documentation'
 import EditingGuest from 'Routes/EditingGuest'
+import Login from 'Routes/Login'
 import News from 'Routes/News'
 import styles from './App.scss'
 import Sidebar from 'Components/Sidebar'
 
+import ProtectedRoute from "Components/ProtectedRoute.js"
+
 @CSSModules(styles, { allowMultiple: true })
 class App extends React.Component { 
     render() {
+        const { isAuthenticated, isVerifying } = this.props
         return (
             <>
                 <Helmet>
@@ -27,24 +31,27 @@ class App extends React.Component {
                     <meta name="description" content="Wedding planner - application for managing wedding preparations" />
                 </Helmet>
                 <div styleName='App'>
-                    <aside styleName='__sidebar'>
-                        <Sidebar/>
-                    </aside>
+                    {isAuthenticated && (
+                        <aside styleName='__sidebar'>
+                            <Sidebar/>
+                        </aside>
+                    )}
                     <main styleName='__main'>
-                        <Header/>
+                        {isAuthenticated && <Header/>}
                             <div styleName='__content'>
                                 <Switch>
-                                    <Route exact path='/' component={Dashboard} />
-                                    <Route path='/adding-guest' component={AddingGuest} />
-                                    <Route path='/statistic' component={Statistic} />
-                                    <Route path='/user-profile' component={UserProfile} />
-                                    <Route path='/documentation' component={Documentation} />
-                                    <Route path='/editing-guest' component={EditingGuest} />
-                                    <Route path='/news' component={News}/>
-                                    <Route component={PageNotFound} />
+                                    <ProtectedRoute exact path='/' component={Dashboard} isAuthenticated={isAuthenticated} isVerifying={isVerifying}/>
+                                    <ProtectedRoute path='/adding-guest' component={AddingGuest} isAuthenticated={isAuthenticated} isVerifying={isVerifying}/>
+                                    <ProtectedRoute path='/statistic' component={Statistic} isAuthenticated={isAuthenticated} isVerifying={isVerifying}/>
+                                    <ProtectedRoute path='/user-profile' component={UserProfile} isAuthenticated={isAuthenticated} isVerifying={isVerifying}/>
+                                    <ProtectedRoute path='/documentation' component={Documentation} isAuthenticated={isAuthenticated} isVerifying={isVerifying}/>
+                                    <ProtectedRoute path='/editing-guest' component={EditingGuest} isAuthenticated={isAuthenticated} isVerifying={isVerifying}/>
+                                    <ProtectedRoute path='/news' component={News} isAuthenticated={isAuthenticated} isVerifying={isVerifying}/>
+                                    <Route path='/login' component={Login} />
+                                    <ProtectedRoute component={PageNotFound} isAuthenticated={isAuthenticated} isVerifying={isVerifying}/>
                                 </Switch>
                             </div>
-                        <Footer/>
+                        {isAuthenticated && <Footer/>}
                     </main>
                 </div>
             </>
@@ -52,4 +59,11 @@ class App extends React.Component {
     }
 }
 
-export default App;
+function mapStateToProps(state) {
+    return {
+        isAuthenticated: state.auth.isAuthenticated,
+        isVerifying: state.auth.isVerifying
+    }
+}
+
+export default connect(mapStateToProps)(App)

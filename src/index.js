@@ -11,11 +11,14 @@ import * as serviceWorker from '../serviceWorker'
 import './styles/index.scss'
 import './config/env.js'
 
+
 import rootReducer from './rootReducer'
+import { verifyAuth } from "./actions/auth.js"
 const store = createStore(
     rootReducer,
     applyMiddleware(thunk, logger)
 )
+store.dispatch(verifyAuth());
 
 import WebFont from 'webfontloader';
 

@@ -4,6 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const dotenv = require('dotenv')
 
 const baseConfig = require('./webpack.common')
 
@@ -16,6 +17,13 @@ const path = require('path')
 // Paths
 const paths = require('./paths')
 const srcDir = paths.dirSrc
+
+// Env variables
+const env = dotenv.config().parsed
+const envKeys = Object.keys(env).reduce((prev, next) => {
+    prev[`process.env.${next}`] = JSON.stringify(env[next]);
+    return prev;
+}, {});
 
 module.exports = merge(baseConfig, {
     mode: 'development',
@@ -106,6 +114,7 @@ module.exports = merge(baseConfig, {
         }
     },
     plugins: [
+        new webpack.DefinePlugin(envKeys),
         new CleanWebpackPlugin(),
         new ExtractTextPlugin('style.css', { allChunks: true }),
         new MiniCssExtractPlugin({
