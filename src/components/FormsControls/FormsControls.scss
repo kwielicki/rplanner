@@ -1,0 +1,68 @@
+@import './styles/_common.scss';
+
+.FormElement {
+    display: block;
+    padding: 15px 0 0;
+    .__group {
+        position: relative;
+        background-color: map-get($colors, gray-light);
+    }
+    .__label {
+        @include text-ellipsis;
+        @include transition;
+
+        display: block;
+        position: absolute;
+        left: 16px;
+        top: 50%;
+        transform: translateY(-50%) translateZ(0);
+        transform-origin: left top;
+        margin: 0;
+        font-size: map-get($fontSizes, small);
+        pointer-events: none;
+        will-change: transform;
+        line-height: 1.75rem;
+        &.isError {
+            color: red;
+        }
+        &.isValid {
+            color: green;
+        }
+        &.isFocused,
+        &.isDirty {
+            transform: translateY(-105%) scale(0.75);
+        }
+    }
+    .__input {
+        @include text-ellipsis;
+        @include transition;
+        
+        display: block;
+        width: 100%;
+        padding: 20px 16px 6px;
+        border: 0;
+        border-bottom: 1px solid map-get($colors, gray);
+        background-color: map-get($colors, gray-light);
+        &:hover {
+            background-color: darken(map-get($colors, gray-light), 5%);
+        }
+        &:focus {
+            outline: none;
+        }
+        &.isError {
+            border-color: red;
+        }
+        &.isValid {
+            border-color: green;
+        }
+        &.isFocused {
+            background-color: darken(map-get($colors, gray-light), 10%);
+        }
+    }
+    .__error {
+        color: red;
+        font-size: map-get($fontSizes, x-small);
+        padding-top: 4px;
+        padding-left: 16px;
+    }
+}

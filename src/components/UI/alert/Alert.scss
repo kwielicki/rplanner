@@ -1,0 +1,51 @@
+@import './styles/_common.scss';
+
+.Alert {
+    display: block;
+    .__inner {
+        display: flex;
+        width: 100%;
+        border: 1px solid map-get($colors, gray-light);
+        border-top-right-radius: map-get($borderRadius, 6);
+        border-bottom-right-radius: map-get($borderRadius, 6);
+        &.--warning {
+            border-right: 3px solid map-get($colors, orange);
+        }
+    }
+    .__icon {
+        @include center-by-flex;
+
+        margin: 15px 0;
+        border-right: 1px solid map-get($colors, orange);
+        width: 50px;
+    }
+    .__iconVariant {
+        font-size: 20px;
+    }
+    .__content {
+        width: calc(100% - 50px);
+        padding: 15px;
+    }
+    .__title {
+        font-weight: $fw-600;
+        text-transform: capitalize;
+    }
+    .__text {
+        font-size: 10px;
+        font-weight: $fw-300;
+        margin: 0;
+        color: map-get($colors, dark);
+    }
+    &.--success {
+        color: green;
+    }
+    &.--warning {
+        color: map-get($colors, orange);
+    }
+    &.--danger {
+        color: map-get($colors, red);
+    }
+    &.--info {
+        color: blue;
+    }
+}

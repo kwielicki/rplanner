@@ -1,0 +1,66 @@
+@import './styles/_common.scss';
+
+.LoginForm {
+    position: relative;
+    display: flex;
+    max-width: 767px;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0 auto;
+    &:before {
+        content: '';
+        position: absolute;
+        background-color: #E9204F;
+        top: 0;
+        bottom: 0;
+        width: 200%;
+        right: calc(100% - 300px);
+    }
+    .__inner {
+        position: relative;
+        background-color: #fff;
+        width: 100%;
+        display: flex;
+        box-shadow: map-get($boxShadows, dp5);
+        height: 600px;
+    }
+    .__information {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 64px;
+        width: 300px;
+        background-color: map-get($colors, pink);
+    }
+    .__informationDescription {
+        text-align: center;
+        color: map-get($colors, gray-lighter);
+        font-size: 12px;
+    }
+    .__oauth {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: calc(100% - 300px);
+    }
+    .__oauthForm {
+        display: flex;
+        flex-direction: column;
+        padding: 64px;
+        width: 100%;
+    }
+    .__oauthError {
+        padding-top: 30px;
+    }
+    .__button {
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 15px;
+    }
+    .__logo {
+        max-width: 100%;
+    }
+}

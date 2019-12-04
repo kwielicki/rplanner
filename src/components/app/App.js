@@ -18,7 +18,8 @@ import News from 'Routes/News'
 import styles from './App.scss'
 import Sidebar from 'Components/Sidebar'
 
-import ProtectedRoute from "Components/ProtectedRoute.js"
+import ProtectedRoute from "Components/ProtectedRoute"
+import classNames from 'classnames'
 
 @CSSModules(styles, { allowMultiple: true })
 class App extends React.Component { 
@@ -36,7 +37,10 @@ class App extends React.Component {
                             <Sidebar/>
                         </aside>
                     )}
-                    <main styleName='__main'>
+                    <main styleName={classNames({
+                        '__main': true,
+                        '--withoutSpace': !isAuthenticated
+                    })}>
                         {isAuthenticated && <Header/>}
                             <div styleName='__content'>
                                 <Switch>

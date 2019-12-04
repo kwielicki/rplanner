@@ -1,0 +1,61 @@
+@mixin button-base {
+    @include transition;
+
+    font-size: map-get($fontSizes, small);
+    text-transform: uppercase;
+    border-radius: map-get($borderRadius, 3);
+    letter-spacing: .0892857143em;
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0,0,0,.12);
+    height: 36px;
+    min-width: 64px;
+    border: none;
+    font-weight: $fw-600;
+    &:focus {
+        outline: none;
+    }
+}
+@mixin button-size($ButtonSize) {
+    // Available size: large, normal, small
+    @if $ButtonSize == 'small' {
+        padding: 0 22px;
+    } @else if $ButtonSize == 'normal' {
+        padding: 0 15px;
+    } @else if $ButtonSize == 'large' {
+        padding: 0 30px;
+    }
+}
+@mixin button-variant($ButtonVariant) {
+    // Available button variants: primary, secondary, triple
+    @if $ButtonVariant == 'primary' {
+        background-color: map-get($colors, pink);
+        color: map-get($colors, white);
+        &:hover {
+            background-color: lighten(map-get($colors, pink), 10%);
+            box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+                        0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+                        0px 1px 10px 0px rgba(0,0,0,.12);
+        }
+        &:active {
+            box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
+                        0px 8px 10px 1px rgba(0, 0, 0, 0.14),
+                        0px 3px 14px 2px rgba(0,0,0,.12);
+        }
+    }
+}
+@mixin button-display($ButtonDisplay) {
+    justify-content: center;
+    align-items: center;
+    @if $ButtonDisplay == 'inline-flex' {
+        display: inline-flex;
+    } @else if $ButtonDisplay == 'flex' {
+        display: flex;
+    }
+}
+@mixin button-creator($ButtonSize: 'normal',
+                      $ButtonVariant: 'primary',
+                      $ButtonDisplay: 'inline-flex') {
+    @include button-base;
+    @include button-size($ButtonSize);
+    @include button-variant($ButtonVariant);
+    @include button-display($ButtonDisplay)
+}

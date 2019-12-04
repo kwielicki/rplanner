@@ -1,9 +1,39 @@
+@import './styles/_common.scss';
+
 .Rbutton {
-    color: red;
+    position: relative;
     &.--primary {
-        color: blue;
+        @include button-creator;
     }
     &.--secondary {
         color: green;
+    }
+    .__icon {
+        display: inline-block;
+        font-size: 80%;
+    }
+    &.--icon {
+        .__label {
+            margin-left: 13px;
+            display: inline-block;
+        }
+    }
+    &.isLoader {
+        pointer-events: none;
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: inherit;
+            z-index: 2;
+        }
+    }
+    .__loader {
+        position: absolute;
+        z-index: 3;
+        animation: fa-spin 2s linear infinite;
     }
 }

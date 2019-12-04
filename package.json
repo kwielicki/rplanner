@@ -17,6 +17,7 @@
     "dotenv": "^8.2.0",
     "file-loader": "^4.1.0",
     "firebase": "^7.4.0",
+    "formik": "^2.0.4",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.27",
@@ -41,7 +42,8 @@
     "redux-thunk": "^2.3.0",
     "sass-loader": "^7.1.0",
     "webfontloader": "^1.6.28",
-    "webpack-merge": "^4.2.1"
+    "webpack-merge": "^4.2.1",
+    "yup": "^0.27.0"
   },
   "scripts": {
     "build": "webpack --config webpack.prod.js --mode production",

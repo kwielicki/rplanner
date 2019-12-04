@@ -13,6 +13,9 @@
   .__main {
     min-height: 100vh;
     padding-left: 280px;
+    &.--withoutSpace {
+      padding-left: 0;
+    }
   }
   .__content {
     background-color: transparent;
