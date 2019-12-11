@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules'
 import classNames from 'classnames'
 import styles from './LazyImage.scss'
+import { isEmpty } from 'lodash'
 
 @CSSModules(styles, {allowMultiple: true})
 class LazyImage extends PureComponent {
@@ -24,11 +25,13 @@ class LazyImage extends PureComponent {
     }
 
     render() {
-        const { placeholder, alt, isCovered } = this.props;
+        const { placeholder, alt, isCovered, ...rest } = this.props;
+        console.log(placeholder)
         return (
             <img ref={el => this.element = el} 
                  src={placeholder} 
-                 alt={alt} 
+                 alt={alt}
+                 {...rest}
                  styleName={classNames({
                     "LazyImage": true,
                     "--isCovered": isCovered

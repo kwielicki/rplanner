@@ -4,6 +4,8 @@ import { Helmet } from 'react-helmet'
 import Column from 'Components/Grid/Column'
 import PageTitle from 'Components/UI/PageTitle'
 import translations from 'Translations/translations.json'
+import OpenWeather from 'Components/OpenWeather'
+
 
 class Dashboard extends React.Component {
 
@@ -27,6 +29,9 @@ class Dashboard extends React.Component {
                     <PageTitle supTitle={pageTitle.supTitle}
                                subTitle={pageTitle.subTitle}/>
 				</Column>
+                <Column xs='1' lg='2' spacerBottom='30'>
+                    <OpenWeather></OpenWeather>
+                </Column>
             </>
         )
     }

@@ -1,0 +1,105 @@
+@import './styles/_common.scss';
+
+.OpenWeather {
+    @extend %boxshadow-dp2;
+    @include rounded(6);
+
+    display: flex;
+    overflow: hidden;
+    .__inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 40%;
+        order: 1;
+        background-color: map-get($colors, white);
+        padding: map-get($spacers, 15);
+    }
+    .__background {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        order: 2;
+        width: 60%;
+    }
+    .__backgroundSrc {
+        z-index: 1;
+    }
+    .__header,
+    .__footer {
+        display: flex;
+        position: relative;
+        padding: map-get($spacers, 30) map-get($spacers, 15);
+        z-index: 2;
+    }
+    .__header {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    .__city {
+        @include heading('h1');
+        font-weight: 300;
+        color: map-get($colors, white);
+    }
+    .__country {
+        font-size: map-get($fontSizes, small);
+        text-transform: uppercase;
+        color: map-get($colors, white);
+    }
+    .__footer {
+        justify-content: space-between;
+    }
+    .__temp {
+        @include heading('h1');
+        font-size: 50px;
+        font-weight: 300;
+
+        color: #fff;
+    }
+    .__time {
+        color: #fff;
+    }
+    .__timeDt {
+        font-weight: $fw-600;
+    }
+    .__timeDate {
+        display: block;
+        font-weight: $fw-300;
+        color: map-get($colors, gray-light);
+    }
+    .__icon {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin: 0 auto;
+    }
+    .__iconSource {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+    }
+    .__iconDescription {
+        text-transform: capitalize;
+        font-size: map-get($fontSizes, large);
+        color: map-get($colors, gray-darker);
+    }
+    .__content {
+        padding-top: map-get($spacers, 30);
+    }
+    .__list {
+        @include list-unstyled;
+    }
+    .__element {
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid map-get($colors, gray-light);
+        padding: map-get($spacers, 15);
+    }
+    .__elementLabel {
+        font-weight: $fw-300;
+    }
+    .__elementValue {
+        font-weight: $fw-400;
+    }
+}

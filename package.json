@@ -41,6 +41,7 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "sass-loader": "^7.1.0",
+    "use-position": "^0.0.6",
     "webfontloader": "^1.6.28",
     "webpack-merge": "^4.2.1",
     "yup": "^0.27.0"

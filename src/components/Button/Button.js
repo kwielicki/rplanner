@@ -16,11 +16,13 @@ function Button(props) {
         variant,
         linkUrl,
         linkTitle,
+        displayBlock,
         children,
     } = props
 
     const ButtonStyles = {
         '__link': true,
+        '--displayBlock': displayBlock,
         [`--${variant}`]: variant,
         [`--${size}`]: size,
     }
@@ -34,7 +36,10 @@ function Button(props) {
     }
 
     return (
-        <div styleName='Button' onMouseDown={__mouseenterHandler} ref={buttonElement}>
+        <div styleName={classNames({
+            'Button': true,
+            '--displayBlock': displayBlock
+        })} onMouseDown={__mouseenterHandler} ref={buttonElement}>
             {type === 'internal'
                 ? <Link styleName={classNames(ButtonStyles)} 
                         to={linkUrl} 
@@ -56,6 +61,7 @@ Button.propTypes = {
     variant: PropTypes.oneOf(['default', 'primary', 'secondary']).isRequired,
     linkUrl: PropTypes.string.isRequired,
     linkTitle: PropTypes.string,
+    displayBlock: PropTypes.bool,
     children: PropTypes.node.isRequired
 }
 
