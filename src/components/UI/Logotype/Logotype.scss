@@ -1,0 +1,37 @@
+@import './styles/_common.scss';
+
+.Logotype {
+    .__inner {
+        display: flex;
+        align-items: baseline;
+    }
+    .__logo {
+        display: inline-block;
+    }
+    .__logoSource {
+        height: 50px;
+    }
+    .__text {
+        @include padding($left: 10);
+
+        font-weight: $fw-400;
+        white-space: nowrap;
+    }
+    .__textValue {
+        font-weight: $fw-600;
+        &.--isLight {
+            @include color(white);
+        }
+    }
+    .__textNote {
+        @include f-size(small);
+
+        display: block;
+        font-family: $dancingFontFamily;
+        text-transform: capitalize;
+        line-height: 1;
+        &.--isLight {
+            @include color(white);
+        }
+    }
+}

@@ -9,13 +9,14 @@
     height: 100vh;
     margin: 0 auto;
     &:before {
+        @include bg-color(ping);
+
         content: '';
         position: absolute;
-        background-color: #E9204F;
         top: 0;
         bottom: 0;
         width: 200%;
-        right: calc(100% - 300px);
+        right: calc(100% - 308px);
     }
     .__inner {
         position: relative;
@@ -26,41 +27,81 @@
         height: 600px;
     }
     .__information {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include center-by-flex;
+        @include padding-all(65);
+        @include bg-color(pink);
+
         flex-direction: column;
-        padding: 64px;
-        width: 300px;
-        background-color: map-get($colors, pink);
     }
     .__informationDescription {
+        @include f-size(x-small);
+        @include color(gray-lighter);
+
         text-align: center;
-        color: map-get($colors, gray-lighter);
-        font-size: 12px;
     }
     .__oauth {
         display: flex;
-        align-items: center;
         justify-content: center;
         flex-direction: column;
         width: calc(100% - 300px);
     }
+    .__oauthHeader {
+        @include color(pink);
+        @include padding($left: 30, $right: 30);
+
+        font-weight: $fw-600;
+        text-align: left;
+    }
+    .__oauthSubheader {
+        @include color(dark);
+        @include f-size(x-small);
+        @include padding($left: 30, $right: 30);
+    }
     .__oauthForm {
+        @include padding-all(30);
+
         display: flex;
         flex-direction: column;
-        padding: 64px;
         width: 100%;
     }
     .__oauthError {
-        padding-top: 30px;
+        @include padding($top: 30);
     }
     .__button {
+        @include padding($top: 15);
+
         display: flex;
         justify-content: flex-end;
-        padding-top: 15px;
     }
     .__logo {
         max-width: 100%;
+    }
+    @include respond-down(md) {
+        &:before {
+            display: none;
+        }
+        .__inner {
+            flex-direction: column;
+            height: 100%;
+            box-shadow: none;
+        }
+        .__information {
+            @include padding-all(25);
+            
+            align-items: flex-start;
+        }
+        .__oauth {
+            @include padding($top: 25);
+
+            width: 100%;
+        }
+        .__oauthHeader,
+        .__oauthSubheader {
+            @include padding($left: 25, $right: 25);
+        }
+        .__oauthForm {
+            @include padding-all(25);
+            @include padding($top: 15);
+        }
     }
 }

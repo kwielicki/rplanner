@@ -13,6 +13,10 @@
     color: map-get($colors, $colorValue);
 }
 
+@mixin bg-color($colorValue) {
+    background-color: map-get($colors, $colorValue);
+}
+
 @mixin rm-decoration {
     text-decoration: none!important;
 }

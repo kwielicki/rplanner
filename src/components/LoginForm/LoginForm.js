@@ -6,10 +6,9 @@ import CSSModules from 'react-css-modules'
 import TextInput from 'Components/FormsControls'
 import Alert from 'Components/UI/Alert'
 import Rbutton from 'Components/Rbutton'
-import LazyImage from 'Components/LazyImage'
+import Logotype from 'Components/UI/Logotype'
 import { connect } from "react-redux"
 import styles from './LoginForm.scss'
-import Logo from 'Assets/images/wp-logo.png'
 
 const validationSchema = Yup.object().shape({
     email: Yup
@@ -39,10 +38,14 @@ class LoginForm extends Component {
             <div styleName='LoginForm'>
                 <div styleName='__inner'>
                     <div styleName='__information'>
-                        <LazyImage src={Logo}/>
-                        <p styleName='__informationDescription'>An application for planning wedding and managing wedding guests</p>
+                        <Logotype isLight/>
                     </div>
                     <div styleName='__oauth'>
+                        <div styleName='__oauthHeader'>Login</div>
+                        <div styleName='__oauthSubheader'>
+                            Welcome to Wedding Planner!
+                            The perfect application for the perfect moment.
+                        </div>
                         <Formik
                             initialValues={this.state}
                             validationSchema={validationSchema}

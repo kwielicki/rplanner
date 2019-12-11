@@ -1,0 +1,9 @@
+@mixin padding($top: null, $right: null, $bottom: null, $left: null) {
+    padding-top: map-get($spacers, $top);
+    padding-right: map-get($spacers, $right);
+    padding-bottom: map-get($spacers, $bottom);
+    padding-left: map-get($spacers, $left);
+}
+@mixin padding-all($padding) {
+    padding: map-get($spacers, $padding);
+}

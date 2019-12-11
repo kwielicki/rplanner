@@ -41,7 +41,8 @@ $spacers: (
     15: 15px,
     20: 20px,
     25: 25px,
-    30: 35px
+    30: 35px,
+    65: 65px
 );
 
 $breakpoint: (
@@ -56,6 +57,8 @@ $fw-400: 400;
 $fw-600: 600;
 
 $headingsFontFamily: 'Oswald', sans-serif;
+$dancingFontFamily: 'Dancing Script', cursive;
+
 $headingsSizes: (
     h1: 3.5rem,
     h2: 3.0rem,
@@ -86,4 +89,12 @@ $boxShadows: (
     dp3: #{0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)},
     dp4: #{0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)},
     dp5: #{0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)}
+);
+
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
 );

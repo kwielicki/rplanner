@@ -25,7 +25,7 @@ import WebFont from 'webfontloader';
 WebFont.load({
     classes: false,
     google: {
-        families: ['Roboto:300,400,700', 'Oswald:300,400,700', 'sans-serif']
+        families: ['Roboto:300,400,700', 'Oswald:300,400,700', 'Dancing Script:400', 'sans-serif']
     }
 })
 
