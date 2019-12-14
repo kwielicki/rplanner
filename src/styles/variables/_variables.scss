@@ -10,11 +10,20 @@ $colors: (
     gray-dark   : #aaa,
     gray-darker : #a4a6a8,
     green       : #2cc5f7,
-    blue        : #2664ff,
+    blue        : #20b4e9,
     orange      : #ff5722,
     pink        : #E9204F,
     red         : #e53935,
-    dark        : #333
+    dark        : #333,
+    black       : #000
+);
+$colorsRGB: (
+    pink:  (rgb(red(map-get($colors, pink)),
+               green(map-get($colors, pink)),
+               blue(map-get($colors, pink)))),
+    black: (rgb(red(map-get($colors, black)),
+                green(map-get($colors, black)),
+                blue(map-get($colors, black)))),
 );
 
 $fontSizes: (
@@ -77,6 +86,7 @@ $headingsLineHeight: (
 );
 
 $borderRadius: (
+    0      : 0,
     3      : 3px,
     6      : 6px,
     25     : 25px,
@@ -90,6 +100,10 @@ $boxShadows: (
     dp4: #{0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)},
     dp5: #{0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)}
 );
+
+$z-index1: 1;
+$z-index2: 2;
+$z-index9: 9;
 
 $breakpoints: (
   xs: 0,

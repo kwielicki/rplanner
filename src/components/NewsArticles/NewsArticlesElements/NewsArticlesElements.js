@@ -61,7 +61,7 @@ class NewsArticlesElements extends React.Component {
                 </div>
                 <div styleName="__articleActions">
                     <Button type="external"
-                            variant="default"
+                            variant="secondary"
                             linkUrl={article.url}
                             linkTitle={article.title}>
                         Preview

@@ -25,13 +25,11 @@ class LazyImage extends PureComponent {
     }
 
     render() {
-        const { placeholder, alt, isCovered, ...rest } = this.props;
-        console.log(placeholder)
+        const { placeholder, alt, isCovered } = this.props;
         return (
             <img ref={el => this.element = el} 
                  src={placeholder} 
                  alt={alt}
-                 {...rest}
                  styleName={classNames({
                     "LazyImage": true,
                     "--isCovered": isCovered

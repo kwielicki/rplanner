@@ -29,7 +29,7 @@ class Dashboard extends React.Component {
                     <PageTitle supTitle={pageTitle.supTitle}
                                subTitle={pageTitle.subTitle}/>
 				</Column>
-                <Column xs='1' lg='2' spacerBottom='30'>
+                <Column xs='1' xl='2' spacerBottom='30'>
                     <OpenWeather></OpenWeather>
                 </Column>
             </>

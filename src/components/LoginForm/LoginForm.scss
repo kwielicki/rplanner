@@ -1,5 +1,6 @@
 @import './styles/_common.scss';
 
+
 .LoginForm {
     position: relative;
     display: flex;
@@ -19,17 +20,20 @@
         right: calc(100% - 308px);
     }
     .__inner {
+        @include rounded(6);
+
         position: relative;
         background-color: #fff;
         width: 100%;
         display: flex;
         box-shadow: map-get($boxShadows, dp5);
         height: 600px;
+        overflow: hidden;
     }
     .__information {
         @include center-by-flex;
         @include padding-all(65);
-        @include bg-color(pink);
+        @include bg-color(blue);
 
         flex-direction: column;
     }
@@ -77,10 +81,13 @@
         max-width: 100%;
     }
     @include respond-down(md) {
+        height: auto;
         &:before {
             display: none;
         }
         .__inner {
+            @include rounded(0);
+
             flex-direction: column;
             height: 100%;
             box-shadow: none;

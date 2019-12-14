@@ -15,6 +15,9 @@
     }
     .__article {
         @include b-radius(3);
+        @include padding-all(15);
+        @include transition;
+        @include motion-hover;
 
         background-color: map-get($colors, white);
         box-shadow: map-get($boxShadows, dp1);
@@ -25,6 +28,8 @@
         padding: 15px;
     }
     .__articlePicture {
+        @include b-radius(3);
+
         height: 250px;
         position: relative;
         overflow: hidden;
@@ -65,7 +70,7 @@
 
         display: flex;
         justify-content: flex-end;
-        margin: 10px 15px 15px;
+        margin: 10px 15px 0;
         padding-top: 15px;
     }
 }

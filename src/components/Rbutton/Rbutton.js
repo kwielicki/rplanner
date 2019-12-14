@@ -14,7 +14,15 @@ class Rbutton extends React.Component {
     }
 
 	render() {
-        const  { asSubmit, variant, label, handleClick, icon, isLoader } = this.props
+        const  { 
+            asSubmit,
+            asBlock,
+            variant,
+            label,
+            handleClick,
+            icon,
+            isLoader 
+        } = this.props
 		return (
 			<button
                 onClick={handleClick}
@@ -23,6 +31,7 @@ class Rbutton extends React.Component {
                     'Rbutton': true,
                     [`--${variant}`]: variant,
                     '--icon': icon,
+                    '--asBlock': asBlock,
                     'isLoader': isLoader
                 })}>
                 {icon && <FontAwesomeIcon icon={icon} styleName='__icon'/>}
@@ -35,6 +44,7 @@ class Rbutton extends React.Component {
 
 Rbutton.propTypes = {
     variant: PropTypes.string.isRequired,
+    asBlock: PropTypes.bool,
     asSubmit: PropTypes.bool,
     label: PropTypes.string.isRequired,
     icon: PropTypes.string,

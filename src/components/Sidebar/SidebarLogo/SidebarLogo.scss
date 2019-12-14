@@ -2,12 +2,20 @@
 
 .SidebarLogo {
     @include border('bottom');
-    padding: 25px;
-    .__logo {
-        display: flex;
-        max-width: 100%;
+    .__link {
+        @include color(dark);
+        @include padding-all(25);
+        @include rm-decoration;
+        @include transition;
+
+        display: block;
+        &:hover {
+            @include bg-color(gray-lighter);
+        }
     }
-    .__caption {
-        @extend %sr-only;
+    @include respond-down(md) {
+        .__link {
+            @include padding-all(15);
+        }
     }
 }

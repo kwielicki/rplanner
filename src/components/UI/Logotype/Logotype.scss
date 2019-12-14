@@ -3,13 +3,11 @@
 .Logotype {
     .__inner {
         display: flex;
-        align-items: baseline;
+        align-items: flex-end;
     }
     .__logo {
         display: inline-block;
-    }
-    .__logoSource {
-        height: 50px;
+        width: 50px;
     }
     .__text {
         @include padding($left: 10);

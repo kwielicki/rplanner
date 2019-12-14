@@ -21,4 +21,10 @@
     &.--spacer-bottom30 {
         padding-bottom: map-get($spacers, 30);
     }
+    @include respond-up(xl) {
+        &.--xl2 {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
 }

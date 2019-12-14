@@ -5,6 +5,11 @@
     text-overflow: ellipsis;
 }
 
+@mixin hide-text {
+    display: inline-block;
+    text-indent: -9999px;
+}
+
 @mixin f-size($sizeValue) {
     font-size: map-get($fontSizes, $sizeValue);
 }
@@ -12,9 +17,15 @@
 @mixin color($colorValue) {
     color: map-get($colors, $colorValue);
 }
+@mixin colorRGBA($colorValue, $alpha) {
+    color: rgba(map-get($colorsRGB), $alpha);
+}
 
 @mixin bg-color($colorValue) {
     background-color: map-get($colors, $colorValue);
+}
+@mixin bg-coloRGBA($colorValue, $alpha) {
+    background-color: rgba(map-get($colors, $alpha));
 }
 
 @mixin rm-decoration {

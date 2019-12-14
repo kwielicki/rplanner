@@ -1,0 +1,10 @@
+@import './styles/_common.scss';
+
+.Logout {
+    padding: 5px;
+    position: absolute;
+    left: map-get($spacers, 25);
+    right: map-get($spacers, 25);
+    bottom: map-get($spacers, 15);
+    z-index: $z-index2;
+}

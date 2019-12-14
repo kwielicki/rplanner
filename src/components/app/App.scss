@@ -1,23 +1,33 @@
 @import './styles/_common.scss';
 .App {
-  display: block;
-  font-family: $font-family-Roboto;
-  background-color: map-get($colors, gray-lighter);
-  .__sidebar {
-    position: fixed;
-    width: 280px;
-    top: 0;
-    bottom: 0;
-    background-color: #fff;
-  }
-  .__main {
-    min-height: 100vh;
-    padding-left: 280px;
-    &.--withoutSpace {
-      padding-left: 0;
-    }
-  }
-  .__content {
-    background-color: transparent;
-  }
+	@include bg-color(gray-lighter);
+    display: block;
+    font-family: $font-family-Roboto;
+	.__sidebar {
+		@include bg-color(white);
+		position: fixed;
+		width: 280px;
+		top: 0;
+		bottom: 0;
+		z-index: $z-index9;
+	}
+	.__main {
+		min-height: 100vh;
+		padding-left: 280px;
+		&.--withoutSpace {
+			padding-left: 0;
+		}
+	}
+	.__content {
+		background-color: transparent;
+	}
+	@include respond-down(md) {
+		.__sidebar {
+			// transform: translateX(-100%);
+		}
+		.__main {
+			padding-left: 0;
+			min-height: auto;
+		}
+	}
 }

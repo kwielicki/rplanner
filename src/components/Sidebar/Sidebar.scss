@@ -2,11 +2,9 @@
 
 .Sidebar {
     @extend %boxshadow-dp1;
-    @include nice-scroll;
-
     height: 100%;
-    overflow: auto;
     .__inner {
         display: block;
+        height: 100%;
     }
 }

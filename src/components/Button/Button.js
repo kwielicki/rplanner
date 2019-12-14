@@ -1,4 +1,4 @@
-import React, { useRef  } from 'react'
+import React, { useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import CSSModules from 'react-css-modules'
 import classNames from 'classnames'
@@ -9,6 +9,7 @@ import styles from './Button.scss'
 function Button(props) {
 
     const buttonElement = useRef(null)
+    const [ripple, setRipple] = useState(false);
 
     const {
         size,
@@ -16,30 +17,30 @@ function Button(props) {
         variant,
         linkUrl,
         linkTitle,
-        displayBlock,
+        fullWidth,
         children,
     } = props
 
     const ButtonStyles = {
         '__link': true,
-        '--displayBlock': displayBlock,
+        '--fullWidth': fullWidth,
         [`--${variant}`]: variant,
         [`--${size}`]: size,
     }
 
-    const __mouseenterHandler = (evt) => {
-        // @TODO ripple effect here
-        // const x = evt.pageX - element.current.offsetLeft
-        // const y = evt.pageY - element.current.offsetTop
-        // const w = element.current.offsetWidth
-        console.log(buttonElement.current)
+    const __mousEnterHandler = (evt) => {        
+        setRipple(true);
     }
+
+    const __mouseLeaveHandler = () => setRipple(false)
 
     return (
         <div styleName={classNames({
             'Button': true,
-            '--displayBlock': displayBlock
-        })} onMouseDown={__mouseenterHandler} ref={buttonElement}>
+            '--fullWidth': fullWidth
+        })} onMouseDown={__mousEnterHandler}
+            onMouseLeave={__mouseLeaveHandler}
+            ref={buttonElement}>
             {type === 'internal'
                 ? <Link styleName={classNames(ButtonStyles)} 
                         to={linkUrl} 
@@ -50,7 +51,10 @@ function Button(props) {
                      rel='nofollow noopener'
                      styleName={classNames(ButtonStyles)}>{children}</a>
             }
-            <span styleName="__ripple"></span>
+           <span styleName={classNames({
+               '__ripple': true,
+               '--isActive': ripple
+           })}></span>
         </div>
     )
 }
@@ -58,10 +62,10 @@ function Button(props) {
 Button.propTypes = {
     size: PropTypes.oneOf(['xs', 'sm', 'lg']),
     type: PropTypes.oneOf(['internal', 'external']).isRequired,
-    variant: PropTypes.oneOf(['default', 'primary', 'secondary']).isRequired,
+    variant: PropTypes.oneOf(['primary', 'secondary']).isRequired,
     linkUrl: PropTypes.string.isRequired,
     linkTitle: PropTypes.string,
-    displayBlock: PropTypes.bool,
+    fullWidth: PropTypes.bool,
     children: PropTypes.node.isRequired
 }
 

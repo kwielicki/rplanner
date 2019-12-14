@@ -8,7 +8,7 @@ import styles from './Column.scss'
 @CSSModules(styles, {allowMultiple: true})
 class Column extends React.Component {
     render() {
-        const  { xs, sm, md, lg, fluid, spacerBottom } = this.props
+        const  { xs, sm, md, lg, xl, fluid, spacerBottom } = this.props
         return (
             <Container fluid={fluid}>
                 <div styleName={classNames({
@@ -17,6 +17,7 @@ class Column extends React.Component {
                     [`--sm${sm}`]: sm,
                     [`--md${md}`]: md,
                     [`--lg${lg}`]: lg,
+                    [`--xl${xl}`]: xl,
                     [`--spacer-bottom${spacerBottom}`]: spacerBottom
                 })}>
                     {this.props.children}
@@ -31,6 +32,7 @@ Column.propTypes = {
     sm: PropTypes.string,
     md: PropTypes.string,
     lg: PropTypes.string,
+    xl: PropTypes.string,
     spacerBottom: PropTypes.oneOf(['30']),
     fluid: PropTypes.bool
 }

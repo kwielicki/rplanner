@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import CSSModules from 'react-css-modules'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import styles from './Logotype.scss'
-import Logo from 'Assets/images/wp-logo.png'
+import LogoLight from 'Assets/images/wp-logo.png'
+import LogoDark from 'Assets/images/wp-logo-dark.png'
 import LazyImage from '../../LazyImage'
 
 function Logotype(props) {
@@ -11,12 +12,13 @@ function Logotype(props) {
     const {
         isLight
     } = props
+    const logoVariant = isLight ? LogoLight : LogoDark
 
     return (
         <div styleName='Logotype'>
             <div styleName='__inner'>
                 <div styleName='__logo'>
-                    <LazyImage src={Logo} styleName='__logoSource'/>
+                    <LazyImage src={logoVariant}/>
                 </div>
                 <div styleName='__text'>
                     <strong styleName={classNames({

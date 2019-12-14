@@ -156,7 +156,7 @@ class OpenWeather extends Component {
                                     <li>
                                         <Button type='external'
                                                 variant='primary'
-                                                displayBlock
+                                                fullWidth
                                                 linkUrl={this.__urlToGoogleMaps(weather.coord)}>GM</Button>
                                     </li>
                                 </ul>

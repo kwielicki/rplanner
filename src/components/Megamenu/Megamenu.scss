@@ -1,10 +1,14 @@
 @import './styles/_common.scss';
 
 .Megamenu {
+    height: 100%;
     .__list {
         @include list-unstyled;
-
-        padding: 25px;
+        @include nice-scroll;
+        @include padding-all(25);
+        overflow: auto;
+        border-bottom: 1px solid map-get($colors, gray-light);
+        height: calc(100% - 180px);
     }
     .__element {
         padding: 10px 0;
@@ -12,5 +16,11 @@
     .__elementHeader {
         @include f-size(x-small);
         @include color(gray);
+    }
+    @include respond-down(md) {
+        .__list {
+            @include padding-all(15);
+            height: calc(100% - 155px);
+        }
     }
 }

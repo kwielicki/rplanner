@@ -2,15 +2,20 @@
 
 .Rbutton {
     position: relative;
+    @include button-creator;
+    .__icon {
+        display: inline-block;
+        font-size: 80%;
+    }
+    &.--asBlock {
+        display: block;
+        width: 100%;
+    }
     &.--primary {
         @include button-creator;
     }
     &.--secondary {
-        color: green;
-    }
-    .__icon {
-        display: inline-block;
-        font-size: 80%;
+        @include button-variant('secondary');
     }
     &.--icon {
         .__label {
@@ -30,10 +35,10 @@
             background-color: inherit;
             z-index: 2;
         }
-    }
-    .__loader {
-        position: absolute;
-        z-index: 3;
-        animation: fa-spin 2s linear infinite;
+        .__loader {
+            position: absolute;
+            z-index: 3;
+            animation: fa-spin 2s linear infinite;
+        }
     }
 }
