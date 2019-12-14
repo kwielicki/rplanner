@@ -10,19 +10,17 @@ class Column extends React.Component {
     render() {
         const  { xs, sm, md, lg, xl, fluid, spacerBottom } = this.props
         return (
-            <Container fluid={fluid}>
-                <div styleName={classNames({
-                    'Column': true,
-                    [`--xs${xs}`]: xs,
-                    [`--sm${sm}`]: sm,
-                    [`--md${md}`]: md,
-                    [`--lg${lg}`]: lg,
-                    [`--xl${xl}`]: xl,
-                    [`--spacer-bottom${spacerBottom}`]: spacerBottom
-                })}>
-                    {this.props.children}
-                </div>
-            </Container>
+            <div styleName={classNames({
+                'Column': true,
+                [`--xs${xs}`]: xs,
+                [`--sm${sm}`]: sm,
+                [`--md${md}`]: md,
+                [`--lg${lg}`]: lg,
+                [`--xl${xl}`]: xl,
+                [`--spacer-bottom${spacerBottom}`]: spacerBottom
+            })}>
+                {this.props.children}
+            </div>
         )
     }
 }

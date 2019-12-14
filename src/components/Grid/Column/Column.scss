@@ -18,6 +18,10 @@
         flex: 0 0 calc(100%/3);
         max-width: calc(100%/3);
     }
+    &.--lg4 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
     &.--spacer-bottom30 {
         padding-bottom: map-get($spacers, 30);
     }

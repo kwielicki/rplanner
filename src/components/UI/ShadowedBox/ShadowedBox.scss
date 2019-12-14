@@ -1,0 +1,9 @@
+@import './styles/_common.scss';
+
+.ShadowedBox {
+    @extend %boxshadow-dp2;
+    @include rounded(6);
+    @include transition;
+    @include bg-color(white);
+    @include padding-all(15);
+}

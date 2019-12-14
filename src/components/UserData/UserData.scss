@@ -1,0 +1,57 @@
+@import './styles/_common.scss';
+
+.UserData {
+    display: block;
+    .__inner {
+        @extend %boxshadow-dp2;
+        @include rounded(6);
+        @include transition;
+        @include bg-color(white);
+    }
+    .__avatar {
+        @include padding-all(15);
+        @include bg-color(blue);
+        @include rounded-top(6);
+
+        padding-bottom: 0;
+        border-bottom: 2px solid map-get($colors, pink);
+        height: 100px;
+    }
+    .__avatarImage {
+        @include rounded(rounded);
+        @include square-size(100px);
+        @include center-by-margin;
+        @extend %boxshadow-dp2;
+        
+        margin-top: map-get($spacers, 30);
+        border: 2px solid map-get($colors, pink);
+        overflow: hidden;
+    }
+    .__user {
+        @include padding($top: 65);
+
+        text-align: center;
+    }
+    .__details {
+        @include list-unstyled;
+        @include padding-all(15);
+        @include bg-color(gray-lighter);
+        @include rounded-bottom(6);
+
+        margin-top: map-get($spacers, 15);
+        text-align: left;
+    }
+    .__detailsElement {
+        &.--last {
+            @include padding($top: 5);
+        }
+    }
+    .__detailsLabel {
+        @include f-size(x-small);
+        @include color(pink);
+        display: block;
+    }
+    .__detailsValue {
+        @include f-size(small);
+    }
+}
