@@ -2,6 +2,8 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import { BreadcrumbsItem } from 'react-breadcrumbs-dynamic'
 
+
+import Container from 'Components/Grid/Container'
 import Column from 'Components/Grid/Column'
 import PageTitle from 'Components/UI/PageTitle'
 
@@ -30,10 +32,12 @@ class AddingGuest extends React.Component {
                 <BreadcrumbsItem to='/'>Dashboard</BreadcrumbsItem>
                 <BreadcrumbsItem to='/adding-guest'>Adding Guest</BreadcrumbsItem>
 
-                <Column xs='1'>
-                    <PageTitle supTitle={pageTitle.supTitle}
-                               subTitle={pageTitle.subTitle}/>
-                </Column>
+                <Container>
+                    <Column xs='1'>
+                        <PageTitle supTitle={pageTitle.supTitle}
+                                subTitle={pageTitle.subTitle}/>
+                    </Column>
+                </Container>
             </>
         )
     }
