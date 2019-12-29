@@ -1,0 +1,16 @@
+.AccordionBody {
+    overflow: hidden;
+    max-height: 0;
+    transition: all .5s;
+    opacity: 0;
+    margin: 0 30px;
+    transform: translate(5px);
+    will-change: auto;
+    &.isOpen {
+        display: block;
+        max-height: none;
+        opacity: 1;
+        margin: 30px 30px 15px;
+        transform: translate(0);
+    }
+}

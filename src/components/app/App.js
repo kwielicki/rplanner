@@ -15,6 +15,7 @@ import Documentation from 'Routes/Documentation'
 import EditingGuest from 'Routes/EditingGuest'
 import Login from 'Routes/Login'
 import News from 'Routes/News'
+import Faq from 'Routes/Faq'
 import styles from './App.scss'
 import Sidebar from 'Components/Sidebar'
 
@@ -52,6 +53,7 @@ class App extends React.Component {
                                     <ProtectedRoute path='/editing-guest' component={EditingGuest} isAuthenticated={isAuthenticated} isVerifying={isVerifying}/>
                                     <ProtectedRoute path='/news' component={News} isAuthenticated={isAuthenticated} isVerifying={isVerifying}/>
                                     <Route path='/login' component={Login} />
+                                    <ProtectedRoute path='/faq' component={Faq} isAuthenticated={isAuthenticated} isVerifying={isVerifying}/>
                                     <ProtectedRoute component={PageNotFound} isAuthenticated={isAuthenticated} isVerifying={isVerifying}/>
                                 </Switch>
                             </div>

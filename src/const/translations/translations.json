@@ -26,5 +26,17 @@
             "supTitle": "User Profile",
             "subTitle": "Check you details information about your profile"
         }
+    },
+    "documentation": {
+        "pageTitle": {
+            "supTitle": "Documentation",
+            "subTitle": "Get to know the application closer by using the documentation prepared for you"
+        }
+    },
+    "faq": {
+        "pageTitle": {
+            "supTitle": "Faq - frequently asked questions",
+            "subTitle": "Before you ask a question to the development team, check if such a question has already been asked by someone else"
+        }
     }
 }

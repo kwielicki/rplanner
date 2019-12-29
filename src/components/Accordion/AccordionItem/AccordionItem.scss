@@ -1,0 +1,20 @@
+.AccordionItem {
+    background-color: #fff;
+    transition: margin 225ms cubic-bezier(.4,0,.2,1), box-shadow 280ms cubic-bezier(.4,0,.2,1);
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+    overflow: hidden;
+    &.isActive {
+        margin-top: 15px;
+        &:first-of-type {
+            margin-bottom: 15px;
+            margin-top: 0;
+        }
+        &:not(:first-of-type) {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+}

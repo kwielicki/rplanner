@@ -1,0 +1,35 @@
+@import './styles/_common.scss';
+
+.AccordionHeader {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 60px 30px 30px;
+    cursor: pointer;
+    &:hover {
+        background: rgba(0,0,0,.04);
+    }
+    &.isActive {
+        background: rgba(0,0,0,.04);
+        .__label {
+            text-shadow: 0px 0px 0px #000;
+        }
+        .__icon {
+            @include color(pink);
+
+            transform: translate3d(0, -50%, 0) rotate(-180deg);
+        }
+    }
+    .__label {
+        @include transition;
+    }
+    .__icon {
+        @include transition;
+
+        position: absolute;
+        top: 50%;
+        right: 30px;
+        transform: translate3d(0, -50%, 0);
+    }
+}
