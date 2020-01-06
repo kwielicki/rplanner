@@ -91,7 +91,6 @@ class OpenWeather extends Component {
 
         if (navigator.geolocation) {
             return navigator.geolocation.getCurrentPosition(position => {
-                console.log(position)
                 this.props.dispatch(fetchOpenWeather(position.coords.latitude, position.coords.longitude))
             });
         }

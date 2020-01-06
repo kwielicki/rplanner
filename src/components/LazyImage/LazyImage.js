@@ -13,7 +13,7 @@ class LazyImage extends PureComponent {
             entries => {
                 entries.forEach(entry => {
                     const { isIntersecting } = entry
-                    if (isIntersecting) {
+                    if (isIntersecting && this.element) {
                         this.element.src = this.props.src
                         this.observer = this.observer.disconnect()
                     }

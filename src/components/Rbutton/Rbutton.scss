@@ -1,8 +1,8 @@
 @import './styles/_common.scss';
 
 .Rbutton {
-    position: relative;
     @include button-creator;
+    position: relative;
     .__icon {
         display: inline-block;
         font-size: 80%;
@@ -12,7 +12,7 @@
         width: 100%;
     }
     &.--primary {
-        @include button-creator;
+        cursor: pointer;
     }
     &.--secondary {
         @include button-variant('secondary');
@@ -22,6 +22,16 @@
             margin-left: 13px;
             display: inline-block;
         }
+    }
+    &.--xLarge {
+        @include button-size('xLarge');
+    }
+    &.--spaceRight {
+        margin-right: 15px;
+    }
+    &.--disabled {
+        opacity: .3;
+        pointer-events: none;
     }
     &.isLoader {
         pointer-events: none;

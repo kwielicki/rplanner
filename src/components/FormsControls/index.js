@@ -1,1 +1,1 @@
-export {default} from './FormsControls.js'
+export { FormInput, FormTextarea, FormSelect } from './FormsControls.js'

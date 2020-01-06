@@ -37,6 +37,9 @@
         padding: 0 15px;
     } @else if $ButtonSize == 'large' {
         padding: 0 30px;
+    } @else if $ButtonSize == 'xLarge' {
+        height: 50px;
+        padding: 0 30px;
     }
 }
 @mixin button-variant($ButtonVariant) {

@@ -1,13 +1,14 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { BreadcrumbsItem } from 'react-breadcrumbs-dynamic'
-
+import { db } from "Components/firebase/firebase.js"
 
 import Container from 'Components/Grid/Container'
 import Column from 'Components/Grid/Column'
 import PageTitle from 'Components/UI/PageTitle'
 
 import translations from 'Translations/translations.json'
+import AddingGuestForm from '../components/AddingGuestForm/AddingGuestForm'
 
 class AddingGuest extends React.Component {
 
@@ -18,10 +19,14 @@ class AddingGuest extends React.Component {
     }
 
     render() {
-
         const {
             pageTitle
         } = this.state.translations
+
+        // db.collection('guests').add({
+        //     fullname: 'Krzysztof Wielicki',
+        //     email: 'kwielicki@gmail.com'
+        // });
 
         return (
             <>
@@ -38,6 +43,13 @@ class AddingGuest extends React.Component {
                                 subTitle={pageTitle.subTitle}/>
                     </Column>
                 </Container>
+
+                <Container>
+                    <Column xs='1'>
+                        <AddingGuestForm></AddingGuestForm>
+                    </Column>
+                </Container>
+
             </>
         )
     }

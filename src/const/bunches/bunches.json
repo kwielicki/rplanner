@@ -25,5 +25,14 @@
         "source": "Source",
         "published": "Published at",
         "howLong": "How long"
-    }
+    },
+    "guestAffiliation": [
+        {"id": 1, "label": "Groom", "value": "groom"},
+        {"id": 2, "label": "Bride", "value": "bride"}
+    ],
+    "guestStatus": [
+        {"id": 1, "label": "Expectant", "value": "expectant"},
+        {"id": 2, "label": "Confirmed", "value": "confirmed"},
+        {"id": 3, "label": "Refusal", "value": "refusal"}
+    ]
 }

@@ -4,7 +4,7 @@ import { connect } from "react-redux"
 import { Formik, Form } from 'formik'
 import * as Yup from "yup"
 import { isEmpty } from 'lodash'
-import TextInput from 'Components/FormsControls'
+import { FormInput } from 'Components/FormsControls'
 import Container from 'Components/Grid/Container'
 import Column from 'Components/Grid/Column'
 import PageTitle from 'Components/UI/PageTitle'
@@ -65,7 +65,7 @@ class UserProfile extends React.Component {
     }
     
     render() {
-        const { userName,userEmail, userPhotoUrl, userCreationTime, userLastSignInTime,
+        const { userName, userEmail, userPhotoUrl, userCreationTime, userLastSignInTime,
                 translations: { pageTitle }, user } = this.state
         return (
             <>
@@ -101,15 +101,15 @@ class UserProfile extends React.Component {
                                         const { userName, userEmail } = values
                                     }}>
                                     <Form disabled>
-                                        <TextInput type="text"
+                                        <FormInput type="text"
                                                    name="userName"
                                                    label="User name"
                                                    autoComplete="off"/>
-                                        <TextInput type="email"
+                                        <FormInput type="email"
                                                    name="userEmail"
                                                    label="User email"
                                                    autoComplete="off"/>
-                                        <TextInput type="text"
+                                        <FormInput type="text"
                                                    name="phoneNumber"
                                                    label="Phone number"
                                                    autoComplete="off"/>

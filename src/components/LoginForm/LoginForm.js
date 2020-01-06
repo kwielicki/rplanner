@@ -3,7 +3,7 @@ import { Formik, Form } from 'formik'
 import * as Yup from "yup"
 import PropTypes from 'prop-types'
 import CSSModules from 'react-css-modules'
-import TextInput from 'Components/FormsControls'
+import { FormInput } from 'Components/FormsControls'
 import Alert from 'Components/UI/Alert'
 import Rbutton from 'Components/Rbutton'
 import Logotype from 'Components/UI/Logotype'
@@ -54,8 +54,8 @@ class LoginForm extends Component {
                                 dispatch(loginUser(email, password))
                             }}>
                                 <Form styleName='__oauthForm'>
-                                    <TextInput type="email" name="email" label="Use your e-mail"/>
-                                    <TextInput type="password" name="password" label="Type your password"/>
+                                    <FormInput type="email" name="email" label="Use your e-mail"/>
+                                    <FormInput type="password" name="password" label="Type your password"/>
                                     <div styleName='__button'>
                                         <Rbutton variant='primary' label="Login" icon='lock' asSubmit isLoader={isLoading}/>
                                     </div>

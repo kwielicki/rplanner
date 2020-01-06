@@ -1,17 +1,22 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import CSSModules from 'react-css-modules'
+import classNames from 'classnames'
 import styles from './SelectSomething.scss'
 
 const SelectSomething = props  => {
 
     const {
         defaultValue,
+        defaultOption,
         options,
         onChange,
         value,
         disabled,
-        selectLabel
+        labelForSelect,
+        name,
+        isFluid,
+        isGray
     } = props
 
     const __options = option => {
@@ -21,12 +26,22 @@ const SelectSomething = props  => {
 
     return (
         <div styleName="SelectSomething">
-            <span styleName="__label">{selectLabel}</span>
+            {labelForSelect &&
+                <label styleName="__label"
+                    htmlFor={name}>
+                    {labelForSelect}
+                </label>}
             <select onChange={onChange}
                     defaultValue={defaultValue}
-                    value={value} 
-                    styleName="__select"
-                    disabled={disabled}>
+                    value={value}
+                    styleName={classNames({
+                        "__select": true,
+                        '--isFluid': isFluid,
+                        '--isGray': isGray
+                    })}
+                    disabled={disabled}
+                    name={name}>
+                {defaultOption && <option value="" label={defaultOption}/>}
                 {options.map( option => __options(option))}
             </select>
         </div>
@@ -35,15 +50,19 @@ const SelectSomething = props  => {
 
 SelectSomething.propTypes = {
     defaultValue: PropTypes.string,
+    defaultOption: PropTypes.string,
     options: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.number.isRequired,
         value: PropTypes.string.isRequired,
         label: PropTypes.string.isRequired,
     })),
     onChange: PropTypes.func,
-    value: PropTypes.string.isRequired,
+    value: PropTypes.string,
     disabled: PropTypes.bool,
-    labelForSelect: PropTypes.string.isRequired
+    name: PropTypes.string,
+    labelForSelect: PropTypes.string,
+    isFluid: PropTypes.bool,
+    isGray: PropTypes.bool
 }
 
 

@@ -21,18 +21,25 @@ class Rbutton extends React.Component {
             label,
             handleClick,
             icon,
-            isLoader 
+            isLoader,
+            disabled,
+            size,
+            space
         } = this.props
 		return (
 			<button
                 onClick={handleClick}
                 type={ asSubmit ? 'submit' : null }
+                disabled={disabled}
                 styleName={classNames({
                     'Rbutton': true,
                     [`--${variant}`]: variant,
                     '--icon': icon,
                     '--asBlock': asBlock,
-                    'isLoader': isLoader
+                    '--disabled': disabled,
+                    'isLoader': isLoader,
+                    [`--${size}`]: size,
+                    [`--${space}`]: space
                 })}>
                 {icon && <FontAwesomeIcon icon={icon} styleName='__icon'/>}
                 {isLoader && <FontAwesomeIcon icon='spinner' styleName='__loader'/>}
@@ -49,7 +56,10 @@ Rbutton.propTypes = {
     label: PropTypes.string.isRequired,
     icon: PropTypes.string,
     isLoader: PropTypes.bool,
-    handleClick: PropTypes.func
+    handleClick: PropTypes.func,
+    disabled: PropTypes.bool,
+    size: PropTypes.string,
+    space: PropTypes.string
 }
 
 export default Rbutton

@@ -1,4 +1,5 @@
 import { myFirebase } from "Components/firebase/firebase.js"
+import * as firebase from 'firebase';
 
 export const LOGIN_REQUEST = "LOGIN_REQUEST"
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS"
@@ -63,7 +64,8 @@ const requestLogin = () => {
     dispatch(requestLogin());
     myFirebase
       .auth()
-      .signInWithEmailAndPassword(email, password)
+      .setPersistence(firebase.auth.Auth.Persistence.SESSION)
+      .then(() => firebase.auth().signInWithEmailAndPassword(email, password))
       .then(user => {
         dispatch(receiveLogin(user));
       })
