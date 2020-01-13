@@ -8,6 +8,7 @@ import fontAwesome from 'FontAwesome/fontAwesome'
 import { connect } from "react-redux"
 import Dashboard from 'Routes/Dashboard'
 import AddingGuest from 'Routes/AddingGuest'
+import ManageGuestList from 'Routes/ManageGuestList'
 import Statistic from 'Routes/Statistic'
 import PageNotFound from 'Routes/PageNotFound'
 import UserProfile from 'Routes/UserProfile'
@@ -47,6 +48,7 @@ class App extends React.Component {
                                 <Switch>
                                     <ProtectedRoute exact path='/' component={Dashboard} isAuthenticated={isAuthenticated} isVerifying={isVerifying}/>
                                     <ProtectedRoute path='/adding-guest' component={AddingGuest} isAuthenticated={isAuthenticated} isVerifying={isVerifying}/>
+                                    <ProtectedRoute path='/manage-guest-list' component={ManageGuestList} isAuthenticated={isAuthenticated} isVerifying={isVerifying}/>
                                     <ProtectedRoute path='/statistic' component={Statistic} isAuthenticated={isAuthenticated} isVerifying={isVerifying}/>
                                     <ProtectedRoute path='/user-profile' component={UserProfile} isAuthenticated={isAuthenticated} isVerifying={isVerifying}/>
                                     <ProtectedRoute path='/documentation' component={Documentation} isAuthenticated={isAuthenticated} isVerifying={isVerifying}/>
