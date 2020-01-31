@@ -49,11 +49,13 @@
     "use-position": "^0.0.6",
     "webfontloader": "^1.6.28",
     "webpack-merge": "^4.2.1",
-    "yup": "^0.27.0"
+    "yup": "^0.27.0",
+    "serve": "^11.2.0"
   },
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --config ./webpack/webpack.prod.js --mode production",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./webpack/webpack.dev.js --hot --inline --open"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./webpack/webpack.dev.js --hot --inline --open",
+    "start": "serve -s public"
   },
   "eslintConfig": {
     "extends": "react-app"
