@@ -53,7 +53,7 @@
     "serve": "^11.2.0"
   },
   "scripts": {
-    "build": "webpack --config ./webpack/webpack.prod.js --mode production",
+    "build": "cross-env NODE_ENV=production webpack --config ./webpack/webpack.prod.js --mode production",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./webpack/webpack.dev.js --hot --inline --open",
     "start": "serve -s public"
   },
