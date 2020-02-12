@@ -4,7 +4,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
-const dotenv = require('dotenv')
 
 const baseConfig = require('./webpack.common')
 
@@ -104,10 +103,6 @@ module.exports = merge(baseConfig, {
             filename: "[name].css",
             chunkFilename: "[id].css"
         }),
-        new webpack.EnvironmentPlugin({
-            NODE_ENV: 'production',
-            DEBUG: false
-        }),
         new HtmlWebpackPlugin({
             title: 'production',
             template: 'index.html'
@@ -116,7 +111,6 @@ module.exports = merge(baseConfig, {
     stats: {
         // Add build date and time information
         builtAt: true,
-        env: true,
         performance: true
     }
 })
