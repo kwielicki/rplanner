@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import CSSModules from 'react-css-modules'
 import classNames from 'classnames'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import styles from './RButton.scss'
+import styles from './Rbutton.scss'
 
 @CSSModules(styles, {allowMultiple: true})
 class Rbutton extends React.Component {
