@@ -98,7 +98,11 @@ module.exports = merge(baseConfig, {
         historyApiFallback: true,
         clientLogLevel: 'error',
         overlay: true,
-        https: true
+        https: {
+            key: './example.com+5-key.pem',
+            cert: './example.com+5.pem'
+        },
+        hot: true,
     },
     resolve: {
         extensions: ['*', '.js', '.jsx'],

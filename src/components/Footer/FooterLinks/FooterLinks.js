@@ -30,9 +30,9 @@ class FooterLinks extends React.Component {
 
 	render() {
 		return (
-			<ul styleName='FooterLinks'>
+			<div styleName='FooterLinks'>
 				<ListOfLinks links={this.state.footerLinks}/>	
-			</ul>
+			</div>
 		)
 	}
 }

@@ -73,6 +73,8 @@
         flex-direction: column;
         text-align: center;
         margin: 0 auto;
+        width: 100px;
+        height: 100px;
     }
     .__iconSource {
         width: 100px;
@@ -80,6 +82,8 @@
         margin: 0 auto;
     }
     .__iconDescription {
+        display: block;
+        text-align: center;
         text-transform: capitalize;
         font-size: map-get($fontSizes, large);
         color: map-get($colors, gray-darker);

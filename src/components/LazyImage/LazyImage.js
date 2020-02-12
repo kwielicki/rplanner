@@ -29,7 +29,7 @@ class LazyImage extends PureComponent {
         return (
             <img ref={el => this.element = el} 
                  src={placeholder} 
-                 alt={alt}
+                 alt={alt || 'image'}
                  styleName={classNames({
                     "LazyImage": true,
                     "--isCovered": isCovered

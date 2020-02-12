@@ -98,12 +98,12 @@ class OpenWeather extends Component {
     }
 
     __urlToWeatherIcon = (iconCode) => {
-        return `http://openweathermap.org/img/wn/${iconCode}@2x.png`
+        return `https://openweathermap.org/img/wn/${iconCode}@2x.png`
     }
 
     __urlToGoogleMaps = (cords) => {
         const { lat, lon } = cords
-        return `http://maps.google.com/maps?&z=15&mrt=yp&t=k&q=${lat},${lon}`
+        return `https://maps.google.com/maps?&z=15&mrt=yp&t=k&q=${lat},${lon}`
     }
     __convertMilesToKilometers = (miles) => {
         return (miles * 3.6).toFixed(1)
@@ -132,8 +132,8 @@ class OpenWeather extends Component {
                                 <LazyImage placeholder={imagePlaceHolder}
                                            src={this.__urlToWeatherIcon(weather.weatherIcon)}
                                            styleName='__iconSource'/>
-                                <span styleName='__iconDescription'>{weather.description}</span>
                             </div>
+                            <span styleName='__iconDescription'>{weather.description}</span>
                             <div styleName='__content'>
                                 <ul styleName='__list'>
                                     <li styleName='__element'>
