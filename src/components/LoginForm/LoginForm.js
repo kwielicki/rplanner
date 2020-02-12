@@ -4,7 +4,7 @@ import * as Yup from "yup"
 import PropTypes from 'prop-types'
 import CSSModules from 'react-css-modules'
 import { FormInput } from 'Components/FormsControls'
-import Alert from 'Components/UI/Alert'
+import Alert from 'Components/UI/alert'
 import Rbutton from 'Components/Rbutton'
 import Logotype from 'Components/UI/Logotype'
 import { connect } from "react-redux"
