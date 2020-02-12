@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const dotenv = require('dotenv')
 const baseConfig = require('./webpack.common')
-const dotenv = require('dotenv')
+
 // Plugins
 const path = require('path')
 
@@ -108,6 +108,10 @@ module.exports = merge(baseConfig, {
             // both options are optional
             filename: "[name].css",
             chunkFilename: "[id].css"
+        }),
+        new webpack.EnvironmentPlugin({
+            NODE_ENV: 'production',
+            DEBUG: false
         }),
         new HtmlWebpackPlugin({
             title: 'production',
