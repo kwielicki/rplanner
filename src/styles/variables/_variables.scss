@@ -14,6 +14,7 @@ $colors: (
     orange      : #ff5722,
     pink        : #E9204F,
     red         : #e53935,
+    dark-light  : #444,
     dark        : #333,
     black       : #000
 );
@@ -24,6 +25,9 @@ $colorsRGB: (
     black: (rgb(red(map-get($colors, black)),
                 green(map-get($colors, black)),
                 blue(map-get($colors, black)))),
+    blue:  (rgb(red(map-get($colors, blue)),
+                green(map-get($colors, blue)),
+                blue(map-get($colors, blue)))),
 );
 
 $fontSizes: (
@@ -87,7 +91,7 @@ $headingsLineHeight: (
 
 $borderRadius: (
     0      : 0,
-    3      : 3px,
+    4      : 4px,
     6      : 6px,
     25     : 25px,
     rounded: 50%

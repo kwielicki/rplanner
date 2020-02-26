@@ -18,14 +18,14 @@
     color: map-get($colors, $colorValue);
 }
 @mixin colorRGBA($colorValue, $alpha) {
-    color: rgba(map-get($colorsRGB), $alpha);
+    color: rgba(map-get($colorsRGB, $colorValue), $alpha);
 }
 
 @mixin bg-color($colorValue) {
     background-color: map-get($colors, $colorValue);
 }
-@mixin bg-coloRGBA($colorValue, $alpha) {
-    background-color: rgba(map-get($colors, $alpha));
+@mixin bg-colorRGBA($colorValue, $alpha) {
+    background-color: rgba(map-get($colors, $colorValue), $alpha);
 }
 
 @mixin rm-decoration {

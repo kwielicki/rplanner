@@ -1,0 +1,64 @@
+@import './styles/_common.scss';
+
+.Card {
+    @include padding($top: 15);
+
+    display: block;
+    height: 100%;
+    .__link {
+        @include rounded(4);
+        @include rm-decoration;
+        @include padding($bottom: 65);
+        @extend %boxshadow-dp2;
+        @include transition;
+        @include motion-hover;
+        
+        position: relative;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background-color: map-get($colors, white);
+        height: inherit;
+        &:hover {
+            .__header {
+                @include color(pink);
+            }
+            .__label {
+                @include bg-colorRGBA(blue, .1);
+            }
+        }
+    }
+    .__header {
+        @include heading(h3);
+        @include padding-all(20);
+        @include transition;
+    }
+    .__headerSub {
+        @include f-size(x-small);
+        @include padding($left: 5);
+        
+        font-weight: $fw-300;
+    }
+    .__description {
+        @include f-size(small);
+        @include color(dark-light);
+        @include padding($left: 20, $right: 20, $bottom: 5);
+
+        text-align: center;
+    }
+    .__label {
+        @include padding(15, 20, 15, 20);
+        @include border(top);
+        @include bg-color(gray-lighter);
+        @include f-size(small);
+        @include color(dark-light);
+        @include transition;
+
+        position: absolute;
+        bottom: 0;
+        display: block;
+        width: 100%;
+        margin-top: map-get($spacers, 20);
+        text-align: right;
+    }
+}
