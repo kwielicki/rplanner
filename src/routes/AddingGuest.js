@@ -22,12 +22,6 @@ class AddingGuest extends React.Component {
         const {
             pageTitle
         } = this.state.translations
-
-        // db.collection('guests').add({
-        //     fullname: 'Krzysztof Wielicki',
-        //     email: 'kwielicki@gmail.com'
-        // });
-
         return (
             <>
                 <Helmet title='Adding a new guest'/>
