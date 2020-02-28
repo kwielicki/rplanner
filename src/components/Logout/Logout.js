@@ -16,7 +16,7 @@ class Logout extends React.Component {
     render() {
         return (
             <div styleName='Logout'>
-                <Rbutton variant='secondary'
+                <Rbutton variant='primary'
                          label="Logout"
                          icon='arrow-left'
                          handleClick={this.__handleLogout}/>

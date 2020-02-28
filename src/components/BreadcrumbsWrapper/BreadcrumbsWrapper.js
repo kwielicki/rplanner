@@ -30,7 +30,7 @@ class BreadcrumbsWrapper extends React.Component {
                     item={
                         (props) =>
                             <li className={__item}>
-                                {<NavLink to="/" activeClassName={null} className={__anchor}>{props.children}</NavLink>}
+                                {<NavLink to="/" activeClassName={null} className={__anchor} title={props.children}>{props.children}</NavLink>}
                             </li>}
                     finalItem={(props) =><li className={currentItem}>{props.children}</li>}/>
         )

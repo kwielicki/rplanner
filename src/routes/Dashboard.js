@@ -1,6 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-
+import { BreadcrumbsItem } from 'react-breadcrumbs-dynamic'
 import Container from 'Components/Grid/Container'
 import Column from 'Components/Grid/Column'
 import PageTitle from 'Components/UI/PageTitle'
@@ -8,6 +8,7 @@ import translations from 'Translations/translations.json'
 import OpenWeather from 'Components/OpenWeather'
 import Card from 'Components/UI/Card'
 import Swiper from 'Components/UI/Swiper'
+import ShadowedBox from 'Components/UI/ShadowedBox'
 
 class Dashboard extends React.Component {
 
@@ -24,9 +25,9 @@ class Dashboard extends React.Component {
 
         return (
             <>
-                <Helmet>
-                    <title>Dashboard</title>
-                </Helmet>
+                <Helmet title='Dashboard'/>
+                <BreadcrumbsItem to='/'>Dashboard</BreadcrumbsItem>
+
                 <Container>
                     <Column xs='1'>
                         <PageTitle supTitle={pageTitle.supTitle}
@@ -60,6 +61,9 @@ class Dashboard extends React.Component {
                     </Column>
                     <Column xs='1' xl='2'>
                         <OpenWeather></OpenWeather>
+                    </Column>
+                    <Column xs='1' xl='2'>
+                        <ShadowedBox>Recently added guests will appear here. This amount will be configurable from the admin level.</ShadowedBox>
                     </Column>
                 </Container>
             </>

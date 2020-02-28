@@ -1,5 +1,7 @@
+@import './styles/_common.scss';
+
 .NewsArticles {
-    padding: 30px 0;
+    @include padding($bottom: 30);
     .__inner {
         display: block;
     }

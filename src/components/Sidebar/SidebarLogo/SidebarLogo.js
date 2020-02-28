@@ -2,7 +2,7 @@ import React from 'react'
 import CSSModules from 'react-css-modules';
 import styles from './SidebarLogo.scss'
 import { NavLink } from 'react-router-dom'
-import Logotype from '../../UI/Logotype';
+import Logotype from 'Components/UI/Logotype';
 
 @CSSModules(styles, {allowMultiple: true})
 class SidebarLogo extends React.Component {
@@ -13,7 +13,7 @@ class SidebarLogo extends React.Component {
                 <NavLink to='/'
                          title='Return to dashboard'
                          styleName='__link'>
-                    <Logotype/>
+                    <Logotype isLight/>
                 </NavLink>
             </div>
         )

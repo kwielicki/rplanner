@@ -11,18 +11,21 @@
     .__listAnchor {
         @include transition;
         @include rm-decoration;
-        @include color(dark);
+        @include color(gray);
 
         display: flex;
         align-items: center;
         padding: 10px;
 
         &:hover {
-            background-color: map-get($colors, gray-lighter);
+            background-color: map-get($colors, darken);
         }
 
         &.isActive {
-            @include color(pink);
+            @include color(white);
+            .__icon {
+                @include bg-color(pink);
+            }
         }
     }
     .__icon {
@@ -33,7 +36,7 @@
         width: 30px;
         height: 30px;
         border-radius: 50%;
-        background-color: map-get($colors, gray-lighter);
+        background-color: map-get($colors, darken);
     }
     .__iconSvg {
         font-size: 20px;

@@ -3,9 +3,11 @@
 .Header {
     @include border('bottom');
     @include center-by-margin;
+    @include padding(25);
+
     background-color: map-get($colors, white);
     max-width: map-get($LayoutWidths, section);
-    padding-bottom: map-get($spacers, 15);
+    min-height: 65px;
     .__inner {
         color: #ccc;
     }

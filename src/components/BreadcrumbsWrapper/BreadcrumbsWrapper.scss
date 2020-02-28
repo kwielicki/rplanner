@@ -3,14 +3,17 @@
 .BreadcrumbsWrapper {
     @include list-unstyled;
     @include border('top');
-    padding-top: map-get($spacers, 10);
+    @include padding($top: 10);
+
     display: flex;
     justify-content: flex-end;
     .__item {
-        padding-right: map-get($spacers, 15);
+        @include padding($right: 10);
+        @include f-size(x-small);
+
         &.isCurrent {
-            color: map-get($colors, gray);
-            padding-right: 0;
+            @include padding($right: 0);
+            @include color(gray);
         }
     }
     .__anchor {

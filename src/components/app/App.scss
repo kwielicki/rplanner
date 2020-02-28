@@ -4,7 +4,7 @@
     display: block;
     font-family: $font-family-Roboto;
 	.__sidebar {
-		@include bg-color(white);
+		@include bg-color(darker);
 		position: fixed;
 		width: 280px;
 		top: 0;

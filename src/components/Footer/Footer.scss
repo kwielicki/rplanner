@@ -8,8 +8,10 @@
     max-width: map-get($LayoutWidths, section);
     margin-top: 30px;
     .__inner {
+        @include padding(25, 0, 25, 0);
+
         display: flex;
         justify-content: space-between;
-        padding: 25px 0;
+        align-items: center;
     }
 }

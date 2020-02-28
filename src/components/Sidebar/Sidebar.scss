@@ -1,7 +1,7 @@
 @import './styles/_common.scss';
 
 .Sidebar {
-    @extend %boxshadow-dp1;
+    box-shadow: 6px 0 6px rgba(0,0,0,.1);
     height: 100%;
     .__inner {
         display: block;

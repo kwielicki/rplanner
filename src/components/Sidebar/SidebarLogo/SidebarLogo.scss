@@ -4,13 +4,13 @@
     @include border('bottom');
     .__link {
         @include color(dark);
-        @include padding-all(25);
+        @include padding(5, 25, 10, 25);
         @include rm-decoration;
         @include transition;
 
         display: block;
         &:hover {
-            @include bg-color(gray-lighter);
+            @include bg-color(darken);
         }
     }
     @include respond-down(md) {

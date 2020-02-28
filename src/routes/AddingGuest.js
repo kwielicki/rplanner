@@ -30,9 +30,7 @@ class AddingGuest extends React.Component {
 
         return (
             <>
-                <Helmet>
-                    <title>Adding a new</title>
-                </Helmet>
+                <Helmet title='Adding a new guest'/>
 
                 <BreadcrumbsItem to='/'>Dashboard</BreadcrumbsItem>
                 <BreadcrumbsItem to='/adding-guest'>Adding Guest</BreadcrumbsItem>

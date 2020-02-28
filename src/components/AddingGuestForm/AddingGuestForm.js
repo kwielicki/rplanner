@@ -4,9 +4,7 @@ import * as Yup from "yup"
 import { db } from "Components/firebase/firebase.js"
 import { connect } from "react-redux"
 import { FormInput, FormTextarea, FormSelect } from 'Components/FormsControls'
-import Moment from 'moment'
 import Rbutton from 'Components/Rbutton'
-import Button from 'Components/Rbutton'
 import CSSModules from 'react-css-modules'
 import styles from './AddingGuestForm.scss'
 import FormsGrouper from 'Components/UI/Forms/FormsGrouper'
@@ -178,7 +176,6 @@ class AddingGuestForm extends Component {
                                               variant="halfWidth"/>
                             </FormsGrouper>
                             <FormsActions>
-                                {console.log(dirty)}
                                 <Rbutton  variant='primary'
                                           label="Add an guest" 
                                           asSubmit 
