@@ -1,5 +1,5 @@
 import { myFirebase } from "Components/firebase/firebase.js"
-import * as firebase from 'firebase';
+import firebase from 'firebase/app';
 
 export const LOGIN_REQUEST = "LOGIN_REQUEST"
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS"

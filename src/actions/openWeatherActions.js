@@ -33,8 +33,7 @@ export function fetchOpenWeather(lat, lon) {
                 }
             })
             .then(response => {
-                console.log(response)
-                return response.data
+                if (response.status === 200) return response.data;
             })
             .then(data => {
                 const {

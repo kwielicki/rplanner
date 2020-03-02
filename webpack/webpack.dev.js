@@ -133,7 +133,8 @@ module.exports = merge(baseConfig, {
         }),
         new HtmlWebpackPlugin({
             title: 'Development',
-            template: 'index.html'
+            template: 'index.html',
+            favicon: './src/assets/favicon/favicon.ico'
         })
     ],
     stats: {

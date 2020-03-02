@@ -4,7 +4,7 @@
     height: 100%;
     .__list {
         @include list-unstyled;
-        @include nice-scroll;
+        @include nice-scroll($thumbColor: gray-dark);
         @include padding-all(25);
         overflow: auto;
         border-bottom: 1px solid map-get($colors, gray-light);

@@ -1,13 +1,14 @@
-@mixin nice-scroll {
+@mixin nice-scroll($barColor: gray-lighter,
+                   $thumbColor: pink) {
     &::-webkit-scrollbar-track {
-        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
-        background-color: #F5F5F5;
+        box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+        background-color: map-get($colors, $barColor);
     }
     &::-webkit-scrollbar {
         width: 6px;
-        background-color: #F5F5F5;
+        background-color: map-get($colors, $barColor);
     }
     &::-webkit-scrollbar-thumb {
-        background-color: #E9204F;
+        background-color: map-get($colors, $thumbColor);
     }
 }
