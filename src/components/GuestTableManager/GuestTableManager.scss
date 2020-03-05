@@ -1,0 +1,16 @@
+@import './styles/_common.scss';
+
+.GuestTableManager {
+    @include rounded(4);
+    @include bg-color(white);
+    @extend %boxshadow-dp2;
+    @include padding-all(30);
+    @include margin($top: 15, $bottom: 30);
+    .__header {
+        @include border(bottom);
+        @include padding($bottom: 15);
+    }
+    .__body {
+        @include padding($bottom: 15);
+    }
+}

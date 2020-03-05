@@ -5,11 +5,14 @@
     @include f-size(x-small);
     display: block;
     padding: 5px 10px;
+    text-align: center;
     &.--rounded {
         border-radius: 50%;
     }
     &.--small {
-        padding: 2px 5px;
+        display: inline-block;
+        padding: 5px 10px;
+        min-width: 90px;
     }
     &.--big {
         padding: 10px;
@@ -21,6 +24,18 @@
     &.--secondary {
         @include color(pink);
         background-color: map-get($colors, gray-lighter);
+    }
+    &.--pending {
+        @include color(white);
+        @include bg-color(orange-light);
+    }
+    &.--declined {
+        @include color(white);
+        @include bg-color(red);
+    }
+    &.--confirmed {
+        @include color(white);
+        @include bg-color(green-light);
     }
     .__text {
         font-size: inherit;

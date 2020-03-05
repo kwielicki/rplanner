@@ -1,0 +1,17 @@
+@import './styles/_common.scss';
+
+.GuestTableHeaderBasic {
+    display: flex;
+    .__header {
+        @include padding($left: 15);
+        
+        flex-basis: calc(100% / 4);
+        font-weight: $fw-600;
+        &.--small {
+            flex-basis: 200px;
+        }
+        &.--smaller {
+            flex-basis: 100px;
+        }
+    }
+}

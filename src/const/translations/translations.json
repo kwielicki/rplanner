@@ -21,6 +21,12 @@
             "subTitle": "Using the form, complete the required fields to save the guest in the database"
         }
     },
+    "manageGuestList": {
+        "pageTitle": {
+            "supTitle": "Manage guest list",
+            "subTitle": "We have provided you with the most effective way to manage your guests. You can sort the list of guests, filter and print."
+        }
+    },
     "userProfile": {
         "pageTitle": {
             "supTitle": "User Profile",

@@ -32,7 +32,9 @@
 @mixin button-size($ButtonSize) {
     // Available size: large, normal, small
     @if $ButtonSize == 'small' {
-        padding: 0 22px;
+        padding: 0 10px;
+        height: 30px;
+        font-size: map-get($fontSizes, x-small);
     } @else if $ButtonSize == 'normal' {
         padding: 0 15px;
     } @else if $ButtonSize == 'large' {

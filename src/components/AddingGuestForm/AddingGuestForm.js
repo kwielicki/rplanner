@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Formik, Form } from 'formik'
 import * as Yup from "yup"
+import firebase from "firebase/app"
 import { db } from "Components/firebase/firebase.js"
 import { connect } from "react-redux"
 import { FormInput, FormTextarea, FormSelect } from 'Components/FormsControls'
@@ -114,7 +115,7 @@ class AddingGuestForm extends Component {
                     onSubmit={(values) => {
                         this.setState({isSubmitting: true})
                         db.collection('guests').add({
-                            created: new Date(),
+                            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                             creator: this.state.creator,
                             guest: {
                                 ...values
