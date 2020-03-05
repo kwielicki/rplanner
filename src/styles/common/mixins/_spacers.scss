@@ -7,3 +7,13 @@
 @mixin padding-all($padding) {
     padding: map-get($spacers, $padding);
 }
+
+@mixin margin($top: null, $right: null, $bottom: null, $left: null) {
+    margin-top: map-get($spacers, $top);
+    margin-right: map-get($spacers, $right);
+    margin-bottom: map-get($spacers, $bottom);
+    margin-left: map-get($spacers, $left);
+}
+@mixin margin-all($margin) {
+    margin: map-get($spacers, $margin);
+}

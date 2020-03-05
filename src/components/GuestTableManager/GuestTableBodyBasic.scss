@@ -1,0 +1,32 @@
+@import './styles/_common.scss';
+
+.GuestTableBodyBasic {
+    display: block;
+    .__row {
+        @include bg-colorRGBA(blue, .1);
+        @include border(bottom);
+        
+        display: flex;
+        align-items: center;
+        &.isFirst {
+            @include margin($top: 15);
+        }
+        &.isOdd {
+            @include bg-color(white);
+            &:hover {
+                @include bg-color(gray-lighter);
+            }
+        }
+    }
+    .__cell {
+        @include padding-all(15);
+
+        flex-basis: calc(100% / 4);
+        &.--small {
+            flex-basis: 200px;
+        }
+        &.--smaller {
+            flex-basis: 100px;
+        }
+    }
+}

@@ -31,7 +31,7 @@ function Chips(props) {
 Chips.propTypes = {
     rounded: PropTypes.bool,
     size: PropTypes.oneOf(["small", "big"]),
-    type: PropTypes.oneOf(["primary", "secondary"]).isRequired
+    type: PropTypes.oneOf(["primary", "secondary", "pending", "declined", "confirmed"]).isRequired
 }
 
 export default CSSModules(styles, {allowMultiple: true})(Chips)

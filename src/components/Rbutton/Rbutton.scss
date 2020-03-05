@@ -24,7 +24,10 @@
         }
     }
     &.--xLarge {
-        @include button-size('xLarge');
+        @include button-size(xLarge);
+    }
+    &.--small {
+        @include button-size(small);
     }
     &.--spaceRight {
         margin-right: 15px;
