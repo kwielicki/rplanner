@@ -28,3 +28,6 @@ yarn-error.log*
 # webpack devServer https certs
 example.com+5-key.pem
 example.com+5.pem
+
+# idea files
+.idea
