@@ -34,7 +34,6 @@ export function fetchGuests() {
                             data: doc.data()
                         })
                     })
-                    console.log(guests);
                     return guests
                 })
                 .then(guests => {
