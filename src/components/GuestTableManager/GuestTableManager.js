@@ -54,19 +54,6 @@ class GuestTableManager extends React.Component {
                     <GuestTableBodyBasic data={collection}/>
                 </div>
             </div>
-            // collection.map(guest => (
-            //     <div key={guest.id}>
-            //         <ul>
-            //             <li>Guest id: {guest.id}</li>
-            //             <ul>
-            //                 <li>Creator: {guest.data.creator.email}, {guest.data.creator.name}</li>
-            //                 <li>Created: <Moment date={convertUtcDate(guest.data.timestamp.seconds)} format="D MMM YYYY, HH:mm"/></li>
-            //             </ul>
-            //         </ul>
-            //         <Hr wide></Hr>
-            //     </div>
-            // ))
-
         )
     }
 }
