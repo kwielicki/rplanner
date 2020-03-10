@@ -112,7 +112,7 @@ class AddingGuestForm extends Component {
                 <Formik
                     initialValues={this.state.guest}
                     validationSchema={validationSchema}
-                    onSubmit={(values) => {
+                    onSubmit={(values, { resetForm }) => {
                         this.setState({isSubmitting: true})
                         db.collection('guests').add({
                             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
@@ -123,6 +123,7 @@ class AddingGuestForm extends Component {
                         })
                         .then(() => {
                             this.setState({isSubmitting: false})
+                            resetForm()
                         })
                         .catch(err => console.log(err))
                     }}>{({ dirty, handleReset }) => (
@@ -179,18 +180,18 @@ class AddingGuestForm extends Component {
                             <FormsActions>
                                 <Rbutton  variant='primary'
                                           label="Add an guest" 
-                                          asSubmit 
+                                          asSubmit
                                           isLoader={this.state.isSubmitting}
                                           disabled={!dirty || this.state.isSubmitting}
                                           icon='check'
                                           size='xLarge'
                                           space='spaceRight'/>
                                 <Rbutton variant='secondary'
-                                             handleClick={handleReset}
-                                             label='Reset form'
-                                             icon='trash-alt'
-                                             size='xLarge'
-                                             disabled={!dirty || this.state.isSubmitting}/>
+                                         handleClick={handleReset}
+                                         label='Reset form'
+                                         icon='trash-alt'
+                                         size='xLarge'
+                                         disabled={!dirty || this.state.isSubmitting}/>
                             </FormsActions>
                         </Form>
                     )}
