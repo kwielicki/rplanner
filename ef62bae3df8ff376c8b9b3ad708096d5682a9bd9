@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e6a2bbf_719e6cd3",
+        "filename": "src/components/AddingGuestForm/AddingGuestForm.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1017672
+      },
+      "writtenOn": "2020-03-10T21:00:57Z",
+      "side": 1,
+      "message": "A jak ktoś ma dwuczłonowe nazwisko z myślnikiem w środku? 😊",
+      "range": {
+        "startLine": 28,
+        "startChar": 18,
+        "endLine": 28,
+        "endChar": 47
+      },
+      "revId": "ef62bae3df8ff376c8b9b3ad708096d5682a9bd9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
