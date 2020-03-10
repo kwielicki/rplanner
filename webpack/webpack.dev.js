@@ -16,7 +16,6 @@ const path = require('path')
 
 // Paths
 const paths = require('./paths')
-const srcDir = paths.dirSrc
 
 // Env variables
 const env = dotenv.config().parsed
@@ -103,19 +102,6 @@ module.exports = merge(baseConfig, {
             cert: './example.com+5.pem'
         },
         hot: true,
-    },
-    resolve: {
-        extensions: ['*', '.js', '.jsx'],
-        alias: {
-            'Assets': path.join(srcDir, '/assets'),
-            'Components': path.join(srcDir, '/components'),
-            'Routes': path.join(srcDir, '/routes'),
-            'Actions': path.join(srcDir, '/actions'),
-            'Reducers': path.join(srcDir, '/reducers'),
-            'Translations': path.join(srcDir, '/const/translations'),
-            'Bunches': path.join(srcDir, '/const/bunches'),
-            'FontAwesome': path.join(srcDir, '/fontAwesome')
-        }
     },
     plugins: [
         new webpack.DefinePlugin(envKeys),

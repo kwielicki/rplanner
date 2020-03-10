@@ -2,29 +2,30 @@ import React, { Component } from 'react'
 import { Formik, Form } from 'formik'
 import * as Yup from "yup"
 import firebase from "firebase/app"
-import { db } from "Components/firebase/firebase.js"
+import { db } from "Components/firebase/firebase"
 import { connect } from "react-redux"
-import { FormInput, FormTextarea, FormSelect } from 'Components/FormsControls'
-import Rbutton from 'Components/Rbutton'
 import CSSModules from 'react-css-modules'
 import styles from './AddingGuestForm.scss'
+import Rbutton from 'Components/Rbutton'
 import FormsGrouper from 'Components/UI/Forms/FormsGrouper'
 import FormsActions from 'Components/UI/Forms/FormsActions'
+import { maskForMobilePhone } from 'Components/Helpers/inputMasks'
+import { REGEXP__mobilePhone, REGEXP__personName } from 'Utils/regexps'
+import { FormInput, FormInputByMask, FormTextarea, FormSelect } from 'Components/FormsControls'
 import bunches from 'Bunches/bunches.json'
 
-const phoneRegExp = /1?-?\(?[0-9]{3}[\-\)]/
 const validationSchema = Yup.object().shape({
     firstName: Yup
         .string()
         .required()
         .min(3)
-        .matches(/^[A-Za-z]+$/, 'This field can only contain letters')
+        .matches(REGEXP__personName, 'This field can only contain letters')
         .label('First name'),
     lastName: Yup
         .string()
         .required()
         .min(3)
-        .matches(/^[A-Za-z]+$/, 'This field can only contain letters')
+        .matches(REGEXP__personName, 'This field can only contain letters')
         .label('Last name'),
     numberOfGuests: Yup
         .object()
@@ -46,8 +47,8 @@ const validationSchema = Yup.object().shape({
     phoneNumber: Yup
         .string()
         .max(11)
-        .matches(phoneRegExp, {
-            message: 'Phone number is not valid. Expected format 111-222-333'
+        .matches(REGEXP__mobilePhone, {
+            message: 'Phone number is not valid. Expected format xxx-yyy-zzz'
         })
         .label('Phone number'),
     emailAddress: Yup
@@ -163,9 +164,10 @@ class AddingGuestForm extends Component {
                                             isGray/>
                             </FormsGrouper>
                             <FormsGrouper>
-                                <FormInput type="text"
+                                <FormInputByMask type="text"
                                            name="phoneNumber"
                                            label="Phone number"
+                                           mask={maskForMobilePhone}
                                            variant="halfWidth"/>
                                 <FormInput type="email"
                                            name="emailAddress"
