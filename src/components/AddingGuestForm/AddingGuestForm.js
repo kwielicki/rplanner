@@ -2,29 +2,30 @@ import React, { Component } from 'react'
 import { Formik, Form } from 'formik'
 import * as Yup from "yup"
 import firebase from "firebase/app"
-import { db } from "Components/firebase/firebase.js"
+import { db } from "Components/firebase/firebase"
 import { connect } from "react-redux"
-import { FormInput, FormTextarea, FormSelect } from 'Components/FormsControls'
-import Rbutton from 'Components/Rbutton'
 import CSSModules from 'react-css-modules'
 import styles from './AddingGuestForm.scss'
+import Rbutton from 'Components/Rbutton'
 import FormsGrouper from 'Components/UI/Forms/FormsGrouper'
 import FormsActions from 'Components/UI/Forms/FormsActions'
+import { maskForMobilePhone } from 'Components/Helpers/inputMasks'
+import { FormInput, FormInputByMask, FormTextarea, FormSelect } from 'Components/FormsControls'
 import bunches from 'Bunches/bunches.json'
 
-const phoneRegExp = /1?-?\(?[0-9]{3}[\-\)]/
+const phoneRegExp = /\d{3}-\d{3}-\d{3}/
 const validationSchema = Yup.object().shape({
     firstName: Yup
         .string()
         .required()
         .min(3)
-        .matches(/^[A-Za-z]+$/, 'This field can only contain letters')
+        .matches(/^[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]+$/, 'This field can only contain letters')
         .label('First name'),
     lastName: Yup
         .string()
         .required()
         .min(3)
-        .matches(/^[A-Za-z]+$/, 'This field can only contain letters')
+        .matches(/^[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]+$/, 'This field can only contain letters')
         .label('Last name'),
     numberOfGuests: Yup
         .object()
@@ -162,9 +163,10 @@ class AddingGuestForm extends Component {
                                             isGray/>
                             </FormsGrouper>
                             <FormsGrouper>
-                                <FormInput type="text"
+                                <FormInputByMask type="text"
                                            name="phoneNumber"
                                            label="Phone number"
+                                           mask={maskForMobilePhone}
                                            variant="halfWidth"/>
                                 <FormInput type="email"
                                            name="emailAddress"

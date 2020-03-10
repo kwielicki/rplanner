@@ -5,7 +5,7 @@ import classNames from 'classnames'
 import CSSModules from 'react-css-modules'
 import styles from './FormsControls.scss'
 import SelectSomething from 'Components/UI/SelectSomething'
-
+import MaskedInput from 'react-text-mask'
 function TextInput({ label, ...props }) {
     const [field, meta] = useField(props)
     const [isFocused, isFocusedSet] = useState(false)
@@ -95,7 +95,50 @@ TextareaInput.propTypes = {
     variant: PropTypes.oneOf(['halfWidth', 'fullWidth'])
 }
 
+function TextInputByMask({ label, ...props}) {
+    const [field, meta] = useField(props)
+    const [isFocused, isFocusedSet] = useState(false)
+    const setOfStateClasses = {
+        'isError': meta.touched && meta.error,
+        'isFocused': isFocused,
+        'isDirty': field.value,
+        'isValid': meta.touched && !meta.error
+    }
+    const labelClasses = Object.assign({}, setOfStateClasses, { '__label': true })
+    return (
+        <div styleName={classNames({
+            'FormElement': true,
+            [`--${props.variant}`]: props.variant ? true : false
+        })}>
+            <div styleName='__group'>
+                <label styleName={classNames(labelClasses)} htmlFor={props.name}>
+                    {label}&nbsp;
+                    {meta.touched && meta.error ? (<span>*</span>) : null}
+                </label>
+                <Field
+                    {...field}
+                    render={({ field }) => (
+                        <MaskedInput
+                            {...field}
+                            className={styles.__input}
+                            onBlur={(e) => {field.onBlur(e); isFocusedSet(!isFocused)}}
+                            onFocus={(e) => isFocusedSet(true)}
+                            mask={props.mask}
+                        />
+                    )}
+                    />
+            </div>
+                {meta.touched && meta.error ? (
+                    <div styleName="__error" role="alert">{meta.error}</div>
+                ) : null}
+        </div>
+    )
+}
+TextInputByMask.propTypes = {
+    mask: PropTypes.array.isRequired
+}
 
 export const FormInput = CSSModules(styles, {allowMultiple: true})(TextInput)
+export const FormInputByMask = CSSModules(styles, {allowMultiple: true})(TextInputByMask)
 export const FormTextarea = CSSModules(styles, {allowMultiple: true})(TextareaInput)
 export const FormSelect = CSSModules(styles, {allowMultiple: true})(SelectInput)
