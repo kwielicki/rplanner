@@ -17,6 +17,9 @@
     &.--secondary {
         @include button-variant('secondary');
     }
+    &.--tertiary {
+        @include button-variant('tertiary');
+    }
     &.--icon {
         .__label {
             margin-left: 13px;

@@ -1,0 +1,86 @@
+@import './styles/_common.scss';
+
+.Modal {
+    display: block;
+    .__overlay {
+        position: fixed;
+        top: 0; right: 0; bottom: 0; left: 0;
+        background-color: rgba(0,0,0,.5);
+        z-index: 99;
+    }
+    .__inner {
+        position: fixed;
+        top: 0; right: 0; bottom: 0; left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 100;
+    }
+    .__content {
+        @include rounded(4);
+        @include modal-box-shadow;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        background-color: #fff;
+        height: 100%;
+    }
+    .__sizer {
+        max-width: 767px;
+        width: 100%;
+        min-height: 220px;
+        &.--small {
+            max-width: 480px;
+        }
+        &.--fluid {
+            max-width: none;
+            min-height: 100%;
+            height: 100%;
+        }
+    }
+    .__header {
+        @include border('bottom');
+        @include padding($top: 15, $right: 30, $bottom: 15, $left: 30);
+        display: flex;
+    }
+    .__headerInner {
+        display: flex;
+        flex-wrap: wrap;
+        width: calc(100% - 100px);
+    }
+    .__headerTitle {
+        @include heading('h3');
+
+        width: 100%;
+    }
+    .__headerDescription {
+        @include f-size(x-small);
+
+        font-weight: $fw-300;
+    }
+    .__close {
+        position: absolute;
+        top: 8px;
+        right: 0;
+        display: flex;
+        justify-content: flex-end;
+        width: 100px;
+    }
+    .__body {
+        padding: 30px;
+    }
+    .__footer {
+        @include border('top');
+        @include padding-all(15);
+
+        display: flex;
+        justify-content: flex-end;
+    }
+    @include respond-down(md) {
+        .__sizer {
+            height: 100%;
+        }
+    }
+}
