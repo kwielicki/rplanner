@@ -13,6 +13,9 @@
         &.--secondary {
             @include button-variant('secondary');
         }
+        &.--teriary {
+            @include button-variant('tertiary');
+        }
     }
     .__ripple {
         @include button-ripple-effect;

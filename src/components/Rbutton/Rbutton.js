@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types'
 import CSSModules from 'react-css-modules'
 import classNames from 'classnames'
+import { isEmpty } from 'lodash'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styles from './Rbutton.scss'
 
@@ -43,7 +44,7 @@ class Rbutton extends React.Component {
                 })}>
                 {icon && <FontAwesomeIcon icon={icon} styleName='__icon'/>}
                 {isLoader && <FontAwesomeIcon icon='spinner' styleName='__loader'/>}
-                <span styleName='__label'>{label}</span>
+                {!isEmpty(label) && <span styleName='__label'>{label}</span>}
             </button>
 		)
 	}

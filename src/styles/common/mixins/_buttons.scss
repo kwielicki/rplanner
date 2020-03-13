@@ -74,6 +74,18 @@
             @include button-box-shadow-active(pink);
         }
     }
+    @if $ButtonVariant == 'tertiary' {
+        @include bg-color(white);
+        @include color(dark);
+        border: none;
+        box-shadow: none;
+        &:hover {
+            @include bg-color(gray-lighter);
+        }
+        &:active {
+            @include bg-color(gray-light);
+        }
+    }
 }
 @mixin button-display($ButtonDisplay) {
     justify-content: center;
