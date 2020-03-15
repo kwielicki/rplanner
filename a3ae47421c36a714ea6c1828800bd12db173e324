@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b3a28a5_c75d94f8",
+        "filename": "src/components/Button/Button.scss",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1017672
+      },
+      "writtenOn": "2020-03-15T19:53:37Z",
+      "side": 1,
+      "message": "Zgubiłeś \u0027t\u0027 - tertiary\n\nZastanawiam się nad tą nomenklaturą. Może coś bardziej mówiącego np confirm/cancel/close? Aczkolwiek nie upieram się, bo się kompletnie na tym nie znam ;)",
+      "range": {
+        "startLine": 16,
+        "startChar": 12,
+        "endLine": 16,
+        "endChar": 19
+      },
+      "revId": "a3ae47421c36a714ea6c1828800bd12db173e324",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
