@@ -46,6 +46,30 @@
       "revId": "a3ae47421c36a714ea6c1828800bd12db173e324",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad2c3a5e_aa0f6d2a",
+        "filename": "src/components/Button/Button.scss",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1017672
+      },
+      "writtenOn": "2020-03-16T21:38:03Z",
+      "side": 1,
+      "message": "Masz rację, moja propozycja jest bez sensu.\n\nPo prostu zastanawiam się jak długo można iść w liczbowe nazwy - quaternary, quinary itd.\n\nJeśli nie planujemy dużo większej liczby wariantów, to jest okej.",
+      "parentUuid": "2436a07e_7c6ed943",
+      "range": {
+        "startLine": 16,
+        "startChar": 12,
+        "endLine": 16,
+        "endChar": 19
+      },
+      "revId": "a3ae47421c36a714ea6c1828800bd12db173e324",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
     }
   ]
 }
