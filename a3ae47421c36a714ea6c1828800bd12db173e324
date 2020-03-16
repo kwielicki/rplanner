@@ -22,6 +22,30 @@
       "revId": "a3ae47421c36a714ea6c1828800bd12db173e324",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2436a07e_7c6ed943",
+        "filename": "src/components/Button/Button.scss",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1009705
+      },
+      "writtenOn": "2020-03-16T16:02:38Z",
+      "side": 1,
+      "message": "Wydaje mi się, że w miarę możliwości nie powinniśmy iść w stronę nomenklatury nazwy akcji. Dzięki temu, że to jest primary,secondary lub tertiary będzie można użyć ich w kontekście przycisku confirm np.\n\n.__confirm {\n  @include button-variant(\u0027tertiary\u0027);\n}\n\nA teraz Twój przykład w kontekście confirm, z użyciem wariantu o nazwie close.\n.__confirm {\n  @include button-variant(\u0027close\u0027);\n}\n\nWg mnie sama nazwa miksiny w stylach nie powinna znać kontekstu użycia jej w ramach klasy komponetu :).\n\nDaj znać co o tym sądzisz.",
+      "parentUuid": "2b3a28a5_c75d94f8",
+      "range": {
+        "startLine": 16,
+        "startChar": 12,
+        "endLine": 16,
+        "endChar": 19
+      },
+      "revId": "a3ae47421c36a714ea6c1828800bd12db173e324",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
     }
   ]
 }
