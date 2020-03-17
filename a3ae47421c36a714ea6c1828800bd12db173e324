@@ -70,6 +70,30 @@
       "revId": "a3ae47421c36a714ea6c1828800bd12db173e324",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "078d24e1_ca4834f4",
+        "filename": "src/components/Button/Button.scss",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1009705
+      },
+      "writtenOn": "2020-03-17T10:27:42Z",
+      "side": 1,
+      "message": "To ja na razie to przepuszczam, jeśli okaże się, że nadejdzie konieczność używania innych typów buttonów, to będziemy coś refactorować lub zmianiać.",
+      "parentUuid": "ad2c3a5e_aa0f6d2a",
+      "range": {
+        "startLine": 16,
+        "startChar": 12,
+        "endLine": 16,
+        "endChar": 19
+      },
+      "revId": "a3ae47421c36a714ea6c1828800bd12db173e324",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
     }
   ]
 }
