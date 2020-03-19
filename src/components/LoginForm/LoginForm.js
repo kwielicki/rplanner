@@ -54,8 +54,8 @@ class LoginForm extends Component {
                                 dispatch(loginUser(email, password))
                             }}>
                                 <Form styleName='__oauthForm'>
-                                    <FormInput type="email" name="email" label="Use your e-mail"/>
-                                    <FormInput type="password" name="password" label="Type your password"/>
+                                    <FormInput type="email" name="email" label="Use your e-mail" autoComplete="username"/>
+                                    <FormInput type="password" name="password" label="Type your password" autoComplete="current-password"/>
                                     <div styleName='__button'>
                                         <Rbutton variant='primary' label="Login" icon='lock' asSubmit isLoader={isLoading}/>
                                     </div>

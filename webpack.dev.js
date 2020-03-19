@@ -1,17 +1,16 @@
-const merge = require('webpack-merge')
 const webpack = require('webpack')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const merge = require('webpack-merge')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const dotenv = require('dotenv')
-const baseConfig = require('./webpack.common')
-
-// Plugins
 const path = require('path')
+const address = require('ip').address
 
-// Paths
-const paths = require('./paths')
+
+const webpackCommon = require('./webpack.common.js')
+const webpackEnvs = path.resolve(__dirname, 'webpack-envs')
+
+const { PORT } = require(path.resolve(webpackEnvs, 'const.js'))
 
 // Env variables
 const env = dotenv.config().parsed
@@ -19,30 +18,12 @@ const envKeys = Object.keys(env).reduce((prev, next) => {
     prev[`process.env.${next}`] = JSON.stringify(env[next]);
     return prev;
 }, {});
-module.exports = merge(baseConfig, {
-    mode: 'production',
-    entry: {
-        app: [
-          path.join(paths.dirSrc, 'index.js'),
-        ]
-    },
-    output: {
-        publicPath: '/'
-    },
+
+module.exports = merge(webpackCommon, {
+    mode: 'development',
+    devtool: 'inline-source-map',
     module: {
-        rules: [{
-            test: /\.(js|jsx)$/,
-            exclude: /node_modules/,
-            use: {
-                loader: "babel-loader"
-            }
-        },
-        {
-            test: /\.html$/,
-            use: [{
-                loader: "html-loader"
-            }]
-        },
+        rules: [
         { 
             test: /\.scss$/,
             use: [
@@ -74,7 +55,8 @@ module.exports = merge(baseConfig, {
             ]
         },
         {
-            test: /\.(png|svg|jpe?g|gif)$/,
+            test: /\.(png|svg|jpg|jpeg|gif|ico)$/,
+            exclude: /node_modules/,
             use: [
                 {
                     loader: 'file-loader',
@@ -85,9 +67,23 @@ module.exports = merge(baseConfig, {
             ]
         }]
     },
+    devServer: {
+        clientLogLevel: 'error',
+        contentBase: './dist',
+        historyApiFallback: true,
+        host: address(),
+        hot: true,
+        https: {
+            key: './example.com+5-key.pem',
+            cert: './example.com+5.pem'
+        },
+        open: true,
+        overlay: true,
+        port: PORT,
+        progress: true,
+    },
     plugins: [
         new webpack.DefinePlugin(envKeys),
-        new CleanWebpackPlugin(),
         new ExtractTextPlugin('style.css', { allChunks: true }),
         new MiniCssExtractPlugin({
             // Options similar to the same options in webpackOptions.output
@@ -96,18 +92,8 @@ module.exports = merge(baseConfig, {
             chunkFilename: "[id].css"
         }),
         new webpack.EnvironmentPlugin({
-            NODE_ENV: 'production',
-            DEBUG: false
+            NODE_ENV: 'development',
+            DEBUG: true
         }),
-        new HtmlWebpackPlugin({
-            title: 'production',
-            template: 'index.html'
-        })
-    ],
-    stats: {
-        // Add build date and time information
-        builtAt: true,
-        env: true,
-        performance: true
-    }
+    ]
 })

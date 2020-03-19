@@ -1,7 +1,7 @@
 const path = require('path')
 
 const rootPath = path.resolve(__dirname, '..')
-const dirDist = path.join(rootPath, 'public')
+const dirDist = path.join(rootPath, 'dist')
 const dirDistJs = path.join(dirDist, 'js')
 const dirDistStyle = path.join(dirDist, 'css')
 const dirSrc = path.join(rootPath, 'src')
