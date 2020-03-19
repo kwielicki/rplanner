@@ -14,9 +14,18 @@ import './config/env.js'
 
 import rootReducer from './rootReducer'
 import { verifyAuth } from "./actions/auth.js"
+
+const middlewares = [];
+middlewares.push(thunk);
+
+if (process.env.NODE_ENV === `development`) {
+  const { logger } = require(`redux-logger`);
+  middlewares.push(logger);
+}
+
 const store = createStore(
     rootReducer,
-    applyMiddleware(thunk, logger)
+    applyMiddleware(...middlewares)
 )
 store.dispatch(verifyAuth());
 
