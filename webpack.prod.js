@@ -91,8 +91,10 @@ module.exports = merge(webpackCommon, {
                 {
                     loader: 'sass-loader',
                     options: {
-                        import: true,
-                        includePaths: ['./src'],
+                        sassOptions: {
+                            import: true,
+                            includePaths: ['./src'],
+                        }
                     }
                 }
             ]
