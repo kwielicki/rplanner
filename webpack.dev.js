@@ -46,10 +46,12 @@ module.exports = merge(webpackCommon, {
                 {
                     loader: 'sass-loader',
                     options: {
-                        sourceMap: true,
-                        import: true,
-                        sourceMapContents: true,
-                        includePaths: ['./src']
+                        sassOptions: {
+                            sourceMap: true,
+                            import: true,
+                            sourceMapContents: true,
+                            includePaths: ['./src']
+                        }
                     }
                 }
             ]
