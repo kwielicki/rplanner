@@ -35,7 +35,7 @@ module.exports = merge(webpackCommon, {
     },
     plugins: [
         new Dotenv({
-            path: path.resolve(__dirname, './.env')
+            systemvars: true
         }),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
