@@ -5,22 +5,17 @@ const TerserJSPlugin = require('terser-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const BrotliPlugin = require('brotli-webpack-plugin');
-const dotenv = require('dotenv')
 const path = require('path')
 const webpackCommon = require('./webpack.common.js')
+const Dotenv = require('dotenv-webpack');
 
 // Paths
 const WebpackPwaManifest = require('webpack-pwa-manifest')
 
 // Env variables
-const env = dotenv.config().parsed
-const envKeys = Object.keys(env).reduce((prev, next) => {
-    prev[`process.env.${next}`] = JSON.stringify(env[next]);
-    return prev;
-}, {});
-
 module.exports = merge(webpackCommon, {
     mode: 'production',
+    entry: './src/index.js',
     devtool: '', // Removed dev-tools mapping
     optimization: {
         minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
@@ -39,8 +34,8 @@ module.exports = merge(webpackCommon, {
         path: path.resolve(__dirname, 'build'),
     },
     plugins: [
+        new Dotenv(),
         new CleanWebpackPlugin(),
-        new webpack.DefinePlugin(envKeys),
         new MiniCssExtractPlugin({
             filename: '[name].[hash].css'
         }),
