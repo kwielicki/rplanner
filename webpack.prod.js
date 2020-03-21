@@ -34,7 +34,9 @@ module.exports = merge(webpackCommon, {
         path: path.resolve(__dirname, 'build'),
     },
     plugins: [
-        new Dotenv(),
+        new Dotenv({
+            path: path.resolve(__dirname, './.env')
+        }),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: '[name].[hash].css'
