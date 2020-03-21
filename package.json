@@ -78,7 +78,7 @@
     },
     "scripts": {
         "build": "webpack --config webpack.prod.js",
-        "dev": " webpack-dev-server --config webpack.dev.js --color",
+        "start": "webpack-dev-server --config webpack.dev.js --color",
         "clean:build": "rm -rf build",
         "clean:nm": "rm -rf node_modules",
         "clean": "yarn run clean:build && yarn run clean:nm"
