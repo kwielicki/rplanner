@@ -1,0 +1,13 @@
+@import './styles/_common.scss';
+
+.DecoratedList {
+    display: block;
+    .__list {
+        @include list-unstyled;
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: stretch;
+        width: 100%;
+    }
+}

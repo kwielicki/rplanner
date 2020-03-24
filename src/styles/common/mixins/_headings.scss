@@ -7,6 +7,10 @@
 @mixin heading-type($type) {
     font-size: map-get($headingsSizes, $type);
     line-height: map-get($headingsLineHeight, $type);
+    @include media-breakpoint-down(md) {
+        font-size: map-get($headingsSizesMobile, $type);
+        line-height: map-get($headingsLineHeightMobile, $type);
+    }
 }
 
 @mixin heading($type) {

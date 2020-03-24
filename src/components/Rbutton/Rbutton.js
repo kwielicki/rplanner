@@ -10,8 +10,7 @@ import styles from './Rbutton.scss'
 class Rbutton extends React.Component {
 
     static defaultProps = {
-        variant: "primary",
-        label: "Rbutton"
+        variant: "primary"
     }
 
 	render() {
@@ -54,7 +53,7 @@ Rbutton.propTypes = {
     variant: PropTypes.string.isRequired,
     asBlock: PropTypes.bool,
     asSubmit: PropTypes.bool,
-    label: PropTypes.string.isRequired,
+    label: PropTypes.string,
     icon: PropTypes.string,
     isLoader: PropTypes.bool,
     handleClick: PropTypes.func,

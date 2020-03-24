@@ -83,4 +83,10 @@
         padding-top: 4px;
         padding-left: 16px;
     }
+
+    @include media-breakpoint-down(sm) {
+        &.--halfWidth {
+            width: 100%;
+        }
+    }
 }

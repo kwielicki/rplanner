@@ -26,6 +26,19 @@
         "published": "Published at",
         "howLong": "How long"
     },
+    "guestModel": {
+        "firstName": "",
+        "lastName": "",
+        "guestAffiliation": "",
+        "guestStatus": "",
+        "numberOfGuests": {
+            "adult": "",
+            "children": ""
+        },
+        "phoneNumber": "",
+        "emailAddress": "",
+        "additionalInformation": ""
+    },
     "guestAffiliation": [
         {"id": 1, "label": "Groom", "value": "groom"},
         {"id": 2, "label": "Bride", "value": "bride"}

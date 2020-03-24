@@ -1,5 +1,5 @@
 // Media breakpoint up
-@mixin respond-up($breakpoint) {
+@mixin media-breakpoint-up($breakpoint) {
     // If the breakpoint exists in the map.
     @if map-has-key($breakpoints, $breakpoint) {
         // Get the breakpoint value.
@@ -17,7 +17,7 @@
 }
 
 // Media breakpoint down
-@mixin respond-down($breakpoint) {
+@mixin media-breakpoint-down($breakpoint) {
     // If the breakpoint exists in the map.
     @if map-has-key($breakpoints, $breakpoint) {
   
@@ -37,7 +37,7 @@
 }
 
 // Media breakpoint between
-@mixin respond-between($lower, $upper) {
+@mixin media-breakpoint-betweenn($lower, $upper) {
     // If both the lower and upper breakpoints exist in the map.
     @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
   

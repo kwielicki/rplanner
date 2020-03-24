@@ -1,0 +1,48 @@
+@import './styles/_common.scss';
+
+.DecoratedListElement {
+    display: block;
+    .__inner {
+        @include padding($top: 5, $bottom: 10, $left: 15);
+        @include margin($right: 15, $bottom: 20);
+        @include border('around');
+        @extend %boxshadow-dp3;
+    }
+    &.--one {
+        width: 100%;
+    }
+    &.--oneHalf {
+        @include media-breakpoint-up(md) {
+            width: 50%;
+        }
+    }
+    &.--oneThird {
+        @include media-breakpoint-up(md) {
+            width: calc(100% / 3);
+        }
+    }
+    &.--twoThirds {
+        @include media-breakpoint-up(md) {
+            width: calc(100% * (2/3));
+        }
+    }
+    &.--quarter {
+        @include media-breakpoint-up(md) {
+            width: 25%;
+        }
+    }
+    .__header {
+        @include f-size(x-small);
+        @include text-ellipsis;
+    }
+    .__description {
+        @include text-ellipsis;
+        @include f-size(small);
+    }
+    @include media-breakpoint-down(sm) {
+        .__inner {
+            @include margin($right: 0);
+
+        }
+    }
+}

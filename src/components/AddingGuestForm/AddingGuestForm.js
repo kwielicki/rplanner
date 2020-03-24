@@ -7,6 +7,7 @@ import { connect } from "react-redux"
 import CSSModules from 'react-css-modules'
 import styles from './AddingGuestForm.scss'
 import Rbutton from 'Components/Rbutton'
+import { fetchGuests } from 'Actions/guestsActions'
 import FormsGrouper from 'Components/UI/Forms/FormsGrouper'
 import FormsActions from 'Components/UI/Forms/FormsActions'
 import { maskForMobilePhone } from 'Components/Helpers/inputMasks'
@@ -40,7 +41,7 @@ const validationSchema = Yup.object().shape({
             children: Yup
                 .number()
                 .positive()
-                .integer((evt) => console.log(Evt))
+                .integer()
                 .label('Expected number of guests')
                 .typeError('You must specify a number')
         }),
@@ -76,34 +77,16 @@ class AddingGuestForm extends Component {
         this.state = {
             guestAffiliation: bunches.guestAffiliation,
             guestStatus: bunches.guestStatus,
-            guest: {
-                firstName: '',
-                lastName: '',
-                guestAffiliation: '',
-                guestStatus: '',
-                numberOfGuests: {
-                    adult: '',
-                    children: ''
-                },
-                phoneNumber: '',
-                emailAddress: '',
-                additionalInformation: ''
-            },
+            guest: bunches.guestModel,
             isSubmitting: false,
-            creator: {
-                name: '',
-                email: ''
-            }
+            creator: { name: '', email: '' }
         }
     }
 
     componentDidMount = () => {
         const { user: { displayName, email } } = this.props
         this.setState({
-            creator: {
-                name: displayName,
-                email: email
-            }
+            creator: { name: displayName, email: email }
         })
     }
 
@@ -119,11 +102,13 @@ class AddingGuestForm extends Component {
                             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                             creator: this.state.creator,
                             guest: {
+                                fullName: `${values.firstName} ${values.lastName}`,
                                 ...values
                             }
                         })
                         .then(() => {
                             this.setState({isSubmitting: false})
+                            this.props.dispatch(fetchGuests())
                             resetForm()
                         })
                         .catch(err => console.log(err))

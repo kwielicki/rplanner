@@ -13,7 +13,7 @@
             @include bg-color(darken);
         }
     }
-    @include respond-down(md) {
+    @include media-breakpoint-down(md) {
         .__link {
             @include padding-all(15);
         }

@@ -14,4 +14,7 @@
             flex-basis: 100px;
         }
     }
+    @include media-breakpoint-down(md) {
+        flex-wrap: wrap;
+    }
 }

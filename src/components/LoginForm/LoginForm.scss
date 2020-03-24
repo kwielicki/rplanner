@@ -80,7 +80,7 @@
     .__logo {
         max-width: 100%;
     }
-    @include respond-down(md) {
+    @include media-breakpoint-down(md) {
         height: auto;
         &:before {
             display: none;

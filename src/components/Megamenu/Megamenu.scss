@@ -17,7 +17,7 @@
         @include f-size(x-small);
         @include color(gray);
     }
-    @include respond-down(md) {
+    @include media-breakpoint-down(md) {
         .__list {
             @include padding-all(15);
             height: calc(100% - 155px);
