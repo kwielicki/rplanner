@@ -1,0 +1,14 @@
+@import './styles/_common.scss';
+
+.IconButton {
+    @include button-creator;
+    @include button-variant('text');
+
+    min-width: 0;
+    .__label {
+        @extend %sr-only;
+    }
+    &.--small {
+        @include button-size(small);
+    }
+}

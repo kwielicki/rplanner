@@ -4,4 +4,7 @@
     @include padding($top: 30, $bottom: 30);
     display: flex;
     justify-content: flex-end;
+    @include media-breakpoint-down(sm) {
+        flex-wrap: wrap;
+    }
 }

@@ -6,8 +6,10 @@ import classNames from 'classnames'
 import EscapeOutside from "react-escape-outside"
 import { scrollBarSize } from 'Components/Helpers/scrollbarMeasure'
 import { modalRoot } from 'Components/Helpers/modalRoot'
+import { _isEmpty } from 'lodash'
 import styles from './Modal.scss'
 import Rbutton from 'Components/Rbutton'
+import IconButton from 'Components/UI/IconButton'
 
 @CSSModules(styles, {allowMultiple: true})
 class ModalBody extends Component {
@@ -15,7 +17,7 @@ class ModalBody extends Component {
 
         const {
             data: {
-                headerTitle, headerDescription,
+                headerTitle, headerDescription, headerSubtitle,
                 onClose, onConfirm,
                 closeLabel, confirmLabel,
                 closeStyle, confirmStyle,
@@ -34,17 +36,20 @@ class ModalBody extends Component {
                         <div styleName='__content'>
                             <div styleName='__header'>
                                 <div styleName='__headerInner'>
-                                    <h3 styleName='__headerTitle'>{headerTitle}</h3>
-                                    <p styleName='__headerDescription'>{headerDescription}</p>
+                                    <h3 styleName='__headerTitle'>
+                                        <span styleName='__headerTitleSuffix' dangerouslySetInnerHTML={{__html: headerTitle}}></span>
+                                        {!_.isEmpty(headerSubtitle) && <strong styleName='__headerSubtitle'>{headerSubtitle}</strong>}
+                                    </h3>
+                                    <p styleName='__headerDescription' dangerouslySetInnerHTML={{__html: headerDescription}}></p>
                                 </div>
                                 <div styleName='__close'>
-                                    <Rbutton variant='tertiary' label="" icon='times' handleClick={handleEscapeOutside}/>
+                                    <IconButton variant='tertiary' ariaLabel="Close modal" icon='times' handleClick={handleEscapeOutside}/>
                                 </div>
                             </div>
                             <div styleName='__body'>{children}</div>
                             <div styleName='__footer'>
-                                <Rbutton handleClick={onClose} variant={closeStyle} label={closeLabel}/>
-                                <Rbutton handleClick={onConfirm} variant={confirmStyle} label={confirmLabel}/>
+                                {closeLabel && <Rbutton handleClick={onClose} variant={closeStyle} label={closeLabel}/>}
+                                {confirmLabel && <Rbutton handleClick={onConfirm} variant={confirmStyle} label={confirmLabel}/>}
                             </div>
                         </div>
                     </EscapeOutside>
@@ -59,11 +64,6 @@ class Modal extends React.Component {
     constructor(props) {
         super(props)
         this.handleEscapeOutside = this.handleEscapeOutside.bind(this)
-    }
-
-    static defaultProps = {
-        closeLabel: "Action 1",
-        confirmLabel: "Action 2",
     }
 
     state = {
@@ -102,13 +102,14 @@ class Modal extends React.Component {
 
 Modal.propTypes = {
     isOpen: PropTypes.bool.isRequired,
-    onClose: PropTypes.func.isRequired,
-    onConfirm: PropTypes.func.isRequired,
-    closeLabel: PropTypes.string.isRequired,
+    onClose: PropTypes.func,
+    onConfirm: PropTypes.func,
+    closeLabel: PropTypes.string,
     closeStyle: PropTypes.string,
-    confirmLabel: PropTypes.string.isRequired,
+    confirmLabel: PropTypes.string,
     confirmStyle: PropTypes.string,
     headerTitle: PropTypes.string,
+    headerSubtitle: PropTypes.string,
     headerDescription: PropTypes.string,
     children: PropTypes.node.isRequired,
     size: PropTypes.oneOf(['small', 'fluid'])

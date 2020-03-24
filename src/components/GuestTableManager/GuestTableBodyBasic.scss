@@ -29,4 +29,9 @@
             flex-basis: 100px;
         }
     }
+    @include media-breakpoint-down(md) {
+        .__row {
+            flex-wrap: wrap;
+        }
+    }
 }

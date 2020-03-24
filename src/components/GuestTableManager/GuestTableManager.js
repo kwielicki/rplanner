@@ -43,7 +43,6 @@ class GuestTableManager extends React.Component {
     render() {
         const { collection, loading, error } = this.props
 
-        if ( loading ) return <Loader/>
 
         return (
             <div styleName='GuestTableManager'>
@@ -51,7 +50,7 @@ class GuestTableManager extends React.Component {
                     <GuestTableHeaderBasic data={this.state.tableHeaderBasic}/>
                 </div>
                 <div styleName='__body'>
-                    <GuestTableBodyBasic data={collection}/>
+                    {loading ? <Loader/> : <GuestTableBodyBasic data={collection}/>}
                 </div>
             </div>
         )
