@@ -1,14 +1,10 @@
 import React from 'react'
-import CSSModules from 'react-css-modules'
 import { connect } from 'react-redux'
 import { fetchGuests } from 'Actions/guestsActions'
 import Loader from 'Components/UI/Loader'
-import Hr from 'Components/UI/Hr'
-import Moment from 'react-moment'
-import { convertUtcDate } from 'Components/Helpers/convertUtcDate'
 import GuestTableHeaderBasic from './GuestTableHeaderBasic'
-import styles from './GuestTableManager.scss'
 import GuestTableBodyBasic from './GuestTableBodyBasic'
+import './GuestTableManager.scss'
 
 const mapStateToProps = state => {
     const { collection,
@@ -21,7 +17,6 @@ const mapStateToProps = state => {
     }
 }
 
-@CSSModules(styles, {allowMultiple: true})
 class GuestTableManager extends React.Component {
 
     state = {

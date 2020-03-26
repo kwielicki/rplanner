@@ -1,8 +1,7 @@
 import React from 'react'
-import CSSModules from 'react-css-modules'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import styles from './Hr.scss'
+import './Hr.scss'
 
 function Hr( props ) {
 
@@ -11,8 +10,8 @@ function Hr( props ) {
     return (
         <div styleName={classNames({
             'Hr': true,
-            [`--wide`]: wide,
-            [`--spacer`]: spacer
+            [`-wide`]: wide,
+            [`-spacer`]: spacer
         })}>
             <span styleName="__text">Thematic break</span>
         </div>
@@ -24,4 +23,4 @@ Hr.propTypes = {
     spacer: PropTypes.bool
 }
 
-export default CSSModules(styles, {allowMultiple: true})(Hr)
+export default Hr

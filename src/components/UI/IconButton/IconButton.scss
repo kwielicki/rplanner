@@ -8,7 +8,7 @@
     .__label {
         @extend %sr-only;
     }
-    &.--small {
+    &.-small {
         @include button-size(small);
     }
 }

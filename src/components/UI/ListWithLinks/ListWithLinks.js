@@ -1,12 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import CSSModules from 'react-css-modules'
 import { isEmpty } from 'lodash'
-import styles from './ListWithLinks.scss'
+import './ListWithLinks.scss'
 
-
-@CSSModules(styles, {allowMultiple: true})
 class ListWithLinks extends React.Component {
     render() {
         const { links } = this.props

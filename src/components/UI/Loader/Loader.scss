@@ -14,13 +14,13 @@
         margin: 3px;
         border-radius: 15px;
         background-color: map-get($colors, pink);
-        &.--x1 {
+        &.-x1 {
             animation: Loader .6s .1s linear infinite;
         }
-        &.--x2 {
+        &.-x2 {
             animation: Loader .6s .2s linear infinite;
         }
-        &.--x3 {
+        &.-x3 {
             animation: Loader .6s .3s linear infinite;
         }
     }

@@ -1,6 +1,5 @@
 import React from 'react'
-import CSSModules from 'react-css-modules'
-import styles from './FormsGrouper.scss'
+import './FormsGrouper.scss'
 
 function FormsGrouper(props) {
     return (
@@ -8,4 +7,4 @@ function FormsGrouper(props) {
     )
 }
 
-export default CSSModules(styles, {allowMultiple: true})(FormsGrouper)
+export default FormsGrouper

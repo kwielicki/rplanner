@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import CSSModules from 'react-css-modules'
 import classNames from 'classnames'
 import { isEmpty } from 'lodash'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import styles from './Rbutton.scss'
+import './Rbutton.scss'
 
-@CSSModules(styles, {allowMultiple: true})
 class Rbutton extends React.Component {
 
     static defaultProps = {
@@ -33,13 +31,13 @@ class Rbutton extends React.Component {
                 disabled={disabled}
                 styleName={classNames({
                     'Rbutton': true,
-                    [`--${variant}`]: variant,
-                    '--icon': icon,
-                    '--asBlock': asBlock,
-                    '--disabled': disabled,
+                    [`-${variant}`]: variant,
+                    '-icon': icon,
+                    '-asBlock': asBlock,
+                    '-disabled': disabled,
                     'isLoader': isLoader,
-                    [`--${size}`]: size,
-                    [`--${space}`]: space
+                    [`-${size}`]: size,
+                    [`-${space}`]: space
                 })}>
                 {icon && <FontAwesomeIcon icon={icon} styleName='__icon'/>}
                 {isLoader && <FontAwesomeIcon icon='spinner' styleName='__loader'/>}

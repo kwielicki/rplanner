@@ -1,8 +1,7 @@
 import React from 'react'
-import CSSModules from 'react-css-modules'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import styles from './GuestTableBodyBasic.scss'
+import './GuestTableBodyBasic.scss'
 import Chips from 'Components/UI/Chips'
 import { capitalizedText } from 'Components/Helpers/capitalizedText'
 import Rbutton from 'Components/Rbutton'
@@ -14,7 +13,6 @@ import Modal from 'Components/UI/Modal/Modal'
 import GuestTableDetails from './GuestTableDetails'
 import bunches from 'Bunches/bunches.json'
 
-@CSSModules(styles, { allowMultiple: true })
 export default class GuestTableBodyBasic extends React.Component {
 
     state = {
@@ -50,7 +48,7 @@ export default class GuestTableBodyBasic extends React.Component {
                     })} role='row'>
                         <div role='gridcell' styleName={classNames({
                             '__cell': true,
-                            '--smaller': true
+                            '-smaller': true
                         })}>{idx}</div>
                         <div styleName='__cell'>{guestData.firstName}</div>
                         <div styleName='__cell'>{guestData.lastName}</div>

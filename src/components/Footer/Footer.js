@@ -1,12 +1,10 @@
 import React from 'react'
-import CSSModules from 'react-css-modules'
 import Column from 'Components/Grid/Column'
 import Copyright from 'Components/Copyright'
 import FooterLinks from 'Components/Footer/FooterLinks'
-import styles from './Footer.scss'
+import './Footer.scss'
 import Container from 'Components/Grid/Container'
 
-@CSSModules(styles, {allowMultiple: true, handleNotFoundStyleName: 'log'})
 class Footer extends React.Component {
 	render() {
 		return (

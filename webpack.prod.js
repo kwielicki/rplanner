@@ -76,21 +76,29 @@ module.exports = merge(webpackCommon, {
                 {
                     loader: 'css-loader',
                     options: {
-                        sourceMap: false,
-                        import: true,
+                        importLoaders: 2,
+                        localsConvention: 'camelCase',
                         modules: {
-                            mode: 'local',
                             localIdentName: '[local]____[hash:base64:5]',
-                            context: path.resolve(__dirname, 'src')
                         }
+                    }
+                    
+                },
+                'resolve-url-loader',
+                {   
+                    loader: 'postcss-loader',
+                    options: {
+                        sourceMap: true
                     }
                 },
                 {
                     loader: 'sass-loader',
                     options: {
                         sassOptions: {
+                            sourceMap: true,
                             import: true,
-                            includePaths: ['./src'],
+                            sourceMapContents: true,
+                            includePaths: ['./src']
                         }
                     }
                 }

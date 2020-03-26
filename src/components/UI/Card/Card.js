@@ -1,10 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import CSSModules from 'react-css-modules'
 import { isEmpty } from 'lodash'
 
-import styles from './Card.scss'
+import './Card.scss'
 
 function Card(props) {
     const { label, href, title, header, description, sub } = props
@@ -33,4 +32,4 @@ Card.propTypes = {
     description: PropTypes.string.isRequired
 }
 
-export default CSSModules(styles, {allowMultiple: true})(Card)
+export default Card

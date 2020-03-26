@@ -1,10 +1,9 @@
 import React, { useRef, useState } from 'react'
 import PropTypes from 'prop-types'
-import CSSModules from 'react-css-modules'
 import classNames from 'classnames'
 import { Link } from 'react-router-dom'
 
-import styles from './Button.scss'
+import './Button.scss'
 
 function Button(props) {
 
@@ -23,9 +22,9 @@ function Button(props) {
 
     const ButtonStyles = {
         '__link': true,
-        '--fullWidth': fullWidth,
-        [`--${variant}`]: variant,
-        [`--${size}`]: size,
+        '-fullWidth': fullWidth,
+        [`-${variant}`]: variant,
+        [`-${size}`]: size,
     }
 
     const __mousEnterHandler = (evt) => {        
@@ -37,7 +36,7 @@ function Button(props) {
     return (
         <div styleName={classNames({
             'Button': true,
-            '--fullWidth': fullWidth
+            '-fullWidth': fullWidth
         })} onMouseDown={__mousEnterHandler}
             onMouseLeave={__mouseLeaveHandler}
             ref={buttonElement}>
@@ -53,7 +52,7 @@ function Button(props) {
             }
            <span styleName={classNames({
                '__ripple': true,
-               '--isActive': ripple
+               '-isActive': ripple
            })}></span>
         </div>
     )
@@ -69,4 +68,4 @@ Button.propTypes = {
     children: PropTypes.node.isRequired
 }
 
-export default CSSModules(styles, {allowMultiple: true})(Button)
+export default Button

@@ -1,8 +1,6 @@
 import React from 'react'
-import CSSModules from 'react-css-modules'
-import styles from './CurrentYear.scss'
+import './CurrentYear.scss'
 
-@CSSModules(styles, {allowMultiple: true})
 class CurrentYear extends React.Component {
 
     constructor(props) {

@@ -1,11 +1,9 @@
 import React from 'react'
-import CSSModules from 'react-css-modules'
 import Container from 'Components/Grid/Container'
 import Column from 'Components/Grid/Column'
 import BreadcrumbsWrapper from 'Components/BreadcrumbsWrapper'
-import styles from './Header.scss'
+import './Header.scss'
 
-@CSSModules(styles, {allowMultiple: true})
 class Header extends React.Component {
 	render() {
 		return (

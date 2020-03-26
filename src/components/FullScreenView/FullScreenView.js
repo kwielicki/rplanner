@@ -1,8 +1,7 @@
 import React from 'react';
 import { useFullScreen } from 'react-browser-hooks'
 import Rbutton from '../Rbutton'
-import CSSModules from 'react-css-modules';
-import styles from './FullScreenView.scss'
+import './FullScreenView.scss'
 
 
 const FullScreenView = () => {
@@ -15,4 +14,4 @@ const FullScreenView = () => {
     )
 }
 
-export default CSSModules(FullScreenView,styles)
+export default FullScreenView

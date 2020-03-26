@@ -1,10 +1,9 @@
 import React from 'react'
-import CSSModules from 'react-css-modules'
 import { Helmet } from 'react-helmet'
 import Footer from 'Components/Footer'
 import Header from 'Components/Header';
 import { Route, Switch } from "react-router-dom"
-import fontAwesome from 'FontAwesome/fontAwesome'
+import 'FontAwesome/fontAwesome'
 import { connect } from "react-redux"
 import Dashboard from 'Routes/Dashboard'
 import AddingGuest from 'Routes/AddingGuest'
@@ -17,13 +16,11 @@ import EditingGuest from 'Routes/EditingGuest'
 import Login from 'Routes/Login'
 import News from 'Routes/News'
 import Faq from 'Routes/Faq'
-import styles from './App.scss'
+import './App.scss'
 import Sidebar from 'Components/Sidebar'
-
 import ProtectedRoute from "Components/ProtectedRoute"
 import classNames from 'classnames'
 
-@CSSModules(styles, { allowMultiple: true })
 class App extends React.Component { 
     render() {
         const { isAuthenticated, isVerifying } = this.props
@@ -41,7 +38,7 @@ class App extends React.Component {
                     )}
                     <main styleName={classNames({
                         '__main': true,
-                        '--withoutSpace': !isAuthenticated
+                        '-withoutSpace': !isAuthenticated
                     })}>
                         {isAuthenticated && <Header/>}
                             <div styleName='__content'>
