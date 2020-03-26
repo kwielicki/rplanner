@@ -1,4 +1,4 @@
-import { myFirebase } from "Components/firebase/firebase.js"
+import { myFirebase } from "Firebase/firebase.js"
 import firebase from 'firebase/app';
 
 export const LOGIN_REQUEST = "LOGIN_REQUEST"

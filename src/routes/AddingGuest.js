@@ -1,7 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { BreadcrumbsItem } from 'react-breadcrumbs-dynamic'
-import { db } from "Components/firebase/firebase.js"
 
 import Container from 'Components/Grid/Container'
 import Column from 'Components/Grid/Column'

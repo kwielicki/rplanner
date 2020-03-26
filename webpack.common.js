@@ -21,6 +21,7 @@ module.exports = {
         extensions: ['*', '.js', '.jsx'],
         alias: {
             'Assets': path.join(srcDir, '/assets'),
+            'Firebase': path.join(srcDir, '/firebase'),
             'Components': path.join(srcDir, '/components'),
             'Routes': path.join(srcDir, '/routes'),
             'Actions': path.join(srcDir, '/actions'),
