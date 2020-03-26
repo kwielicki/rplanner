@@ -1,4 +1,4 @@
-import { db } from "Components/firebase/firebase.js"
+import { db } from "Firebase/firebase.js"
 
 export const FETCH_GUESTS_BEGIN   = 'FETCH_GUESTS_BEGIN'
 export const FETCH_GUESTS_SUCCESS = 'FETCH_GUESTS_SUCCESS'

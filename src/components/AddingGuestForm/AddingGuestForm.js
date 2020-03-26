@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Formik, Form } from 'formik'
 import * as Yup from "yup"
 import firebase from "firebase/app"
-import { db } from "Components/firebase/firebase"
+import { db } from "Firebase/firebase"
 import { connect } from "react-redux"
 import CSSModules from 'react-css-modules'
 import styles from './AddingGuestForm.scss'
