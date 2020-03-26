@@ -1,7 +1,6 @@
 import React from 'react'
-import CSSModules from 'react-css-modules'
 import PropTypes from 'prop-types'
-import styles from './PageTitle.scss'
+import './PageTitle.scss'
 
 import Hr from 'Components/UI/Hr'
 
@@ -28,4 +27,4 @@ PageTitle.propTypes = {
     subTitle: PropTypes.string.isRequired
 }
 
-export default CSSModules(styles, {allowMultiple: true})(PageTitle)
+export default PageTitle

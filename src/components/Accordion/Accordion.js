@@ -1,11 +1,8 @@
 import React, { PureComponent } from 'react'
-import CSSModules from 'react-css-modules'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import './Accordion.scss'
 
-import styles from './Accordion.scss'
-
-@CSSModules(styles, {allowMultiple: true})
 class Accordion extends PureComponent {
 
     render() {
@@ -17,7 +14,7 @@ class Accordion extends PureComponent {
         return (
             <div styleName={classNames({
                             'Accordion': true,
-                            [`--${style}`]: style
+                            [`-${style}`]: style
             })}>
                 {children}
             </div>

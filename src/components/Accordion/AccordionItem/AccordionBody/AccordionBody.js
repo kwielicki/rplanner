@@ -1,21 +1,17 @@
 import React, { PureComponent } from 'react'
-import CSSModules from 'react-css-modules'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
-import styles from './AccordionBody.scss'
-@CSSModules(styles, {allowMultiple: true})
+import './AccordionBody.scss'
+
 class AccordionBody extends PureComponent {
     _element = React.createRef()
 
     __setAccordionBodyHeight = (props) => {
         const bodyHeight = this._element.current ? this._element.current.scrollHeight : 'none'
-        return props.isOpen ? 
-            {
-                maxHeight: `${bodyHeight}px`
-            } : {
-                maxHeight: null
-            }
+        return props.isOpen 
+            ? { maxHeight: `${bodyHeight}px` }
+            : { maxHeight: null }
     }
 
     render() {

@@ -30,10 +30,10 @@
         max-width: 767px;
         width: 100%;
         min-height: 220px;
-        &.--small {
+        &.-small {
             max-width: 480px;
         }
-        &.--fluid {
+        &.-fluid {
             max-width: none;
             min-height: 100%;
             height: 100%;

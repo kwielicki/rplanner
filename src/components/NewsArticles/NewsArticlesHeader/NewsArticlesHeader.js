@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import CSSModules from 'react-css-modules'
-import styles from './NewsArticlesHeader.scss'
+import './NewsArticlesHeader.scss'
 
 
-@CSSModules(styles, {allowMultiple: true, handleNotFoundStyleName: 'log'})
 class NewsArticlesHeader extends React.Component {
     render() {
         const { totalResults, selectedCategory, selectedCountryLabel } = this.props

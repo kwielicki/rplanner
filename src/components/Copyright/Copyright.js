@@ -1,9 +1,7 @@
 import React from 'react'
 import CurrentYear from 'Components/CurrentYear';
-import CSSModules from 'react-css-modules';
-import styles from './Copyright.scss'
+import './Copyright.scss'
 
-@CSSModules(styles, {allowMultiple: true})
 class Copyright extends React.Component {
 
     render() {

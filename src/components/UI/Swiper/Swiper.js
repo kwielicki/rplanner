@@ -1,9 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
-import CSSModules from 'react-css-modules'
-
-import styles from './Swiper.scss'
+import './Swiper.scss'
 
 function Swiper(props) {
     const { children } = props
@@ -24,4 +21,4 @@ Swiper.propTypes = {
     children: PropTypes.node.isRequired
 }
 
-export default CSSModules(styles, {allowMultiple: true})(Swiper)
+export default Swiper

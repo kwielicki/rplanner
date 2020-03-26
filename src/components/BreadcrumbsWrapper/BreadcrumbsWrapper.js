@@ -1,11 +1,8 @@
 import React from 'react'
-import CSSModules from 'react-css-modules';
 import { NavLink } from 'react-router-dom'
 import { Breadcrumbs } from 'react-breadcrumbs-dynamic'
 import styles from './BreadcrumbsWrapper.scss'
 
-
-@CSSModules(styles, {allowMultiple: true})
 class BreadcrumbsWrapper extends React.Component {
     state = {
         currentItem: null

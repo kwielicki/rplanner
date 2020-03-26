@@ -8,25 +8,25 @@
         @include border('around');
         @extend %boxshadow-dp3;
     }
-    &.--one {
+    &.-one {
         width: 100%;
     }
-    &.--oneHalf {
+    &.-oneHalf {
         @include media-breakpoint-up(md) {
             width: 50%;
         }
     }
-    &.--oneThird {
+    &.-oneThird {
         @include media-breakpoint-up(md) {
             width: calc(100% / 3);
         }
     }
-    &.--twoThirds {
+    &.-twoThirds {
         @include media-breakpoint-up(md) {
             width: calc(100% * (2/3));
         }
     }
-    &.--quarter {
+    &.-quarter {
         @include media-breakpoint-up(md) {
             width: 25%;
         }

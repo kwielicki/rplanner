@@ -2,13 +2,12 @@ import React, { Component } from 'react'
 import { Formik, Form } from 'formik'
 import * as Yup from "yup"
 import PropTypes from 'prop-types'
-import CSSModules from 'react-css-modules'
 import { FormInput } from 'Components/FormsControls'
 import Alert from 'Components/UI/alert'
 import Rbutton from 'Components/Rbutton'
 import Logotype from 'Components/UI/Logotype'
 import { connect } from "react-redux"
-import styles from './LoginForm.scss'
+import './LoginForm.scss'
 
 const validationSchema = Yup.object().shape({
     email: Yup
@@ -76,5 +75,4 @@ LoginForm.propTypes = {
     error: PropTypes.string,
     loginUser: PropTypes.any
 }
-const LoginFormWithCssModules = CSSModules(LoginForm, styles, {allowMultiple: true})
-export default connect()(LoginFormWithCssModules)
+export default connect()(LoginForm)

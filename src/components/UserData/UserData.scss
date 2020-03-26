@@ -42,7 +42,7 @@
         text-align: left;
     }
     .__detailsElement {
-        &.--last {
+        &.-last {
             @include padding($top: 5);
         }
     }

@@ -2,31 +2,31 @@
 
 .Column {
     padding: 0 map-get($LayerSpacers, padding);
-    &.--xs1 {
+    &.-xs1 {
         flex: 0 0 100%;
         max-width: 100%;
     }
-    &.--xs2 {
+    &.-xs2 {
         flex: 0 0 50%;
         max-width: 50%;
     }
-    &.--lg2 {
+    &.-lg2 {
         flex: 0 0 50%;
         max-width: 50%;
     }
-    &.--lg3 {
+    &.-lg3 {
         flex: 0 0 calc(100%/3);
         max-width: calc(100%/3);
     }
-    &.--lg4 {
+    &.-lg4 {
         flex: 0 0 25%;
         max-width: 25%;
     }
-    &.--spacer-bottom30 {
+    &.-spacer-bottom30 {
         padding-bottom: map-get($spacers, 30);
     }
     @include media-breakpoint-up(xl) {
-        &.--xl2 {
+        &.-xl2 {
             flex: 0 0 50%;
             max-width: 50%;
         }

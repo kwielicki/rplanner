@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import CSSModules from 'react-css-modules'
-import classNames from 'classnames'
-import styles from './OpenWeather.scss'
+import './OpenWeather.scss'
 import { isEmpty } from 'lodash'
 import Moment from 'react-moment'
 
@@ -27,7 +25,6 @@ const mapStateToProps = state => {
     }
 }
 
-@CSSModules(styles, {allowMultiple: true})
 class OpenWeatherHeader extends Component {
     render() {
         const { data: { cityName, country } } = this.props
@@ -40,7 +37,6 @@ class OpenWeatherHeader extends Component {
     }
 }
 
-@CSSModules(styles, {allowMultiple: true})
 class OpenWeatherFooter extends Component {
     render() {
         const { data, data: { dt } } = this.props
@@ -63,7 +59,6 @@ class OpenWeatherFooter extends Component {
     }
 }
 
-@CSSModules(styles, {allowMultiple: true})
 class OpenWeather extends Component {
 
     // if (navigator.geolocation) {
@@ -117,7 +112,7 @@ class OpenWeather extends Component {
 
 
         return (
-            (!_.isEmpty(weather)
+            (!isEmpty(weather)
                 ?   <div styleName='OpenWeather'>
                         <div styleName='__background'>
                             <LazyImage placeholder={imagePlaceHolder}
@@ -169,5 +164,4 @@ class OpenWeather extends Component {
     }
 }
 
-const OpenWeatherWithCssModules = CSSModules(OpenWeather, styles, {allowMultiple: true})
-export default connect(mapStateToProps)(OpenWeatherWithCssModules)
+export default connect(mapStateToProps)(OpenWeather)

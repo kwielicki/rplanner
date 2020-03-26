@@ -7,20 +7,20 @@
         @include rm-decoration;
         @include button-creator;
         
-        &.--primary {
+        &.-primary {
             @include button-variant('primary');
         }
-        &.--secondary {
+        &.-secondary {
             @include button-variant('secondary');
         }
-        &.--teriary {
+        &.-teriary {
             @include button-variant('tertiary');
         }
     }
     .__ripple {
         @include button-ripple-effect;
     }
-    .--fullWidth {
+    .-fullWidth {
         width: 100%;
     }
 }

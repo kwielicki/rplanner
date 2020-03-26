@@ -1,13 +1,12 @@
 import React, { PureComponent } from 'react'
-import CSSModules from 'react-css-modules'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
-import AccordionHeader from 'Components/Accordion/AccordionItem/AccordionHeader'
-import AccordionBody from 'Components/Accordion/AccordionItem/AccordionBody'
+import AccordionHeader from './AccordionHeader'
+import AccordionBody from './AccordionBody'
 
-import styles from './AccordionItem.scss'
-@CSSModules(styles, {allowMultiple: true})
+import './AccordionItem.scss'
+
 class AccordionItem extends PureComponent {
 
     state = {

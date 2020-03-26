@@ -1,18 +1,16 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import CSSModules from 'react-css-modules'
 import classNames from 'classnames'
-import styles from './DecoratedListElement.scss'
+import './DecoratedListElement.scss'
 
-@CSSModules(styles, {allowMultiple: true})
 class DecoratedListElement extends PureComponent {
     render() {
         const { header, children, sizeDesktop, sizeMobile } = this.props
         return (
             <li styleName={classNames({
                 'DecoratedListElement': true,
-                [`--${sizeDesktop}`]: sizeDesktop,
-                [`--${sizeMobile}`]: sizeMobile,
+                [`-${sizeDesktop}`]: sizeDesktop,
+                [`-${sizeMobile}`]: sizeMobile,
             })}>
                 <div styleName='__inner'>
                     <strong styleName='__header'>{header}</strong>

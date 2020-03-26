@@ -8,7 +8,7 @@
         border: 1px solid map-get($colors, gray-light);
         border-top-right-radius: map-get($borderRadius, 6);
         border-bottom-right-radius: map-get($borderRadius, 6);
-        &.--warning {
+        &.-warning {
             border-right: 3px solid map-get($colors, orange);
         }
     }
@@ -36,16 +36,16 @@
         margin: 0;
         color: map-get($colors, dark);
     }
-    &.--success {
+    &.-success {
         color: green;
     }
-    &.--warning {
+    &.-warning {
         color: map-get($colors, orange);
     }
-    &.--danger {
+    &.-danger {
         color: map-get($colors, red);
     }
-    &.--info {
+    &.-info {
         color: blue;
     }
 }

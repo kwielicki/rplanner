@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import CSSModules from 'react-css-modules'
 import classNames from 'classnames'
-import styles from './SelectSomething.scss'
+import './SelectSomething.scss'
 
 const SelectSomething = props  => {
 
@@ -36,8 +35,8 @@ const SelectSomething = props  => {
                     value={value}
                     styleName={classNames({
                         "__select": true,
-                        '--isFluid': isFluid,
-                        '--isGray': isGray
+                        '-isFluid': isFluid,
+                        '-isGray': isGray
                     })}
                     disabled={disabled}
                     name={name}>
@@ -66,4 +65,4 @@ SelectSomething.propTypes = {
 }
 
 
-export default CSSModules(styles, {allowMultiple: true})(SelectSomething)
+export default SelectSomething

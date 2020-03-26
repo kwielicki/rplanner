@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import CSSModules from 'react-css-modules';
 import classNames from 'classnames'
-import styles from './RButtonIco.scss'
+import './RButtonIco.scss'
 
-@CSSModules(styles, {allowMultiple: true})
 class RButtonIco extends React.Component {
 
     static defaultProps = {
@@ -19,7 +17,7 @@ class RButtonIco extends React.Component {
                 onClick={handleClick}
                 styleName={classNames({
                     'RbuttonIco': true,
-                    [`--${type}`]: type,
+                    [`-${type}`]: type,
                 })}>
                 {label}
             </button>

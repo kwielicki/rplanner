@@ -1,6 +1,5 @@
 import React from 'react'
-import CSSModules from 'react-css-modules'
-import styles from './FormsActions.scss'
+import './FormsActions.scss'
 
 function FormsActions(props) {
     return (
@@ -8,4 +7,4 @@ function FormsActions(props) {
     )
 }
 
-export default CSSModules(styles, {allowMultiple: true})(FormsActions)
+export default FormsActions

@@ -5,11 +5,16 @@
   ],
   "plugins": [
     ["@babel/plugin-proposal-decorators", { "legacy": true}],
-    [
-      "@babel/plugin-proposal-class-properties",
-      {
-        "loose": true 
+    ["@babel/plugin-proposal-class-properties", { "loose": true }],
+    "react-hot-loader/babel",
+    ["react-css-modules", {
+      "webpackHotModuleReloading": true,
+      "generateScopedName": "[local]____[hash:base64:5]",
+      "filetypes": {
+        ".scss": {
+          "syntax": "postcss-scss"
+        }
       }
-    ]
+    }]
   ]
 }

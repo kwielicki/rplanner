@@ -2,8 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classNames from 'classnames'
-import CSSModules from 'react-css-modules'
-import styles from './IconButton.scss'
+import './IconButton.scss'
 
 function IconButton(props) {
     const { ariaLabel, label, icon, size, handleClick } = props
@@ -11,7 +10,7 @@ function IconButton(props) {
     return (
         <button styleName={classNames({
             'IconButton': true,
-            [`--${size}`]: size
+            [`-${size}`]: size
         })}
                 aria-label={ariaLabel}
                 onClick={handleClick}>
@@ -29,4 +28,4 @@ IconButton.propTypes = {
     handleClick: PropTypes.func
 }
 
-export default CSSModules(styles, {allowMultiple: true})(IconButton)
+export default IconButton

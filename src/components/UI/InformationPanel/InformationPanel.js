@@ -1,7 +1,6 @@
 import React from 'react'
-import CSSModules from 'react-css-modules'
 import PropTypes from 'prop-types'
-import styles from './InformationPanel.scss'
+import './InformationPanel.scss'
 
 import newsApiLogo from 'Assets/images/news-api-logo.svg'
 
@@ -24,4 +23,4 @@ InformationPanel.propTypes = {
     description: PropTypes.string
 }
 
-export default CSSModules(styles, {allowMultiple: true})(InformationPanel)
+export default InformationPanel

@@ -92,7 +92,7 @@ class UserProfile extends React.Component {
                                   userLastSignInTime={userLastSignInTime}/>
                     </Column>
                     <Column lg='3'>
-                        {!_.isEmpty(this.state.userEmail) &&
+                        {!isEmpty(this.state.userEmail) &&
                             <ShadowedBox>
                                 <Formik
                                     initialValues={this.state}

@@ -17,7 +17,7 @@
     }
     .__textValue {
         font-weight: $fw-600;
-        &.--isLight {
+        &.-isLight {
             @include color(white);
         }
     }
@@ -28,7 +28,7 @@
         font-family: $dancingFontFamily;
         text-transform: capitalize;
         line-height: 1;
-        &.--isLight {
+        &.-isLight {
             @include color(white);
         }
     }
