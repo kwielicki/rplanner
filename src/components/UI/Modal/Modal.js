@@ -1,17 +1,15 @@
 import React, { Component } from 'react'
 import { createPortal } from 'react-dom'
 import PropTypes from 'prop-types'
-import CSSModules from 'react-css-modules'
 import classNames from 'classnames'
 import EscapeOutside from "react-escape-outside"
 import { scrollBarSize } from 'Components/Helpers/scrollbarMeasure'
 import { modalRoot } from 'Components/Helpers/modalRoot'
-import { _isEmpty } from 'lodash'
-import styles from './Modal.scss'
+import { isEmpty } from 'lodash'
+import './Modal.scss'
 import Rbutton from 'Components/Rbutton'
 import IconButton from 'Components/UI/IconButton'
 
-@CSSModules(styles, {allowMultiple: true})
 class ModalBody extends Component {
     render() {
 
@@ -31,14 +29,14 @@ class ModalBody extends Component {
                 <div styleName='__inner'>
                     <EscapeOutside onEscapeOutside={handleEscapeOutside} styleName={classNames({
                         '__sizer': true,
-                        [`--${size}`]: size
+                        [`-${size}`]: size
                     })}>
                         <div styleName='__content'>
                             <div styleName='__header'>
                                 <div styleName='__headerInner'>
                                     <h3 styleName='__headerTitle'>
                                         <span styleName='__headerTitleSuffix' dangerouslySetInnerHTML={{__html: headerTitle}}></span>
-                                        {!_.isEmpty(headerSubtitle) && <strong styleName='__headerSubtitle'>{headerSubtitle}</strong>}
+                                        {!isEmpty(headerSubtitle) && <strong styleName='__headerSubtitle'>{headerSubtitle}</strong>}
                                     </h3>
                                     <p styleName='__headerDescription' dangerouslySetInnerHTML={{__html: headerDescription}}></p>
                                 </div>

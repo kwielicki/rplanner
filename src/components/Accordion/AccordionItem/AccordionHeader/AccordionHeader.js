@@ -1,11 +1,10 @@
 import React, { PureComponent } from 'react'
-import CSSModules from 'react-css-modules'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import styles from './AccordionHeader.scss'
-@CSSModules(styles, {allowMultiple: true})
+import './AccordionHeader.scss'
+
 class AccordionHeader extends PureComponent {
 
     render() {

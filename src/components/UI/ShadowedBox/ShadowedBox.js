@@ -1,7 +1,5 @@
 import React from 'react'
-import styles from './ShadowedBox.scss'
-import classNames from 'classnames'
-import CSSModules from 'react-css-modules'
+import './ShadowedBox.scss'
 
 function ShadowedBox(props) {
     return (
@@ -11,4 +9,4 @@ function ShadowedBox(props) {
     )
 }
 
-export default CSSModules(styles, {allowMultiple: true})(ShadowedBox)
+export default ShadowedBox

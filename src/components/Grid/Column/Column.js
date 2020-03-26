@@ -1,23 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import Container from 'Components/Grid/Container'
-import CSSModules from 'react-css-modules'
-import styles from './Column.scss'
+import './Column.scss'
 
-@CSSModules(styles, {allowMultiple: true})
 class Column extends React.Component {
     render() {
         const  { xs, sm, md, lg, xl, fluid, spacerBottom } = this.props
         return (
             <div styleName={classNames({
                 'Column': true,
-                [`--xs${xs}`]: xs,
-                [`--sm${sm}`]: sm,
-                [`--md${md}`]: md,
-                [`--lg${lg}`]: lg,
-                [`--xl${xl}`]: xl,
-                [`--spacer-bottom${spacerBottom}`]: spacerBottom
+                [`-xs${xs}`]: xs,
+                [`-sm${sm}`]: sm,
+                [`-md${md}`]: md,
+                [`-lg${lg}`]: lg,
+                [`-xl${xl}`]: xl,
+                [`-spacer-bottom${spacerBottom}`]: spacerBottom
             })}>
                 {this.props.children}
             </div>

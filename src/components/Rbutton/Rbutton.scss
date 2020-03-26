@@ -6,35 +6,35 @@
     .__icon {
         display: inline-block;
     }
-    &.--asBlock {
+    &.-asBlock {
         display: block;
         width: 100%;
     }
-    &.--primary {
+    &.-primary {
         cursor: pointer;
     }
-    &.--secondary {
+    &.-secondary {
         @include button-variant('secondary');
     }
-    &.--tertiary {
+    &.-tertiary {
         @include button-variant('tertiary');
     }
-    &.--icon {
+    &.-icon {
         .__label {
             margin-left: 13px;
             display: inline-block;
         }
     }
-    &.--xLarge {
+    &.-xLarge {
         @include button-size(xLarge);
     }
-    &.--small {
+    &.-small {
         @include button-size(small);
     }
-    &.--spaceRight {
+    &.-spaceRight {
         margin-right: 15px;
     }
-    &.--disabled {
+    &.-disabled {
         opacity: .3;
         pointer-events: none;
     }

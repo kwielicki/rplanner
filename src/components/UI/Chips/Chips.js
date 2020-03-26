@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import CSSModules from 'react-css-modules'
 import classNames from 'classnames'
 
-import styles from './Chips.scss'
+import './Chips.scss'
 
 function Chips(props) {
 
@@ -16,9 +15,9 @@ function Chips(props) {
 
     const chipsStyles = {
         "Chips": true,
-        [`--rounded`]: rounded,
-        [`--${type}`]: type,
-        [`--${size}`]: size,
+        [`-rounded`]: rounded,
+        [`-${type}`]: type,
+        [`-${size}`]: size,
     }
 
     return (
@@ -34,4 +33,4 @@ Chips.propTypes = {
     type: PropTypes.oneOf(["primary", "secondary", "pending", "declined", "confirmed"]).isRequired
 }
 
-export default CSSModules(styles, {allowMultiple: true})(Chips)
+export default Chips

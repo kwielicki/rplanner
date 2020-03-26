@@ -6,34 +6,34 @@
     display: block;
     padding: 5px 10px;
     text-align: center;
-    &.--rounded {
+    &.-rounded {
         border-radius: 50%;
     }
-    &.--small {
+    &.-small {
         display: inline-block;
         padding: 5px 10px;
         min-width: 90px;
     }
-    &.--big {
+    &.-big {
         padding: 10px;
     }
-    &.--primary {
+    &.-primary {
         @include color(white);
         background-color: map-get($colors, pink);
     }
-    &.--secondary {
+    &.-secondary {
         @include color(pink);
         background-color: map-get($colors, gray-lighter);
     }
-    &.--pending {
+    &.-pending {
         @include color(white);
         @include bg-color(orange-light);
     }
-    &.--declined {
+    &.-declined {
         @include color(white);
         @include bg-color(red);
     }
-    &.--confirmed {
+    &.-confirmed {
         @include color(white);
         @include bg-color(green-light);
     }

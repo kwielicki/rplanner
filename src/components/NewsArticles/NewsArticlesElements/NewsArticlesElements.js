@@ -1,20 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import CSSModules from 'react-css-modules'
 import { isEmpty } from 'lodash'
 import Moment from 'react-moment'
 import 'moment-timezone'
-
-import bunches from 'Bunches/bunches.json'
-
 import Chips from 'Components/UI/Chips'
 import imagePlaceHolder from 'Assets/images/placeholder_768x768.png'
 import LazyImage from 'Components/LazyImage'
 import Button from 'Components/Button'
 
-import styles from './NewsArticlesElements.scss'
+import bunches from 'Bunches/bunches.json'
+import './NewsArticlesElements.scss'
 
-@CSSModules(styles, {allowMultiple: true})
 class NewsArticlesElements extends React.Component {
 
     state = {

@@ -2,10 +2,10 @@ import React, { useState } from "react"
 import { useField, Field } from "formik"
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import CSSModules from 'react-css-modules'
 import styles from './FormsControls.scss'
 import SelectSomething from 'Components/UI/SelectSomething'
 import MaskedInput from 'react-text-mask'
+
 function TextInput({ label, ...props }) {
     const [field, meta] = useField(props)
     const [isFocused, isFocusedSet] = useState(false)
@@ -20,7 +20,7 @@ function TextInput({ label, ...props }) {
     return (
         <div styleName={classNames({
             'FormElement': true,
-            [`--${props.variant}`]: props.variant ? true : false
+            [`-${props.variant}`]: props.variant ? true : false
         })}>
             <div styleName='__group'>
                 <label styleName={classNames(labelClasses)} htmlFor={props.name}>
@@ -49,14 +49,14 @@ function TextareaInput({ label, ...props }) {
         'isFocused': isFocused,
         'isDirty': field.value,
         'isValid': meta.touched && !meta.error,
-        '--textarea': true
+        '-textarea': true
     }
     const labelClasses = Object.assign({}, setOfStateClasses, { '__label': true })
     const inputClasses = Object.assign({}, setOfStateClasses, { '__input': true })
     return (
         <div styleName={classNames({
             'FormElement': true,
-            [`--${props.variant}`]: props.variant ? true : false
+            [`-${props.variant}`]: props.variant ? true : false
         })}>
             <div styleName='__group'>
                 <label styleName={classNames(labelClasses)} htmlFor={props.name}>
@@ -79,7 +79,7 @@ function SelectInput({ label, ...props }) {
     return (
         <div styleName={classNames({
             'FormElement': true,
-            [`--${props.variant}`]: props.variant ? true : false
+            [`-${props.variant}`]: props.variant ? true : false
         })}>
             <SelectSomething {...field} {...props} 
                              options={props.options}
@@ -108,7 +108,7 @@ function TextInputByMask({ label, ...props}) {
     return (
         <div styleName={classNames({
             'FormElement': true,
-            [`--${props.variant}`]: props.variant ? true : false
+            [`-${props.variant}`]: props.variant ? true : false
         })}>
             <div styleName='__group'>
                 <label styleName={classNames(labelClasses)} htmlFor={props.name}>
@@ -138,7 +138,7 @@ TextInputByMask.propTypes = {
     mask: PropTypes.array.isRequired
 }
 
-export const FormInput = CSSModules(styles, {allowMultiple: true})(TextInput)
-export const FormInputByMask = CSSModules(styles, {allowMultiple: true})(TextInputByMask)
-export const FormTextarea = CSSModules(styles, {allowMultiple: true})(TextareaInput)
-export const FormSelect = CSSModules(styles, {allowMultiple: true})(SelectInput)
+export const FormInput = TextInput
+export const FormInputByMask = TextInputByMask
+export const FormTextarea = TextareaInput
+export const FormSelect = SelectInput

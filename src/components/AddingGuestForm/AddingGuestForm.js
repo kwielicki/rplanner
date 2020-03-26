@@ -4,8 +4,6 @@ import * as Yup from "yup"
 import firebase from "firebase/app"
 import { db } from "Firebase/firebase"
 import { connect } from "react-redux"
-import CSSModules from 'react-css-modules'
-import styles from './AddingGuestForm.scss'
 import Rbutton from 'Components/Rbutton'
 import { fetchGuests } from 'Actions/guestsActions'
 import FormsGrouper from 'Components/UI/Forms/FormsGrouper'
@@ -14,6 +12,7 @@ import { maskForMobilePhone } from 'Components/Helpers/inputMasks'
 import { REGEXP__mobilePhone, REGEXP__personName } from 'Utils/regexps'
 import { FormInput, FormInputByMask, FormTextarea, FormSelect } from 'Components/FormsControls'
 import bunches from 'Bunches/bunches.json'
+import './AddingGuestForm.scss'
 
 const validationSchema = Yup.object().shape({
     firstName: Yup
@@ -69,7 +68,6 @@ const validationSchema = Yup.object().shape({
         
 })
 
-@CSSModules(styles, {allowMultiple: true})
 class AddingGuestForm extends Component {
 
     constructor(props) {

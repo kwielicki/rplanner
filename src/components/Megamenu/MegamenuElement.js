@@ -2,10 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import CSSModules from 'react-css-modules'
-import styles from './MegamenuElement.scss'
+import './MegamenuElement.scss'
 
-@CSSModules(styles, {allowMultiple: true})
 class MegamenuElement extends React.Component {
     state = {
         isActive: null,
@@ -13,7 +11,7 @@ class MegamenuElement extends React.Component {
 
     componentDidMount() {
         this.setState({
-            isActive: styles.isActive
+            isActive: 'isActive'
         })
     }
     

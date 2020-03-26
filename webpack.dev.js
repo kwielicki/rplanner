@@ -28,19 +28,23 @@ module.exports = merge(webpackCommon, {
             test: /\.scss$/,
             use: [
                 {
-                    loader: 'style-loader'
+                    loader: 'style-loader',
                 },
                 {
                     loader: 'css-loader',
                     options: {
-                        sourceMap: true,
-                        import: true,
+                        importLoaders: 2,
+                        localsConvention: 'camelCase',
                         modules: {
-                            mode: 'local',
                             localIdentName: '[local]____[hash:base64:5]',
-                            context: path.resolve(__dirname, 'src'),
-                            hashPrefix: 'planner'
                         }
+                    }
+                },
+                'resolve-url-loader',
+                {   
+                    loader: 'postcss-loader',
+                    options: {
+                        sourceMap: true
                     }
                 },
                 {
@@ -87,12 +91,6 @@ module.exports = merge(webpackCommon, {
     plugins: [
         new webpack.DefinePlugin(envKeys),
         new ExtractTextPlugin('style.css', { allChunks: true }),
-        new MiniCssExtractPlugin({
-            // Options similar to the same options in webpackOptions.output
-            // both options are optional
-            filename: "[name].css",
-            chunkFilename: "[id].css"
-        }),
         new webpack.EnvironmentPlugin({
             NODE_ENV: 'development',
             DEBUG: true

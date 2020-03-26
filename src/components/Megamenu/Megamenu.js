@@ -1,9 +1,7 @@
 import React from 'react'
-import CSSModules from 'react-css-modules'
-import styles from './Megamenu.scss'
+import './Megamenu.scss'
 import MegamenuElement from './MegamenuElement'
 
-@CSSModules(styles, {allowMultiple: true})
 class Megamenu extends React.Component {
     state = {
         megamenuLinks: []

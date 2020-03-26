@@ -1,8 +1,8 @@
 import React from 'react'
-import styles from './Rating.scss'
 import classNames from 'classnames'
-import CSSModules from 'react-css-modules'
 import { numberBetween } from 'Components/Helpers/numberBetween'
+
+import './Rating.scss'
 
 const maxRating = 5
 
@@ -22,7 +22,7 @@ function Rating(props) {
             ratingStars.push(
                 <span styleName={classNames({
                         "__element": true,
-                        [`--isActive`]: isActiveStar(rating)
+                        [`-isActive`]: isActiveStar(rating)
                     })} 
                     key={rating}>&#8902;</span>)
 
@@ -41,4 +41,4 @@ Rating.propTypes = {
     rating: numberBetween(0, maxRating)
 }
 
-export default CSSModules(styles, {allowMultiple: true})(Rating)
+export default Rating

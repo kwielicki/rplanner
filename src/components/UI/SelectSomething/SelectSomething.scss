@@ -24,10 +24,10 @@
         &::-ms-expand {
             display: none;
         }
-        &.--isFluid {
+        &.-isFluid {
             width: 100%;
         }
-        &.--isGray {
+        &.-isGray {
             @include transition;
 
             background-color: map-get($colors, gray-light);

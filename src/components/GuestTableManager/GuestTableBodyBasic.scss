@@ -22,10 +22,10 @@
         @include padding-all(15);
 
         flex-basis: calc(100% / 4);
-        &.--small {
+        &.-small {
             flex-basis: 200px;
         }
-        &.--smaller {
+        &.-smaller {
             flex-basis: 100px;
         }
     }

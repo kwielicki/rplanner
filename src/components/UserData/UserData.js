@@ -1,12 +1,10 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import CSSModules from 'react-css-modules'
-import styles from './UserData.scss'
+import './UserData.scss'
 import LazyImage from 'Components/LazyImage'
 import imagePlaceHolder from 'Assets/images/animated-image-placeholder.svg'
 import Moment from 'react-moment'
 
-@CSSModules(styles, {allowMultiple: true})
 class UserData extends PureComponent {
 
     render() {
@@ -29,7 +27,7 @@ class UserData extends PureComponent {
                                         format="D MMM YYYY, HH:mm"
                                         styleName='__detailsValue'/>
                             </li>
-                            <li styleName='__detailsElement --last'>
+                            <li styleName='__detailsElement -last'>
                                 <strong styleName='__detailsLabel'>Last successful sign in:</strong>
                                 <Moment date={props.userLastSignInTime}
                                         format="D MMM YYYY, HH:mm"

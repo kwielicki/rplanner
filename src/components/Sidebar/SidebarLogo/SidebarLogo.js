@@ -1,10 +1,8 @@
 import React from 'react'
-import CSSModules from 'react-css-modules';
-import styles from './SidebarLogo.scss'
+import './SidebarLogo.scss'
 import { NavLink } from 'react-router-dom'
-import Logotype from 'Components/UI/Logotype';
+import Logotype from 'Components/UI/Logotype'
 
-@CSSModules(styles, {allowMultiple: true})
 class SidebarLogo extends React.Component {
 
     render() {

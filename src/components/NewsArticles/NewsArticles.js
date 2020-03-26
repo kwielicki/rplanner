@@ -1,18 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types'
-import CSSModules from 'react-css-modules'
 import { isEmpty } from 'lodash'
 import { connect } from 'react-redux'
 import { fetchNews, fetchNewsCategorySelect, fetchNewsCountrySelect } from 'Actions/newsActions'
-import NewsArticlesHeader from './NewsArticlesHeader'
+import NewsArticlesHeader from './NewsArticlesHeader/'
 import NewsArticlesElements from './NewsArticlesElements'
-import styles from './NewsArticles.scss'
+import './NewsArticles.scss'
 
 import SelectSomething from 'Components/UI/SelectSomething'
 import Loader from 'Components/UI/Loader'
 
 
 const mapStateToProps = state => {
+    console.log(state)
     const { items,
             loading,
             error,
@@ -32,8 +31,7 @@ const mapStateToProps = state => {
         selectedCountryLabel: selectedCountryLabel
     }
 }
-  
-@CSSModules(styles, {allowMultiple: true})
+
 class NewsArticles extends React.Component {
 
     componentDidMount() {

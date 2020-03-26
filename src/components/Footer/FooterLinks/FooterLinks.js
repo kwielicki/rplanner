@@ -1,13 +1,9 @@
 import React from 'react'
-import CSSModules from 'react-css-modules'
 import ListOfLinks from 'Components/UI/ListWithLinks'
-import styles from './FooterLinks.scss'
+import './FooterLinks.scss'
 
-@CSSModules(styles, {allowMultiple: true})
 class FooterLinks extends React.Component {
-
 	state = {}
-
 	componentDidMount() {
 		this.setState({
 			footerLinks: [

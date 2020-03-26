@@ -9,7 +9,7 @@
         flex-wrap: wrap;
         margin: 0 map-get($LayerSpacers, margin);
     }
-    &.--fluid {
+    &.-fluid {
         max-width: none;
     }
 }
