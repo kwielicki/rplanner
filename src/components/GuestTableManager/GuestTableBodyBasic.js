@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import './GuestTableBodyBasic.scss'
 import Chips from 'Components/UI/Chips'
-import { capitalizedText } from 'Components/Helpers/capitalizedText'
+import capitalize from 'Components/Helpers/capitalize'
 import Rbutton from 'Components/Rbutton'
 import groom from 'Assets/images/icons/groom.png'
 import bride from 'Assets/images/icons/bride.png'
@@ -60,7 +60,7 @@ export default class GuestTableBodyBasic extends React.Component {
                         </div>
                         <div styleName='__cell'>
                             <Chips type={guestData.guestStatus} size='small'>
-                                {capitalizedText(guestData.guestStatus)}
+                                {capitalize(guestData.guestStatus)}
                             </Chips>
                         </div>
                         <div styleName='__cell'>
