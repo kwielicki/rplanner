@@ -1,0 +1,8 @@
+@import './styles/_common.scss';
+
+.Tooltipster {
+    .__tooltip {
+        @include color(white);
+        @include f-size(x-small);
+    }
+}

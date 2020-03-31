@@ -5,6 +5,7 @@ import './GuestTableBodyBasic.scss'
 import Chips from 'Components/UI/Chips'
 import capitalize from 'Components/Helpers/capitalize'
 import Rbutton from 'Components/Rbutton'
+import Tooltipster from 'Components/UI/Tooltipster'
 import groom from 'Assets/images/icons/groom.png'
 import bride from 'Assets/images/icons/bride.png'
 import LazyImage from 'Components/LazyImage'
@@ -70,25 +71,30 @@ export default class GuestTableBodyBasic extends React.Component {
                                 icon='edit'
                                 space='spaceRight'/>
                             <Rbutton size='small' variant='primary' space='spaceRight' icon='trash-alt'/>
-                            <IconButton
-                                icon='cogs'
-                                size='small'
-                                ariaLabel='Details'
-                                handleClick={() => this.handleOpenModal(this.setState({
-                                    guestDetails: {
-                                        creator: {
-                                            email: creator.email,
-                                        },
-                                        fullName: guestData.fullName,
-                                        phoneNumber: guestData.phoneNumber,
-                                        emailAddress: guestData.emailAddress,
-                                        additionalInformation: guestData.additionalInformation,
-                                        numberOfGuests: {
-                                            children: guestData.numberOfGuests.children,
-                                        },
-                                        timestamp: timestamp,
-                                    }
-                                }))}></IconButton>
+                            <Tooltipster
+                                title='Guest details'
+                                arrow
+                                placement='top'>
+                                <IconButton
+                                    icon='question-circle'
+                                    size='small'
+                                    handleClick={() => this.handleOpenModal(this.setState({
+                                        guestDetails: {
+                                            creator: {
+                                                email: creator.email,
+                                            },
+                                            fullName: guestData.fullName,
+                                            phoneNumber: guestData.phoneNumber,
+                                            emailAddress: guestData.emailAddress,
+                                            additionalInformation: guestData.additionalInformation,
+                                            numberOfGuests: {
+                                                children: guestData.numberOfGuests.children,
+                                            },
+                                            timestamp: timestamp,
+                                        }
+                                    }))}
+                                />
+                            </Tooltipster>
                         </div>
                     </div>
                 ))}

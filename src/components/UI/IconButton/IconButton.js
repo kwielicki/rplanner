@@ -1,14 +1,24 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classNames from 'classnames'
 import './IconButton.scss'
 
-function IconButton(props) {
-    const { ariaLabel, label, icon, size, handleClick } = props
+const IconButton = forwardRef(function IconButton(props, ref) {
+
+    const {
+        children,
+        ariaLabel,
+        label,
+        icon,
+        size,
+        variant,
+        handleClick,
+        ...other
+    } = props
 
     return (
-        <button styleName={classNames({
+        <button {...other} ref={ref} styleName={classNames({
             'IconButton': true,
             [`-${size}`]: size
         })}
@@ -18,7 +28,7 @@ function IconButton(props) {
             <FontAwesomeIcon icon={icon}/>
         </button>
     )
-}
+})
 
 IconButton.propTypes = {
     ariaLabel: PropTypes.string,
