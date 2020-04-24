@@ -19,17 +19,21 @@ class ModalBody extends Component {
                 onClose, onConfirm,
                 closeLabel, confirmLabel,
                 closeStyle, confirmStyle,
-                children, size
+                children, size, side
             },
             handleEscapeOutside } = this.props
 
         return (
             <div styleName='Modal'>
                 <div styleName='__overlay'></div>
-                <div styleName='__inner'>
+                <div styleName={classNames({
+                    '__inner': true,
+                    [`-${side}`]: side
+                })}>
                     <EscapeOutside onEscapeOutside={handleEscapeOutside} styleName={classNames({
                         '__sizer': true,
-                        [`-${size}`]: size
+                        [`-${size}`]: size,
+                        [`-${side}`]: side
                     })}>
                         <div styleName='__content'>
                             <div styleName='__header'>
@@ -110,6 +114,7 @@ Modal.propTypes = {
     headerSubtitle: PropTypes.string,
     headerDescription: PropTypes.string,
     children: PropTypes.node.isRequired,
+    side: PropTypes.bool,
     size: PropTypes.oneOf(['small', 'fluid'])
 }
 
