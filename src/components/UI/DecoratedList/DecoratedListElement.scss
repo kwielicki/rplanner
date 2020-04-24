@@ -1,43 +1,90 @@
 @import './styles/_common.scss';
 
+/* Local variables */
+$listSpace: 10;
+$listSpacePx: 20px;
+
 .DecoratedListElement {
+    @include margin($left: $listSpace, $right: $listSpace, $bottom: 20);
+
     display: block;
     .__inner {
-        @include padding($top: 5, $bottom: 10, $left: 15);
-        @include margin($right: 15, $bottom: 20);
         @include border('around');
+        @include b-radius(4);
+        @include center-by-flex;
         @extend %boxshadow-dp3;
+
+        flex-wrap: wrap;
     }
     &.-one {
         width: 100%;
     }
     &.-oneHalf {
         @include media-breakpoint-up(md) {
-            width: 50%;
+            width: calc(50% - #{$listSpacePx});
         }
     }
     &.-oneThird {
         @include media-breakpoint-up(md) {
-            width: calc(100% / 3);
+            width: calc(100% / 3 - #{$listSpacePx});
         }
     }
     &.-twoThirds {
         @include media-breakpoint-up(md) {
-            width: calc(100% * (2/3));
+            width: calc(100% * (2/3) - #{$listSpacePx});
         }
     }
     &.-quarter {
         @include media-breakpoint-up(md) {
-            width: 25%;
+            width: calc(25% - #{$listSpacePx});
         }
     }
     .__header {
+        @include center-by-flex;
+        @include padding($top: 15, $right: 15, $bottom: 30, $left: 15);
+        @include border('bottom');
+
+        position: relative;
+        width: 100%;
+    }
+    .__headerTitle {
+        @include border('around');
         @include f-size(x-small);
         @include text-ellipsis;
+        @include padding-all(5);
+        @include b-radius(25);
+        @include bg-color(white);
+
+        position: absolute;
+        top: 100%;
+        margin-top: -15px;
+    }
+    .__icon {
+        font-size: 30px;
+        &.-gray {
+            @include color(gray);
+        }
+        &.-green{
+            @include color(green);
+        }
+        &.-greenLight {
+            @include color(green-light);
+        }
+        &.-orange {
+            @include color(orange);
+        }
+        &.-pink {
+            @include color(pink);
+        }
     }
     .__description {
+        @include center-by-flex;
         @include text-ellipsis;
         @include f-size(small);
+        @include padding-all(20);
+        @include bg-color(gray-lighter);
+
+        width: 100%;
     }
     @include media-breakpoint-down(sm) {
         .__inner {
