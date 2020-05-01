@@ -1,0 +1,36 @@
+/** Mixins for positions
+  *
+  * 1.0 @mixin position()
+  *
+  */
+
+/**
+  * 1.0 @mixin position
+  *
+  * Available parameters:
+  * $type - oneOf ['fixed', 'absolute'], default is 'absolute'
+  * $corners - oneOf ['corners']
+  * $top
+  * $right
+  * $bottom
+  * $left
+  */
+@mixin position($type: absolute, $corners: null, $top: auto, $right: auto, $bottom: auto, $left: auto) {
+    @if $type == 'absolute' {
+        position: absolute;
+    }
+    @if $type == 'fixed' {
+        position: fixed;
+    }
+    @if $corners == 'corners' {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    } @else {
+        top: $top;
+        right: $right;
+        bottom: $bottom;
+        left: $left;
+    }
+}

@@ -3,12 +3,24 @@
 .Header {
     @include border('bottom');
     @include center-by-margin;
-    @include padding(25);
+    @include bg-color(white);
 
-    background-color: map-get($colors, white);
     max-width: map-get($LayoutWidths, section);
-    min-height: 65px;
+    min-height: get($header, desktopHeight);
     .__inner {
-        color: #ccc;
+        min-height: get($header, desktopHeight);
+    }
+    @include media-breakpoint-down(md) {
+        @include position('fixed', $top: 0, $right: 0, $left: 0);
+
+        min-height: get($header, mobileHeight);
+        box-shadow: get($header, mobileBoxShadow);
+        z-index: $z-index9;
+        .__inner {
+            @include center-by-flex-y;
+            
+            min-height: get($header, mobileHeight);
+            margin-left: -15px;
+        }
     }
 }

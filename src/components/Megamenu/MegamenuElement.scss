@@ -29,9 +29,8 @@
         }
     }
     .__icon {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include center-by-flex;
+
         margin-right: 15px;
         width: 30px;
         height: 30px;

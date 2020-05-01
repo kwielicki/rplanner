@@ -2,7 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import './MegamenuElement.scss'
+import { connect } from 'react-redux'
+import { hamburgerCloseAction } from 'Actions/hamburgerActions'
+import { overlayHideAction } from 'Actions/overlayActions'
+import styles from './MegamenuElement.scss'
+
+const mapStateToProps = state => {
+    return {
+        isOpen: state.hamburger.isOpen,
+        isOverlayActivated: state.overlay.isOverlayActivated
+    }
+}
 
 class MegamenuElement extends React.Component {
     state = {
@@ -14,6 +24,11 @@ class MegamenuElement extends React.Component {
             isActive: 'isActive'
         })
     }
+
+    handleClick = () => {
+        this.props.dispatch(hamburgerCloseAction(!this.props.isOpen))
+        this.props.dispatch(overlayHideAction(!this.props.isOverlayActivated))
+    }
     
     render() {
         const { megamenuLinks } = this.props
@@ -24,9 +39,10 @@ class MegamenuElement extends React.Component {
                     <li styleName='__listElement' key={index}>
                         <NavLink to={linkUrl} 
                                  title={linkTitle} 
-                                 activeClassName={isActive} 
+                                 activeClassName={styles.isActive} 
                                  exact={true} 
-                                 styleName='__listAnchor'>
+                                 styleName='__listAnchor'
+                                 onClick={this.handleClick}>
                             <div styleName="__icon">
                                 <FontAwesomeIcon icon={linkIcon} styleName="__iconSvg"/>
                             </div>
@@ -43,4 +59,4 @@ MegamenuElement.propTypes = {
     megamenuLinks: PropTypes.array
 }
 
-export default MegamenuElement
+export default connect(mapStateToProps)(MegamenuElement)

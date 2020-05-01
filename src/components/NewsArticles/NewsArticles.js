@@ -11,7 +11,6 @@ import Loader from 'Components/UI/Loader'
 
 
 const mapStateToProps = state => {
-    console.log(state)
     const { items,
             loading,
             error,
