@@ -15,8 +15,10 @@ const SelectSomething = props  => {
         labelForSelect,
         name,
         isFluid,
+        isFluidMobile,
         isGray
     } = props
+
 
     const __options = option => {
         const { id, value, label } = option
@@ -36,6 +38,7 @@ const SelectSomething = props  => {
                     styleName={classNames({
                         "__select": true,
                         '-isFluid': isFluid,
+                        '-isFluidMobile': isFluidMobile,
                         '-isGray': isGray
                     })}
                     disabled={disabled}
@@ -61,6 +64,7 @@ SelectSomething.propTypes = {
     name: PropTypes.string,
     labelForSelect: PropTypes.string,
     isFluid: PropTypes.bool,
+    isFluidMobile: PropTypes.bool,
     isGray: PropTypes.bool
 }
 
