@@ -65,13 +65,15 @@ class NewsArticles extends React.Component {
                                 <SelectSomething options={categories} 
                                                  onChange={this._handleChange} 
                                                  value={this.props.selectedCategory}
-                                                 labelForSelect="Category"/>
+                                                 labelForSelect="Category"
+                                                 isFluidMobile/>
                             </div>
                             <div styleName="__select">
                                 <SelectSomething options={countries} 
                                                  onChange={this._handleCountryChange} 
                                                  value={this.props.selectedCountry}
-                                                 labelForSelect="Country"/>
+                                                 labelForSelect="Country"
+                                                 isFluidMobile/>
                             </div>
                         </div>
                         {(!isEmpty(items.articles) 
