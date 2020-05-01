@@ -1,0 +1,11 @@
+/** Mixins for overlays
+  *
+  * 1.0 @mixin overlay()
+  *
+  */
+  @mixin overlay {
+      @include position('fixed', 'corners');
+
+      background-color: get($overlays, black-05);
+      z-index: $z-index9;
+  }

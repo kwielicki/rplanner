@@ -19,4 +19,7 @@
     .__anchor {
         @include link-base;
     }
+    @include media-breakpoint-down(md) {
+        display: none;
+    }
 }

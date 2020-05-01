@@ -1,20 +1,36 @@
 @import './styles/_common.scss';
+
 .App {
 	@include bg-color(gray-lighter);
-    display: block;
+	
     font-family: $font-family-Roboto;
 	.__sidebar {
 		@include bg-color(darker);
-		position: fixed;
+		@include position('fixed', $top: 0, $bottom: 0);
+
 		width: 280px;
-		top: 0;
-		bottom: 0;
-		z-index: $z-index9;
+		z-index: $z-index10;
+		&.-isMobile {
+			@include transition;
+		}
+		&.-isDesktop {
+			padding-left: 0;
+		}
+		&.-isOpened {
+			transform: translateX(0);
+		}
+	}
+	.__escape {
+		height: 100%;
 	}
 	.__main {
 		min-height: 100vh;
 		padding-left: 280px;
 		&.-withoutSpace {
+			padding-left: 0;
+		}
+		&.-isMobile {
+			@include transition;
 			padding-left: 0;
 		}
 	}
@@ -28,6 +44,9 @@
 		.__main {
 			padding-left: 0;
 			min-height: auto;
+			&.-isMobile {
+				padding-top: get($header, mobileHeight);
+			}
 		}
 	}
 }

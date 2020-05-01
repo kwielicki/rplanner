@@ -29,7 +29,8 @@ module.exports = {
             'Translations': path.join(srcDir, '/const/translations'),
             'Bunches': path.join(srcDir, '/const/bunches'),
             'FontAwesome': path.join(srcDir, '/fontAwesome'),
-            'Utils': path.join(srcDir, '/utils')
+            'Utils': path.join(srcDir, '/utils'),
+            'Hooks': path.join(srcDir, '/hooks')
         }
     },
     plugins: [

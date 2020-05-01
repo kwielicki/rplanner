@@ -20,7 +20,8 @@ const IconButton = forwardRef(function IconButton(props, ref) {
     return (
         <button {...other} ref={ref} styleName={classNames({
             'IconButton': true,
-            [`-${size}`]: size
+            [`-${size}`]: size,
+            [`-${variant}`]: variant
         })}
                 aria-label={ariaLabel}
                 onClick={handleClick}>
@@ -35,7 +36,8 @@ IconButton.propTypes = {
     label:PropTypes.string,
     icon: PropTypes.string.isRequired,
     size: PropTypes.string,
-    handleClick: PropTypes.func
+    handleClick: PropTypes.func,
+    variant: PropTypes.oneOf(['dark', 'pink'])
 }
 
 export default IconButton

@@ -4,11 +4,11 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import EscapeOutside from "react-escape-outside"
 import { scrollBarSize } from 'Components/Helpers/scrollbarMeasure'
-import { modalRoot } from 'Components/Helpers/modalRoot'
+import { modalRoot } from 'Components/Helpers/domRoots'
 import { isEmpty } from 'lodash'
-import './Modal.scss'
 import Rbutton from 'Components/Rbutton'
 import IconButton from 'Components/UI/IconButton'
+import './Modal.scss'
 
 class ModalBody extends Component {
     render() {
@@ -45,7 +45,7 @@ class ModalBody extends Component {
                                     <p styleName='__headerDescription' dangerouslySetInnerHTML={{__html: headerDescription}}></p>
                                 </div>
                                 <div styleName='__close'>
-                                    <IconButton variant='tertiary' ariaLabel="Close modal" icon='times' handleClick={handleEscapeOutside}/>
+                                    <IconButton ariaLabel="Close modal" icon='times' handleClick={handleEscapeOutside}/>
                                 </div>
                             </div>
                             <div styleName='__body'>{children}</div>

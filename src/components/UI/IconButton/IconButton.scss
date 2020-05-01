@@ -11,4 +11,7 @@
     &.-small {
         @include button-size(small);
     }
+    &.-pink {
+        @include color(pink);
+    }
 }
