@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './PageTitle.scss'
 
-import Hr from 'Components/UI/Hr'
+import Divider from 'Components/UI/Divider'
 
 function PageTitle( props ) {
 
@@ -13,7 +13,7 @@ function PageTitle( props ) {
 
     return (
         <div styleName="PageTitle">
-            <Hr spacer/>
+            <Divider spacer light/>
             <h1 styleName="__heading">
                 <span styleName="__headingSup">{supTitle}</span>
                 <span styleName="__headingSub">{subTitle}</span>

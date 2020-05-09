@@ -9,6 +9,7 @@ import OpenWeather from 'Components/OpenWeather'
 import Card from 'Components/UI/Card'
 import Swiper from 'Components/UI/Swiper'
 import ShadowedBox from 'Components/UI/ShadowedBox'
+import Divider from 'Components/UI/Divider'
 
 class Dashboard extends React.Component {
 
@@ -27,8 +28,8 @@ class Dashboard extends React.Component {
             <>
                 <Helmet title='Dashboard'/>
                 <BreadcrumbsItem to='/'>Dashboard</BreadcrumbsItem>
-
                 <Container>
+                    <Divider/>
                     <Column xs='1'>
                         <PageTitle supTitle={pageTitle.supTitle}
                                 subTitle={pageTitle.subTitle}/>

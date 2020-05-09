@@ -1,0 +1,42 @@
+@import './styles/_common.scss';
+
+.Hr {
+    background-color: map-get($colors, pink);
+    height: 2px;
+    .__text {
+        display: none;
+    }
+
+    // @prop variant
+    &.-inset {
+        width: 60px;
+    }
+    &.-fullWidth {
+        width: 100%;
+    }
+
+    // @prop position
+    &.-left {
+        margin-left: 0;
+        margin-right: auto;
+    }
+    &.-right {
+        margin-left: auto;
+        margin-right: 0;
+    }
+    &.-center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    // @prop spacer
+    &.-spacer {
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+
+    // @prop light
+    &.-light {
+        background-color: map-get($colors, gray-light);
+    }
+}
