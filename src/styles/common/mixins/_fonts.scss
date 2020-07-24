@@ -1,0 +1,10 @@
+@mixin font-size($size) {
+    font-size: map-get($fontSizes, $size)
+}
+@mixin font-line-height($size) {
+    line-height: map-get($lineHeights, $size);
+}
+@mixin font($size) {
+    @include font-size($size);
+    @include font-line-height($size);
+}

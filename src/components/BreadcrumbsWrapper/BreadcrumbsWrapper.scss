@@ -2,9 +2,7 @@
 
 .BreadcrumbsWrapper {
     @include list-unstyled;
-    @include border('top');
-    @include padding($top: 10);
-
+    
     display: flex;
     justify-content: flex-end;
     .__item {

@@ -29,7 +29,6 @@ class Dashboard extends React.Component {
                 <Helmet title='Dashboard'/>
                 <BreadcrumbsItem to='/'>Dashboard</BreadcrumbsItem>
                 <Container>
-                    <Divider/>
                     <Column xs='1'>
                         <PageTitle supTitle={pageTitle.supTitle}
                                 subTitle={pageTitle.subTitle}/>

@@ -1,13 +1,15 @@
 @import './styles/_common.scss';
 
 .Header {
-    @include border('bottom');
+    @include border('bottom', $borderColor: gray-light);
     @include center-by-margin;
     @include bg-color(white);
 
     max-width: map-get($LayoutWidths, section);
     min-height: get($header, desktopHeight);
     .__inner {
+        @include center-by-flex-y;
+        justify-content: flex-end;
         min-height: get($header, desktopHeight);
     }
     @include media-breakpoint-down(md) {
@@ -17,8 +19,7 @@
         box-shadow: get($header, mobileBoxShadow);
         z-index: $z-index9;
         .__inner {
-            @include center-by-flex-y;
-            
+            justify-content: space-between;
             min-height: get($header, mobileHeight);
             margin-left: -15px;
         }

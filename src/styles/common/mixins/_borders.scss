@@ -1,9 +1,9 @@
 @mixin border ($borderDirection,
                $borderWidth: 1px, 
-               $borderStyle: solid, 
-               $borderColor: map-get($map: $colors, $key: gray-light)) {
+               $borderStyle: solid,
+               $borderColor: gray-light) {
     @if $borderDirection != 'around' {
-        #{'border'}-#{$borderDirection}: $borderWidth $borderStyle $borderColor;
+        #{'border'}-#{$borderDirection}: $borderWidth $borderStyle map-get($map: $colors, $key: $borderColor);
     } @else {
         border: $borderWidth $borderStyle $borderColor;
     }                

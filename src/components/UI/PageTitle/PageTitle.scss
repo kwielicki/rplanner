@@ -13,9 +13,16 @@
         font-weight: $fw-600;
     }
     .__headingSub {
+        @include padding($top: 10);
+
         color: map-get($colors, pink);
         font-size: map-get($fontSizes, large);
         font-weight: $fw-300;
-        text-transform: uppercase;
+        font-family: $font-family-Roboto;
+    }
+    @include media-breakpoint-down(md) {
+        .__headingSub {
+            @include font(small);
+        }
     }
 }
