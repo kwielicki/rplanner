@@ -4,10 +4,11 @@ import classNames from 'classnames'
 import './Switcher.scss'
 
 function Switcher(props) {
-    const { checked, color, name, onChange, inputProps, disabled } = props
+    const { checked, color, name, onChange, inputProps, disabled, label } = props
 
     return (
         <div styleName='Switcher'>
+            <span>{label}</span>
             <div styleName='__inner'>
                 <span aria-disabled='false' styleName={classNames({
                     '__button': true,
@@ -60,6 +61,10 @@ Switcher.propTypes = {
      * Used to disable state
      */
     disabled: PropTypes.bool,
+    /**
+     * Used to set label
+     */
+    label: PropTypes.string
 }
 
 
