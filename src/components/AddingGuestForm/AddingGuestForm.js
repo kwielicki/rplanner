@@ -5,6 +5,7 @@ import firebase from "firebase/app"
 import { db } from "Firebase/firebase"
 import { connect } from "react-redux"
 import Rbutton from 'Components/Rbutton'
+import Switcher from 'Components/UI/Switcher'
 import { fetchGuests } from 'Actions/guestsActions'
 import FormsGrouper from 'Components/UI/Forms/FormsGrouper'
 import FormsActions from 'Components/UI/Forms/FormsActions'
@@ -64,8 +65,17 @@ const validationSchema = Yup.object().shape({
     additionalInformation: Yup
         .string()
         .max(250)
-        .label('Additional information')
-        
+        .label('Additional information'),
+    accompanyingFirstName: Yup
+        .string()
+        .min(3)
+        .matches(REGEXP__personName, 'This field can only contain letters')
+        .label('First name'),
+    accompanyingLastName: Yup
+        .string()
+        .min(3)
+        .matches(REGEXP__personName, 'This field can only contain letters')
+        .label('Last name')
 })
 
 class AddingGuestForm extends Component {
@@ -77,6 +87,7 @@ class AddingGuestForm extends Component {
             guestStatus: bunches.guestStatus,
             guest: bunches.guestModel,
             isSubmitting: false,
+            isChecked: false,
             creator: { name: '', email: '' }
         }
     }
@@ -86,6 +97,10 @@ class AddingGuestForm extends Component {
         this.setState({
             creator: { name: displayName, email: email }
         })
+    }
+
+    __onChanoge = () => {
+        this.setState({isChecked: !this.state.isChecked})
     }
 
     render() {
@@ -101,12 +116,13 @@ class AddingGuestForm extends Component {
                             creator: this.state.creator,
                             guest: {
                                 fullName: `${values.firstName} ${values.lastName}`,
+                                isAccompanying: this.state.isChecked,
                                 ...values
                             }
                         })
                         .then(() => {
                             this.setState({isSubmitting: false})
-                            this.props.dispatch(fetchGuests())
+                            this.setState({isChecked: false})
                             resetForm()
                         })
                         .catch(err => console.log(err))
@@ -162,6 +178,28 @@ class AddingGuestForm extends Component {
                                               label="Additional information"
                                               variant="halfWidth"/>
                             </FormsGrouper>
+                            <FormsGrouper>
+                                <Switcher
+                                    checked={this.state.isChecked}
+                                    color='primary'
+                                    onChange={this.__onChanoge}
+                                    name='accompanyingPerson'
+                                    label='Add an accompanying person'/>
+                            </FormsGrouper>
+                            {this.state.isChecked &&
+                                <FormsGrouper>
+                                    <FormInput 
+                                        type="text"
+                                        name="accompanyingFirstName"
+                                        label="First name"
+                                        variant="halfWidth"/>
+                                    <FormInput 
+                                        type="text"
+                                        name="accompanyingLastName"
+                                        label="Last name"
+                                        variant="halfWidth"/>
+                                </FormsGrouper>
+                            }
                             <FormsActions>
                                 <Rbutton  variant='primary'
                                           label="Add an guest" 

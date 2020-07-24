@@ -17,6 +17,7 @@ function Swiper(props) {
     )
 }
 
+
 Swiper.propTypes = {
     children: PropTypes.node.isRequired
 }

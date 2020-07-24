@@ -37,7 +37,10 @@
         },
         "phoneNumber": "",
         "emailAddress": "",
-        "additionalInformation": ""
+        "additionalInformation": "",
+        "accompanyingPerson": false,
+        "accompanyingFirstName": "",
+        "accompanyingLastName": ""
     },
     "guestAffiliation": [
         {"id": 1, "label": "Groom", "value": "groom"},
