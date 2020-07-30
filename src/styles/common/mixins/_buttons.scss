@@ -4,14 +4,14 @@
                 0px 1px 5px 0px rgba(0,0,0,.12);
 }
 @mixin button-box-shadow-hover($colorValue) {
-    box-shadow: 0px 2px 4px -1px rgba(map-get($colorsRGB, $colorValue), .2),
-                0px 4px 5px 0px rgba(map-get($colorsRGB, $colorValue), .14),
-                0px 1px 10px 0px rgba(map-get($colorsRGB, $colorValue), .12);
+    box-shadow:0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+               0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+               0px 1px 10px 0px rgba(0,0,0,.12);
 }
 @mixin button-box-shadow-active($colorValue) {
-    box-shadow: 0px 5px 5px -3px rgba(map-get($colorsRGB, $colorValue), .2),
-                0px 8px 10px 1px rgba(map-get($colorsRGB, $colorValue), .14),
-                0px 3px 14px 2px rgba(map-get($colorsRGB, $colorValue), .12);
+    box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0px 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0px 3px 14px 2px rgba(0,0,0,.12);
 }
 
 @mixin button-base {
@@ -21,7 +21,7 @@
     text-transform: uppercase;
     border-radius: map-get($borderRadius, 4);
     letter-spacing: .0892857143em;
-    height: 36px;
+    position: relative;
     min-width: 64px;
     border: none;
     font-weight: $fw-600;
@@ -32,16 +32,14 @@
 @mixin button-size($ButtonSize) {
     // Available size: large, normal, small
     @if $ButtonSize == 'small' {
-        padding: 0 10px;
-        height: 30px;
+        padding: 9px 16px 8px 16px;
         font-size: map-get($fontSizes, x-small);
     } @else if $ButtonSize == 'normal' {
-        padding: 0 15px;
+        padding: 9px 16px 6px 16px;
     } @else if $ButtonSize == 'large' {
-        padding: 0 30px;
+        padding: 15px 20px 11px 20px;
     } @else if $ButtonSize == 'xLarge' {
-        height: 50px;
-        padding: 0 30px;
+        padding: 15px 20px 11px 20px;
     }
 }
 @mixin button-variant($ButtonVariant) {
@@ -54,8 +52,6 @@
         border: 1px solid map-get($colors, pink);
         &:hover {
             @include button-box-shadow-hover(black);
-
-            background-color: lighten(map-get($colors, pink), 5%);
         }
         &:active {
             @include button-box-shadow-active(black);
@@ -105,7 +101,7 @@
 }
 @mixin button-display($ButtonDisplay) {
     justify-content: center;
-    align-items: center;
+    align-items: baseline;
     @if $ButtonDisplay == 'inline-flex' {
         display: inline-flex;
     } @else if $ButtonDisplay == 'flex' {

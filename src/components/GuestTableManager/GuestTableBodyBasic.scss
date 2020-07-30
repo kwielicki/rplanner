@@ -12,10 +12,10 @@
             @include margin($top: 15);
         }
         &.isOdd {
-            @include bg-color(white);
-            &:hover {
-                @include bg-color(gray-lighter);
-            }
+            @include bg-color(gray-lighter);
+        }
+        &:hover {
+            @include bg-color(gray-light);
         }
     }
     .__cell {
