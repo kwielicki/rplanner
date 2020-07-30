@@ -1,35 +1,36 @@
 $font-family-Roboto: 'Roboto', sans-serif;
 
+@function color($color-name) {
+    @return var(--color-#{$color-name});
+}
+
+
 $colors: (
-    white       : #fff,
-    gray-lighter: #fbfbfb,
-    gray-light  : #e9e9e9,
-    gray        : #ccc,
-    gray-dark   : #aaa,
-    gray-darker : #a4a6a8,
-    green-light : #28a745,
-    green       : #2cc5f7,
-    blue        : #20b4e9,
-    orange-light: #ffc107,
-    orange      : #ff5722,
-    pink        : #E9204F,
-    red         : #e53935,
-    dark-light  : #444,
-    dark        : #333,
-    darker      : #2c303b,
-    darken      : #343842,
-    black       : #000
+    white       : color(white),
+    gray-lighter: color(gray-lighter),
+    gray-light  : color(gray-light),
+    gray        : color(gray),
+    gray-dark   : color(gray-dark),
+    gray-darker : color(gray-darker),
+    green-light : color(green-light),
+    green       : color(green),
+    blue        : color(blue),
+    orange-light: color(orange-light),
+    orange      : color(orange),
+    pink        : color(pink),
+    pink-dark   : color(pink-dark),
+    red         : color(red),
+    dark-light  : color(dark-light),
+    dark        : color(dark),
+    darker      : color(darker),
+    darken      : color(darken),
+    black       : color(black),
+    pink-lighten : color(rgb-pink-lighten)
 );
 $colorsRGB: (
-    pink:  (rgb(red(map-get($colors, pink)),
-               green(map-get($colors, pink)),
-               blue(map-get($colors, pink)))),
-    black: (rgb(red(map-get($colors, black)),
-                green(map-get($colors, black)),
-                blue(map-get($colors, black)))),
-    blue:  (rgb(red(map-get($colors, blue)),
-                green(map-get($colors, blue)),
-                blue(map-get($colors, blue)))),
+    pink:  map-get($colors, pink),
+    black: map-get($colors, black),
+    blue:  map-get($colors, blue)
 );
 
 $fontSizes: (

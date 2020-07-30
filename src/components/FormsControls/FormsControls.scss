@@ -57,7 +57,7 @@
         border-bottom: 1px solid map-get($colors, gray);
         background-color: map-get($colors, gray-light);
         &:hover {
-            background-color: darken(map-get($colors, gray-light), 5%);
+            background-color: map-get($colors, gray-light);
         }
         &:focus {
             outline: none;
@@ -69,7 +69,7 @@
             border-color: green;
         }
         &.isFocused {
-            background-color: darken(map-get($colors, gray-light), 10%);
+            background-color: map-get($colors, gray-light);
         }
         &.-textarea {
             height: 150px;

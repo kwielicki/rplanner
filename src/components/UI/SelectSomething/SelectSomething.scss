@@ -37,7 +37,7 @@
             font-size: map-get($fontSizes, small);
             padding-left: 13px;
             &:hover {
-                background-color: darken(map-get($colors, gray-light), 5%);
+                background-color: map-get($colors, gray-light);
                 border-color: map-get($colors, gray);
             }
             &:focus {
