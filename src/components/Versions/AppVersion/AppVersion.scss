@@ -1,0 +1,15 @@
+@import './styles/_common.scss';
+
+.AppVersion {
+    @include padding($left: 25);
+    @include position('absolute', $bottom: 30px);
+    .__label {
+        @include f-size(x-small);
+        @include padding($right: 5);
+
+        color: map-get($colors, white);
+    }
+    .__version {
+        display: inline-block;
+    }
+}

@@ -8,7 +8,7 @@
         @include padding-all(25);
         overflow: auto;
         border-bottom: 1px solid map-get($colors, gray-light);
-        height: calc(100% - 180px);
+        height: calc(100% - 150px);
     }
     .__element {
         padding: 10px 0;
@@ -20,7 +20,7 @@
     @include media-breakpoint-down(md) {
         .__list {
             @include padding-all(15);
-            height: calc(100% - 155px);
+            height: calc(100% - 170px);
         }
     }
 }

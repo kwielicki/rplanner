@@ -9,6 +9,9 @@
     &.-rounded {
         border-radius: 50%;
     }
+    &.-curved {
+        @include b-radius(4);
+    }
     &.-small {
         display: inline-block;
         padding: 5px 10px;
@@ -16,6 +19,9 @@
     }
     &.-big {
         padding: 10px;
+    }
+    &.-bold {
+        font-weight: $fw-600;
     }
     &.-primary {
         @include color(white);

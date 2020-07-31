@@ -28,6 +28,7 @@ module.exports = {
             'Reducers': path.join(srcDir, '/reducers'),
             'Translations': path.join(srcDir, '/const/translations'),
             'Bunches': path.join(srcDir, '/const/bunches'),
+            'Versions': path.join(srcDir, '/const/versions'),
             'FontAwesome': path.join(srcDir, '/fontAwesome'),
             'Utils': path.join(srcDir, '/utils'),
             'Hooks': path.join(srcDir, '/hooks')
