@@ -44,5 +44,8 @@
             "supTitle": "Faq - frequently asked questions",
             "subTitle": "Before you ask a question to the development team, check if such a question has already been asked by someone else"
         }
+    },
+    "properties": {
+        "appVersionLabel": "Your application version"
     }
 }

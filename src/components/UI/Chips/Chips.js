@@ -11,11 +11,15 @@ function Chips(props) {
         size,
         type,
         children,
+        curved,
+        bold
     } = props
 
     const chipsStyles = {
         "Chips": true,
         [`-rounded`]: rounded,
+        [`-curved`]: curved,
+        [`-bold`]: bold,
         [`-${type}`]: type,
         [`-${size}`]: size,
     }
@@ -29,6 +33,8 @@ function Chips(props) {
 
 Chips.propTypes = {
     rounded: PropTypes.bool,
+    curved: PropTypes.bool,
+    bold: PropTypes.bool,
     size: PropTypes.oneOf(["small", "big"]),
     type: PropTypes.oneOf(["primary", "secondary", "pending", "declined", "confirmed"]).isRequired
 }
