@@ -1,1 +1,1 @@
-export {default} from './SidebarLogo.js'
+export { SidebarLogo } from './SidebarLogo.js'
