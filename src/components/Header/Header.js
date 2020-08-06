@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import Container from 'Components/Grid/Container'
 import Column from 'Components/Grid/Column'
 import BreadcrumbsWrapper from 'Components/BreadcrumbsWrapper'
+import Logout from 'Components/Logout'
 import IconButton from 'Components/UI/IconButton'
 import { hamburgerOpenAction } from 'Actions/hamburgerActions'
 import { overlayShowAction } from 'Actions/overlayActions'
@@ -29,6 +30,9 @@ class Header extends React.Component {
 				<Container>
 					<Column xs='1'>
 						<div styleName='__inner'>
+							<div styleName='__innerTop'>
+								<Logout/>
+							</div>
 							{isMobile && <IconButton handleClick={this.sideBarOpen} icon='bars'></IconButton> }
 							<BreadcrumbsWrapper/>
 						</div>

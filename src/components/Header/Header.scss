@@ -4,24 +4,42 @@
     @include border('bottom', $borderColor: gray-light);
     @include center-by-margin;
     @include bg-color(white);
+    @include padding($bottom: 15);
 
     max-width: map-get($LayoutWidths, section);
     min-height: get($header, desktopHeight);
     .__inner {
         @include center-by-flex-y;
         justify-content: flex-end;
+        flex-wrap: wrap;
         min-height: get($header, desktopHeight);
     }
-    @include media-breakpoint-down(md) {
+    .__innerTop {
+        @include padding($top: 15, $bottom: 15);
+        @include margin($bottom: 15);
+        @include border('bottom', $borderColor: gray-light);
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+    @include media-breakpoint-down(lg) {
         @include position('fixed', $top: 0, $right: 0, $left: 0);
+        @include padding($bottom: 0);
 
         min-height: get($header, mobileHeight);
         box-shadow: get($header, mobileBoxShadow);
         z-index: $z-index9;
         .__inner {
             justify-content: space-between;
+            flex-direction: row-reverse;
             min-height: get($header, mobileHeight);
             margin-left: -15px;
+            margin-right: -15px;
+        }
+        .__innerTop {
+            @include margin($bottom: 0);
+
+            width: auto;
         }
     }
 }
