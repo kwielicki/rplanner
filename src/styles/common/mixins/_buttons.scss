@@ -74,8 +74,10 @@
         @include bg-color(white);
         @include color(dark);
         border: 1px solid map-get($colors, gray-light);
+        box-shadow: none;
         &:hover {
             @include bg-color(gray-lighter);
+            border-color: map-get($colors, gray);
         }
         &:active {
             @include bg-color(gray-light);

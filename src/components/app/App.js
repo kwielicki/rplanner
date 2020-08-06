@@ -34,7 +34,7 @@ const App = (props) => {
     const [ isDesktop, setIsDesktop ] = useState(null)
     const { ref } = useResizeObserver({
         onResize: ({ width, height }) => {
-            if ( width > 767 ) {
+            if ( width > 991 ) {
                 setIsMobile(false)
                 setIsDesktop(true)
                 if ( isOpen ) {
