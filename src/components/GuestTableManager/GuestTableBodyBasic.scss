@@ -3,7 +3,7 @@
 .GuestTableBodyBasic {
     display: block;
     .__row {
-        @include bg-colorRGBA(blue, .1);
+        @include transition;
         @include border(bottom);
         
         display: flex;
@@ -15,7 +15,7 @@
             @include bg-color(gray-lighter);
         }
         &:hover {
-            @include bg-color(gray-light);
+            @include bg-color(pink-light);
         }
     }
     .__cell {
@@ -27,6 +27,24 @@
         }
         &.-smaller {
             flex-basis: 100px;
+        }
+        &.-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+    }
+    .__cellIcon {
+        @include square-size(48px);
+        @include rounded(rounded);
+
+        overflow: hidden;
+    }
+    .__cellAction {
+        width: calc(50% - #{map-get($spacers, 5)});
+        &.-details {
+            @include padding($top: 10);
+            width: 100%;
         }
     }
     @include media-breakpoint-down(md) {

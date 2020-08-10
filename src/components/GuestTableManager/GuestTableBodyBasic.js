@@ -5,14 +5,13 @@ import './GuestTableBodyBasic.scss'
 import Chips from 'Components/UI/Chips'
 import capitalize from 'Components/Helpers/capitalize'
 import Rbutton from 'Components/Rbutton'
-import Tooltipster from 'Components/UI/Tooltipster'
-import groom from 'Assets/images/icons/groom.png'
-import bride from 'Assets/images/icons/bride.png'
+import groom from 'Assets/images/icons/groom.svg'
+import bride from 'Assets/images/icons/bride.svg'
 import LazyImage from 'Components/LazyImage'
-import IconButton from 'Components/UI/IconButton'
 import Modal from 'Components/UI/Modal/Modal'
 import GuestTableDetails from './GuestTableDetails'
 import bunches from 'Bunches/bunches.json'
+import translations from 'Translations/translations.json'
 
 export default class GuestTableBodyBasic extends React.Component {
 
@@ -37,6 +36,10 @@ export default class GuestTableBodyBasic extends React.Component {
         return guestAffiliation === 'groom' ? groom : bride
     }
 
+    handleGuestAffiliationAlt = (guestAffiliation, suffix = translations.properties.icon) => {
+        return `${capitalize(guestAffiliation)} ${suffix}`
+    }
+
     render() {
         const { data } = this.props
         return (
@@ -55,29 +58,44 @@ export default class GuestTableBodyBasic extends React.Component {
                         <div styleName='__cell'>{guestData.lastName}</div>
                         <div styleName='__cell'>{guestData.numberOfGuests.adult}</div>
                         <div styleName='__cell'>
-                            <LazyImage
-                                placeholder={this.handleGuestAffiliation(guestData.guestAffiliation)}
-                                src={this.handleGuestAffiliation(guestData.guestAffiliation)}/>
+                            <div styleName='__cellIcon'>
+                                <LazyImage
+                                    placeholder={this.handleGuestAffiliation(guestData.guestAffiliation)}
+                                    src={this.handleGuestAffiliation(guestData.guestAffiliation)}
+                                    alt={`${this.handleGuestAffiliationAlt(guestData.guestAffiliation)}`}/>
+                            </div>
                         </div>
                         <div styleName='__cell'>
                             <Chips type={guestData.guestStatus} size='small'>
                                 {capitalize(guestData.guestStatus)}
                             </Chips>
                         </div>
-                        <div styleName='__cell'>
-                            <Rbutton
-                                size='small'
-                                variant='secondary'
-                                icon='edit'
-                                space='spaceRight'/>
-                            <Rbutton size='small' variant='primary' space='spaceRight' icon='trash-alt'/>
-                            <Tooltipster
-                                title='Guest details'
-                                arrow
-                                placement='top'>
-                                <IconButton
-                                    icon='question-circle'
+                        <div styleName={classNames('__cell', {
+                            '-actions': true
+                        })}>
+                            <div styleName='__cellAction'>
+                                <Rbutton
                                     size='small'
+                                    variant='secondary'
+                                    label='Edit'
+                                    asBlock/>
+                            </div>
+                            <div styleName='__cellAction'>
+                                <Rbutton
+                                    size='small'
+                                    variant='primary'
+                                    label='Remove'
+                                    asBlock/>
+                            </div>
+                            <div styleName={classNames('__cellAction', {
+                                '-details': true
+                            })}>
+                                <Rbutton
+                                    size='small'
+                                    variant='tertiary'
+                                    label='Details'
+                                    ariaLabel={`Check details information for ${guestData.fullName}`}
+                                    asBlock
                                     handleClick={() => this.handleOpenModal(this.setState({
                                         guestDetails: {
                                             creator: {
@@ -92,9 +110,8 @@ export default class GuestTableBodyBasic extends React.Component {
                                             },
                                             timestamp: timestamp,
                                         }
-                                    }))}
-                                />
-                            </Tooltipster>
+                                    }))}/>
+                            </div>
                         </div>
                     </div>
                 ))}
