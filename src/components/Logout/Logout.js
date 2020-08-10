@@ -28,7 +28,8 @@ export default function Logout() {
             <div styleName='__mobile'>
                 <IconButton
                     icon='sign-out-alt'
-                    handleClick={__handleLogout}></IconButton>
+                    handleClick={__handleLogout}
+                    label={translations.properties.logoutLabel}></IconButton>
             </div>
         </div>
     )

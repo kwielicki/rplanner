@@ -48,9 +48,9 @@
     .__header {
         @include border('bottom');
         @include padding($top: 15, $right: 30, $bottom: 15, $left: 30);
-        @include bg-colorRGBA(blue, .1);
+        @include bg-color(gray-lighter);
         @include rounded(4);
-        
+
         display: flex;
     }
     .__headerInner {
@@ -85,6 +85,7 @@
     .__footer {
         @include border('top');
         @include padding-all(15);
+        @include bg-color(gray-lighter);
 
         display: flex;
         justify-content: flex-end;
