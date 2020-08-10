@@ -49,6 +49,7 @@
         "appVersionLabel": "Your application version",
         "logout": "Logout",
         "logoutLabel": "Logout of the Wedding Planner application. You will be redirected to login view.",
-        "returnToDashboard": "Return to Dashboard"
+        "returnToDashboard": "Return to Dashboard",
+        "icon": "icon"
     }
 }
