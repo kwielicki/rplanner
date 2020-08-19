@@ -133,3 +133,13 @@
             animation: ripple 0.6s linear;
         }
 }
+@mixin reset-button-styles {
+    background: none;
+    border: 0;
+    outline: none;
+    &:active,
+    &:hover,
+    &:focus {
+        outline: none;
+    }
+}

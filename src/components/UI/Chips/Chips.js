@@ -36,7 +36,7 @@ Chips.propTypes = {
     curved: PropTypes.bool,
     bold: PropTypes.bool,
     size: PropTypes.oneOf(["small", "big"]),
-    type: PropTypes.oneOf(["primary", "secondary", "pending", "declined", "confirmed"]).isRequired
+    type: PropTypes.oneOf(["primary", "secondary", "pending", "declined", "confirmed", "outlined"]).isRequired
 }
 
 export default Chips
