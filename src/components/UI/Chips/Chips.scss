@@ -43,6 +43,9 @@
         @include color(white);
         @include bg-color(green-light);
     }
+    &.-outlined {
+        @include border('around', $borderColor: gray-dark);
+    }
     .__text {
         font-size: inherit;
     }

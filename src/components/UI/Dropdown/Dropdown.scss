@@ -1,0 +1,118 @@
+@import './styles/_common.scss';
+
+.Dropdown {
+    position: relative;
+    .__inner {
+        min-height: 0px;
+    }
+    .__button {
+        @include reset-button-styles;
+        @include text-ellipsis;
+        @include transition;
+        
+        position: relative;
+        display: block;
+        width: 100%;
+        padding: 25px 15px 5px;
+        border: 0;
+        border-bottom: 1px solid map-get($colors, gray);
+        background-color: map-get($colors, gray-light);
+        text-align: left;
+        &:hover {
+            border-color: map-get($colors, black);
+        }
+        &:focus {
+            outline: none;
+        }
+        &.isOpened {
+            @include border('bottom', $borderColor: blue);
+        }
+    }
+    .__icon {
+        @include position('absolute', $right: 15px);
+        @include color(gray-darker);
+
+        margin-top: -4px;
+    }
+    .__label {
+        @include text-ellipsis;
+        @include transition;
+
+        display: block;
+        position: absolute;
+        left: 16px;
+        top: 50%;
+        transform: translateY(-50%) translateZ(0);
+        transform-origin: left top;
+        margin: 0;
+        font-size: map-get($fontSizes, small);
+        pointer-events: none;
+        will-change: transform;
+        line-height: 1.75rem;
+        &.isSelected {
+            transform: translateY(-105%) scale(0.75);
+        }
+    }
+    .__labelSelected {
+        font-size: map-get($fontSizes, small);
+    }
+    .__menu {
+        @include position('absolute', $left: 0, $right: 0);
+        @include bg-color(white);
+        @include margin($top: 15);
+        @include border('around', $borderColor: gray-light);
+
+        border-radius: map-get($borderRadius, 4);
+        box-shadow: map-get($boxShadows, dp6);
+        z-index: $z-index2;
+    }
+    .__menuList {
+        @include list-unstyled;
+        @include nice-scroll($thumbColor: gray, $barSize: 3px);
+        
+        overflow: auto;
+        max-height: 300px;
+    }
+    .__menuIcon {
+        @include position('absolute', $top: -10px, $right: 15px);
+        @include bg-color(white);
+        @include color(gray-light);
+    }
+    .__option {
+        @include padding-all(15);
+        @include border('bottom', $borderColor: gray-light);
+        @include transition;
+        
+        position: relative;
+        opacity: .6;
+        cursor: pointer;
+        &:hover {
+            @include bg-color(gray-lighter);
+
+            opacity: 1;
+        }
+        &.isActive {
+            position: relative;
+            pointer-events: none;
+            opacity: 1;
+            &:after {
+                content: '';
+                @include position('absolute', $left: 0, $top: 0, $bottom: 0);
+                @include bg-color(blue);
+                
+                display: block;
+                width: 4px;
+            }
+        }
+    }
+    .__optionTitle {
+        @include font-size(x-small);
+        @include color(dark);
+
+        display: block;
+    }
+    .__optionIcon {
+        @include position('absolute', $top: 50%, $right: 15px);
+        @include center-by-transform-y;
+    }
+}
