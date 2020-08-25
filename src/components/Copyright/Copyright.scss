@@ -2,7 +2,7 @@
 
 .Copyright {
     .__inner {
+        @include f-size(small);
         display: flex;
-        font-size: map-get($map: $fontSizes, $key: small);
     }
 }
