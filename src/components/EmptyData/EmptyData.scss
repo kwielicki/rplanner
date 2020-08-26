@@ -1,0 +1,45 @@
+@import './styles/_common.scss';
+
+.EmptyData {
+    @include center-by-flex;
+    @include padding($top: 65);
+
+    position: relative;
+    flex-direction: column;
+    z-index: $z-index2;
+    .__icon {
+        @include center-by-flex;
+        @include square-size(150px);
+        @include bg-color(white);
+        @include padding-all(15);
+        @include rounded('rounded');
+        @include margin($bottom: 65);
+
+        position: relative;
+        box-shadow: map-get($boxShadows, dp6);
+
+        &:after {
+            content: '';
+            @include position('absolute', $left: 50%, $top: 50%);
+            @include bg-color(blue);
+            @include square-size(200px);
+            @include center-by-transform;
+
+            z-index: $z-index-1;
+            opacity: .1;
+            border-radius: inherit;
+        }
+    }
+    .__iconSource {
+        @include square-size(50px);
+    }
+    .__title {
+        @include f-size(x-large);
+    }
+    .__subtitle {
+        @include padding($top: 15);
+
+        max-width: 767px;
+        text-align: center;
+    }
+}
