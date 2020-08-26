@@ -135,10 +135,11 @@ $boxShadows: (
     dp6: #{0 19px 38px rgba(0,0,0,0.1), 0 15px 12px rgba(0,0,0,0.1)}
 );
 
-$z-index1 : 1;
-$z-index2 : 2;
-$z-index9 : 9;
-$z-index10: 10;
+$z-index-1: -1;
+$z-index1 :  1;
+$z-index2 :  2;
+$z-index9 :  9;
+$z-index10:  10;
 
 $breakpoints: (
   xs: 0,
