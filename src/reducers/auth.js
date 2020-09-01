@@ -6,8 +6,12 @@ import {
     LOGOUT_SUCCESS,
     LOGOUT_FAILURE,
     VERIFY_REQUEST,
-    VERIFY_SUCCESS
+    VERIFY_SUCCESS,
+    REGISTER_REQUEST,
+    REGISTER_SUCCESS,
+    REGISTER_FAILURE
   } from "Actions/auth.js"
+
 
   export default (
     state = {
@@ -18,11 +22,40 @@ import {
       logoutError: false,
       isAuthenticated: false,
       isLoading: false,
-      user: {}
+      isRegister: false,
+      registerError: false,
+      registerAlert: false,
+      user: {},
+      ownerData: {}
     },
     action
   ) => {
     switch (action.type) {
+      case REGISTER_REQUEST: {
+        return {
+          ...state,
+          isRegister: false,
+          isLoading: true,
+        }
+      };
+      case REGISTER_SUCCESS: {
+        return {
+          ...state,
+          isRegister: true,
+          isLoading: false,
+          registerError: false,
+          registerAlert: action.message
+        }
+      };
+      case REGISTER_FAILURE: {
+        return {
+          ...state,
+          isRegister: false,
+          isLoading: false,
+          registerError: true,
+          registerAlert: action.error
+        }
+      };
       case LOGIN_REQUEST:
         return {
           ...state,
@@ -37,7 +70,8 @@ import {
           isLoggingIn: false,
           isLoading: false,
           isAuthenticated: true,
-          user: action.user
+          user: action.user,
+          ownerData: action.ownerData
         };
       case LOGIN_FAILURE:
         return {

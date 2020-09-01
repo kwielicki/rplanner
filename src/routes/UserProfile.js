@@ -49,13 +49,16 @@ class UserProfile extends React.Component {
 
     componentDidMount = () => {
         const { user: {
-                    displayName, email, photoURL,
+                    email, photoURL,
                     metadata: { creationTime, lastSignInTime}
                 } 
             } = this.props
 
+        const { ownerData : { fullName }
+        } = this.props;
+            
         this.setState({
-            userName: displayName,
+            userName: fullName,
             userEmail: email,
             userPhotoUrl: photoURL,
             userCreationTime: creationTime,
@@ -129,7 +132,8 @@ class UserProfile extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        user: state.auth.user
+        user: state.auth.user,
+        ownerData: state.auth.ownerData
     }
 }
 export default connect(mapStateToProps)(UserProfile)

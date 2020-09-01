@@ -1,13 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './Alert.scss'
 
-function Alert( props ) {
-    const { type, icon, message } = props
+function Alert( { type, icon, message, delay, show = true } ) {
+    let timer = null;
+
+    const [visible, setVisible] = useState(!show);
+
+    useEffect(() => {
+        setTimer();
+    }, [show]);
+
+    function setTimer() {
+        if (timer != null) {
+          clearTimeout(timer)
+        }
+        timer = setTimeout(() => {
+          setVisible(!visible);
+          timer = null;
+        }, delay);
+    }
+
     return (
-        <div styleName={classNames({
+        visible && <div styleName={classNames({
             'Alert': true,
             [`-${type}`]: type
         })} role='alert'>
@@ -29,7 +46,9 @@ function Alert( props ) {
 
 Alert.propTypes = {
     type: PropTypes.oneOf(['warning', 'danger', 'success', 'info']),
-    icon: PropTypes.string.isRequired
+    icon: PropTypes.string.isRequired,
+    delay: PropTypes.number,
+    show: PropTypes.bool
 }
 
 export default Alert

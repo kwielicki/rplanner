@@ -2,18 +2,26 @@ import React, { Component } from 'react'
 import { Formik, Form } from 'formik'
 import * as Yup from "yup"
 import PropTypes from 'prop-types'
+import TranslationText from 'Components/TranslationText'
+import { translationText } from 'Utils/translationText'
+import EmptySpace from 'Components/EmptySpace'
+import bunches from 'Bunches/bunches.json'
+import { Link } from 'react-router-dom'
 import { FormInput } from 'Components/FormsControls'
 import Alert from 'Components/UI/alert'
 import Rbutton from 'Components/Rbutton'
 import Logotype from 'Components/UI/Logotype'
+import { isEmpty } from 'lodash'
 import { connect } from "react-redux"
+import { alertActions } from 'Actions/alert.actions'
+import { alertTypes } from 'Constants/alert.Constants'
 import './LoginForm.scss'
 
 const validationSchema = Yup.object().shape({
     email: Yup
         .string()
         .label('Email')
-        .email("Invalid email addresss")
+        .email("Invalid email address")
         .required(),
     password: Yup
         .string()
@@ -22,17 +30,12 @@ const validationSchema = Yup.object().shape({
 })
 
 class LoginForm extends Component {
-
     constructor(props) {
         super(props)
-        this.state = {
-            email: '',
-            password: ''
-        }
+        this.state = { email: '',  password: '' }
     }
-    
     render() {
-        const { isLoading, error, loginUser, dispatch } = this.props
+        const { isLoading, error, loginUser, dispatch, registerError, ...props } = this.props
         return (
             <div styleName='LoginForm'>
                 <div styleName='__inner'>
@@ -52,17 +55,51 @@ class LoginForm extends Component {
                                 const { email, password } = values
                                 dispatch(loginUser(email, password))
                             }}>
-                                <Form styleName='__oauthForm'>
-                                    <FormInput type="email" name="email" label="Use your e-mail" autoComplete="username"/>
-                                    <FormInput type="password" name="password" label="Type your password" autoComplete="current-password"/>
-                                    <div styleName='__button'>
-                                        <Rbutton variant='primary' label="Login" icon='lock' asSubmit isLoader={isLoading}/>
-                                    </div>
-                                    {error && <div styleName='__oauthError'>
-                                        <Alert message={error} type='warning' icon='frown-open'/>
-                                    </div>}
-                                </Form>
-                            </Formik>
+                            <Form styleName='__oauthForm'>
+                                <FormInput
+                                    type="email"
+                                    name="email"
+                                    label="Use your e-mail"
+                                    autoComplete="username"/>
+                                <FormInput
+                                    type="password"
+                                    name="password"
+                                    label="Type your password"
+                                    autoComplete="current-password"/>
+                                <div styleName='__button'>
+                                    <Rbutton
+                                        variant='primary'
+                                        label="Login"
+                                        icon='lock'
+                                        asSubmit 
+                                        isLoader={isLoading}
+                                        handleClick={() => dispatch(alertActions.clear())}/>
+                                </div>
+                                {!isEmpty(props.alert) && <div styleName='__oauthError'>
+                                    <Alert
+                                        message={props.alert.message}
+                                        type={props.alert.type === alertTypes.WARNING ? 'warning': 'success'}
+                                        icon='check-circle'
+                                        delay={5000}
+                                        show={false}/>
+                                </div>}
+                            </Form>
+                        </Formik>
+                        <div styleName='__oauthRegister'>
+                            <TranslationText
+                                object={bunches}
+                                id="registerQuestion"/>
+                            <EmptySpace
+                                type='normal'/>
+                            <Link
+                                to='/register'
+                                aria-label={translationText(bunches, 'registerNowTitle')}
+                                onClick={() => dispatch(alertActions.clear())}>
+                                <TranslationText
+                                    object={bunches}
+                                    id='registerNow'/>
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>

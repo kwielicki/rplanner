@@ -7,11 +7,16 @@ import LoginForm from "../components/LoginForm"
 class Login extends React.Component {
 
     render() {
-        const { isAuthenticated, isLoading, error } = this.props
+        const { isAuthenticated, isLoading, error, registerAlert, registerError, alert} = this.props
         return (
             isAuthenticated
                 ? <Redirect to="/" />
-                : <LoginForm isLoading={isLoading} error={error} loginUser={loginUser}></LoginForm>
+                : <LoginForm
+                    isLoading={isLoading}
+                    error={error}
+                    loginUser={loginUser}
+                    registerError={registerError}
+                    alert={alert}/>
         )
     }
 }
@@ -20,11 +25,17 @@ class Login extends React.Component {
 const mapStateToProps = state => {
     const { isAuthenticated,
             isLoading,
-            error } = state.auth
+            error,
+            registerError,
+            registerAlert } = state.auth
+    const { alert } = state
     return {
         isAuthenticated: isAuthenticated,
         isLoading: isLoading,
         error: error,
+        registerError: registerError,
+        registerAlert: registerAlert,
+        alert: alert
     }
 }
   export default connect(mapStateToProps)(Login)
