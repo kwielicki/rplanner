@@ -15,6 +15,7 @@ import UserProfile from 'Routes/UserProfile'
 import Documentation from 'Routes/Documentation'
 import EditingGuest from 'Routes/EditingGuest'
 import Login from 'Routes/Login'
+import Register from 'Routes/Register'
 import News from 'Routes/News'
 import Faq from 'Routes/Faq'
 import EscapeOutside from "react-escape-outside"
@@ -33,8 +34,8 @@ const App = (props) => {
     const [ isMobile, setIsMobile ] = useState(null)
     const [ isDesktop, setIsDesktop ] = useState(null)
     const { ref } = useResizeObserver({
-        onResize: ({ width, height }) => {
-            if ( width > 991 ) {
+        onResize: ({ width }) => {
+            if ( width > 767 ) {
                 setIsMobile(false)
                 setIsDesktop(true)
                 if ( isOpen ) {
@@ -55,8 +56,7 @@ const App = (props) => {
 
     useEffect(() => {
         isOpen ? bodyBlockScroll() : bodyUnblockScroll()
-        return
-    })
+    }, [isOpen])
     
     return (
         <>
@@ -100,6 +100,7 @@ const App = (props) => {
                                 <ProtectedRoute path='/editing-guest' component={EditingGuest} isAuthenticated={isAuthenticated} isVerifying={isVerifying}/>
                                 <ProtectedRoute path='/news' component={News} isAuthenticated={isAuthenticated} isVerifying={isVerifying}/>
                                 <Route path='/login' component={Login} />
+                                <Route path='/register' component={Register}/>
                                 <ProtectedRoute path='/faq' component={Faq} isAuthenticated={isAuthenticated} isVerifying={isVerifying}/>
                                 <ProtectedRoute component={PageNotFound} isAuthenticated={isAuthenticated} isVerifying={isVerifying}/>
                             </Switch>

@@ -1,7 +1,7 @@
 @import './styles/_common.scss';
 
 
-.LoginForm {
+.RegisterForm {
     position: relative;
     display: flex;
     max-width: 767px;
@@ -26,13 +26,13 @@
         background-color: #fff;
         width: 100%;
         display: flex;
+        flex-direction: column;
         box-shadow: map-get($boxShadows, dp5);
-        height: 600px;
         overflow: hidden;
     }
     .__information {
-        @include center-by-flex;
-        @include padding-all(65);
+        @include center-by-flex-x;
+        @include padding-all(30);
         @include bg-color(blue);
 
         flex-direction: column;
@@ -44,10 +44,11 @@
         text-align: center;
     }
     .__oauth {
+        @include padding($top: 30);
+        
         display: flex;
         justify-content: center;
         flex-direction: column;
-        width: calc(100% - 300px);
     }
     .__oauthHeader {
         @include color(pink);
@@ -65,21 +66,30 @@
         @include padding-all(30);
 
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
         width: 100%;
     }
     .__oauthError {
-        @include padding($top: 30);
+        @include padding($left: 30, $right: 30);
     }
     .__oauthRegister {
         @include padding-all(30);
         @include f-size(x-small);
+    }
+    .__formElement {
+        width: calc(50% - 15px);
+        &.-last {
+            margin-left: auto;
+        }
     }
     .__button {
         @include padding($top: 15);
 
         display: flex;
         justify-content: flex-end;
+        width: 100%;
     }
     .__logo {
         max-width: 100%;
@@ -113,6 +123,9 @@
         .__oauthForm {
             @include padding-all(25);
             @include padding($top: 15);
+        }
+        .__formElement {
+            width: 100%;
         }
     }
 }

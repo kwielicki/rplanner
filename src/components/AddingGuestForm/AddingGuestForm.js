@@ -88,14 +88,15 @@ class AddingGuestForm extends Component {
             guest: bunches.guestModel,
             isSubmitting: false,
             isChecked: false,
-            creator: { name: '', email: '' }
+            owner: { name: '', email: '' }
         }
     }
 
     componentDidMount = () => {
-        const { user: { displayName, email } } = this.props
+        const { user: { displayName, email, uid } } = this.props
         this.setState({
-            creator: { name: displayName, email: email }
+            owner: { name: displayName, email: email },
+            uid: uid
         })
     }
 
@@ -111,9 +112,9 @@ class AddingGuestForm extends Component {
                     validationSchema={validationSchema}
                     onSubmit={(values, { resetForm }) => {
                         this.setState({isSubmitting: true})
-                        db.collection('guests').add({
+                        db.collection('guests').doc(this.state.uid).collection('guest').add({
                             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-                            creator: this.state.creator,
+                            owner: this.state.owner,
                             guest: {
                                 fullName: `${values.firstName} ${values.lastName}`,
                                 isAccompanying: this.state.isChecked,

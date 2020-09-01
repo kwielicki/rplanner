@@ -6,6 +6,7 @@ import auth from "Reducers/auth"
 import { verifyAuth } from "Actions/auth"
 import hamburgerReducer from 'Reducers/hamburgerReducer'
 import overlayReducer from 'Reducers/overlayReducer'
+import alert from 'Reducers/alert.reducer'
 
 export default combineReducers({
     news: newsReducer,
@@ -14,5 +15,6 @@ export default combineReducers({
     verifyAuth: verifyAuth,
     hamburger: hamburgerReducer,
     overlay: overlayReducer,
+    alert: alert,
     auth
 })

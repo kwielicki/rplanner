@@ -1,3 +1,7 @@
+import firebase from "firebase/app"
+import "firebase/auth"
+import "firebase/firestore"
+
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
@@ -8,10 +12,10 @@ const firebaseConfig = {
     appId: process.env.REACT_APP_FIREBASE_APP_ID
 }
 
-import firebase from "firebase/app"
-import "firebase/auth"
-import "firebase/firestore"
 
 export const myFirebase = firebase.initializeApp(firebaseConfig)
 const baseDb = myFirebase.firestore()
 export const db = baseDb
+export const userUID = () => {
+    return firebase.auth().currentUser.uid
+}

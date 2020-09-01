@@ -1,4 +1,4 @@
-import { db } from "Firebase/firebase.js"
+import { db, userUID } from "Firebase/firebase.js"
 
 export const FETCH_GUESTS_BEGIN   = 'FETCH_GUESTS_BEGIN'
 export const FETCH_GUESTS_SUCCESS = 'FETCH_GUESTS_SUCCESS'
@@ -24,6 +24,8 @@ export function fetchGuests() {
         dispatch(fetchGuestsBegin())
         return db
                 .collection('guests')
+                .doc(userUID())
+                .collection('guest')
                 .orderBy("timestamp", "desc")
                 .get()
                 .then(doc => {

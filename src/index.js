@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
-import { logger } from 'redux-logger'
 import { Provider } from 'react-redux'
 import { ThroughProvider } from 'react-through'
 import App from './components/app'
@@ -11,6 +10,7 @@ import * as serviceWorker from './serviceWorker'
 import './styles/index.scss'
 import './config/env.js'
 
+import WebFont from 'webfontloader';
 
 import rootReducer from './rootReducer'
 import { verifyAuth } from "./actions/auth.js"
@@ -29,7 +29,6 @@ const store = createStore(
 )
 store.dispatch(verifyAuth());
 
-import WebFont from 'webfontloader';
 
 WebFont.load({
     classes: false,

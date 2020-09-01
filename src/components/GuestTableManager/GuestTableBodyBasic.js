@@ -44,7 +44,7 @@ export default class GuestTableBodyBasic extends React.Component {
         const { data } = this.props
         return (
             <div styleName='GuestTableBodyBasic'>
-                {data.map(({ id, data: { guest: { ...guestData }, timestamp, creator } } = collection, idx) => (
+                {data.map(({ id, data: { guest: { ...guestData }, timestamp, owner } } = collection, idx) => (
                     <div key={id} styleName={classNames({
                         '__row': true,
                         'isFirst': idx === 0 ? true : false,
@@ -98,8 +98,8 @@ export default class GuestTableBodyBasic extends React.Component {
                                     asBlock
                                     handleClick={() => this.handleOpenModal(this.setState({
                                         guestDetails: {
-                                            creator: {
-                                                email: creator.email,
+                                            owner: {
+                                                email: owner.email,
                                             },
                                             fullName: guestData.fullName,
                                             phoneNumber: guestData.phoneNumber,
@@ -118,7 +118,7 @@ export default class GuestTableBodyBasic extends React.Component {
                 {this.state.modalOpen && <Modal isOpen={this.state.modalOpen}
                     headerTitle='Details for '
                     headerSubtitle={this.state.guestDetails.fullName}
-                    headerDescription={this.handleModalDescription(this.state.guestDetails.creator.email)}
+                    headerDescription={this.handleModalDescription(this.state.guestDetails.owner.email)}
                     closeStyle='secondary'
                     closeLabel='Close'
                     onClose={this.handleCloseModal}><GuestTableDetails guestDetails={this.state.guestDetails}/></Modal>}

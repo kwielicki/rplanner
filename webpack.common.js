@@ -31,7 +31,8 @@ module.exports = {
             'Versions': path.join(srcDir, '/const/versions'),
             'FontAwesome': path.join(srcDir, '/fontAwesome'),
             'Utils': path.join(srcDir, '/utils'),
-            'Hooks': path.join(srcDir, '/hooks')
+            'Hooks': path.join(srcDir, '/hooks'),
+            'Constants': path.join(srcDir, '/_constants')
         }
     },
     plugins: [
