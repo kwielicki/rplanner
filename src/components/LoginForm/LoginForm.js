@@ -14,7 +14,7 @@ import Logotype from 'Components/UI/Logotype'
 import { isEmpty } from 'lodash'
 import { connect } from "react-redux"
 import { alertActions } from 'Actions/alert.actions'
-import { alertTypes } from 'Constants/alert.Constants'
+import { alertTypes } from 'Constants/alert.constants'
 import './LoginForm.scss'
 
 const validationSchema = Yup.object().shape({

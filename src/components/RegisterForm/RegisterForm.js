@@ -10,7 +10,7 @@ import EmptySpace from 'Components/EmptySpace'
 import bunches from 'Bunches/bunches.json'
 import Rbutton from 'Components/Rbutton'
 import { alertActions } from 'Actions/alert.actions'
-import { alertTypes } from 'Constants/alert.Constants'
+import { alertTypes } from 'Constants/alert.constants'
 import Logotype from 'Components/UI/Logotype'
 import { connect } from "react-redux"
 import { isEmpty } from 'lodash'
