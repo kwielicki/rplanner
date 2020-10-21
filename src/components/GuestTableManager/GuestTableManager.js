@@ -4,16 +4,20 @@ import { fetchGuests } from 'Actions/guestsActions'
 import Loader from 'Components/UI/Loader'
 import GuestTableHeaderBasic from './GuestTableHeaderBasic'
 import GuestTableBodyBasic from './GuestTableBodyBasic'
+import EmptyData from 'Components/EmptyData'
+import { isEmpty } from 'lodash'
 import './GuestTableManager.scss'
 
 const mapStateToProps = state => {
     const { collection,
             loading,
             error } = state.guests
+    const { uid } = state.auth.user
     return {
         collection: collection,
         loading: loading,
-        error: error
+        error: error,
+        uid: uid
     }
 }
 
@@ -36,16 +40,23 @@ class GuestTableManager extends React.Component {
     }
 
     render() {
-        const { collection, loading, error } = this.props
-
+        const { collection, loading, error, uid, dispatch } = this.props
 
         return (
             <div styleName='GuestTableManager'>
-                <div styleName='__header'>
-                    <GuestTableHeaderBasic data={this.state.tableHeaderBasic}/>
-                </div>
+                {(!loading && !isEmpty(collection)) &&
+                    <div styleName='__header'>
+                        <GuestTableHeaderBasic data={this.state.tableHeaderBasic}/>
+                    </div>
+                }
                 <div styleName='__body'>
-                    {loading ? <Loader/> : <GuestTableBodyBasic data={collection}/>}
+                    {loading ? <Loader/> : <GuestTableBodyBasic data={collection} uid={uid} dispatch={dispatch}/>}
+                    {!loading && isEmpty(collection) &&
+                        <EmptyData
+                            icon
+                            title='No results found'
+                            subTitle='Your guest collections is empty'>
+                        </EmptyData>}
                 </div>
             </div>
         )

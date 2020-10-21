@@ -19,10 +19,10 @@ class ModalBody extends Component {
                 onClose, onConfirm,
                 closeLabel, confirmLabel,
                 closeStyle, confirmStyle,
-                children, size, side
+                children, size, side, type,
+                footerStyle, bodyCentering
             },
             handleEscapeOutside } = this.props
-
         return (
             <div styleName='Modal'>
                 <div styleName='__overlay'></div>
@@ -36,11 +36,18 @@ class ModalBody extends Component {
                         [`-${side}`]: side
                     })}>
                         <div styleName='__content'>
-                            <div styleName='__header'>
+                            <div styleName={classNames('__header', {
+                                [`-${type}`]: type
+                            })}>
                                 <div styleName='__headerInner'>
-                                    <h3 styleName='__headerTitle'>
+                                    <h3 styleName={classNames('__headerTitle', {
+                                        [`-${type}`]: type
+                                    })}>
                                         <span styleName='__headerTitleSuffix' dangerouslySetInnerHTML={{__html: headerTitle}}></span>
-                                        {!isEmpty(headerSubtitle) && <strong styleName='__headerSubtitle'>{headerSubtitle}</strong>}
+                                        {!isEmpty(headerSubtitle) &&
+                                            <strong styleName={classNames('__headerSubtitle', {
+                                                [`-${type}`]: type
+                                            })}>{headerSubtitle}</strong>}
                                     </h3>
                                     <p styleName='__headerDescription' dangerouslySetInnerHTML={{__html: headerDescription}}></p>
                                 </div>
@@ -48,10 +55,14 @@ class ModalBody extends Component {
                                     <IconButton ariaLabel="Close modal" icon='times' handleClick={handleEscapeOutside}/>
                                 </div>
                             </div>
-                            <div styleName='__body'>{children}</div>
-                            <div styleName='__footer'>
-                                {closeLabel && <Rbutton handleClick={onClose} variant={closeStyle} label={closeLabel}/>}
+                            <div styleName={classNames('__body', {
+                                [`-bodyCentering`]: bodyCentering
+                            })}>{children}</div>
+                            <div styleName={classNames('__footer', {
+                                [`-${footerStyle}`]: footerStyle
+                            })}>
                                 {confirmLabel && <Rbutton handleClick={onConfirm} variant={confirmStyle} label={confirmLabel}/>}
+                                {closeLabel && <Rbutton handleClick={onClose} variant={closeStyle} label={closeLabel}/>}
                             </div>
                         </div>
                     </EscapeOutside>
@@ -79,7 +90,6 @@ class Modal extends React.Component {
 
     componentDidMount() {
         this.setState({isOpen: this.props.isOpen})
-
         /* Scrollbar width is overriden by CSS styles
          * - for mobile his value is equal to 0,
          * - otherwise his value is equal 6 - determinet by CSS
@@ -104,6 +114,7 @@ class Modal extends React.Component {
 
 Modal.propTypes = {
     isOpen: PropTypes.bool.isRequired,
+    type: PropTypes.oneOf(['danger']),
     onClose: PropTypes.func,
     onConfirm: PropTypes.func,
     closeLabel: PropTypes.string,
@@ -115,7 +126,9 @@ Modal.propTypes = {
     headerDescription: PropTypes.string,
     children: PropTypes.node.isRequired,
     side: PropTypes.bool,
-    size: PropTypes.oneOf(['small', 'fluid'])
+    size: PropTypes.oneOf(['small', 'fluid']),
+    footerStyle: PropTypes.oneOf(['spaceBetween']),
+    bodyCentering: PropTypes.bool
 }
 
 export default Modal

@@ -12,7 +12,7 @@ function EmptyData(props) {
         <div styleName='EmptyData'>
             {icon && <div styleName='__icon'>
                 <div styleName='__iconSource'>
-                    <LazyImage src={EmptyImage}/>
+                    <LazyImage src={EmptyImage} placeholder={EmptyImage}/>
                 </div>
             </div>}
             <div styleName='__title'>{title}</div>

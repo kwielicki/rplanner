@@ -38,9 +38,10 @@
         "phoneNumber": "",
         "emailAddress": "",
         "additionalInformation": "",
-        "accompanyingPerson": false,
-        "accompanyingFirstName": "",
-        "accompanyingLastName": ""
+        "partner": {
+            "firstName": "",
+            "lastName": ""
+        }
     },
     "guestAffiliation": [
         {"id": 1, "label": "Groom", "value": "groom"},

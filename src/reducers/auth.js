@@ -7,6 +7,7 @@ import {
     LOGOUT_FAILURE,
     VERIFY_REQUEST,
     VERIFY_SUCCESS,
+    VERIFY_FAILURE,
     REGISTER_REQUEST,
     REGISTER_SUCCESS,
     REGISTER_FAILURE
@@ -112,6 +113,11 @@ import {
           ...state,
           isVerifying: false
         };
+      case VERIFY_FAILURE:
+        return {
+          ...state,
+          isVerifying: false
+        }
       default:
         return state;
     }
