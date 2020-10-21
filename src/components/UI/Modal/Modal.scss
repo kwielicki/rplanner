@@ -52,6 +52,10 @@
         @include rounded(4);
 
         display: flex;
+        &.-danger {
+            @include bg-color(pink);
+            @include color(white);
+        }
     }
     .__headerInner {
         display: flex;
@@ -62,9 +66,15 @@
         @include heading('h3');
 
         width: 100%;
+        &.-danger {
+            @include color(white);   
+        }
     }
     .__headerSubtitle {
         @include color(pink);
+        &.-danger {
+            @include color(white);
+        }
     }
     .__headerDescription {
         @include f-size(x-small);
@@ -81,6 +91,10 @@
     }
     .__body {
         @include padding-all(30);
+
+        &.-bodyCentering {
+            text-align: center;
+        }
     }
     .__footer {
         @include border('top');
@@ -90,6 +104,10 @@
         display: flex;
         justify-content: flex-end;
         margin-top: auto;
+        
+        &.-spaceBetween {
+            justify-content: space-between;
+        }
     }
     @include media-breakpoint-down(md) {
         .__header {

@@ -6,7 +6,6 @@ import { db } from "Firebase/firebase"
 import { connect } from "react-redux"
 import Rbutton from 'Components/Rbutton'
 import Switcher from 'Components/UI/Switcher'
-import { fetchGuests } from 'Actions/guestsActions'
 import FormsGrouper from 'Components/UI/Forms/FormsGrouper'
 import FormsActions from 'Components/UI/Forms/FormsActions'
 import { maskForMobilePhone } from 'Components/Helpers/inputMasks'
@@ -66,16 +65,22 @@ const validationSchema = Yup.object().shape({
         .string()
         .max(250)
         .label('Additional information'),
-    accompanyingFirstName: Yup
-        .string()
-        .min(3)
-        .matches(REGEXP__personName, 'This field can only contain letters')
-        .label('First name'),
-    accompanyingLastName: Yup
-        .string()
-        .min(3)
-        .matches(REGEXP__personName, 'This field can only contain letters')
-        .label('Last name')
+    partner: Yup
+        .object()
+        .shape({
+            firstName: Yup
+                .string()
+                .min(3)
+                .matches(REGEXP__personName, 'This field can only contain letters')
+                .label('First name'),
+            lastName: Yup
+                .string()
+                .min(3)
+                .matches(REGEXP__personName, 'This field can only contain letters')
+                .label('Last name'),
+            status: Yup
+                .bool()
+        })
 })
 
 class AddingGuestForm extends Component {
@@ -88,19 +93,19 @@ class AddingGuestForm extends Component {
             guest: bunches.guestModel,
             isSubmitting: false,
             isChecked: false,
-            owner: { name: '', email: '' }
         }
     }
 
     componentDidMount = () => {
-        const { user: { displayName, email, uid } } = this.props
+        const { user: { email, uid }, ownerData: { fullName } } = this.props
+
         this.setState({
-            owner: { name: displayName, email: email },
+            owner: { name: fullName, email: email },
             uid: uid
         })
     }
 
-    __onChanoge = () => {
+    __onChange = () => {
         this.setState({isChecked: !this.state.isChecked})
     }
 
@@ -117,7 +122,7 @@ class AddingGuestForm extends Component {
                             owner: this.state.owner,
                             guest: {
                                 fullName: `${values.firstName} ${values.lastName}`,
-                                isAccompanying: this.state.isChecked,
+                                isPartner: this.state.isChecked,
                                 ...values
                             }
                         })
@@ -183,20 +188,20 @@ class AddingGuestForm extends Component {
                                 <Switcher
                                     checked={this.state.isChecked}
                                     color='primary'
-                                    onChange={this.__onChanoge}
-                                    name='accompanyingPerson'
+                                    onChange={this.__onChange}
+                                    name='partner.status'
                                     label='Add an accompanying person'/>
                             </FormsGrouper>
                             {this.state.isChecked &&
                                 <FormsGrouper>
                                     <FormInput 
                                         type="text"
-                                        name="accompanyingFirstName"
+                                        name="partner.firstName"
                                         label="First name"
                                         variant="halfWidth"/>
                                     <FormInput 
                                         type="text"
-                                        name="accompanyingLastName"
+                                        name="partner.lastName"
                                         label="Last name"
                                         variant="halfWidth"/>
                                 </FormsGrouper>
@@ -226,7 +231,8 @@ class AddingGuestForm extends Component {
 }
 function mapStateToProps(state) {
     return {
-        user: state.auth.user
+        user: state.auth.user,
+        ownerData: state.auth.ownerData
     }
 }
 export default connect(mapStateToProps)(AddingGuestForm)

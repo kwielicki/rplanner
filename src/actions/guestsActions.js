@@ -20,6 +20,7 @@ export const fetchGuestsFailure = error => ({
 
 
 export function fetchGuests() {
+    const guests = [];
     return dispatch => {
         dispatch(fetchGuestsBegin())
         return db
@@ -27,20 +28,24 @@ export function fetchGuests() {
                 .doc(userUID())
                 .collection('guest')
                 .orderBy("timestamp", "desc")
-                .get()
-                .then(doc => {
-                    const guests = []
-                    doc.docs.map(doc => {
-                        guests.push({
-                            id: doc.id,
-                            data: doc.data()
-                        })
-                    })
-                    return guests
-                })
-                .then(guests => {
-                    dispatch(fetchGuestsSuccess(guests))
-                })
-                .catch(error => dispatch(fetchGuestsFailure(error)))
+                .onSnapshot({
+                    includeMetadataChanges: true
+                },
+                (snapshot) => {
+                    snapshot.docChanges().forEach(function(change) {
+                        if (change.type === "added") {
+                            guests.push({
+                                id: change.doc.id,
+                                data: change.doc.data()
+                            });
+                        }
+                        if (change.type === "removed") {
+                            guests.splice(guests.findIndex(function(idx){
+                                return idx.id === change.doc.id;
+                            }), 1);
+                        }
+                    });
+                    dispatch(fetchGuestsSuccess(guests));
+                });
     }
 }

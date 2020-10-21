@@ -21,6 +21,7 @@
         @include rounded(rounded);
         @include square-size(100px);
         @include center-by-margin;
+        @include bg-color(white);
         @extend %boxshadow-dp2;
         
         margin-top: map-get($spacers, 30);

@@ -169,10 +169,12 @@ export const verifyAuth = () => dispatch => {
               email: data.email,
               fullName: data.fullName
             }))
+            dispatch(verifySuccess())
           }
         })
+      } else {
+        dispatch(verifyFailure())
       }
-      dispatch(verifySuccess())
     })
 }
 

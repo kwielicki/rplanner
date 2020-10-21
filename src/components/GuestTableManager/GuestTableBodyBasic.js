@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import { db } from "Firebase/firebase"
 import './GuestTableBodyBasic.scss'
 import Chips from 'Components/UI/Chips'
 import capitalize from 'Components/Helpers/capitalize'
@@ -16,20 +17,46 @@ import translations from 'Translations/translations.json'
 export default class GuestTableBodyBasic extends React.Component {
 
     state = {
-        modalOpen: false,
+        modalOpenGuestDetails: false,
+        modalOpenGuestRemove: false,
         guestDetails: bunches.guestModel,
+        guestDeleted: false,
     }
 
     handleOpenModal = () => {
-        this.setState({ modalOpen: true })
+        this.setState({ modalOpenGuestDetails: true })
+    }
+
+    handleOpenModalDeleteGuest = () => {
+        this.setState({ modalOpenGuestRemove: true })
     }
 
     handleCloseModal = () => {
-        this.setState({ modalOpen: false, guestDetails: bunches.guestModel })
+        this.setState({ modalOpenGuestDetails: false, guestDetails: bunches.guestModel })
     }
 
-    handleModalDescription = (email) => {
-        return `Guest added by <strong>${email}</strong>`
+    handleCloseModalDeleteGuest = () => {
+        this.setState({ modalOpenGuestRemove: false, guestDetails: bunches.guestModel })
+    }
+
+    handleModalDescription = (email, processStatus) => {
+        return `Guest ${processStatus ? "removed" : "added"} by <strong>${email}</strong>`
+    }
+
+    handleModalDeleteGuestConfirm = (id, uid) => {
+        return db
+                .collection('guests')
+                .doc(uid)
+                .collection('guest')
+                .doc(id)
+                .get()
+                .then(doc => {
+                    doc.ref.delete().then(() => {
+                        this.setState({guestDeleted: true})
+                    }).catch(err => {
+                        console.log(err);
+                    });
+                })
     }
 
     handleGuestAffiliation = (guestAffiliation) => {
@@ -39,9 +66,13 @@ export default class GuestTableBodyBasic extends React.Component {
     handleGuestAffiliationAlt = (guestAffiliation, suffix = translations.properties.icon) => {
         return `${capitalize(guestAffiliation)} ${suffix}`
     }
+    
+    isGuestDeleted = () => {
+        return this.state.guestDeleted
+    }
 
     render() {
-        const { data } = this.props
+        const { data, uid, dispatch } = this.props
         return (
             <div styleName='GuestTableBodyBasic'>
                 {data.map(({ id, data: { guest: { ...guestData }, timestamp, owner } } = collection, idx) => (
@@ -85,6 +116,15 @@ export default class GuestTableBodyBasic extends React.Component {
                                     size='small'
                                     variant='primary'
                                     label='Remove'
+                                    handleClick={() => this.handleOpenModalDeleteGuest(this.setState({
+                                        guestDetails: {
+                                            owner: {
+                                                email: owner.email
+                                            },
+                                            fullName: guestData.fullName,
+                                            id: id
+                                        }
+                                    }))}
                                     asBlock/>
                             </div>
                             <div styleName={classNames('__cellAction', {
@@ -115,13 +155,36 @@ export default class GuestTableBodyBasic extends React.Component {
                         </div>
                     </div>
                 ))}
-                {this.state.modalOpen && <Modal isOpen={this.state.modalOpen}
-                    headerTitle='Details for '
-                    headerSubtitle={this.state.guestDetails.fullName}
-                    headerDescription={this.handleModalDescription(this.state.guestDetails.owner.email)}
-                    closeStyle='secondary'
-                    closeLabel='Close'
-                    onClose={this.handleCloseModal}><GuestTableDetails guestDetails={this.state.guestDetails}/></Modal>}
+                { this.state.modalOpenGuestDetails &&
+                    <Modal 
+                        isOpen={this.state.modalOpenGuestDetails}
+                        headerTitle='Details for '
+                        headerSubtitle={this.state.guestDetails.fullName}
+                        headerDescription={this.handleModalDescription(this.state.guestDetails.owner.email)}
+                        closeStyle='secondary'
+                        closeLabel='Close'
+                        onClose={this.handleCloseModal}><GuestTableDetails guestDetails={this.state.guestDetails}/></Modal>}
+                { this.state.modalOpenGuestRemove &&
+                    <Modal 
+                        isOpen={this.state.modalOpenGuestRemove}
+                        type='danger'
+                        headerTitle='Guest removal process for - '
+                        headerSubtitle={this.state.guestDetails.fullName}
+                        headerDescription={this.handleModalDescription(this.state.guestDetails.owner.email, this.state.guestDeleted)}
+                        confirmStyle='primary'
+                        confirmLabel={!this.isGuestDeleted() && 'Remove guest'}
+                        closeStyle='secondary'
+                        closeLabel={this.isGuestDeleted() ? 'Close' : "I'm not sure"}
+                        footerStyle={!this.isGuestDeleted() && 'spaceBetween'}
+                        bodyCentering
+                        onClose={this.handleCloseModalDeleteGuest}
+                        onConfirm={() => this.handleModalDeleteGuestConfirm(this.state.guestDetails.id, uid, dispatch)}>
+                            {this.isGuestDeleted()
+                                ? <span>The guest has been removed correctly</span>
+                                : <span>Guest will be permanently removed from your application<br/>
+                                Are you sure to proceed?</span>
+                            }
+                        </Modal>}
             </div>
         )
     }
