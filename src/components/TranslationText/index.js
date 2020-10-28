@@ -1,1 +1,1 @@
-export {default} from './TranslationText.js'
+export { TranslationText, TranslationComponentProperty } from './TranslationText.js'

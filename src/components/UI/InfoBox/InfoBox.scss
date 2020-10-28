@@ -1,0 +1,29 @@
+@import './styles/_common.scss';
+
+.InfoBox {
+    display: block;
+    .__icon {
+        @include center-by-flex;
+        @include center-by-margin;
+        @include square-size(150px);
+        @include rounded('rounded');
+        @include padding-all(15);
+        @include border('around', $borderColor: gray-light);
+        @include margin($bottom: 20);
+        @include f-size(50);
+        &.-success {
+            @include bg-colorRGBA(green, .1);
+            @include color(green-light);
+        }
+        &.-danger {
+            @include bg-colorRGBA(red, .1);
+            @include color(red);
+        }
+    }
+    .__title {
+        @include heading(h4);
+    }
+    .__subtitle {
+        @include heading(h5);
+    }
+}

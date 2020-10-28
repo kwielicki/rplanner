@@ -1,5 +1,5 @@
 @mixin rounded($radius) {
-    border-radius: map-get($borderRadius, $radius)
+    border-radius: map-get($borderRadius, $radius);
 }
 @mixin rounded-top($radius) {
     border-top-left-radius: map-get($borderRadius, $radius);
