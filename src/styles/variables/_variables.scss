@@ -31,7 +31,9 @@ $colors: (
 $colorsRGB: (
     pink:  map-get($colors, pink),
     black: map-get($colors, black),
-    blue:  map-get($colors, blue)
+    blue:  map-get($colors, blue),
+    green: color(rgb-green),
+    red: color(rgb-red)
 );
 
 $fontSizes: (
@@ -39,7 +41,8 @@ $fontSizes: (
     small   : 1.4rem,
     medium  : 1.6rem,
     large   : 2.0rem,
-    x-large : 2.4rem
+    x-large : 2.4rem,
+    50      : 5.0rem
 );
 
 $lineHeights: (

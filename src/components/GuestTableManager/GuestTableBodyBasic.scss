@@ -47,6 +47,9 @@
             width: 100%;
         }
     }
+    .__pagination {
+        @include padding-all(15);
+    }
     @include media-breakpoint-down(md) {
         .__row {
             flex-wrap: wrap;

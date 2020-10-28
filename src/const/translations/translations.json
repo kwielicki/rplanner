@@ -51,6 +51,13 @@
         "logout": "Logout",
         "logoutLabel": "Logout of the Wedding Planner application. You will be redirected to login view.",
         "returnToDashboard": "Return to Dashboard",
-        "icon": "icon"
+        "icon": "icon",
+        "component": {
+            "guestTableBodyBasic": {
+                "guestRemovedCorrectly": "The guest has been removed correctly",
+                "guestPermanentlyRemoved": "Guest will be permanently removed.",
+                "proceed": "Are you sure to proceed?"
+            }
+        }
     }
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Formik, Form } from 'formik'
 import * as Yup from "yup"
 import PropTypes from 'prop-types'
-import TranslationText from 'Components/TranslationText'
+import { TranslationText } from 'Components/TranslationText'
 import { translationText } from 'Utils/translationText'
 import EmptySpace from 'Components/EmptySpace'
 import bunches from 'Bunches/bunches.json'

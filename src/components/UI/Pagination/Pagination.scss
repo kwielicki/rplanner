@@ -1,0 +1,63 @@
+@import './styles/_common.scss';
+
+.Pagination {
+    @include center-by-flex-y;
+    justify-content: flex-end;
+    .__inner {
+        @include list-unstyled;
+        @include center-by-flex-y;
+        justify-content: flex-end;
+    }
+    .__element {
+        &.isActive {
+            .__page {
+                @include border('around', $borderColor: gray);
+                @include bg-color(gray-light);
+            }
+        }
+        &.isPrev,
+        &.isNext {
+            &.isDisabled {
+                opacity: .5;
+                pointer-events: none;
+            }
+        }
+    }
+    .__elementPrev,
+    .__elementNext {
+        @include color(dark);
+        @include reset-button-styles;
+        @include rm-decoration-all;
+        @include center-by-flex;
+        @include color(dark);
+        @include reset-button-styles;
+        @include rm-decoration-all;
+        @include rounded(4);
+        @include border('around', $borderColor: gray);
+        @include transition;
+
+        min-width: 32px;
+        height: 32px;
+        margin: 5px;
+        cursor: pointer;
+
+        &:hover {
+            @include bg-color(gray-lighter);
+        }
+        cursor: pointer;
+    }
+    .__page {
+        display: none;
+    }
+    .__perPage,
+    .__offset {
+        @include f-size(x-small);
+        @include margin-all(0);
+    }
+    .__offset {
+        @include padding($right: 15);
+    }
+    .__perPage {
+        margin-right: auto;
+    }
+}

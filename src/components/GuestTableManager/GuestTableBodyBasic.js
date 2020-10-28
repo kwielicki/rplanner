@@ -13,6 +13,10 @@ import Modal from 'Components/UI/Modal/Modal'
 import GuestTableDetails from './GuestTableDetails'
 import bunches from 'Bunches/bunches.json'
 import translations from 'Translations/translations.json'
+import Pagination from 'Components/UI/Pagination'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { TranslationComponentProperty } from 'Components/TranslationText'
+import InfoBox from "Components/UI/InfoBox"
 
 export default class GuestTableBodyBasic extends React.Component {
 
@@ -21,6 +25,8 @@ export default class GuestTableBodyBasic extends React.Component {
         modalOpenGuestRemove: false,
         guestDetails: bunches.guestModel,
         guestDeleted: false,
+        currentPage: 1,
+        maxItemsPerPage: 25
     }
 
     handleOpenModal = () => {
@@ -36,7 +42,7 @@ export default class GuestTableBodyBasic extends React.Component {
     }
 
     handleCloseModalDeleteGuest = () => {
-        this.setState({ modalOpenGuestRemove: false, guestDetails: bunches.guestModel })
+        this.setState({ modalOpenGuestRemove: false, guestDetails: bunches.guestModel, guestDeleted: false })
     }
 
     handleModalDescription = (email, processStatus) => {
@@ -71,11 +77,19 @@ export default class GuestTableBodyBasic extends React.Component {
         return this.state.guestDeleted
     }
 
+    handlePageClick = (data) => {
+        const selected = data.selected;
+        this.setState({
+            currentPage: selected + 1
+        });
+
+    }
+
     render() {
         const { data, uid, dispatch } = this.props
         return (
             <div styleName='GuestTableBodyBasic'>
-                {data.map(({ id, data: { guest: { ...guestData }, timestamp, owner } } = collection, idx) => (
+                {data.slice((this.state.currentPage * this.state.maxItemsPerPage) - this.state.maxItemsPerPage, this.state.currentPage * this.state.maxItemsPerPage).map(({ id, data: { guest: { ...guestData }, timestamp, owner } } = collection, idx) => (
                     <div key={id} styleName={classNames({
                         '__row': true,
                         'isFirst': idx === 0 ? true : false,
@@ -84,7 +98,7 @@ export default class GuestTableBodyBasic extends React.Component {
                         <div role='gridcell' styleName={classNames({
                             '__cell': true,
                             '-smaller': true
-                        })}>{idx}</div>
+                        })}>{idx + 1}</div>
                         <div styleName='__cell'>{guestData.firstName}</div>
                         <div styleName='__cell'>{guestData.lastName}</div>
                         <div styleName='__cell'>{guestData.numberOfGuests.adult}</div>
@@ -95,7 +109,7 @@ export default class GuestTableBodyBasic extends React.Component {
                                     src={this.handleGuestAffiliation(guestData.guestAffiliation)}
                                     alt={`${this.handleGuestAffiliationAlt(guestData.guestAffiliation)}`}/>
                             </div>
-                        </div>
+                        </div> 
                         <div styleName='__cell'>
                             <Chips type={guestData.guestStatus} size='small'>
                                 {capitalize(guestData.guestStatus)}
@@ -155,6 +169,18 @@ export default class GuestTableBodyBasic extends React.Component {
                         </div>
                     </div>
                 ))}
+                <div styleName='__pagination'>
+                    <Pagination
+                        pageCount={Math.ceil(data.length / this.state.maxItemsPerPage)}
+                        onPageChange={this.handlePageClick}
+                        previousLabel={<FontAwesomeIcon icon='chevron-left'/>}
+                        nextLabel={<FontAwesomeIcon icon='chevron-right'/>}
+                        maxItemsPerPage={this.state.maxItemsPerPage}
+                        selectedPage={this.state.currentPage}
+                        pageRangeStart={(this.state.currentPage * this.state.maxItemsPerPage) - this.state.maxItemsPerPage}
+                        pageRangeEnd={this.state.currentPage * this.state.maxItemsPerPage}
+                        allPages={data.length}/>
+                </div>
                 { this.state.modalOpenGuestDetails &&
                     <Modal 
                         isOpen={this.state.modalOpenGuestDetails}
@@ -180,9 +206,26 @@ export default class GuestTableBodyBasic extends React.Component {
                         onClose={this.handleCloseModalDeleteGuest}
                         onConfirm={() => this.handleModalDeleteGuestConfirm(this.state.guestDetails.id, uid, dispatch)}>
                             {this.isGuestDeleted()
-                                ? <span>The guest has been removed correctly</span>
-                                : <span>Guest will be permanently removed from your application<br/>
-                                Are you sure to proceed?</span>
+                                ? <InfoBox
+                                    icon='check'
+                                    type='success'
+                                    title={
+                                        <TranslationComponentProperty
+                                            componentName='guestTableBodyBasic'
+                                            translationKey="guestRemovedCorrectly"/>}
+                                  />
+                                : <InfoBox
+                                    icon='user-minus'
+                                    type='danger'
+                                    title={
+                                        <TranslationComponentProperty
+                                            componentName='guestTableBodyBasic'
+                                            translationKey="guestPermanentlyRemoved"/>}
+                                    subtitle={
+                                        <TranslationComponentProperty
+                                            componentName='guestTableBodyBasic'
+                                            translationKey="proceed"/>}
+                                  />
                             }
                         </Modal>}
             </div>

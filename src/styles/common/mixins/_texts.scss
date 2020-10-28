@@ -25,9 +25,17 @@
     background-color: map-get($colors, $colorValue);
 }
 @mixin bg-colorRGBA($colorValue, $alpha) {
-    background-color: rgba(map-get($colors, $colorValue), $alpha);
+    background-color: rgba(map-get($colorsRGB, $colorValue), $alpha);
 }
 
 @mixin rm-decoration {
     text-decoration: none!important;
+}
+@mixin rm-decoration-all {
+    text-decoration: none;
+    &:active,
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
 }
