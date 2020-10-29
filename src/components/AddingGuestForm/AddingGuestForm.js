@@ -123,6 +123,8 @@ class AddingGuestForm extends Component {
                             guest: {
                                 fullName: `${values.firstName} ${values.lastName}`,
                                 isPartner: this.state.isChecked,
+                                isPhoneNumber: values.phoneNumber ? true.toString() : false.toString(),
+                                isEmailAddress: values.emailAddress ? true.toString() : false.toString(),
                                 ...values
                             }
                         })

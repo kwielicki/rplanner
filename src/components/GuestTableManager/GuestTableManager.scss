@@ -13,4 +13,15 @@
     .__body {
         @include padding($bottom: 15);
     }
+    .__filters {
+        @include center-by-flex-y;
+        @include margin($bottom: 30, $left: -(map-get($spacers, 15)), $right: -(map-get($spacers, 15)));
+
+        justify-content: flex-end;
+    }
+    .__filter {
+        width: 25%;
+        padding-left: map-get($spacers, 15);
+        padding-right: map-get($spacers, 15);
+    }
 }
