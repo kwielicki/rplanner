@@ -1,4 +1,5 @@
 import { db, userUID } from "Firebase/firebase.js"
+import { guestFiltersConstants } from "Constants/guestFilters.constants"
 
 export const FETCH_GUESTS_BEGIN   = 'FETCH_GUESTS_BEGIN'
 export const FETCH_GUESTS_SUCCESS = 'FETCH_GUESTS_SUCCESS'
@@ -16,6 +17,16 @@ export const fetchGuestsSuccess = collection => ({
 export const fetchGuestsFailure = error => ({
     type: FETCH_GUESTS_FAILURE,
     payload: { error }
+})
+
+export const filterGuestsByIdenticalTypes = payload => ({
+    type: guestFiltersConstants.IDENTICAL,
+    payload
+})
+
+export const filterGuestsByMultiTypes = payload => ({
+    type: guestFiltersConstants.MULTI,
+    payload
 })
 
 export function fetchGuests() {

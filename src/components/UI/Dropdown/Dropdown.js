@@ -60,6 +60,7 @@ export const Dropdown = (props) => {
                                 <FontAwesomeIcon icon='chevron-down'/>
                             </span>
                     </button>
+                    
                     {isOpen && <div styleName='__menu'>
                         <ul styleName='__menuList' ref={dropdownRef}>
                             {options && options.map((option) => (
@@ -69,7 +70,7 @@ export const Dropdown = (props) => {
                                     onClick={() => {
                                         __handleOptionClick(option.id, option)
                                         __handleCloseDropdown()
-                                        handleClick()
+                                        handleClick(option)
                                     }}
                                     styleName={classNames({
                                         '__option': true,
@@ -118,7 +119,7 @@ Dropdown.propTypes = {
         /**
          * The value for an option. Should by unique.
          */
-        value: PropTypes.string.isRequired,
+        value: PropTypes.string,
     }),
     options: PropTypes.arrayOf(PropTypes.shape({
         /**
@@ -136,7 +137,7 @@ Dropdown.propTypes = {
         /**
          * The value for an option. Should by unique.
          */
-        value: PropTypes.string.isRequired,
+        value: PropTypes.string,
         /**
          * The badge for an option
          */

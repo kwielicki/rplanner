@@ -1,0 +1,32 @@
+{
+    "tableHeaderBasic": [
+        {"id": 0, "info": "#", "style": "smaller"},
+        {"id": 1, "info": "First name"},
+        {"id": 2, "info": "Last name"},
+        {"id": 3, "info": "Guest count (adult)"},
+        {"id": 4, "info": "Affiliation"},
+        {"id": 5, "info": "Status"},
+        {"id": 6, "info": "Actions"}
+    ],
+    "guestFilters": {
+        "status": [
+            {"id": 0, "value": null, "label": "All", "filterBy": "guestStatus"},
+            {"id": 1, "value": "pending", "label": "Pending", "filterBy": "guestStatus"},
+            {"id": 2, "value": "confirmed", "label": "Confirmed", "filterBy": "guestStatus"},
+            {"id": 3, "value": "declined", "label": "Declined", "filterBy": "guestStatus"}
+        ],
+        "statusSelected": {"id": 0, "value": null, "label": "All"},
+        "affiltiation": [
+            {"id": 0, "value": null, "label": "All", "filterBy": "guestAffiliation"},
+            {"id": 1, "value": "groom", "label": "Groom", "filterBy": "guestAffiliation"},
+            {"id": 2, "value": "bride", "label": "Bride", "filterBy": "guestAffiliation"}
+        ],
+        "affiltiationSelected": {"id": 0, "value": null, "label": "All"},
+        "advancedFilters": [
+            {"id": 0, "value": null, "label": "All"},
+            {"id": 1, "value": "true", "label": "Guests with telephone", "filterBy": "isPhoneNumber"},
+            {"id": 2, "value": "true", "label": "Guests with email", "filterBy": "isEmailAddress"}
+        ],
+        "advancedFiltersSelected": {"id": 0, "value": null, "label": "All"}
+    }
+}
