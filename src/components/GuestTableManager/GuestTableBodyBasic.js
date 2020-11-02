@@ -15,6 +15,7 @@ import translations from 'Translations/translations.json'
 import Pagination from 'Components/UI/Pagination'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { TranslationComponentProperty } from 'Components/TranslationText'
+import { isEmpty } from 'lodash'
 import InfoBox from "Components/UI/InfoBox"
 
 export default class GuestTableBodyBasic extends React.Component {
@@ -165,7 +166,7 @@ export default class GuestTableBodyBasic extends React.Component {
                         </div>
                     </div>
                 ))}
-                <div styleName='__pagination'>
+                {!isEmpty(data) && <div styleName='__pagination'>
                     <Pagination
                         pageCount={Math.ceil(data.length / this.state.maxItemsPerPage)}
                         onPageChange={this.handlePageClick}
@@ -176,8 +177,8 @@ export default class GuestTableBodyBasic extends React.Component {
                         pageRangeStart={(this.state.currentPage * this.state.maxItemsPerPage) - this.state.maxItemsPerPage}
                         pageRangeEnd={this.state.currentPage * this.state.maxItemsPerPage}
                         allPages={data.length}/>
-                </div>
-                { this.state.modalOpenGuestDetails &&
+                </div>}
+                {this.state.modalOpenGuestDetails &&
                     <Modal 
                         isOpen={this.state.modalOpenGuestDetails}
                         headerTitle='Details for '
