@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import LazyImage from 'Components/LazyImage'
-import EmptyImage from 'Assets/images/icons/inbox.svg'
+import SvgEmptyImage from 'Assets/images/icons/inbox.svg'
 import translations from 'Translations/translations.json'
 import './EmptyData.scss'
 
@@ -12,7 +11,7 @@ function EmptyData(props) {
         <div styleName='EmptyData'>
             {icon && <div styleName='__icon'>
                 <div styleName='__iconSource'>
-                    <LazyImage src={EmptyImage} placeholder={EmptyImage}/>
+                    <SvgEmptyImage/>
                 </div>
             </div>}
             <div styleName='__title'>{title}</div>

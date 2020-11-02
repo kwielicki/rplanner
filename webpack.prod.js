@@ -105,7 +105,7 @@ module.exports = merge(webpackCommon, {
             ]
         },
         {
-            test: /\.(png|svg|jpg|jpeg|gif|ico)$/,
+            test: /\.(png|jpg|jpeg|gif|ico)$/,
             use: [
                 {
                     loader: 'file-loader',
