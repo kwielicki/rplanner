@@ -1,9 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import './UserData.scss'
-import LazyImage from 'Components/LazyImage'
-import imagePlaceHolder from 'Assets/images/animated-image-placeholder.svg'
-import imageDefaultUser from 'Assets/images/placeholders/user.svg'
+import SvgImageDefaultUser from 'Assets/images/placeholders/user.svg'
 import Moment from 'react-moment'
 
 class UserData extends PureComponent {
@@ -15,7 +13,7 @@ class UserData extends PureComponent {
                 <div styleName='__inner'>
                     <div styleName='__avatar'>
                         <div styleName='__avatarImage'>
-                            <LazyImage placeholder={imagePlaceHolder} src={props.userAvatar || imageDefaultUser}/>
+                            <SvgImageDefaultUser/>
                         </div>
                     </div>
                     <div styleName='__user'>

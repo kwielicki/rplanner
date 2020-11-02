@@ -6,9 +6,8 @@ import './GuestTableBodyBasic.scss'
 import Chips from 'Components/UI/Chips'
 import capitalize from 'Components/Helpers/capitalize'
 import Rbutton from 'Components/Rbutton'
-import groom from 'Assets/images/icons/groom.svg'
-import bride from 'Assets/images/icons/bride.svg'
-import LazyImage from 'Components/LazyImage'
+import SvgGroom from 'Assets/images/icons/groom.svg'
+import SvgBride from 'Assets/images/icons/bride.svg'
 import Modal from 'Components/UI/Modal/Modal'
 import GuestTableDetails from './GuestTableDetails'
 import bunches from 'Bunches/bunches.json'
@@ -66,7 +65,7 @@ export default class GuestTableBodyBasic extends React.Component {
     }
 
     handleGuestAffiliation = (guestAffiliation) => {
-        return guestAffiliation === 'groom' ? groom : bride
+        return guestAffiliation === 'groom' ? <SvgGroom/> : <SvgBride/>
     }
 
     handleGuestAffiliationAlt = (guestAffiliation, suffix = translations.properties.icon) => {
@@ -104,10 +103,7 @@ export default class GuestTableBodyBasic extends React.Component {
                         <div styleName='__cell'>{guestData.numberOfGuests.adult}</div>
                         <div styleName='__cell'>
                             <div styleName='__cellIcon'>
-                                <LazyImage
-                                    placeholder={this.handleGuestAffiliation(guestData.guestAffiliation)}
-                                    src={this.handleGuestAffiliation(guestData.guestAffiliation)}
-                                    alt={`${this.handleGuestAffiliationAlt(guestData.guestAffiliation)}`}/>
+                                {this.handleGuestAffiliation(guestData.guestAffiliation)}
                             </div>
                         </div> 
                         <div styleName='__cell'>
