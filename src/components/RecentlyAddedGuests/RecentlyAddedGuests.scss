@@ -1,0 +1,35 @@
+@import './styles/_common.scss';
+
+.RecentlyAddedGuests {
+    display: block;
+    .__guests {
+        @include list-unstyled;
+
+        display: flex;
+        flex-direction: column;
+    }
+    .__guestElement {
+        @include center-by-flex-y;
+        @include padding($bottom: 15);
+        @include margin($bottom: 15);
+
+        border-bottom: 1px solid map-get($colors, gray-light);
+    }
+    .__guestImage {
+        @include square-size(48px);
+    }
+    .__guestContent {
+        @include padding($left: 20);
+    }
+    .__guestName {
+        @include heading(h5);
+
+        display: block;
+    }
+    .__guestCreation {
+        @include f-size(x-small);
+    }
+    .__guestStatus {
+        margin-left: auto;
+    }
+}

@@ -18,7 +18,6 @@ export const fetchGuestsFailure = error => ({
     payload: { error }
 })
 
-
 export function fetchGuests() {
     const guests = [];
     return dispatch => {

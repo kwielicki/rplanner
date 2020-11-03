@@ -9,7 +9,7 @@ import OpenWeather from 'Components/OpenWeather'
 import Card from 'Components/UI/Card'
 import Swiper from 'Components/UI/Swiper'
 import ShadowedBox from 'Components/UI/ShadowedBox'
-import Divider from 'Components/UI/Divider'
+import RecentlyAddedGuests from 'Components/RecentlyAddedGuests'
 
 class Dashboard extends React.Component {
 
@@ -63,7 +63,9 @@ class Dashboard extends React.Component {
                         <OpenWeather></OpenWeather>
                     </Column>
                     <Column xs='1' xl='2'>
-                        <ShadowedBox>Recently added guests will appear here. This amount will be configurable from the admin level.</ShadowedBox>
+                        <ShadowedBox heading='Recently added guests' stretched>
+                            <RecentlyAddedGuests/>
+                        </ShadowedBox>
                     </Column>
                 </Container>
             </>
