@@ -41,7 +41,6 @@ class GuestTableManager extends React.Component {
 
     render() {
         const { collection, loading, error, uid, dispatch } = this.props
-
         return (
             <div styleName='GuestTableManager'>
                 {(!loading && !isEmpty(collection)) &&

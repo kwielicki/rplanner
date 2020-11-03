@@ -5,5 +5,12 @@
     @include rounded(6);
     @include transition;
     @include bg-color(white);
-    @include padding-all(15);
+    @include padding-all(20);
+    &.-stretched {
+        height: 100%;
+    }
+    .__heading {
+        @include heading('h3');
+        @include margin($bottom: 30);
+    }
 }

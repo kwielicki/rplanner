@@ -7,6 +7,7 @@ import { verifyAuth } from "Actions/auth"
 import hamburgerReducer from 'Reducers/hamburgerReducer'
 import overlayReducer from 'Reducers/overlayReducer'
 import alert from 'Reducers/alert.reducer'
+import recentlyAddedGuestsReducer from 'Reducers/recentlyAddedGuests.reducer'
 
 export default combineReducers({
     news: newsReducer,
@@ -16,5 +17,6 @@ export default combineReducers({
     hamburger: hamburgerReducer,
     overlay: overlayReducer,
     alert: alert,
+    recentlyAddedGuestsReducer: recentlyAddedGuestsReducer,
     auth
 })
