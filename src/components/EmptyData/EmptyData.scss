@@ -2,7 +2,7 @@
 
 .EmptyData {
     @include center-by-flex;
-    @include padding($top: 65);
+    @include padding($top: 65, $bottom: 30);
 
     position: relative;
     flex-direction: column;
@@ -29,9 +29,20 @@
             opacity: .1;
             border-radius: inherit;
         }
+        &.-small {
+            @include square-size(50px);
+            margin-bottom: 40px;
+            &:after {
+                @include square-size(100px);
+            }
+        }
     }
     .__iconSource {
         @include square-size(50px);
+        &.-small {
+            @include square-size(auto);
+            width: 50px;
+        }
     }
     .__title {
         @include f-size(x-large);
@@ -41,5 +52,8 @@
 
         max-width: 767px;
         text-align: center;
+    }
+    .__actionArea {
+        @include padding($top: 30);
     }
 }
