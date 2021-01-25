@@ -18,7 +18,9 @@ export default function Rbutton(props) {
             isLoader,
             disabled,
             size,
-            space } = props
+            space,
+            unsetTextTransform,
+            unserVerticalBorders } = props
     return (
         <button
             onClick={handleClick}
@@ -34,7 +36,9 @@ export default function Rbutton(props) {
                 '-disabled': disabled,
                 'isLoader': isLoader,
                 [`-${size}`]: size,
-                [`-${space}`]: space
+                [`-${space}`]: space,
+                '-unsetTextTransform': unsetTextTransform,
+                '-unserVerticalBorders': unserVerticalBorders
             })}>
             {icon && <FontAwesomeIcon icon={icon} styleName={classNames('__icon', {
                 [`-${iconPlacement}`]: iconPlacement
@@ -63,5 +67,7 @@ Rbutton.propTypes = {
     handleClick: PropTypes.func,
     disabled: PropTypes.bool,
     size: PropTypes.string,
-    space: PropTypes.string
+    space: PropTypes.string,
+    unsetTextTransform: PropTypes.bool,
+    unserVerticalBorders: PropTypes.bool
 }
