@@ -77,7 +77,6 @@
         box-shadow: none;
         &:hover {
             @include bg-color(gray-lighter);
-            border-color: map-get($colors, gray);
         }
         &:active {
             @include bg-color(gray-light);
