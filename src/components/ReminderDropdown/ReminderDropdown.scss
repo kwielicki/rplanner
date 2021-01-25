@@ -1,0 +1,24 @@
+@import './styles/_common.scss';
+
+.ReminderDropdown {
+    @include padding($left: 25, $right: 25, $top: 5);
+    @include border('left');
+    @include center-by-flex;
+    @include transition;
+
+    position: relative;
+    &:hover {
+        @include bg-color(gray-lighter);
+
+        cursor: pointer;
+    }
+    .__icon {
+        @include color(blue-dark);
+        @include f-size(x-large);
+
+        position: relative;
+    }
+    .__iconChips {
+        @include position('absolute', $right: -10px, $top: -5px);
+    }
+}
