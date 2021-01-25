@@ -19,6 +19,8 @@ export default function Logout() {
             <div styleName='__desktop'>
                 <Rbutton
                     variant='tertiary'
+                    unsetTextTransform
+                    unserVerticalBorders
                     label="Logout"
                     ariaLabel={translations.properties.logoutLabel}
                     icon='sign-out-alt'
