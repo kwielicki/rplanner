@@ -15,12 +15,14 @@
         min-height: get($header, desktopHeight);
     }
     .__innerTop {
-        @include padding($top: 15, $bottom: 15);
         @include margin($bottom: 15);
         @include border('bottom', $borderColor: gray-light);
         width: 100%;
         display: flex;
         justify-content: flex-end;
+    }
+    .__innerContent {
+        display: flex;
     }
     @include media-breakpoint-down(lg) {
         @include position('fixed', $top: 0, $right: 0, $left: 0);
