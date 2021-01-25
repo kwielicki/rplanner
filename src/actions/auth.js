@@ -167,7 +167,9 @@ export const verifyAuth = () => dispatch => {
             let data = doc.data();
             dispatch(receiveLogin(user, {
               email: data.email,
-              fullName: data.fullName
+              fullName: data.fullName,
+              firstName: data.firstName,
+              lastName: data.lastName
             }))
             dispatch(verifySuccess())
           }
