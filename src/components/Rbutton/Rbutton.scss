@@ -70,4 +70,11 @@
             animation: fa-spin 2s linear infinite;
         }
     }
+    &.-unsetTextTransform {
+        text-transform: none;
+    }
+    &.-unserVerticalBorders {
+        border-top: 0;
+        border-bottom: 0;
+    }
 }
