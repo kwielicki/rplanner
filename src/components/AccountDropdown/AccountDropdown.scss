@@ -44,4 +44,15 @@
 
         line-height: 1;
     }
+
+    @include media-breakpoint-down('lg') {
+        @include border('right');
+        .__inner {
+            @include padding($right: 0);
+        }
+        .__user,
+        .__icon {
+            display: none;
+        }
+    }
 }

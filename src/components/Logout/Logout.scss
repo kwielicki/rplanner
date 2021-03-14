@@ -8,6 +8,7 @@
         display: none;
     }
     @include media-breakpoint-down(lg) {
+        @include center-by-flex-y;
         .__desktop {
             display: none;
         }
