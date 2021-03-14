@@ -5,8 +5,23 @@
     @include button-variant('text');
 
     min-width: 0;
+    flex-wrap: wrap;
     .__label {
         @extend %sr-only;
+    }
+    .__labelMobile {
+        @include media-breakpoint-up(xl) {
+            display: none;
+        }
+        @include media-breakpoint-down(lg) {
+            @include padding($top: 5);
+            @include f-size(x-small);
+
+            display: block;
+            width: 100%;
+            font-weight: $fw-400;
+            text-transform: initial;
+        }
     }
     &.-small {
         @include button-size(small);

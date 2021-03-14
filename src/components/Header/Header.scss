@@ -41,6 +41,7 @@
         .__innerTop {
             @include margin($bottom: 0);
 
+            min-height: get($header, mobileHeight);
             width: auto;
         }
     }

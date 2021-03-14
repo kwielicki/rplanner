@@ -10,6 +10,7 @@ const IconButton = forwardRef(function IconButton(props, ref) {
         children,
         ariaLabel,
         label,
+        labelMobile,
         icon,
         size,
         variant,
@@ -27,6 +28,7 @@ const IconButton = forwardRef(function IconButton(props, ref) {
                 onClick={handleClick}>
             {label && <span styleName='__label'>{label}</span>}
             <FontAwesomeIcon icon={icon}/>
+            {labelMobile && <span styleName='__labelMobile'>{labelMobile}</span>}
         </button>
     )
 })
@@ -34,6 +36,7 @@ const IconButton = forwardRef(function IconButton(props, ref) {
 IconButton.propTypes = {
     ariaLabel: PropTypes.string,
     label:PropTypes.string,
+    labelMobile: PropTypes.string,
     icon: PropTypes.string.isRequired,
     size: PropTypes.string,
     handleClick: PropTypes.func,

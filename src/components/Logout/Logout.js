@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { useDispatch } from "react-redux"
 import { logoutUser } from "Actions/auth"
 import Rbutton from 'Components/Rbutton'
 import IconButton from 'Components/UI/IconButton'
 import translations from 'Translations/translations.json'
-import './Logout.scss' 
+import './Logout.scss'
 
 
 export default function Logout() {
@@ -21,7 +21,7 @@ export default function Logout() {
                     variant='tertiary'
                     unsetTextTransform
                     unserVerticalBorders
-                    label="Logout"
+                    label={translations.properties.logout}
                     ariaLabel={translations.properties.logoutLabel}
                     icon='sign-out-alt'
                     iconPlacement='top'
@@ -31,7 +31,8 @@ export default function Logout() {
                 <IconButton
                     icon='sign-out-alt'
                     handleClick={__handleLogout}
-                    label={translations.properties.logoutLabel}></IconButton>
+                    label={translations.properties.logoutLabel}
+                    labelMobile={translations.properties.logout}></IconButton>
             </div>
         </div>
     )
