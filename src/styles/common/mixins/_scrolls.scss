@@ -13,3 +13,26 @@
         background-color: map-get($colors, $thumbColor);
     }
 }
+
+@mixin nice-scroll-vertical($barColor: gray-lighter,
+                            $thumbColor: pink,
+                            $barSize: 6px) {
+    &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 $barSize rgba(0,0,0,0.1);
+        background-color: map-get($colors, $barColor);
+    }
+    &::-webkit-scrollbar {
+        height: $barSize;
+        background-color: map-get($colors, $barColor);
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: map-get($colors, $thumbColor);
+    }
+}
+
+@mixin hide-scrollbar-with-fn {
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    scrollbar-width: none;
+}
