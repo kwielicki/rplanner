@@ -1,0 +1,3 @@
+@mixin linear-gradient($toType, $colorFrom, $colorTo) {
+    background: linear-gradient(to $toType, rgba(map-get($colorsRGB, $colorFrom),1), rgba(map-get($colorsRGB, $colorTo),.0));
+}

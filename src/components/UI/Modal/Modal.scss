@@ -2,6 +2,8 @@
 
 .Modal {
     display: block;
+    $__local__gradientHeight: 30px;
+    $__local__gradientZIndex: 2;
     .__overlay {
         position: fixed;
         top: 0; right: 0; bottom: 0; left: 0;
@@ -52,9 +54,18 @@
         @include rounded(4);
 
         display: flex;
+        position: relative;
         &.-danger {
             @include bg-color(pink);
             @include color(white);
+        }
+        &:after {
+            @include linear-gradient(bottom, white, white);
+            @include position('absolute', $top: 100%, $right: 15px, $bottom: auto, $left: 0);
+
+            content: '';
+            z-index: $__local__gradientZIndex;
+            height: $__local__gradientHeight;
         }
     }
     .__headerInner {
@@ -67,7 +78,7 @@
 
         width: 100%;
         &.-danger {
-            @include color(white);   
+            @include color(white);
         }
     }
     .__headerSubtitle {
@@ -94,6 +105,7 @@
 
         &.-bodyCentering {
             text-align: center;
+            margin-top: auto;
         }
     }
     .__footer {
@@ -101,12 +113,29 @@
         @include padding-all(15);
         @include bg-color(gray-lighter);
 
+        position: relative;
         display: flex;
         justify-content: flex-end;
         margin-top: auto;
-        
+
         &.-spaceBetween {
             justify-content: space-between;
+        }
+        &:before {
+            @include linear-gradient(top, white, white);
+            @include position('absolute', $top: auto, $right: 15px, $bottom: 100%, $left: 0);
+
+            content: '';
+            z-index: $__local__gradientZIndex;
+            height: $__local__gradientHeight;
+        }
+    }
+    @include media-breakpoint-up(lg) {
+        .__body {
+            @include nice-scroll($thumbColor: gray);
+
+            overflow: auto;
+            max-height: calc(100vh - 200px);
         }
     }
     @include media-breakpoint-down(md) {

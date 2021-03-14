@@ -30,6 +30,7 @@ $colors: (
     pink-lighten : color(rgb-pink-lighten)
 );
 $colorsRGB: (
+    white: color(rgb-white),
     pink:  map-get($colors, pink),
     black: map-get($colors, black),
     blue:  map-get($colors, blue),
