@@ -31,7 +31,7 @@ function GuestTableDetails(props) {
                         ? 'No added data'
                         : <Moment date={convertUtcDate(timestamp.seconds)} format="D MMM YYYY, HH:mm"/>}
                 </DecoratedListElement>
-                <DecoratedListElement header='Additional information' sizeDesktop='one' icon='info-circle'  iconColor='greenLight'>
+                <DecoratedListElement header='Additional information' sizeDesktop='one' icon='info-circle'  iconColor='greenLight' isLast>
                     {isEmpty(additionalInformation)
                         ? 'No additional information'
                         : additionalInformation}
@@ -40,6 +40,7 @@ function GuestTableDetails(props) {
         </div>
     )
 }
+
 
 GuestTableDetails.propTypes = {
     guestDetails: PropTypes.object.isRequired

@@ -6,12 +6,13 @@ import './DecoratedListElement.scss'
 
 class DecoratedListElement extends PureComponent {
     render() {
-        const { header, children, sizeDesktop, sizeMobile, icon, iconColor } = this.props
+        const { header, children, sizeDesktop, sizeMobile, icon, iconColor, isLast } = this.props
         return (
             <li styleName={classNames({
                 'DecoratedListElement': true,
                 [`-${sizeDesktop}`]: sizeDesktop,
                 [`-${sizeMobile}`]: sizeMobile,
+                '-isLast': isLast
             })}>
                 <div styleName='__inner'>
                     <div styleName='__header'>
@@ -55,6 +56,10 @@ DecoratedListElement.propTypes = {
      * Used to set icon color
      */
     iconColor: PropTypes.oneOf(['green', 'greenLight', 'orange', 'pink', 'gray']),
+    /**
+     * Used for last elemnet
+     */
+    isLast: PropTypes.bool
 
 }
 DecoratedListElement.defaultProps = {

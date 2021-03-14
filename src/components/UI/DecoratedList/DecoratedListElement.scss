@@ -8,6 +8,9 @@ $listSpacePx: 20px;
     @include margin($left: $listSpace, $right: $listSpace, $bottom: 20);
 
     display: block;
+    &.-isLast {
+        @include margin($bottom: 0);
+    }
     .__inner {
         @include border('around');
         @include b-radius(4);
