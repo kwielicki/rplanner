@@ -5,6 +5,8 @@
     margin-right: - (map-get($spacers, 15));
     .__inner {
         @include padding($bottom: 5);
+        @include nice-scroll-vertical($thumbColor: gray, $barSize: 3px);
+        @include hide-scrollbar-with-fn;
 
         overflow-y: auto;
         width: 100%;
@@ -14,15 +16,24 @@
     }
     .__item {
         @include padding($left: 15, $right: 15);
-        
+
         min-width: 400px;
     }
     @include media-breakpoint-down(md) {
-        margin-left: - (map-get($spacers, 10));
-        margin-right: - (map-get($spacers, 10));
+        .__inner {
+            @include padding($left: 15);
+        }
+        .__items {
+            margin-left: -(map-get($spacers, 10));
+            margin-right: -(map-get($spacers, 10));
+        }
         .__item {
             min-width: 320px;
             @include padding($left: 10, $right: 10);
+
+            &:last-child {
+                @include padding($right: 15);
+            }
         }
     }
 }
