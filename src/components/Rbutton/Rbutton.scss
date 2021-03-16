@@ -3,6 +3,7 @@
 .Rbutton {
     @include button-creator;
     position: relative;
+    overflow: hidden;
     .__icon {
         display: inline-block;
         &.-top {
@@ -76,5 +77,8 @@
     &.-unserVerticalBorders {
         border-top: 0;
         border-bottom: 0;
+    }
+    .__ripple {
+        @include button-ripple-effect;
     }
 }
