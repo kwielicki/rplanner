@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { Link } from 'react-router-dom'
@@ -6,9 +6,19 @@ import { Link } from 'react-router-dom'
 import './Button.scss'
 
 function Button(props) {
+    const [coords, setCoords] = React.useState({ x: -1, y: -1 });
+    const [isRippling, setIsRippling] = React.useState(false);
 
-    const buttonElement = useRef(null)
-    const [ripple, setRipple] = useState(false);
+    useEffect(() => {
+        if (coords.x !== -1 && coords.y !== -1) {
+          setIsRippling(true);
+          setTimeout(() => setIsRippling(false), 300);
+        } else setIsRippling(false);
+      }, [coords]);
+
+    useEffect(() => {
+        if (!isRippling) setCoords({ x: -1, y: -1 });
+    }, [isRippling]);
 
     const {
         size,
@@ -27,19 +37,15 @@ function Button(props) {
         [`-${size}`]: size,
     }
 
-    const __mousEnterHandler = (evt) => {        
-        setRipple(true);
-    }
-
-    const __mouseLeaveHandler = () => setRipple(false)
 
     return (
         <div styleName={classNames({
             'Button': true,
             '-fullWidth': fullWidth
-        })} onMouseDown={__mousEnterHandler}
-            onMouseLeave={__mouseLeaveHandler}
-            ref={buttonElement}>
+        })} onClick={e => {
+            const rect = e.target.getBoundingClientRect();
+            setCoords({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+        }}>
             {type === 'internal'
                 ? <Link styleName={classNames(ButtonStyles)} 
                         to={linkUrl} 
@@ -50,12 +56,11 @@ function Button(props) {
                      rel='nofollow noopener'
                      styleName={classNames(ButtonStyles)}>{children}</a>
             }
-           <span styleName={classNames({
-               '__ripple': true,
-               '-isActive': ripple
-           })}></span>
+           {isRippling && <span style={{
+                left: coords.x,
+                top: coords.y }} 
+                styleName='__ripple'></span>}
         </div>
-        
     )
 }
 

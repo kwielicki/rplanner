@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { isEmpty } from 'lodash'
@@ -7,6 +7,20 @@ import './Rbutton.scss'
 
 
 export default function Rbutton(props) {
+    const [coords, setCoords] = React.useState({ x: -1, y: -1 });
+    const [isRippling, setIsRippling] = React.useState(false);
+
+    useEffect(() => {
+        if (coords.x !== -1 && coords.y !== -1) {
+          setIsRippling(true);
+          setTimeout(() => setIsRippling(false), 300);
+        } else setIsRippling(false);
+      }, [coords]);
+
+    useEffect(() => {
+        if (!isRippling) setCoords({ x: -1, y: -1 });
+    }, [isRippling]);
+
     const { ariaLabel,
             asSubmit,
             asBlock,
@@ -23,7 +37,11 @@ export default function Rbutton(props) {
             unserVerticalBorders } = props
     return (
         <button
-            onClick={handleClick}
+        onClick={e => {
+            const rect = e.target.getBoundingClientRect();
+            setCoords({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+            handleClick && handleClick(e);
+          }}
             type={ asSubmit ? 'submit' : null }
             disabled={disabled}
             aria-label={ariaLabel}
@@ -47,9 +65,14 @@ export default function Rbutton(props) {
             {!isEmpty(label) && <span styleName={classNames('__label', {
                 [`-${iconPlacement}`]: iconPlacement
             })}>{label}</span>}
+            {isRippling && <span style={{
+                left: coords.x,
+                top: coords.y }} 
+                styleName='__ripple'></span>}
         </button>
     )
 }
+
 
 Rbutton.defaultProps = {
     variant: "primary"
