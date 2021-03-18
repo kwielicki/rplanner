@@ -1,0 +1,19 @@
+@mixin text-body-base {
+    font-family: $font-family-Roboto;
+    @include color(dark);
+}
+
+@mixin text-body {
+    @include text-body-base;
+    @include font-size(medium);
+}
+
+@mixin text-body1 {
+    @include text-body-base;
+    @include font-size(small);
+}
+
+@mixin text-body2 {
+    @include text-body-base;
+    @include font-size(x-small);
+}
