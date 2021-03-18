@@ -26,7 +26,7 @@ module.exports = {
             'Assets': path.join(srcDir, '/assets'),
             'Firebase': path.join(srcDir, '/firebase'),
             'Components': path.join(srcDir, '/components'),
-            'Routes': path.join(srcDir, '/routes'),
+            'Pages': path.join(srcDir, '/Pages'),
             'Actions': path.join(srcDir, '/actions'),
             'Reducers': path.join(srcDir, '/reducers'),
             'Translations': path.join(srcDir, '/const/translations'),
