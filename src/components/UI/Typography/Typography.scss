@@ -1,0 +1,60 @@
+@import './styles/_common.scss';
+
+.Typography {
+  @include heading-base;
+  margin: 0;
+  &.-h1 {
+    @include heading-type('h1');
+  }
+  &.-h2 {
+    @include heading-type('h2');
+  }
+  &.-h3 {
+    @include heading-type('h3');
+  }
+  &.-h4 {
+    @include heading-type('h4');
+  }
+  &.-h5 {
+    @include heading-type('h5');
+  }
+  &.-h6 {
+    @include heading-type('h6');
+  }
+  &.-textBody {
+    @include text-body;
+  }
+  &.-textBody1 {
+    @include text-body1;
+  }
+  &.-textBody2 {
+    @include text-body2;
+  }
+  &.-block {
+    display: block;
+  }
+  &.-inline {
+    display: inline;
+  }
+  &.-inlineBlock {
+    display: inline-block;
+  }
+  &.-flex {
+    display: flex;
+  }
+  &.-inlineFlex {
+    display: inline-flex;
+  }
+  &.-pink {
+    @include color(pink);
+  }
+  &.-gray {
+    @include color(gray);
+  }
+  &.-gutterBottom {
+    @include margin($bottom: 30);
+  }
+  &.-noWrap {
+    @include text-ellipsis;
+  }
+}
