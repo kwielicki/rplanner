@@ -1,49 +1,43 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet'
 import { BreadcrumbsItem } from 'react-breadcrumbs-dynamic'
-
 import Container from 'Components/Grid/Container'
 import Column from 'Components/Grid/Column'
 import PageTitle from 'Components/UI/PageTitle'
-
+import AddingGuestForm from 'Components/AddingGuestForm'
+import { translationText } from 'Utils/translationText'
 import translations from 'Translations/translations.json'
-import AddingGuestForm from '../components/AddingGuestForm/AddingGuestForm'
 
-class AddingGuest extends React.Component {
+const AddingGuest = () => {
+  const [translation, setTranslation] = useState({});
 
-    state = {
-        translations: {
-            pageTitle: translations.addingGuest.pageTitle
-        }
-    }
+  useEffect(() => {
+    setTranslation(translations.addingGuest)
+  }, []);
 
-    render() {
-        const {
-            pageTitle
-        } = this.state.translations
-        return (
-            <>
-                <Helmet title='Adding a new guest'/>
+  return (
+    <>
+      <Helmet title={translationText(translation, 'pageTitle')}/>
 
-                <BreadcrumbsItem to='/'>Dashboard</BreadcrumbsItem>
-                <BreadcrumbsItem to='/adding-guest'>Adding Guest</BreadcrumbsItem>
+      <BreadcrumbsItem to='/'>Dashboard</BreadcrumbsItem>
+      <BreadcrumbsItem to='/adding-guest'>{translationText(translation, 'pageTitle')}</BreadcrumbsItem>
 
-                <Container>
-                    <Column xs='1'>
-                        <PageTitle supTitle={pageTitle.supTitle}
-                                subTitle={pageTitle.subTitle}/>
-                    </Column>
-                </Container>
+      <Container>
+        <Column xs='1'>
+          <PageTitle
+            supTitle={translationText(translation, 'pageTitle')}
+            subTitle={translationText(translation, 'pageDescription')}
+          />
+        </Column>
+      </Container>
 
-                <Container>
-                    <Column xs='1'>
-                        <AddingGuestForm></AddingGuestForm>
-                    </Column>
-                </Container>
-
-            </>
-        )
-    }
+      <Container>
+        <Column xs='1'>
+          <AddingGuestForm/>
+        </Column>
+      </Container>
+    </>
+  )
 }
 
 export default AddingGuest

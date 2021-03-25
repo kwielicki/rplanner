@@ -1,3 +1,3 @@
 export const translationText = (object, id) => {
-    return String(object[id])
+    return object !== undefined ? String(object[id]) : '';
 }
