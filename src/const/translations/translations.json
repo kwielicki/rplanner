@@ -16,10 +16,8 @@
         }
     },
     "addingGuest": {
-        "pageTitle": {
-            "supTitle": "Adding Guest",
-            "subTitle": "Using the form, complete the required fields to save the guest in the database"
-        }
+        "pageTitle": "Add a new Guest",
+        "pageDescription": "Using the form, complete the required fields to save the guest in the database"
     },
     "manageGuestList": {
         "pageTitle": {
