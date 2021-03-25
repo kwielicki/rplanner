@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Chips from 'Components/UI/Chips'
+import { appVersion } from 'Utils/appVersion'
 import './AppVersion.scss'
-
 export default function AppVersion(props) {
-    const { version, versionLabel } = props
+    const { versionLabel } = props
     return (
         <div styleName='AppVersion'>
             <span styleName='__label'>{versionLabel}</span>
@@ -13,7 +13,7 @@ export default function AppVersion(props) {
                     type='primary'
                     curved
                     bold>
-                    {version}
+                    {appVersion}
                 </Chips>
             </span>
         </div>

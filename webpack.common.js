@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpackEnvs = path.resolve(__dirname, 'webpack-envs')
 const paths = require(path.resolve(webpackEnvs, 'paths.js'))
 const srcDir = paths.dirSrc
+const rootPath = paths.rootPath
 
 module.exports = {
     entry: {
@@ -23,6 +24,7 @@ module.exports = {
     resolve: {
         extensions: ['*', '.js', '.jsx'],
         alias: {
+            'Root': path.join(rootPath),
             'Assets': path.join(srcDir, '/assets'),
             'Firebase': path.join(srcDir, '/firebase'),
             'Components': path.join(srcDir, '/components'),
