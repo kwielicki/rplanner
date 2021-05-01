@@ -42,7 +42,7 @@ export default function Rbutton(props) {
             setCoords({ x: e.clientX - rect.left, y: e.clientY - rect.top });
             handleClick && handleClick(e);
           }}
-            type={ asSubmit ? 'submit' : null }
+            type={ asSubmit ? 'submit' : 'button' }
             disabled={disabled}
             aria-label={ariaLabel}
             styleName={classNames({
@@ -80,7 +80,7 @@ Rbutton.defaultProps = {
 
 Rbutton.propTypes = {
     ariaLabel: PropTypes.string,
-    variant: PropTypes.string.isRequired,
+    variant: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'text']).isRequired,
     asBlock: PropTypes.bool,
     asSubmit: PropTypes.bool,
     label: PropTypes.string,
@@ -94,3 +94,4 @@ Rbutton.propTypes = {
     unsetTextTransform: PropTypes.bool,
     unserVerticalBorders: PropTypes.bool
 }
+

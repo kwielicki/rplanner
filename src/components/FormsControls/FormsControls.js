@@ -6,7 +6,7 @@ import styles from './FormsControls.scss'
 import SelectSomething from 'Components/UI/SelectSomething'
 import MaskedInput from 'react-text-mask'
 
-function TextInput({ label, ...props }) {
+function TextInput({ label, children, ...props }) {
     const [field, meta] = useField(props)
     const [isFocused, isFocusedSet] = useState(false)
     const setOfStateClasses = {
@@ -16,7 +16,10 @@ function TextInput({ label, ...props }) {
         'isValid': meta.touched && !meta.error
     }
     const labelClasses = Object.assign({}, setOfStateClasses, { '__label': true })
-    const inputClasses = Object.assign({}, setOfStateClasses, { '__input': true })
+    const inputClasses = Object.assign({}, setOfStateClasses, {
+        '__input': true,
+        '-inputHint': children ? true : false
+    })
     return (
         <div styleName={classNames({
             'FormElement': true,
@@ -30,6 +33,7 @@ function TextInput({ label, ...props }) {
                 <Field styleName={classNames(inputClasses)} {...field} {...props}
                        onBlur={(e) => {field.onBlur(e); isFocusedSet(!isFocused)}} 
                        onFocus={(e) => {isFocusedSet(true)}}/>
+                {children}
             </div>
                 {meta.touched && meta.error ? (
                     <div styleName="__error" role="alert">{meta.error}</div>
@@ -138,7 +142,16 @@ TextInputByMask.propTypes = {
     mask: PropTypes.array.isRequired
 }
 
+const TextInputIcon = ({children}) => {
+    return (
+        <div styleName='TextInputIcon'>
+            {children}
+        </div>
+    )
+}
+
 export const FormInput = TextInput
+export const FormInputIcon = TextInputIcon
 export const FormInputByMask = TextInputByMask
 export const FormTextarea = TextareaInput
 export const FormSelect = SelectInput

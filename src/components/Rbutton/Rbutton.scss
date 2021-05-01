@@ -29,6 +29,9 @@
     &.-tertiary {
         @include button-variant('tertiary');
     }
+    &.-text {
+        @include button-variant('text');
+    }
     &.-icon {
         .__label {
             margin-left: 13px;
