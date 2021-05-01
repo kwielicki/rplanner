@@ -4,6 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const dotenv = require('dotenv')
 const path = require('path')
 const address = require('ip').address
+const ErrorOverlayPlugin = require('error-overlay-webpack-plugin')
 
 
 const webpackCommon = require('./webpack.common.js')
@@ -20,7 +21,7 @@ const envKeys = Object.keys(env).reduce((prev, next) => {
 
 module.exports = merge(webpackCommon, {
     mode: 'development',
-    devtool: 'inline-source-map',
+    devtool: 'cheap-module-source-map',
     module: {
         rules: [
         { 
@@ -83,11 +84,11 @@ module.exports = merge(webpackCommon, {
             cert: './example.com+5.pem'
         },
         open: true,
-        overlay: true,
         port: PORT,
         progress: true,
     },
     plugins: [
+        new ErrorOverlayPlugin(),
         new webpack.DefinePlugin(envKeys),
         new ExtractTextPlugin('style.css', { allChunks: true }),
         new webpack.EnvironmentPlugin({
