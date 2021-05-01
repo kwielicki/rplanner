@@ -29,10 +29,11 @@
         will-change: transform;
         line-height: 1.75rem;
         &.isError {
-            color: red;
+            color: map-get($colors, red);
+            @include color(red);
         }
         &.isValid {
-            color: green;
+            @include color(green-light);
         }
         &.isFocused,
         &.isDirty {
@@ -63,10 +64,10 @@
             outline: none;
         }
         &.isError {
-            border-color: red;
+            border-color: map-get($colors, red);
         }
         &.isValid {
-            border-color: green;
+            border-color: map-get($colors, green-light);
         }
         &.isFocused {
             background-color: map-get($colors, gray-light);
@@ -76,9 +77,12 @@
             resize: none;
             padding-top: 30px;
         }
+        &.-inputHint {
+        padding-right: 100px;
+        }
     }
     .__error {
-        color: red;
+        @include color(red);
         font-size: map-get($fontSizes, x-small);
         padding-top: 4px;
         padding-left: 16px;
@@ -88,5 +92,16 @@
         &.-halfWidth {
             width: 100%;
         }
+    }
+}
+
+.TextInputIcon {
+    @include position('absolute', $right: 15px, $top: 50%);
+    @include center-by-transform-y;
+
+    cursor: pointer;
+    opacity: .7;
+    &:hover {
+        opacity: 1;
     }
 }

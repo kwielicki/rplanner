@@ -7,7 +7,7 @@ import { translationText } from 'Utils/translationText'
 import EmptySpace from 'Components/EmptySpace'
 import bunches from 'Bunches/bunches.json'
 import { Link } from 'react-router-dom'
-import { FormInput } from 'Components/FormsControls'
+import { FormInput, FormInputIcon } from 'Components/FormsControls'
 import Alert from 'Components/UI/alert'
 import Rbutton from 'Components/Rbutton'
 import Logotype from 'Components/UI/Logotype'
@@ -15,7 +15,9 @@ import { isEmpty } from 'lodash'
 import { connect } from "react-redux"
 import { alertActions } from 'Actions/alert.actions'
 import { alertTypes } from 'Constants/alert.constants'
+import RButtonIco from 'Components/RButtonIco'
 import './LoginForm.scss'
+
 
 const validationSchema = Yup.object().shape({
     email: Yup
@@ -32,7 +34,13 @@ const validationSchema = Yup.object().shape({
 class LoginForm extends Component {
     constructor(props) {
         super(props)
-        this.state = { email: '',  password: '' }
+        this.state = {
+            loginFormInitialValues: {
+                email: '', 
+                password: '',
+            },
+            passwordHint: false
+        }
     }
     render() {
         const { isLoading, error, loginUser, dispatch, registerError, ...props } = this.props
@@ -49,7 +57,7 @@ class LoginForm extends Component {
                             The perfect application for the perfect moment.
                         </div>
                         <Formik
-                            initialValues={this.state}
+                            initialValues={this.state.loginFormInitialValues}
                             validationSchema={validationSchema}
                             onSubmit={(values) => {
                                 const { email, password } = values
@@ -62,10 +70,20 @@ class LoginForm extends Component {
                                     label="Use your e-mail"
                                     autoComplete="username"/>
                                 <FormInput
-                                    type="password"
+                                    type={this.state.passwordHint ? 'text' : 'password'}
                                     name="password"
                                     label="Type your password"
-                                    autoComplete="current-password"/>
+                                    autoComplete="current-password">
+                                    <FormInputIcon>
+                                        <Rbutton
+                                            variant='text'
+                                            icon={this.state.passwordHint ? 'eye' : 'eye-slash'}
+                                            handleClick={() => this.setState({
+                                                ...this.state,
+                                                passwordHint: !this.state.passwordHint
+                                            })}/>
+                                    </FormInputIcon>
+                                </FormInput>
                                 <div styleName='__button'>
                                     <Rbutton
                                         variant='primary'

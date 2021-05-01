@@ -1,1 +1,1 @@
-export { FormInput, FormInputByMask, FormTextarea, FormSelect } from './FormsControls.js'
+export { FormInput, FormInputIcon, FormInputByMask, FormTextarea, FormSelect } from './FormsControls.js'
