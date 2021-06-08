@@ -1,7 +1,8 @@
 import throwError from './throwError'
+import __dev__ from 'Utils/__dev__/__dev__';
 
 export default function capitalize(string) {
-    if (process.env.NODE_ENV !== 'production') {
+    if (__dev__) {
         if (typeof string !== 'string') {
           return throwError(`capitalize(string) expects a string argument, but received ${typeof string}(${string}).`)
         }

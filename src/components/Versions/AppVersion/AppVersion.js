@@ -21,6 +21,5 @@ export default function AppVersion(props) {
 }
 
 AppVersion.propTypes = {
-    version: PropTypes.string.isRequired,
     versionLabel: PropTypes.string.isRequired
 }
