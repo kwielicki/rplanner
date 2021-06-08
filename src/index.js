@@ -9,6 +9,7 @@ import { BrowserRouter } from "react-router-dom"
 import * as serviceWorker from './serviceWorker'
 import './styles/index.scss'
 import './config/env.js'
+import __dev__ from 'Utils/__dev__/__dev__';
 
 import WebFont from 'webfontloader';
 
@@ -18,7 +19,7 @@ import { verifyAuth } from "./actions/auth.js"
 const middlewares = [];
 middlewares.push(thunk);
 
-if (process.env.NODE_ENV === `development`) {
+if (__dev__) {
   const { logger } = require(`redux-logger`);
   middlewares.push(logger);
 }
