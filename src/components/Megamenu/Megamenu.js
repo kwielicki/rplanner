@@ -1,6 +1,7 @@
 import React from 'react'
 import './Megamenu.scss'
 import MegamenuElement from './MegamenuElement'
+import ROUTES from "Root/src/routes.const"
 
 class Megamenu extends React.Component {
     state = {
@@ -13,32 +14,32 @@ class Megamenu extends React.Component {
                 {
                     header: 'Get started',
                     sets: [
-                        { linkUrl: '/', linkTitle: 'Dashboard', linkIcon: 'home' }
+                        { linkUrl: ROUTES.homepage, linkTitle: 'Dashboard', linkIcon: 'home' }
                     ]
                 },{
                     header: 'Content',
                     sets: [
-                        { linkUrl: '/manage-guest-list', linkTitle: 'Manage guest list', linkIcon: 'users' },
-                        { linkUrl: '/adding-guest', linkTitle: 'Add a new guest', linkIcon: 'user-plus' },
-                        { linkUrl: '/statistic', linkTitle: 'Statistic', linkIcon: 'chart-bar' },
-                        { linkUrl: '/wedding-organizer', linkTitle: 'Wedding organizer', linkIcon: 'address-card' },
-                        { linkUrl: '/notebook', linkTitle: 'Notebook', linkIcon: 'clipboard' },
-                        { linkUrl: '/expenses', linkTitle: 'Expenses', linkIcon: 'funnel-dollar' }
+                        { linkUrl: ROUTES.manageGuestList, linkTitle: 'Manage guest list', linkIcon: 'users' },
+                        { linkUrl: ROUTES.addGuest, linkTitle: 'Add a new guest', linkIcon: 'user-plus' },
+                        { linkUrl: ROUTES.statistic, linkTitle: 'Statistic', linkIcon: 'chart-bar' },
+                        { linkUrl: ROUTES.weddingOrganizer, linkTitle: 'Wedding organizer', linkIcon: 'address-card' },
+                        { linkUrl: ROUTES.notebook, linkTitle: 'Notebook', linkIcon: 'clipboard' },
+                        { linkUrl: ROUTES.expanses, linkTitle: 'Expenses', linkIcon: 'funnel-dollar' }
                     ]
                 },{
                     header: 'Help & FAQ',
                     sets: [
-                        { linkUrl: '/documentation', linkTitle: 'Documentation', linkIcon: 'book' }
+                        { linkUrl: ROUTES.documentation, linkTitle: 'Documentation', linkIcon: 'book' }
                     ]
                 },{
                     header: 'Account',
                     sets: [
-                        { linkUrl: '/user-profile', linkTitle: 'User profile', linkIcon: 'users-cog' },
+                        { linkUrl: ROUTES.userProfile, linkTitle: 'User profile', linkIcon: 'users-cog' },
                     ]
                 },{
                     header: 'Additional functionalities',
                     sets: [
-                        { linkUrl: '/news', linkTitle: 'News', linkIcon: 'images' }
+                        { linkUrl: ROUTES.news, linkTitle: 'News', linkIcon: 'images' }
                     ]
                 }
             ]
@@ -50,7 +51,7 @@ class Megamenu extends React.Component {
         return (
             <nav styleName='Megamenu'>
                 <ul styleName='__list'>
-                    {megamenuLinks.map(({ sets, header } = route, index) => (
+                    {megamenuLinks.map(({ sets, header }, index) => (
                         <li styleName='__element' key={index}>
                             <span styleName='__elementHeader'>{header}</span>
                             <MegamenuElement megamenuLinks={sets}/>
